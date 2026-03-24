@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Forward Society (TFS) | Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-900">
+    <header class="border-b border-gray-200">
+        <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8" aria-label="Primary">
+            <a href="index.html" class="text-lg font-semibold tracking-tight">The Forward Society (TFS)</a>
+
+            <div class="hidden items-center gap-8 md:flex">
+                <a href="index.html" class="text-sm font-medium" aria-current="page">Home</a>
+                <a href="about.html" class="text-sm font-medium">About Us</a>
+                <a href="mission.html" class="text-sm font-medium">Mission &amp; Vision</a>
+
+                <div class="group relative">
+                    <button type="button" class="inline-flex items-center gap-2 text-sm font-medium" aria-haspopup="true">
+                        <span>Education Consultancy</span>
+                        <span aria-hidden="true">+</span>
+                    </button>
+                    <div class="invisible absolute left-0 top-full z-10 mt-3 w-56 translate-y-2 border border-gray-200 bg-white opacity-0 shadow-sm transition duration-150 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                        <div class="space-y-1 p-3 text-sm">
+                            <a href="index.html#pathways" class="block rounded px-3 py-2">Pathway Guidance</a>
+                            <a href="index.html#destination" class="block rounded px-3 py-2">Destination Planning</a>
+                            <a href="index.html#contact" class="block rounded px-3 py-2">Consultation</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative">
+                    <button type="button" class="inline-flex items-center gap-2 text-sm font-medium" aria-haspopup="true">
+                        <span>Articles &amp; Achievements</span>
+                        <span aria-hidden="true">+</span>
+                    </button>
+                    <div class="invisible absolute left-0 top-full z-10 mt-3 w-56 translate-y-2 border border-gray-200 bg-white opacity-0 shadow-sm transition duration-150 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                        <div class="space-y-1 p-3 text-sm">
+                            <a href="index.html#latest-content" class="block rounded px-3 py-2">Latest Articles</a>
+                            <a href="index.html#latest-content" class="block rounded px-3 py-2">Achievements</a>
+                            <a href="index.html#latest-content" class="block rounded px-3 py-2">Insights</a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="index.html#contact" class="text-sm font-medium">Contact Us</a>
+            </div>
+
+            <button
+                id="menu-toggle"
+                type="button"
+                class="inline-flex items-center justify-center rounded-md border border-gray-300 px-3 py-2 text-sm font-medium md:hidden"
+                aria-controls="mobile-menu"
+                aria-expanded="false"
+            >
+                Menu
+            </button>
+        </nav>
+
+        <div id="mobile-menu" class="hidden border-t border-gray-200 px-4 py-4 md:hidden">
+            <div class="flex flex-col gap-3 text-sm">
+                <a href="index.html" class="font-medium">Home</a>
+                <a href="about.html" class="font-medium">About Us</a>
+                <a href="mission.html" class="font-medium">Mission &amp; Vision</a>
+
+                <details class="rounded-lg border border-gray-200 p-3">
+                    <summary class="cursor-pointer list-none font-medium">Education Consultancy</summary>
+                    <div class="mt-3 flex flex-col gap-2 border-t border-gray-200 pt-3">
+                        <a href="index.html#pathways">Pathway Guidance</a>
+                        <a href="index.html#destination">Destination Planning</a>
+                        <a href="index.html#contact">Consultation</a>
+                    </div>
+                </details>
+
+                <details class="rounded-lg border border-gray-200 p-3">
+                    <summary class="cursor-pointer list-none font-medium">Articles &amp; Achievements</summary>
+                    <div class="mt-3 flex flex-col gap-2 border-t border-gray-200 pt-3">
+                        <a href="index.html#latest-content">Latest Articles</a>
+                        <a href="index.html#latest-content">Achievements</a>
+                        <a href="index.html#latest-content">Insights</a>
+                    </div>
+                </details>
+
+                <a href="index.html#contact" class="font-medium">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="border-b border-gray-200">
+            <div class="mx-auto flex max-w-7xl flex-col items-center px-4 py-20 text-center sm:px-6 lg:px-8 lg:py-28">
+                <div class="mb-6 h-px w-24 bg-gray-300"></div>
+                <p class="text-sm font-medium uppercase tracking-[0.3em] text-gray-500">TFS Slogan</p>
+                <h1 class="mt-6 max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">TFS Slogan</h1>
+                <div class="mt-6 h-px w-32 bg-gray-300"></div>
+                <p class="mt-8 max-w-2xl text-base leading-7 text-gray-600">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nibh nisl condimentum id venenatis a condimentum vitae sapien.
+                </p>
+                <form class="mt-10 flex w-full max-w-2xl flex-col gap-3 sm:flex-row" action="#" method="get">
+                    <label for="site-search" class="sr-only">Search</label>
+                    <input
+                        id="site-search"
+                        name="search"
+                        type="search"
+                        placeholder="Lorem ipsum dolor sit amet"
+                        class="w-full rounded-md border border-gray-300 px-4 py-3 text-sm outline-none"
+                    >
+                    <button type="submit" class="rounded-md border border-gray-300 px-5 py-3 text-sm font-medium">Search</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="about" class="border-b border-gray-200">
+            <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+                <div class="mx-auto max-w-3xl text-center">
+                    <p class="text-sm font-medium uppercase tracking-[0.2em] text-gray-500">About</p>
+                    <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">About TFS</h2>
+                    <p class="mt-6 text-base leading-7 text-gray-600">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel fringilla est ullamcorper eget nulla facilisi etiam dignissim diam. In fermentum et sollicitudin ac orci phasellus egestas tellus rutrum.
+                    </p>
+                </div>
+
+                <div class="mt-12 grid gap-6 md:grid-cols-3">
+                    <article class="rounded-2xl border border-gray-200 p-6 text-center">
+                        <p class="text-3xl font-semibold">120+</p>
+                        <h3 class="mt-4 text-lg font-semibold">Webinars</h3>
+                        <p class="mt-3 text-sm leading-6 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </article>
+                    <article class="rounded-2xl border border-gray-200 p-6 text-center">
+                        <p class="text-3xl font-semibold">45+</p>
+                        <h3 class="mt-4 text-lg font-semibold">Consultants</h3>
+                        <p class="mt-3 text-sm leading-6 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </article>
+                    <article class="rounded-2xl border border-gray-200 p-6 text-center">
+                        <p class="text-3xl font-semibold">10K+</p>
+                        <h3 class="mt-4 text-lg font-semibold">Audiences</h3>
+                        <p class="mt-3 text-sm leading-6 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="mission" class="border-b border-gray-200">
+            <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:grid lg:grid-cols-2 lg:gap-12 lg:px-8 lg:py-20">
+                <div>
+                    <p class="text-sm font-medium uppercase tracking-[0.2em] text-gray-500">Mission &amp; Vision</p>
+                    <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Structured Growth for Future Learners</h2>
+                </div>
+                <div class="mt-8 grid gap-6 lg:mt-0">
+                    <article class="rounded-2xl border border-gray-200 p-6">
+                        <h3 class="text-xl font-semibold">Mission</h3>
+                        <p class="mt-3 text-sm leading-6 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer feugiat scelerisque varius morbi enim nunc faucibus a pellentesque.</p>
+                    </article>
+                    <article class="rounded-2xl border border-gray-200 p-6">
+                        <h3 class="text-xl font-semibold">Vision</h3>
+                        <p class="mt-3 text-sm leading-6 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="pathways" class="border-b border-gray-200">
+            <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+                <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+                    <div class="max-w-3xl">
+                        <p class="text-sm font-medium uppercase tracking-[0.2em] text-gray-500">Education Consultancy</p>
+                        <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Explore Your Education Pathways</h2>
+                        <p class="mt-4 text-base leading-7 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <button type="button" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-300" aria-label="Previous pathway">&larr;</button>
+                        <button type="button" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-300" aria-label="Next pathway">&rarr;</button>
+                    </div>
+                </div>
+
+                <div class="mt-12 grid gap-6 lg:grid-cols-[1fr_minmax(0,1.3fr)_1fr] lg:items-center">
+                    <article class="rounded-3xl border border-gray-200 p-6 lg:rotate-[-4deg] lg:p-8">
+                        <div class="aspect-[4/5] rounded-2xl border border-dashed border-gray-300"></div>
+                        <h3 class="mt-6 text-xl font-semibold">Lorem Pathway</h3>
+                        <p class="mt-3 text-sm leading-6 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </article>
+                    <article class="rounded-3xl border border-gray-200 p-8 shadow-sm">
+                        <div class="aspect-[4/5] rounded-2xl border border-dashed border-gray-300"></div>
+                        <h3 class="mt-6 text-2xl font-semibold">Ipsum Pathway</h3>
+                        <p class="mt-3 text-sm leading-6 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </article>
+                    <article class="rounded-3xl border border-gray-200 p-6 lg:rotate-[4deg] lg:p-8">
+                        <div class="aspect-[4/5] rounded-2xl border border-dashed border-gray-300"></div>
+                        <h3 class="mt-6 text-xl font-semibold">Dolor Pathway</h3>
+                        <p class="mt-3 text-sm leading-6 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </article>
+                </div>
+
+                <div class="mt-10 text-center">
+                    <a href="#contact" class="inline-flex items-center justify-center rounded-md border border-gray-300 px-6 py-3 text-sm font-medium">Find Your Best Pathway</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="destination" class="border-b border-gray-200">
+            <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+                <div class="mx-auto max-w-3xl text-center">
+                    <p class="text-sm font-medium uppercase tracking-[0.2em] text-gray-500">Destination</p>
+                    <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Find Your Perfect Destination Country</h2>
+                    <p class="mt-4 text-base leading-7 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+
+                <div class="mt-12 grid gap-6 lg:grid-cols-[1fr_auto_1fr] lg:items-center">
+                    <div class="grid gap-6">
+                        <article class="rounded-2xl border border-gray-200 p-6">
+                            <h3 class="text-lg font-semibold">Lorem Destination</h3>
+                            <p class="mt-3 text-sm leading-6 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </article>
+                        <article class="rounded-2xl border border-gray-200 p-6">
+                            <h3 class="text-lg font-semibold">Ipsum Destination</h3>
+                            <p class="mt-3 text-sm leading-6 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </article>
+                    </div>
+
+                    <div class="mx-auto flex h-72 w-72 items-center justify-center rounded-full border border-gray-300 sm:h-80 sm:w-80 lg:h-96 lg:w-96">
+                        <div class="flex h-48 w-48 items-center justify-center rounded-full border border-dashed border-gray-300 text-center text-sm text-gray-500 sm:h-56 sm:w-56">
+                            Diagram Placeholder
+                        </div>
+                    </div>
+
+                    <div class="grid gap-6">
+                        <article class="rounded-2xl border border-gray-200 p-6">
+                            <h3 class="text-lg font-semibold">Dolor Country</h3>
+                            <p class="mt-3 text-sm leading-6 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </article>
+                        <article class="rounded-2xl border border-gray-200 p-6">
+                            <h3 class="text-lg font-semibold">Sit Amet Country</h3>
+                            <p class="mt-3 text-sm leading-6 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="mt-10 text-center">
+                    <a href="#contact" class="inline-flex items-center justify-center rounded-md border border-gray-300 px-6 py-3 text-sm font-medium">Find Your Dream Country</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="latest-content" class="border-b border-gray-200">
+            <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+                <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+                    <div class="max-w-3xl">
+                        <p class="text-sm font-medium uppercase tracking-[0.2em] text-gray-500">Articles &amp; Achievements</p>
+                        <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Latest Content</h2>
+                        <p class="mt-4 text-base leading-7 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <button type="button" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-300" aria-label="Previous content">&larr;</button>
+                        <button type="button" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-300" aria-label="Next content">&rarr;</button>
+                    </div>
+                </div>
+
+                <div class="mt-12 grid gap-6 lg:grid-cols-3">
+                    <article class="overflow-hidden rounded-2xl border border-gray-200">
+                        <div class="aspect-[16/10] border-b border-dashed border-gray-300"></div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold">Lorem Ipsum Article</h3>
+                            <p class="mt-3 text-sm leading-6 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris commodo quis imperdiet massa tincidunt nunc pulvinar.</p>
+                            <a href="#" class="mt-6 inline-flex text-sm font-medium">Read more</a>
+                        </div>
+                    </article>
+                    <article class="overflow-hidden rounded-2xl border border-gray-200">
+                        <div class="aspect-[16/10] border-b border-dashed border-gray-300"></div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold">Dolor Sit Story</h3>
+                            <p class="mt-3 text-sm leading-6 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                            <a href="#" class="mt-6 inline-flex text-sm font-medium">Read more</a>
+                        </div>
+                    </article>
+                    <article class="overflow-hidden rounded-2xl border border-gray-200">
+                        <div class="aspect-[16/10] border-b border-dashed border-gray-300"></div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold">Amet Achievement</h3>
+                            <p class="mt-3 text-sm leading-6 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc.</p>
+                            <a href="#" class="mt-6 inline-flex text-sm font-medium">Read more</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="contact" class="border-t border-gray-200">
+        <div class="mx-auto max-w-7xl px-4 py-10 text-center sm:px-6 lg:px-8 lg:py-12">
+            <p class="text-sm font-medium uppercase tracking-[0.2em] text-gray-500">Contact Us</p>
+            <h2 class="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">Looking for the Best Study Abroad Experiences?</h2>
+            <div class="mt-8">
+                <a href="#" class="inline-flex items-center justify-center rounded-md border border-black bg-black px-6 py-3 text-sm font-medium text-white">Book Consultation</a>
+            </div>
+            <p class="mt-6 text-sm text-gray-600">&copy; 2026 The Forward Society.</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', function () {
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', String(!isExpanded));
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
