@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>The Forward Society | Contact</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-900">
+	<header class="border-b border-gray-200">
+		<nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8" aria-label="Primary">
+			<a href="index.html" class="text-lg font-semibold tracking-tight">The Forward Society (TFS)</a>
+
+			<div class="hidden items-center gap-8 md:flex">
+				<a href="index.html" class="text-sm font-medium">Home</a>
+				<a href="about.html" class="text-sm font-medium">About Us</a>
+				<a href="mission.html" class="text-sm font-medium">Mission &amp; Vision</a>
+
+				<div class="group relative">
+					<button type="button" class="inline-flex items-center gap-2 text-sm font-medium" aria-haspopup="true">
+						<span>Education Consultancy</span>
+						<span aria-hidden="true">+</span>
+					</button>
+					<div class="invisible absolute left-0 top-full z-10 w-64 pt-2 opacity-0 transition duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+						<div class="border border-gray-200 bg-white p-2 text-sm">
+							<a href="index.html#pathways" class="block px-3 py-2">Pathways</a>
+							<div class="group/destination relative">
+								<button type="button" class="flex w-full items-center justify-between px-3 py-2 text-left" aria-haspopup="true">
+									<span>Destination Countries</span>
+									<span aria-hidden="true">&gt;</span>
+								</button>
+								<div class="invisible absolute left-full top-0 z-20 w-52 pl-2 opacity-0 transition duration-150 group-hover/destination:visible group-hover/destination:opacity-100 group-focus-within/destination:visible group-focus-within/destination:opacity-100">
+									<div class="border border-gray-200 bg-white p-2">
+										<a href="index.html#destination" class="block px-3 py-2">EU countries</a>
+										<a href="index.html#destination" class="block px-3 py-2">Korea</a>
+										<a href="index.html#destination" class="block px-3 py-2">Japan</a>
+										<a href="index.html#destination" class="block px-3 py-2">Hong Kong</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<a href="index.html#latest-content" class="text-sm font-medium">Articles &amp; Achievements</a>
+
+				<a href="contact.html" class="text-sm font-medium" aria-current="page">Contact Us</a>
+			</div>
+
+			<button
+				id="menu-toggle"
+				type="button"
+				class="inline-flex items-center justify-center rounded-md border border-gray-300 px-3 py-2 text-sm font-medium md:hidden"
+				aria-controls="mobile-menu"
+				aria-expanded="false"
+			>
+				Menu
+			</button>
+		</nav>
+
+		<div id="mobile-menu" class="hidden border-t border-gray-200 px-4 py-4 md:hidden">
+			<div class="flex flex-col gap-3 text-sm">
+				<a href="index.html" class="font-medium">Home</a>
+				<a href="about.html" class="font-medium">About Us</a>
+				<a href="mission.html" class="font-medium">Mission &amp; Vision</a>
+
+				<details class="rounded-lg border border-gray-200 p-3">
+					<summary class="cursor-pointer list-none font-medium">Education Consultancy</summary>
+					<div class="mt-3 flex flex-col gap-2 border-t border-gray-200 pt-3">
+						<a href="index.html#pathways">Pathways</a>
+						<details class="rounded-md border border-gray-200 p-2">
+							<summary class="cursor-pointer list-none">Destination Countries</summary>
+							<div class="mt-2 flex flex-col gap-2 border-t border-gray-200 pt-2">
+								<a href="index.html#destination">EU countries</a>
+								<a href="index.html#destination">Korea</a>
+								<a href="index.html#destination">Japan</a>
+								<a href="index.html#destination">Hong Kong</a>
+							</div>
+						</details>
+					</div>
+				</details>
+
+				<a href="index.html#latest-content" class="font-medium">Articles &amp; Achievements</a>
+
+				<a href="contact.html" class="font-medium" aria-current="page">Contact Us</a>
+			</div>
+		</div>
+	</header>
+
+	<main>
+		<section class="border-b border-gray-200">
+			<div class="mx-auto max-w-6xl px-4 py-16 text-center lg:py-20">
+				<h1 class="text-4xl font-bold tracking-tight sm:text-5xl">Get in Touch</h1>
+				<p class="mx-auto mt-6 max-w-2xl text-base leading-7 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Commodo ullamcorper a lacus vestibulum sed arcu non odio euismod.</p>
+			</div>
+		</section>
+
+		<section class="border-b border-gray-200">
+			<div class="mx-auto grid max-w-6xl gap-8 px-4 py-16 lg:grid-cols-2 lg:gap-10 lg:py-20">
+				<div class="rounded-3xl border border-gray-200 p-8 lg:p-10">
+					<h2 class="text-2xl font-semibold">Send Us a Message</h2>
+					<form class="mt-8 space-y-5" action="#" method="post">
+						<div>
+							<label for="name" class="mb-2 block text-sm font-medium">Name</label>
+							<input id="name" name="name" type="text" class="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm" placeholder="Lorem Ipsum">
+						</div>
+						<div>
+							<label for="email" class="mb-2 block text-sm font-medium">Email</label>
+							<input id="email" name="email" type="email" class="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm" placeholder="name@example.com">
+						</div>
+						<div>
+							<label for="subject" class="mb-2 block text-sm font-medium">Subject</label>
+							<input id="subject" name="subject" type="text" class="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm" placeholder="Lorem Ipsum">
+						</div>
+						<div>
+							<label for="message" class="mb-2 block text-sm font-medium">Message</label>
+							<textarea id="message" name="message" rows="5" class="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm" placeholder="Lorem ipsum dolor sit amet"></textarea>
+						</div>
+						<button type="submit" class="inline-flex items-center rounded-md border border-gray-300 px-5 py-3 text-sm font-medium">Send Message</button>
+					</form>
+				</div>
+
+				<div class="rounded-3xl border border-gray-200 p-8 lg:p-10">
+					<h2 class="text-2xl font-semibold">Contact Information</h2>
+					<div class="mt-8 space-y-6 text-sm">
+						<div class="flex items-start gap-3">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mt-0.5 h-7 w-7 shrink-0">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25H4.5a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5H4.5a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.914A2.25 2.25 0 0 1 2.25 6.998V6.75" />
+							</svg>
+							<div>
+								<p class="font-medium">Email</p>
+								<a href="mailto:hr@theforwardsociety.org" class="mt-1 block text-gray-600">hr@theforwardsociety.org</a>
+								<a href="mailto:hello@theforwardsociety.com" class="mt-1 block text-gray-600">hello@theforwardsociety.com</a>
+							</div>
+						</div>
+
+						<div class="flex items-start gap-3">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="mt-0.5 h-7 w-7 shrink-0">
+								<path d="M13.5 8.25h2.25V5.625H13.5A3.375 3.375 0 0 0 10.125 9v1.5H8.25v2.625h1.875v5.25h2.625v-5.25h2.25l.375-2.625H12.75V9a.75.75 0 0 1 .75-.75Z"/>
+							</svg>
+							<div>
+								<p class="font-medium">Facebook</p>
+								<a href="https://www.facebook.com/share/1Mpf37pHqf/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="mt-1 block break-all text-gray-600">https://www.facebook.com/share/1Mpf37pHqf/?mibextid=wwXIfr</a>
+							</div>
+						</div>
+
+						<div class="flex items-start gap-3">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="mt-0.5 h-7 w-7 shrink-0">
+								<path d="M5.25 3A2.25 2.25 0 0 0 3 5.25v13.5A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V5.25A2.25 2.25 0 0 0 18.75 3H5.25ZM8.063 9.188v7.125H5.813V9.188h2.25ZM6.938 8.25a1.313 1.313 0 1 1 0-2.625 1.313 1.313 0 0 1 0 2.625ZM18.188 16.313h-2.25v-3.45c0-.938-.356-1.575-1.22-1.575-.664 0-1.058.45-1.233.883-.064.153-.08.368-.08.584v3.558h-2.25V9.188h2.25v1.013c.299-.46.833-1.113 2.027-1.113 1.48 0 2.586.966 2.586 3.045v4.18Z"/>
+							</svg>
+							<div>
+								<p class="font-medium">LinkedIn</p>
+								<a href="https://www.linkedin.com/company/theforwardsociety/" target="_blank" rel="noopener noreferrer" class="mt-1 block break-all text-gray-600">https://www.linkedin.com/company/theforwardsociety/</a>
+							</div>
+						</div>
+
+						<div class="flex items-start gap-3">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mt-0.5 h-7 w-7 shrink-0">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 4.5A2.25 2.25 0 0 1 4.5 2.25h1.636c.965 0 1.806.658 2.04 1.594l.66 2.64a2.25 2.25 0 0 1-.52 2.08l-1.084 1.084a16.5 16.5 0 0 0 7.12 7.12l1.084-1.084a2.25 2.25 0 0 1 2.08-.52l2.64.66A2.25 2.25 0 0 1 21.75 17.864V19.5a2.25 2.25 0 0 1-2.25 2.25h-.75C9.335 21.75 2.25 14.665 2.25 6.75V4.5Z" />
+							</svg>
+							<div>
+								<p class="font-medium">Phone</p>
+								<a href="tel:+959773737147" class="mt-1 block text-gray-600">+95 9 773 737147</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<div class="mx-auto max-w-6xl px-4 py-16 lg:py-20">
+				<h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Frequently Asked Questions</h2>
+				<div class="mt-8 space-y-4">
+					<details class="rounded-2xl border border-gray-200 p-5">
+						<summary class="cursor-pointer text-sm font-medium">Lorem ipsum dolor sit amet?</summary>
+						<p class="mt-3 text-sm leading-6 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+					</details>
+					<details class="rounded-2xl border border-gray-200 p-5">
+						<summary class="cursor-pointer text-sm font-medium">Consectetur adipiscing elit sed do?</summary>
+						<p class="mt-3 text-sm leading-6 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra ipsum nunc aliquet bibendum enim facilisis gravida neque convallis.</p>
+					</details>
+					<details class="rounded-2xl border border-gray-200 p-5">
+						<summary class="cursor-pointer text-sm font-medium">Tempor incididunt ut labore?</summary>
+						<p class="mt-3 text-sm leading-6 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi blandit cursus risus at ultrices mi tempus imperdiet nulla.</p>
+					</details>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="border-t border-gray-200">
+		<div class="mx-auto max-w-7xl px-4 py-10 text-center sm:px-6 lg:px-8 lg:py-12">
+			<p class="text-sm text-gray-600">&copy; 2026 The Forward Society.</p>
+		</div>
+	</footer>
+
+	<script>
+		const menuToggle = document.getElementById('menu-toggle');
+		const mobileMenu = document.getElementById('mobile-menu');
+
+		menuToggle.addEventListener('click', function () {
+			const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+			menuToggle.setAttribute('aria-expanded', String(!isExpanded));
+			mobileMenu.classList.toggle('hidden');
+		});
+	</script>
+</body>
+</html>

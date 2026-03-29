@@ -21,30 +21,30 @@
                         <span>Education Consultancy</span>
                         <span aria-hidden="true">+</span>
                     </button>
-                    <div class="invisible absolute left-0 top-full z-10 w-56 pt-2 opacity-0 transition duration-150 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
-                        <div class="space-y-1 border border-gray-200 bg-white p-3 text-sm shadow-sm">
-                            <a href="index.html#pathways" class="block rounded px-3 py-2">Pathway Guidance</a>
-                            <a href="index.html#destination" class="block rounded px-3 py-2">Destination Planning</a>
-                            <a href="index.html#contact" class="block rounded px-3 py-2">Consultation</a>
+                    <div class="invisible absolute left-0 top-full z-10 w-64 pt-2 opacity-0 transition duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                        <div class="border border-gray-200 bg-white p-2 text-sm">
+                            <a href="index.html#pathways" class="block px-3 py-2">Pathways</a>
+                            <div class="group/destination relative">
+                                <button type="button" class="flex w-full items-center justify-between px-3 py-2 text-left" aria-haspopup="true">
+                                    <span>Destination Countries</span>
+                                    <span aria-hidden="true">&gt;</span>
+                                </button>
+                                <div class="invisible absolute left-full top-0 z-20 w-52 pl-2 opacity-0 transition duration-150 group-hover/destination:visible group-hover/destination:opacity-100 group-focus-within/destination:visible group-focus-within/destination:opacity-100">
+                                    <div class="border border-gray-200 bg-white p-2">
+                                        <a href="index.html#destination" class="block px-3 py-2">EU countries</a>
+                                        <a href="index.html#destination" class="block px-3 py-2">Korea</a>
+                                        <a href="index.html#destination" class="block px-3 py-2">Japan</a>
+                                        <a href="index.html#destination" class="block px-3 py-2">Hong Kong</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="group relative">
-                    <button type="button" class="inline-flex items-center gap-2 text-sm font-medium" aria-haspopup="true">
-                        <span>Articles &amp; Achievements</span>
-                        <span aria-hidden="true">+</span>
-                    </button>
-                    <div class="invisible absolute left-0 top-full z-10 w-56 pt-2 opacity-0 transition duration-150 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
-                        <div class="space-y-1 border border-gray-200 bg-white p-3 text-sm shadow-sm">
-                            <a href="index.html#latest-content" class="block rounded px-3 py-2">Latest Articles</a>
-                            <a href="index.html#latest-content" class="block rounded px-3 py-2">Achievements</a>
-                            <a href="index.html#latest-content" class="block rounded px-3 py-2">Insights</a>
-                        </div>
-                    </div>
-                </div>
+                <a href="index.html#latest-content" class="text-sm font-medium">Articles &amp; Achievements</a>
 
-                <a href="index.html#contact" class="text-sm font-medium">Contact Us</a>
+                <a href="contact.html" class="text-sm font-medium">Contact Us</a>
             </div>
 
             <button
@@ -67,22 +67,22 @@
                 <details class="rounded-lg border border-gray-200 p-3">
                     <summary class="cursor-pointer list-none font-medium">Education Consultancy</summary>
                     <div class="mt-3 flex flex-col gap-2 border-t border-gray-200 pt-3">
-                        <a href="index.html#pathways">Pathway Guidance</a>
-                        <a href="index.html#destination">Destination Planning</a>
-                        <a href="index.html#contact">Consultation</a>
+                        <a href="index.html#pathways">Pathways</a>
+                        <details class="rounded-md border border-gray-200 p-2">
+                            <summary class="cursor-pointer list-none">Destination Countries</summary>
+                            <div class="mt-2 flex flex-col gap-2 border-t border-gray-200 pt-2">
+                                <a href="index.html#destination">EU countries</a>
+                                <a href="index.html#destination">Korea</a>
+                                <a href="index.html#destination">Japan</a>
+                                <a href="index.html#destination">Hong Kong</a>
+                            </div>
+                        </details>
                     </div>
                 </details>
 
-                <details class="rounded-lg border border-gray-200 p-3">
-                    <summary class="cursor-pointer list-none font-medium">Articles &amp; Achievements</summary>
-                    <div class="mt-3 flex flex-col gap-2 border-t border-gray-200 pt-3">
-                        <a href="index.html#latest-content">Latest Articles</a>
-                        <a href="index.html#latest-content">Achievements</a>
-                        <a href="index.html#latest-content">Insights</a>
-                    </div>
-                </details>
+                <a href="index.html#latest-content" class="font-medium">Articles &amp; Achievements</a>
 
-                <a href="index.html#contact" class="font-medium">Contact Us</a>
+                <a href="contact.html" class="font-medium">Contact Us</a>
             </div>
         </div>
     </header>
