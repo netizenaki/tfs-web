@@ -97,19 +97,75 @@
                 <p class="mt-8 max-w-2xl text-base leading-7 text-gray-600">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nibh nisl condimentum id venenatis a condimentum vitae sapien.
                 </p>
-                <form class="mt-10 w-full max-w-2xl" action="#" method="get">
-                    <label for="site-search" class="sr-only">Search</label>
-                    <div class="flex items-center overflow-hidden rounded-full border border-gray-300">
+                <div class="mt-10 w-full max-w-4xl text-left">
+                    <label for="site-search-trigger" class="sr-only">Search</label>
+                    <div class="relative flex items-center overflow-hidden rounded-full border border-gray-300 bg-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="pointer-events-none absolute left-4 h-5 w-5 text-gray-400 opacity-60" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-4.35-4.35m1.85-5.15a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
+                        </svg>
                         <input
-                            id="site-search"
-                            name="search"
+                            id="site-search-trigger"
                             type="search"
-                            placeholder="Lorem ipsum dolor sit amet"
-                            class="w-full flex-1 px-5 py-3 text-sm outline-none"
+                            placeholder="Search pathways, countries, or programs"
+                            class="w-full bg-transparent py-3 pl-11 pr-28 text-sm outline-none"
                         >
-                        <button type="submit" class="shrink-0 border-l border-gray-300 px-6 py-3 text-sm font-medium">Search</button>
+                        <button id="site-search-trigger-button" type="button" class="absolute right-1.5 rounded-full border border-black bg-black px-4 py-1.5 text-sm font-medium text-white">Search</button>
                     </div>
-                </form>
+                </div>
+
+                <div id="advanced-search-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40 p-4 transition-opacity">
+                    <div id="advanced-search-modal-content" class="w-full max-w-4xl rounded-xl border border-gray-200 bg-white p-6 text-left sm:p-8">
+                        <h2 class="text-2xl font-semibold">Advanced Search</h2>
+                        <form action="#" method="get" class="mt-6">
+                            <label for="modal-search" class="sr-only">Advanced Search</label>
+                            <input
+                                id="modal-search"
+                                name="search"
+                                type="search"
+                                placeholder="Search pathways, countries, or programs"
+                                class="w-full rounded-full border border-gray-300 px-5 py-3 text-sm outline-none"
+                            >
+
+                            <div class="mt-6 grid gap-6 md:grid-cols-2">
+                                <fieldset>
+                                    <legend class="text-sm font-semibold">Educational Pathway</legend>
+                                    <div class="mt-3 space-y-2">
+                                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" name="pathway" value="Foundation" class="h-4 w-4 border-gray-300">Foundation</label>
+                                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" name="pathway" value="Undergraduate" class="h-4 w-4 border-gray-300">Undergraduate</label>
+                                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" name="pathway" value="Postgraduate" class="h-4 w-4 border-gray-300">Postgraduate</label>
+                                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" name="pathway" value="PhD" class="h-4 w-4 border-gray-300">PhD</label>
+                                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" name="pathway" value="Diploma" class="h-4 w-4 border-gray-300">Diploma</label>
+                                    </div>
+                                </fieldset>
+
+                                <fieldset>
+                                    <legend class="text-sm font-semibold">Destination Countries</legend>
+                                    <div class="mt-3 space-y-2">
+                                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" name="country" value="Italy" class="h-4 w-4 border-gray-300">Italy</label>
+                                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" name="country" value="Germany" class="h-4 w-4 border-gray-300">Germany</label>
+                                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" name="country" value="Japan" class="h-4 w-4 border-gray-300">Japan</label>
+                                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" name="country" value="Korea" class="h-4 w-4 border-gray-300">Korea</label>
+                                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" name="country" value="Hong Kong" class="h-4 w-4 border-gray-300">Hong Kong</label>
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                            <div class="mt-6 border-t border-gray-200 pt-6">
+                                <p class="text-sm font-semibold">Related Keywords</p>
+                                <div class="mt-3 flex flex-wrap gap-2">
+                                    <button type="button" class="rounded-full border border-gray-300 px-3 py-1.5 text-sm">Computer Science</button>
+                                    <button type="button" class="rounded-full border border-gray-300 px-3 py-1.5 text-sm">Scholarships</button>
+                                    <button type="button" class="rounded-full border border-gray-300 px-3 py-1.5 text-sm">Business Management</button>
+                                </div>
+                            </div>
+
+                            <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                                <button type="reset" class="text-sm font-medium">Clear filters</button>
+                                <button type="submit" class="rounded-md border border-black bg-black px-5 py-2.5 text-sm font-medium text-white">Search</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -326,12 +382,52 @@
     <script>
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
+        const searchTrigger = document.getElementById('site-search-trigger');
+        const searchTriggerButton = document.getElementById('site-search-trigger-button');
+        const advancedSearchModal = document.getElementById('advanced-search-modal');
+        const advancedSearchModalContent = document.getElementById('advanced-search-modal-content');
+        const modalSearchInput = document.getElementById('modal-search');
 
         menuToggle.addEventListener('click', function () {
             const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
             menuToggle.setAttribute('aria-expanded', String(!isExpanded));
             mobileMenu.classList.toggle('hidden');
         });
+
+        if (searchTrigger && advancedSearchModal && advancedSearchModalContent) {
+            const openAdvancedSearchModal = function () {
+                advancedSearchModal.classList.remove('hidden');
+                advancedSearchModal.classList.add('flex');
+                if (modalSearchInput) {
+                    requestAnimationFrame(function () {
+                        modalSearchInput.focus();
+                    });
+                }
+            };
+
+            const closeAdvancedSearchModal = function () {
+                advancedSearchModal.classList.add('hidden');
+                advancedSearchModal.classList.remove('flex');
+            };
+
+            searchTrigger.addEventListener('focus', openAdvancedSearchModal);
+            searchTrigger.addEventListener('click', openAdvancedSearchModal);
+            if (searchTriggerButton) {
+                searchTriggerButton.addEventListener('click', openAdvancedSearchModal);
+            }
+
+            advancedSearchModal.addEventListener('click', function (event) {
+                if (!advancedSearchModalContent.contains(event.target)) {
+                    closeAdvancedSearchModal();
+                }
+            });
+
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape' && !advancedSearchModal.classList.contains('hidden')) {
+                    closeAdvancedSearchModal();
+                }
+            });
+        }
     </script>
 </body>
 </html>
