@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Forward Society | Pathways</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased">
+    <header class="border-b border-gray-200 bg-white">
+        <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8" aria-label="Primary">
+            <a href="index.html" class="text-lg font-semibold tracking-tight">The Forward Society</a>
+
+            <div class="hidden items-center gap-8 md:flex">
+                <a href="index.html" class="text-sm font-medium">Home</a>
+
+                <div class="group relative">
+                    <a href="destination-countries.html" class="inline-flex items-center gap-2 text-sm font-medium">
+                        <span>Education Consultancy</span>
+                        <span aria-hidden="true">+</span>
+                    </a>
+                    <div class="invisible absolute left-0 top-full z-10 w-64 pt-2 opacity-0 transition duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                        <div class="border border-gray-200 bg-white p-2 text-sm">
+                            <a href="" class="block px-3 py-2">Academic Consultancy</a>
+                            <a href="pathways.html" class="block px-3 py-2" aria-current="page">Pathways</a>
+                            <div class="group/destination relative">
+                                <a href="destination-countries.html" class="flex w-full items-center justify-between px-3 py-2 text-left">
+                                    <span>Destination Countries</span>
+                                    <span aria-hidden="true">&gt;</span>
+                                </a>
+                                <div class="invisible absolute left-full top-0 z-20 w-52 pl-2 opacity-0 transition duration-150 group-hover/destination:visible group-hover/destination:opacity-100 group-focus-within/destination:visible group-focus-within/destination:opacity-100">
+                                    <div class="border border-gray-200 bg-white p-2">
+                                        <a href="destination-countries.html#germany" class="block px-3 py-2">Germany</a>
+                                        <a href="destination-countries.html#italy" class="block px-3 py-2">Italy</a>
+                                        <a href="destination-countries.html#korea" class="block px-3 py-2">Korea</a>
+                                        <a href="destination-countries.html#japan" class="block px-3 py-2">Japan</a>
+                                        <a href="destination-countries.html#thailand" class="block px-3 py-2">Thailand</a>
+                                        <a href="destination-countries.html#hong-kong" class="block px-3 py-2">Hong Kong</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="index.html#latest-content" class="text-sm font-medium">Activities &amp; Achievement</a>
+                <a href="about.html" class="text-sm font-medium">About Us</a>
+                <a href="contact.html" class="text-sm font-medium">Contact Us</a>
+            </div>
+
+            <button
+                id="menu-toggle"
+                type="button"
+                class="inline-flex items-center justify-center rounded-md border border-gray-300 px-3 py-2 text-sm font-medium md:hidden"
+                aria-controls="mobile-menu"
+                aria-expanded="false"
+            >
+                Menu
+            </button>
+        </nav>
+
+        <div id="mobile-menu" class="hidden border-t border-gray-200 px-4 py-4 md:hidden">
+            <div class="flex flex-col gap-3 text-sm">
+                <a href="index.html" class="font-medium">Home</a>
+
+                <details class="rounded-lg border border-gray-200 p-3">
+                    <summary class="cursor-pointer list-none font-medium">Education Consultancy</summary>
+                    <div class="mt-3 flex flex-col gap-2 border-t border-gray-200 pt-3">
+                        <a href="" class="font-medium">Academic Consultancy</a>
+                        <a href="pathways.html" class="font-medium">Pathways</a>
+                        <details class="rounded-md border border-gray-200 p-2">
+                            <summary class="cursor-pointer list-none">Destination Countries</summary>
+                            <div class="mt-2 flex flex-col gap-2 border-t border-gray-200 pt-2">
+                                <a href="destination-countries.html#germany">Germany</a>
+                                <a href="destination-countries.html#italy">Italy</a>
+                                <a href="destination-countries.html#korea">Korea</a>
+                                <a href="destination-countries.html#japan">Japan</a>
+                                <a href="destination-countries.html#thailand">Thailand</a>
+                                <a href="destination-countries.html#hong-kong">Hong Kong</a>
+                            </div>
+                        </details>
+                    </div>
+                </details>
+
+                <a href="index.html#latest-content" class="font-medium">Activities &amp; Achievement</a>
+                <a href="about.html" class="font-medium">About Us</a>
+                <a href="contact.html" class="font-medium">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="border-b border-slate-200">
+            <div class="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-8 lg:py-20">
+                <div>
+                    <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Pathway Options</p>
+                    <h1 class="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">Choose Your Desired Pathway</h1>
+                    <p class="mt-6 max-w-xl text-base leading-7 text-slate-600">Explore flexible foundation and qualification routes that help you move confidently toward your university and career goals.</p>
+                </div>
+                <div class="flex justify-center lg:justify-end">
+                    <div class="flex h-64 w-full max-w-md items-center justify-center rounded-3xl border border-dashed border-slate-300 bg-white text-center text-sm font-medium text-slate-400 sm:h-72">
+                        Hero Image Placeholder
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="border-b border-slate-200">
+            <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+                <div class="max-w-3xl">
+                    <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Find the Right Program for Your Next Step</h2>
+                    <p class="mt-4 text-base text-slate-600">Compare pathway structures, benefits, and outcomes to choose the best route for your academic journey.</p>
+                </div>
+
+                <div class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
+                    <article class="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+                        <div class="flex h-44 items-center justify-center border-b border-slate-200 bg-slate-100 text-sm font-medium text-slate-400">Image Placeholder</div>
+                        <div class="flex flex-1 flex-col p-6">
+                            <h3 class="text-2xl font-semibold">IGCSE</h3>
+                            <p class="mt-3 text-sm leading-6 text-slate-600">A globally recognized secondary qualification that builds strong academic foundations across core subjects.</p>
+                            <h4 class="mt-5 text-sm font-semibold text-slate-800">Key Benefits</h4>
+                            <ul class="mt-3 space-y-2 text-sm text-slate-600">
+                                <li>International curriculum acceptance</li>
+                                <li>Strong preparation for A-Level and IB</li>
+                                <li>Flexible subject combinations</li>
+                            </ul>
+                            <a href="/pathways/igcse.html" class="mt-6 inline-flex w-fit items-center rounded-lg border border-slate-900 bg-slate-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-700">Learn More →</a>
+                        </div>
+                    </article>
+
+                    <article class="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+                        <div class="flex h-44 items-center justify-center border-b border-slate-200 bg-slate-100 text-sm font-medium text-slate-400">Image Placeholder</div>
+                        <div class="flex flex-1 flex-col p-6">
+                            <h3 class="text-2xl font-semibold">HND/NCC</h3>
+                            <p class="mt-3 text-sm leading-6 text-slate-600">Career-focused qualifications with practical learning that can lead directly to university progression or employment.</p>
+                            <h4 class="mt-5 text-sm font-semibold text-slate-800">Key Benefits</h4>
+                            <ul class="mt-3 space-y-2 text-sm text-slate-600">
+                                <li>Industry-relevant coursework</li>
+                                <li>Direct entry to higher university years</li>
+                                <li>Practical and applied learning style</li>
+                            </ul>
+                            <a href="/pathways/hnd-ncc.html" class="mt-6 inline-flex w-fit items-center rounded-lg border border-slate-900 bg-slate-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-700">Learn More →</a>
+                        </div>
+                    </article>
+
+                    <article class="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+                        <div class="flex h-44 items-center justify-center border-b border-slate-200 bg-slate-100 text-sm font-medium text-slate-400">Image Placeholder</div>
+                        <div class="flex flex-1 flex-col p-6">
+                            <h3 class="text-2xl font-semibold">IB Diplomas</h3>
+                            <p class="mt-3 text-sm leading-6 text-slate-600">A rigorous, holistic pre-university program recognized by leading universities across the world.</p>
+                            <h4 class="mt-5 text-sm font-semibold text-slate-800">Key Benefits</h4>
+                            <ul class="mt-3 space-y-2 text-sm text-slate-600">
+                                <li>Highly regarded by top institutions</li>
+                                <li>Develops critical thinking and research skills</li>
+                                <li>Balanced academics and personal growth</li>
+                            </ul>
+                            <a href="/pathways/ib-diplomas.html" class="mt-6 inline-flex w-fit items-center rounded-lg border border-slate-900 bg-slate-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-700">Learn More →</a>
+                        </div>
+                    </article>
+
+                    <article class="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+                        <div class="flex h-44 items-center justify-center border-b border-slate-200 bg-slate-100 text-sm font-medium text-slate-400">Image Placeholder</div>
+                        <div class="flex flex-1 flex-col p-6">
+                            <h3 class="text-2xl font-semibold">OSSD</h3>
+                            <p class="mt-3 text-sm leading-6 text-slate-600">A flexible Canadian high school diploma pathway offering broad subject choices and continuous assessment.</p>
+                            <h4 class="mt-5 text-sm font-semibold text-slate-800">Key Benefits</h4>
+                            <ul class="mt-3 space-y-2 text-sm text-slate-600">
+                                <li>Recognized by universities internationally</li>
+                                <li>Flexible pacing and course selection</li>
+                                <li>Strong support for university admissions</li>
+                            </ul>
+                            <a href="/pathways/ossd.html" class="mt-6 inline-flex w-fit items-center rounded-lg border border-slate-900 bg-slate-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-700">Learn More →</a>
+                        </div>
+                    </article>
+
+                    <article class="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+                        <div class="flex h-44 items-center justify-center border-b border-slate-200 bg-slate-100 text-sm font-medium text-slate-400">Image Placeholder</div>
+                        <div class="flex flex-1 flex-col p-6">
+                            <h3 class="text-2xl font-semibold">GED</h3>
+                            <p class="mt-3 text-sm leading-6 text-slate-600">An alternative qualification equivalent to high school completion for students seeking a faster academic bridge.</p>
+                            <h4 class="mt-5 text-sm font-semibold text-slate-800">Key Benefits</h4>
+                            <ul class="mt-3 space-y-2 text-sm text-slate-600">
+                                <li>Efficient route to qualification completion</li>
+                                <li>Accepted by many colleges and training institutions</li>
+                                <li>Supports non-traditional student pathways</li>
+                            </ul>
+                            <a href="/pathways/ged.html" class="mt-6 inline-flex w-fit items-center rounded-lg border border-slate-900 bg-slate-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-700">Learn More →</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+                <div class="rounded-3xl border border-slate-200 bg-white p-8 text-center sm:p-10">
+                    <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Looking for the Best Study Abroad Experiences?</h2>
+                    <a href="contact.html" class="mt-6 inline-flex items-center justify-center rounded-lg border border-slate-900 bg-slate-900 px-6 py-2.5 text-sm font-medium text-white transition hover:bg-slate-700">Book Consultation</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', function () {
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', String(!isExpanded));
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
