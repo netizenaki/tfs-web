@@ -1257,13 +1257,23 @@ p {
     gap: 18px;
 }
 
+.page-pathways .pathway-grid:hover .pathway-card {
+    opacity: 0.45;
+    filter: saturate(0.75);
+}
+
+.page-pathways .pathway-grid:hover .pathway-card:hover {
+    opacity: 1;
+    filter: saturate(1);
+}
+
 .page-pathways .pathway-card {
     background: #fff;
     border-radius: var(--radius-lg);
     border: 1px solid rgba(17, 17, 17, 0.08);
     overflow: hidden;
     box-shadow: var(--shadow-soft);
-    transition: transform var(--transition-mid), box-shadow var(--transition-mid), border-color var(--transition-mid);
+    transition: transform var(--transition-mid), box-shadow var(--transition-mid), border-color var(--transition-mid), opacity var(--transition-fast), filter var(--transition-fast);
 }
 
 .page-pathways .pathway-card:nth-child(odd) {
@@ -1276,7 +1286,17 @@ p {
 
 .page-pathways .pathway-card:hover {
     transform: scale(1.02) translateY(-5px);
+}
+
+.page-pathways .pathway-card:nth-child(odd):hover {
+    border-color: rgba(243, 225, 57, 0.9);
+    border-top-color: rgba(243, 225, 57, 0.9);
+    box-shadow: 0 20px 35px rgba(243, 225, 57, 0.24);
+}
+
+.page-pathways .pathway-card:nth-child(even):hover {
     border-color: rgba(0, 103, 243, 0.48);
+    border-top-color: rgba(0, 103, 243, 0.48);
     box-shadow: 0 20px 35px rgba(0, 103, 243, 0.2);
 }
 
@@ -1432,13 +1452,23 @@ p {
     gap: 18px;
 }
 
+.page-destinations .country-grid:hover .country-card {
+    opacity: 0.45;
+    filter: saturate(0.75);
+}
+
+.page-destinations .country-grid:hover .country-card:hover {
+    opacity: 1;
+    filter: saturate(1);
+}
+
 .page-destinations .country-card {
     background: #fff;
     border: 1px solid rgba(17, 17, 17, 0.08);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-soft);
     overflow: hidden;
-    transition: transform var(--transition-mid), box-shadow var(--transition-mid), border-color var(--transition-mid);
+    transition: transform var(--transition-mid), box-shadow var(--transition-mid), border-color var(--transition-mid), opacity var(--transition-fast), filter var(--transition-fast);
 }
 
 .page-destinations .country-card:nth-child(odd) {
@@ -1451,7 +1481,17 @@ p {
 
 .page-destinations .country-card:hover {
     transform: translateY(-5px);
+}
+
+.page-destinations .country-card:nth-child(odd):hover {
+    border-color: rgba(243, 225, 57, 0.9);
+    border-top-color: rgba(243, 225, 57, 0.9);
+    box-shadow: 0 20px 35px rgba(243, 225, 57, 0.24);
+}
+
+.page-destinations .country-card:nth-child(even):hover {
     border-color: rgba(0, 103, 243, 0.45);
+    border-top-color: rgba(0, 103, 243, 0.45);
     box-shadow: var(--shadow-hover);
 }
 
