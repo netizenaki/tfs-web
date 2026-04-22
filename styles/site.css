@@ -1087,7 +1087,7 @@ p {
     overflow: hidden;
     isolation: isolate;
     background:
-        radial-gradient(circle at 0% 0%, #0a3c8372, transparent 28%),
+        radial-gradient(circle at 0% 0%, #0a3c8372, transparent 2%),
         radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.2), transparent 30%),
         linear-gradient(140deg, #0b53ba, #0067f3 56%, #0d8eff 100%);
     border-radius: var(--radius-lg);
@@ -1713,7 +1713,7 @@ p {
     overflow: hidden;
     isolation: isolate;
     background:
-         radial-gradient(circle at 0% 0%, #0a3c8372, transparent 28%),
+         radial-gradient(circle at 0% 0%, #0a3c8372, transparent 2%),
          radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.2), transparent 30%),
          linear-gradient(140deg, #0b53ba, #0067f3 56%, #0d8eff 100%);
     border-radius: var(--radius-lg);
