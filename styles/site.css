@@ -279,9 +279,6 @@ p {
     pointer-events: none;
 }
 
-.search-modal-top {
-}   
-
 .search-modal-kicker {
     display: inline-flex;
     align-items: center;
@@ -472,44 +469,11 @@ p {
 }
 
 .search-clear {
-    border: none;
-    padding: 10px 16px;
-    border-radius: 999px;
-    background: linear-gradient(140deg, #e34d57, #c92b38);
-    color: #fff;
-    font-family: inherit;
-    font-size: 0.88rem;
-    font-weight: 600;
-    cursor: pointer;
-    letter-spacing: 0.01em;
-    box-shadow: 0 12px 20px rgba(201, 43, 56, 0.22);
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
+    min-width: 170px;
 }
 
 .search-results {
-    border: none;
     min-width: 170px;
-    padding: 12px 21px;
-    border-radius: 999px;
-    background: linear-gradient(140deg, var(--primary-blue), #0a84ff);
-    color: #fff;
-    font-family: inherit;
-    font-size: 0.92rem;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 14px 24px rgba(0, 103, 243, 0.24);
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
-}
-
-.search-results:hover {
-    transform: scale(1.03);
-    box-shadow: 0 18px 30px rgba(0, 103, 243, 0.3);
-}
-
-.search-clear:hover {
-    transform: translateY(-1px);
-    background: linear-gradient(140deg, #ef5d67, #d53140);
-    box-shadow: 0 16px 24px rgba(201, 43, 56, 0.28);
 }
 
 .site-header {
@@ -945,6 +909,8 @@ p {
 
 .page-home .btn-primary,
 .page-contact .btn-primary,
+.search-clear,
+.search-results,
 .page-home .btn-outline,
 .page-home .circle-btn,
 .page-pathways .btn-outline,
@@ -956,7 +922,12 @@ p {
 }
 
 .page-home .btn-primary,
-.page-contact .btn-primary {
+.page-contact .btn-primary,
+.search-clear,
+.search-results {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
     background: linear-gradient(140deg, var(--primary-blue), #0a84ff);
     color: #fff;
     font-weight: 600;
@@ -966,10 +937,32 @@ p {
     box-shadow: 0 14px 24px rgba(0, 103, 243, 0.24);
 }
 
+.page-home .btn-primary::after,
+.page-contact .btn-primary::after,
+.search-clear::after,
+.search-results::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.42) 50%, transparent 70%);
+    transform: translateX(-140%) skewX(-18deg);
+    transition: transform 360ms ease;
+    pointer-events: none;
+}
+
 .page-home .btn-primary:hover,
-.page-contact .btn-primary:hover {
+.page-contact .btn-primary:hover,
+.search-clear:hover,
+.search-results:hover {
     transform: scale(1.03);
     box-shadow: 0 18px 30px rgba(0, 103, 243, 0.3);
+}
+
+.page-home .btn-primary:hover::after,
+.page-contact .btn-primary:hover::after,
+.search-clear:hover::after,
+.search-results:hover::after {
+    transform: translateX(140%) skewX(-18deg);
 }
 
 @media (max-width: 900px) {
@@ -1798,22 +1791,43 @@ p {
 .page-pathways .card-link,
 .page-destinations .card-link {
     display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
     margin-top: 14px;
-    padding: 9px 14px;
+    padding: 12px 21px;
     border-radius: 999px;
-    border: 1px solid rgba(0, 103, 243, 0.24);
-    color: var(--primary-blue);
-    font-size: 0.86rem;
+    border: none;
+    background: linear-gradient(140deg, var(--primary-blue), #0a84ff);
+    color: #fff;
+    font-size: 0.92rem;
     font-weight: 600;
     transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
+    box-shadow: 0 14px 24px rgba(0, 103, 243, 0.24);
+}
+
+.page-pathways .card-link::after,
+.page-destinations .card-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.42) 50%, transparent 70%);
+    transform: translateX(-140%) skewX(-18deg);
+    transition: transform 360ms ease;
+    pointer-events: none;
 }
 
 .page-pathways .card-link:hover,
 .page-destinations .card-link:hover {
-    background: var(--primary-blue);
-    color: #fff;
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(0, 103, 243, 0.22);
+    transform: scale(1.03);
+    box-shadow: 0 18px 30px rgba(0, 103, 243, 0.3);
+}
+
+.page-pathways .card-link:hover::after,
+.page-destinations .card-link:hover::after {
+    transform: translateX(140%) skewX(-18deg);
 }
 
 /* Destinations */
