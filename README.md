@@ -29,11 +29,3 @@ Use these rules for all pages to keep typography and layout consistent.
 - Keep borders subtle (`border-gray-200` / `border-slate-200`)
 - Avoid introducing one-off font-size utilities unless necessary
 
-### Navigation Rule
-
-- Keep the same navbar structure across all top-level pages:
-	- `index.html`
-	- `about.html`
-	- `contact.html`
-	- `destination-countries.html`
-	- `pathways.html`
