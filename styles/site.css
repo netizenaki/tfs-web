@@ -6,6 +6,10 @@
     --muted-text: #5B6474;
     --surface: #F4F8FF;
     --surface-alt: #EDF2FA;
+    --brand-premium-gradient:
+        radial-gradient(circle at 0% 0%, #0a3c8372, transparent 28%),
+        radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.2), transparent 30%),
+        linear-gradient(140deg, #0b53ba, #0067f3 56%, #0d8eff 100%);
     --shadow-soft: 0 12px 32px rgba(8, 30, 66, 0.08);
     --shadow-hover: 0 18px 44px rgba(0, 80, 196, 0.16);
     --radius-lg: 16px;
@@ -692,10 +696,7 @@ p {
     padding: 34px 28px;
     text-align: center;
     border-radius: 24px;
-    background:
-        radial-gradient(circle at 0% 0%, #0a3c8372, transparent 28%),
-        radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.2), transparent 30%),
-        linear-gradient(140deg, #0b53ba, #0067f3 56%, #0d8eff 100%);
+    background: var(--brand-premium-gradient);
     box-shadow: 0 24px 40px rgba(0, 103, 243, 0.22);
 }
 
@@ -1086,10 +1087,7 @@ p {
     position: relative;
     overflow: hidden;
     isolation: isolate;
-    background:
-        radial-gradient(circle at 0% 0%, #0a3c8372, transparent 2%),
-        radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.2), transparent 30%),
-        linear-gradient(140deg, #0b53ba, #0067f3 56%, #0d8eff 100%);
+    background: var(--brand-premium-gradient);
     border-radius: var(--radius-lg);
     box-shadow: 0 22px 36px rgba(0, 103, 243, 0.24);
     padding: 24px;
@@ -1590,14 +1588,33 @@ p {
 }
 
 .page-about .timeline-item.left .timeline-card {
-    background: linear-gradient(160deg, #ffffff 0%, #eef5ff 100%);
-    border-color: rgba(0, 103, 243, 0.2);
+    background: var(--brand-premium-gradient);
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 .page-about .timeline-item.right .timeline-card {
-    background: linear-gradient(160deg, #ffffff 0%, #fffcec 100%);
-    border-color: rgba(243, 225, 57, 0.4);
+    background: var(--brand-premium-gradient);
+    border-color: rgba(255, 255, 255, 0.3);
 }
+
+.page-about .timeline-card h3,
+.page-about .timeline-card p {
+    color: #fff;
+}
+
+.page-about .timeline-card .eyebrow.eyebrow-tight {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: linear-gradient(150deg, #f3e139 0%, #ffe947 58%, #ffe99b 100%);
+    color: #352506;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+
 
 .page-about .timeline-item.right .timeline-card {
     grid-column: 3;
@@ -1712,10 +1729,7 @@ p {
     position: relative;
     overflow: hidden;
     isolation: isolate;
-    background:
-         radial-gradient(circle at 0% 0%, #0a3c8372, transparent 2%),
-         radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.2), transparent 30%),
-         linear-gradient(140deg, #0b53ba, #0067f3 56%, #0d8eff 100%);
+    background: var(--brand-premium-gradient);
     border-radius: var(--radius-lg);
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 22px 36px rgba(0, 103, 243, 0.24);
