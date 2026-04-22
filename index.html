@@ -75,6 +75,18 @@
         </div>
     </header>
 
+    <div id="dev-notice" class="site-notice" role="dialog" aria-modal="true" aria-labelledby="dev-notice-title" hidden>
+        <div class="site-notice-panel">
+            <p class="eyebrow">Development Notice</p>
+            <h2 id="dev-notice-title">This website is still under development</h2>
+            <p>What you are seeing right now is a demo version of the site.</p>
+            <p>All content, images, structure, and copy are placeholders and may change in the final release.</p>
+            <div class="site-notice-actions">
+                <button type="button" id="dev-notice-close" class="site-notice-button">Continue to Site</button>
+            </div>
+        </div>
+    </div>
+
     <main>
         <section class="hero">
             <div class="container hero-grid">
@@ -284,29 +296,6 @@
         <p>Copyright 2026 The Forward Society. All rights reserved.</p>
     </footer>
 
-    <script>
-        const menuToggle = document.getElementById("menu-toggle");
-        const mobileMenu = document.getElementById("mobile-menu");
-
-        menuToggle.addEventListener("click", function () {
-            const expanded = menuToggle.getAttribute("aria-expanded") === "true";
-            menuToggle.setAttribute("aria-expanded", String(!expanded));
-            mobileMenu.classList.toggle("open");
-        });
-
-        const revealItems = document.querySelectorAll(".reveal, .stagger");
-        const observer = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("show");
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.2 });
-
-        revealItems.forEach(function (item) {
-            observer.observe(item);
-        });
-    </script>
+    <script src="scripts/site.js"></script>
 </body>
 </html>
