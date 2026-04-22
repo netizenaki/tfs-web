@@ -39,6 +39,41 @@ body.page-home {
     background: radial-gradient(circle at 12% 0%, #eaf2ff 0%, #f7f9fe 18%, var(--bg-white) 48%);
 }
 
+body.page-about {
+    background:
+        radial-gradient(circle at 10% -10%, rgba(0, 103, 243, 0.14), transparent 34%),
+        radial-gradient(circle at 96% 14%, rgba(243, 225, 57, 0.16), transparent 26%),
+        linear-gradient(180deg, #f8fbff 0%, #fdfdfd 48%);
+}
+
+body.page-pathways {
+    background:
+        radial-gradient(circle at 8% -12%, rgba(0, 103, 243, 0.14), transparent 34%),
+        radial-gradient(circle at 92% 20%, rgba(243, 225, 57, 0.15), transparent 24%),
+        linear-gradient(180deg, #f8fbff 0%, #fdfdfd 50%);
+}
+
+body.page-destinations {
+    background:
+        radial-gradient(circle at 12% -10%, rgba(0, 103, 243, 0.13), transparent 32%),
+        radial-gradient(circle at 95% 18%, rgba(243, 225, 57, 0.14), transparent 25%),
+        linear-gradient(180deg, #f7fbff 0%, #fdfdfd 52%);
+}
+
+body.page-contact {
+    background:
+        radial-gradient(circle at 10% -8%, rgba(0, 103, 243, 0.14), transparent 34%),
+        radial-gradient(circle at 92% 14%, rgba(243, 225, 57, 0.13), transparent 24%),
+        linear-gradient(180deg, #f8fbff 0%, #fdfdfd 55%);
+}
+
+body.page-activities {
+    background:
+        radial-gradient(circle at 8% -12%, rgba(0, 103, 243, 0.14), transparent 36%),
+        radial-gradient(circle at 96% 16%, rgba(243, 225, 57, 0.16), transparent 24%),
+        linear-gradient(180deg, #f8fbff 0%, #fdfdfd 52%);
+}
+
 a {
     color: inherit;
     text-decoration: none;
@@ -441,6 +476,24 @@ p {
     margin-bottom: 34px;
 }
 
+.page-home .section-head .eyebrow,
+.page-pathways .section-head .eyebrow,
+.page-destinations .section-head .eyebrow,
+.page-contact .hero .eyebrow,
+.page-contact .container > .reveal > .eyebrow,
+.page-activities .section-head .eyebrow {
+    color: #2b6fd2;
+}
+
+.page-home .section-head h2,
+.page-pathways .section-head h2,
+.page-destinations h2,
+.page-contact .hero h1,
+.page-contact h2,
+.page-activities .section-head h2 {
+    color: #132545;
+}
+
 .page-home .hero {
     position: relative;
     overflow: hidden;
@@ -628,7 +681,15 @@ p {
 }
 
 .page-home .stat-card.alt {
-    background: var(--surface);
+    background: linear-gradient(160deg, #f4f8ff 0%, #fffef1 100%);
+}
+
+.page-home .stat-card {
+    border-top: 4px solid rgba(0, 103, 243, 0.32);
+}
+
+.page-home .stat-card.alt {
+    border-top-color: rgba(243, 225, 57, 0.8);
 }
 
 .page-home .stat-icon {
@@ -1042,6 +1103,14 @@ p {
     margin-bottom: 32px;
 }
 
+.page-about .section-head .eyebrow {
+    color: #2b6fd2;
+}
+
+.page-about .section-head h2 {
+    color: #132545;
+}
+
 .page-about .cards-grid {
     display: grid;
     gap: 18px;
@@ -1079,6 +1148,16 @@ p {
     grid-column: 1;
 }
 
+.page-about .timeline-item.left .timeline-card {
+    background: linear-gradient(160deg, #ffffff 0%, #eef5ff 100%);
+    border-color: rgba(0, 103, 243, 0.2);
+}
+
+.page-about .timeline-item.right .timeline-card {
+    background: linear-gradient(160deg, #ffffff 0%, #fffcec 100%);
+    border-color: rgba(243, 225, 57, 0.4);
+}
+
 .page-about .timeline-item.right .timeline-card {
     grid-column: 3;
 }
@@ -1113,6 +1192,15 @@ p {
 .page-about .card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-hover);
+}
+
+.page-about .value-grid .card {
+    border-top: 4px solid rgba(0, 103, 243, 0.45);
+}
+
+.page-about .value-grid .card:nth-child(even) {
+    border-top-color: rgba(243, 225, 57, 0.85);
+    background: linear-gradient(160deg, #ffffff 0%, #fffef2 100%);
 }
 
 .page-about .split-grid {
@@ -1176,6 +1264,14 @@ p {
     overflow: hidden;
     box-shadow: var(--shadow-soft);
     transition: transform var(--transition-mid), box-shadow var(--transition-mid), border-color var(--transition-mid);
+}
+
+.page-pathways .pathway-card:nth-child(odd) {
+    border-top: 4px solid rgba(0, 103, 243, 0.36);
+}
+
+.page-pathways .pathway-card:nth-child(even) {
+    border-top: 4px solid rgba(243, 225, 57, 0.85);
 }
 
 .page-pathways .pathway-card:hover {
@@ -1345,6 +1441,14 @@ p {
     transition: transform var(--transition-mid), box-shadow var(--transition-mid), border-color var(--transition-mid);
 }
 
+.page-destinations .country-card:nth-child(odd) {
+    border-top: 4px solid rgba(0, 103, 243, 0.36);
+}
+
+.page-destinations .country-card:nth-child(even) {
+    border-top: 4px solid rgba(243, 225, 57, 0.85);
+}
+
 .page-destinations .country-card:hover {
     transform: translateY(-5px);
     border-color: rgba(0, 103, 243, 0.45);
@@ -1399,6 +1503,14 @@ p {
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-soft);
     padding: 24px;
+}
+
+.page-contact .card:nth-child(1) {
+    border-top: 4px solid rgba(0, 103, 243, 0.4);
+}
+
+.page-contact .card:nth-child(2) {
+    border-top: 4px solid rgba(243, 225, 57, 0.85);
 }
 
 .page-contact label {
@@ -1534,6 +1646,15 @@ p {
 .page-activities .section-head {
     max-width: 760px;
     margin-bottom: 30px;
+}
+
+.page-activities .achievement-card:nth-child(odd) {
+    border-top: 4px solid rgba(0, 103, 243, 0.36);
+}
+
+.page-activities .achievement-card:nth-child(even) {
+    border-top: 4px solid rgba(243, 225, 57, 0.85);
+    background: linear-gradient(160deg, #ffffff 0%, #fffef2 100%);
 }
 
 .page-activities .gallery-stack {
