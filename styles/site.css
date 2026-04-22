@@ -448,20 +448,21 @@ p {
 }
 
 .site-footer-card {
-    max-width: 920px;
+    width: 100%;
+  
     margin: 0 auto;
     padding: 34px 28px;
     text-align: center;
     border-radius: 24px;
     background:
-        radial-gradient(circle at 0% 0%, rgba(243, 225, 57, 0.24), transparent 28%),
+        radial-gradient(circle at 0% 0%, #0a3c8372, transparent 28%),
         radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.2), transparent 30%),
         linear-gradient(140deg, #0b53ba, #0067f3 56%, #0d8eff 100%);
     box-shadow: 0 24px 40px rgba(0, 103, 243, 0.22);
 }
 
-.site-footer-card h2,
-.site-footer-card p {
+.site-footer .site-footer-card h2,
+.site-footer .site-footer-card p {
     color: #fff;
 }
 
