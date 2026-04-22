@@ -1051,6 +1051,52 @@ p {
     grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.page-about .timeline {
+    position: relative;
+    display: grid;
+    gap: 18px;
+}
+
+.page-about .timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    transform: translateX(-50%);
+    background: linear-gradient(180deg, rgba(0, 103, 243, 0.18), rgba(0, 103, 243, 0.48), rgba(0, 103, 243, 0.18));
+}
+
+.page-about .timeline-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 42px minmax(0, 1fr);
+    align-items: center;
+}
+
+.page-about .timeline-card {
+    grid-column: 1;
+}
+
+.page-about .timeline-item.right .timeline-card {
+    grid-column: 3;
+}
+
+.page-about .timeline-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--primary-blue);
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 6px rgba(0, 103, 243, 0.14);
+    z-index: 1;
+}
+
 .page-about .value-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
 }
@@ -1739,6 +1785,25 @@ p {
     .page-destinations .country-grid,
     .page-activities .achievements-grid {
         grid-template-columns: 1fr;
+    }
+
+    .page-about .timeline::before {
+        left: 15px;
+        transform: none;
+    }
+
+    .page-about .timeline-item {
+        grid-template-columns: 30px minmax(0, 1fr);
+        align-items: center;
+    }
+
+    .page-about .timeline-item .timeline-card,
+    .page-about .timeline-item.right .timeline-card {
+        grid-column: 2;
+    }
+
+    .page-about .timeline-dot {
+        left: 15px;
     }
 
     .page-home .pathway-head,
