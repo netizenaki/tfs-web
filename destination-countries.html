@@ -4,252 +4,139 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Forward Society | Destination Countries</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/site.css">
 </head>
-<body class="bg-white text-gray-900">
-    <header class="border-b border-gray-200">
-        <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8" aria-label="Primary">
-            <a href="index.html" class="text-lg font-semibold tracking-tight">The Forward Society</a>
-
-            <div class="hidden items-center gap-8 md:flex">
-                <a href="index.html" class="text-sm font-medium">Home</a>
-
-                <div class="group relative">
-                    <a href="destination-countries.html" class="inline-flex items-center gap-2 text-sm font-medium" aria-current="page">
+<body class="page-destinations">
+    <header class="site-header">
+        <nav class="nav-wrap" aria-label="Primary">
+            <a href="index.html" class="brand">
+                <img src="assets/logo.png" alt="The Forward Society logo" class="brand-logo">
+                <span>The Forward Society</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <div class="nav-group">
+                    <a href="destination-countries.html" aria-current="page" aria-haspopup="true">
                         <span>Education Consultancy</span>
                         <span aria-hidden="true">+</span>
                     </a>
-                    <div class="invisible absolute left-0 top-full z-10 w-64 pt-2 opacity-0 transition duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-                        <div class="border border-gray-200 bg-white p-2 text-sm">
-                          <a href="" class="block px-3 py-2">Academic Consultancy</a>
-                            <a href="" class="block px-3 py-2">Pathways</a>
-                            <div class="group/destination relative">
-                                <a href="destination-countries.html" class="flex w-full items-center justify-between px-3 py-2 text-left">
-                                    <span>Destination Countries</span>
-                                    <span aria-hidden="true">&gt;</span>
-                                </a>
-                                <div class="invisible absolute left-full top-0 z-20 w-52 pl-2 opacity-0 transition duration-150 group-hover/destination:visible group-hover/destination:opacity-100 group-focus-within/destination:visible group-focus-within/destination:opacity-100">
-                                    <div class="border border-gray-200 bg-white p-2">
-                                        <a href="#germany" class="block px-3 py-2">Germany</a>
-                                        <a href="#italy" class="block px-3 py-2">Italy</a>
-                                        <a href="#korea" class="block px-3 py-2">Korea</a>
-                                        <a href="#japan" class="block px-3 py-2">Japan</a>
-                                        <a href="#thailand" class="block px-3 py-2">Thailand</a>
-                                        <a href="#hong-kong" class="block px-3 py-2">Hong Kong</a>
-                                    </div>
-                                </div>
+                    <div class="nav-dropdown" role="menu" aria-label="Education Consultancy">
+                        <a href="#" role="menuitem">Academic Consultancy</a>
+                        <a href="pathways.html" role="menuitem">Pathways</a>
+                        <div class="submenu-group">
+                            <a class="submenu-trigger" href="destination-countries.html" role="menuitem"><span>Destination Countries</span><span aria-hidden="true">&gt;</span></a>
+                            <div class="nav-submenu" role="menu" aria-label="Destination Countries">
+                                <a href="#germany" role="menuitem">Germany</a>
+                                <a href="#italy" role="menuitem">Italy</a>
+                                <a href="#korea" role="menuitem">Korea</a>
+                                <a href="#japan" role="menuitem">Japan</a>
+                                <a href="#thailand" role="menuitem">Thailand</a>
+                                <a href="#hong-kong" role="menuitem">Hong Kong</a>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <a href="index.html#latest-content" class="text-sm font-medium">Activities &amp; Achievement</a>
-                <a href="about.html" class="text-sm font-medium">About Us</a>
-                <a href="contact.html" class="text-sm font-medium">Contact Us</a>
+                <a href="activities-achievement.html">Activities &amp; Achievement</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
             </div>
-
-            <button
-                id="menu-toggle"
-                type="button"
-                class="inline-flex items-center justify-center rounded-md border border-gray-300 px-3 py-2 text-sm font-medium md:hidden"
-                aria-controls="mobile-menu"
-                aria-expanded="false"
-            >
-                Menu
-            </button>
+            <button type="button" id="menu-toggle" class="menu-btn" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
         </nav>
-
-        <div id="mobile-menu" class="hidden border-t border-gray-200 px-4 py-4 md:hidden">
-            <div class="flex flex-col gap-3 text-sm">
-                <a href="index.html" class="font-medium">Home</a>
-
-                <details class="rounded-lg border border-gray-200 p-3">
-                    <summary class="cursor-pointer list-none font-medium">Education Consultancy</summary>
-                    <div class="mt-3 flex flex-col gap-2 border-t border-gray-200 pt-3">
-                        <a href="destination-countries.html">Destination Countries</a>
-                        <details class="rounded-md border border-gray-200 p-2">
-                            <summary class="cursor-pointer list-none">Destination Countries</summary>
-                            <div class="mt-2 flex flex-col gap-2 border-t border-gray-200 pt-2">
-                                <a href="#germany">Germany</a>
-                                <a href="#italy">Italy</a>
-                                <a href="#korea">Korea</a>
-                                <a href="#japan">Japan</a>
-                                <a href="#thailand">Thailand</a>
-                                <a href="#hong-kong">Hong Kong</a>
-                            </div>
-                        </details>
-                    </div>
-                </details>
-
-                <a href="index.html#latest-content" class="font-medium">Activities &amp; Achievement</a>
-                <a href="about.html" class="font-medium">About Us</a>
-                <a href="contact.html" class="font-medium">Contact Us</a>
-            </div>
+        <div id="mobile-menu" class="mobile-menu">
+            <a href="index.html">Home</a>
+            <details>
+                <summary>Education Consultancy</summary>
+                <div class="mobile-detail-links">
+                    <a href="#">Academic Consultancy</a>
+                    <a href="pathways.html">Pathways</a>
+                    <a href="destination-countries.html">Destination Countries</a>
+                    <details>
+                        <summary>Destination Countries</summary>
+                        <div class="mobile-detail-links">
+                            <a href="#germany">Germany</a>
+                            <a href="#italy">Italy</a>
+                            <a href="#korea">Korea</a>
+                            <a href="#japan">Japan</a>
+                            <a href="#thailand">Thailand</a>
+                            <a href="#hong-kong">Hong Kong</a>
+                        </div>
+                    </details>
+                </div>
+            </details>
+            <a href="activities-achievement.html">Activities &amp; Achievement</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
         </div>
     </header>
 
     <main>
-        <section class="border-b border-gray-200">
-            <div class="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-16 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8 lg:py-20">
-                <div class="max-w-2xl">
-                    <p class="text-sm font-medium uppercase tracking-[0.2em] text-gray-500">Destination Countries</p>
-                    <h1 class="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">Find Your Perfect Destination</h1>
-                    <p class="mt-6 text-base leading-7 text-gray-600">Explore study destinations that match your academic goals, career ambitions, and preferred lifestyle. Compare opportunities, student experiences, and key advantages in one place.</p>
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="reveal">
+                    <p class="eyebrow">Destination Countries</p>
+                    <h1>Find your best-fit destination to study abroad</h1>
+                    <p>Compare countries by program strengths, lifestyle, and opportunities after graduation to choose confidently.</p>
                 </div>
-
-                <div class="flex justify-center lg:justify-end">
-                    <div class="flex h-64 w-64 items-center justify-center rounded-full border border-dashed border-gray-300 bg-gray-50 text-center text-sm text-gray-500 sm:h-72 sm:w-72">
-                        Circular Graphic Placeholder
-                    </div>
-                </div>
+                <div class="globe reveal" aria-hidden="true"><span class="globe-lines"></span></div>
             </div>
         </section>
 
-        <section id="destinations" class="border-b border-gray-200">
-            <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-                <div class="max-w-3xl">
-                    <p class="text-sm font-medium uppercase tracking-[0.2em] text-gray-500">Explore Countries</p>
-                    <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Popular Study Destinations</h2>
-                </div>
-
-                <div class="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-2">
-                    <article id="germany" class="flex h-full scroll-mt-24 flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white">
-                        <div class="h-48 border-b border-gray-200 bg-gray-100"></div>
-                        <div class="flex flex-1 flex-col p-6">
-                            <h3 class="text-2xl font-semibold">Germany</h3>
-                            <p class="mt-3 text-sm leading-6 text-gray-600">A strong choice for engineering, innovation, and affordable education with a vibrant student environment.</p>
-                            <div class="mt-5">
-                                <p class="text-sm font-semibold">Key Benefits</p>
-                                <ul class="mt-3 space-y-2 text-sm text-gray-600">
-                                    <li>• Low or no tuition at many public universities</li>
-                                    <li>• Strong STEM and research reputation</li>
-                                    <li>• Post-study work opportunities</li>
-                                    <li>• Excellent public transport and student life</li>
-                                </ul>
-                            </div>
-                            <a href="#" class="mt-6 inline-flex w-fit items-center rounded-md border border-black bg-black px-4 py-2 text-sm font-medium text-white">Learn More →</a>
-                        </div>
-                    </article>
-
-                    <article id="italy" class="flex h-full scroll-mt-24 flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white">
-                        <div class="h-48 border-b border-gray-200 bg-gray-100"></div>
-                        <div class="flex flex-1 flex-col p-6">
-                            <h3 class="text-2xl font-semibold">Italy</h3>
-                            <p class="mt-3 text-sm leading-6 text-gray-600">Blend academic quality with rich culture, design excellence, and scholarship opportunities across top institutions.</p>
-                            <div class="mt-5">
-                                <p class="text-sm font-semibold">Key Benefits</p>
-                                <ul class="mt-3 space-y-2 text-sm text-gray-600">
-                                    <li>• Scholarships and regional funding options</li>
-                                    <li>• Strong arts, business, and architecture programs</li>
-                                    <li>• Affordable living in many cities</li>
-                                    <li>• Deep cultural and travel experiences</li>
-                                </ul>
-                            </div>
-                            <a href="#" class="mt-6 inline-flex w-fit items-center rounded-md border border-black bg-black px-4 py-2 text-sm font-medium text-white">Learn More →</a>
-                        </div>
-                    </article>
-
-                    <article id="korea" class="flex h-full scroll-mt-24 flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white">
-                        <div class="h-48 border-b border-gray-200 bg-gray-100"></div>
-                        <div class="flex flex-1 flex-col p-6">
-                            <h3 class="text-2xl font-semibold">Korea</h3>
-                            <p class="mt-3 text-sm leading-6 text-gray-600">Ideal for students seeking advanced technology, modern campuses, and growing global education options.</p>
-                            <div class="mt-5">
-                                <p class="text-sm font-semibold">Key Benefits</p>
-                                <ul class="mt-3 space-y-2 text-sm text-gray-600">
-                                    <li>• High-tech learning environment</li>
-                                    <li>• Generous scholarship programs</li>
-                                    <li>• Strong safety and infrastructure</li>
-                                    <li>• Exciting urban culture and innovation</li>
-                                </ul>
-                            </div>
-                            <a href="#" class="mt-6 inline-flex w-fit items-center rounded-md border border-black bg-black px-4 py-2 text-sm font-medium text-white">Learn More →</a>
-                        </div>
-                    </article>
-
-                    <article id="japan" class="flex h-full scroll-mt-24 flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white">
-                        <div class="h-48 border-b border-gray-200 bg-gray-100"></div>
-                        <div class="flex flex-1 flex-col p-6">
-                            <h3 class="text-2xl font-semibold">Japan</h3>
-                            <p class="mt-3 text-sm leading-6 text-gray-600">A destination known for academic discipline, innovation, and a unique balance of tradition and modernity.</p>
-                            <div class="mt-5">
-                                <p class="text-sm font-semibold">Key Benefits</p>
-                                <ul class="mt-3 space-y-2 text-sm text-gray-600">
-                                    <li>• Globally respected universities</li>
-                                    <li>• Research and innovation opportunities</li>
-                                    <li>• Safe and organized living environment</li>
-                                    <li>• Distinct cultural immersion</li>
-                                </ul>
-                            </div>
-                            <a href="#" class="mt-6 inline-flex w-fit items-center rounded-md border border-black bg-black px-4 py-2 text-sm font-medium text-white">Learn More →</a>
-                        </div>
-                    </article>
-
-                    <article id="thailand" class="flex h-full scroll-mt-24 flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white">
-                        <div class="h-48 border-b border-gray-200 bg-gray-100"></div>
-                        <div class="flex flex-1 flex-col p-6">
-                            <h3 class="text-2xl font-semibold">Thailand</h3>
-                            <p class="mt-3 text-sm leading-6 text-gray-600">A welcoming regional hub with affordable study options, international programs, and dynamic city life.</p>
-                            <div class="mt-5">
-                                <p class="text-sm font-semibold">Key Benefits</p>
-                                <ul class="mt-3 space-y-2 text-sm text-gray-600">
-                                    <li>• Cost-effective tuition and living</li>
-                                    <li>• Growing number of international programs</li>
-                                    <li>• Friendly and vibrant student environment</li>
-                                    <li>• Strategic location in Southeast Asia</li>
-                                </ul>
-                            </div>
-                            <a href="#" class="mt-6 inline-flex w-fit items-center rounded-md border border-black bg-black px-4 py-2 text-sm font-medium text-white">Learn More →</a>
-                        </div>
-                    </article>
-
-                    <article id="hong-kong" class="flex h-full scroll-mt-24 flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white">
-                        <div class="h-48 border-b border-gray-200 bg-gray-100"></div>
-                        <div class="flex flex-1 flex-col p-6">
-                            <h3 class="text-2xl font-semibold">Hong Kong</h3>
-                            <p class="mt-3 text-sm leading-6 text-gray-600">Perfect for students looking for international exposure, strong universities, and a fast-paced global city.</p>
-                            <div class="mt-5">
-                                <p class="text-sm font-semibold">Key Benefits</p>
-                                <ul class="mt-3 space-y-2 text-sm text-gray-600">
-                                    <li>• Internationally ranked institutions</li>
-                                    <li>• English-friendly academic environment</li>
-                                    <li>• Gateway to global business networks</li>
-                                    <li>• Compact, modern, and well-connected city</li>
-                                </ul>
-                            </div>
-                            <a href="#" class="mt-6 inline-flex w-fit items-center rounded-md border border-black bg-black px-4 py-2 text-sm font-medium text-white">Learn More →</a>
-                        </div>
-                    </article>
+        <section id="destinations">
+            <div class="container">
+                <p class="eyebrow reveal">Explore Countries</p>
+                <h2 class="reveal">Popular study destinations</h2>
+                <div class="country-grid">
+                    <article id="germany" class="country-card reveal"><div class="country-art"></div><div class="country-body"><h3>Germany</h3><p>Affordable tuition pathways with strong engineering and innovation outcomes.</p><h4>Key Benefits</h4><ul class="benefit-list"><li>Low public tuition in many universities</li><li>Strong STEM and research reputation</li><li>Post-study work opportunities</li><li>Excellent public transport and safety</li></ul><a class="card-link" href="contact.html">Learn More &rarr;</a></div></article>
+                    <article id="italy" class="country-card reveal"><div class="country-art"></div><div class="country-body"><h3>Italy</h3><p>Creative disciplines, scholarships, and rich design and architecture ecosystems.</p><h4>Key Benefits</h4><ul class="benefit-list"><li>Scholarships and funding options</li><li>Strong design and architecture programs</li><li>Affordable living in many cities</li><li>High cultural and travel exposure</li></ul><a class="card-link" href="contact.html">Learn More &rarr;</a></div></article>
+                    <article id="korea" class="country-card reveal"><div class="country-art"></div><div class="country-body"><h3>Korea</h3><p>High-tech campuses and globally growing university opportunities.</p><h4>Key Benefits</h4><ul class="benefit-list"><li>Advanced technology-driven campuses</li><li>Growing international degree options</li><li>Scholarship support for foreigners</li><li>Safe and modern city lifestyle</li></ul><a class="card-link" href="contact.html">Learn More &rarr;</a></div></article>
+                    <article id="japan" class="country-card reveal"><div class="country-art"></div><div class="country-body"><h3>Japan</h3><p>World-class research culture with advanced engineering and science programs.</p><h4>Key Benefits</h4><ul class="benefit-list"><li>Globally respected university system</li><li>Strong innovation and R&amp;D culture</li><li>High quality of life and safety</li><li>Unique cultural immersion</li></ul><a class="card-link" href="contact.html">Learn More &rarr;</a></div></article>
+                    <article id="thailand" class="country-card reveal"><div class="country-art"></div><div class="country-body"><h3>Thailand</h3><p>Accessible costs and international programs in a dynamic regional hub.</p><h4>Key Benefits</h4><ul class="benefit-list"><li>Cost-effective tuition and living</li><li>International pathway options</li><li>Warm and welcoming student life</li><li>Strategic ASEAN location</li></ul><a class="card-link" href="contact.html">Learn More &rarr;</a></div></article>
+                    <article id="hong-kong" class="country-card reveal"><div class="country-art"></div><div class="country-body"><h3>Hong Kong</h3><p>Top-ranked universities with strong global business and finance exposure.</p><h4>Key Benefits</h4><ul class="benefit-list"><li>Internationally ranked institutions</li><li>Global finance and business exposure</li><li>English-friendly learning environment</li><li>Excellent urban connectivity</li></ul><a class="card-link" href="contact.html">Learn More &rarr;</a></div></article>
                 </div>
             </div>
         </section>
 
         <section>
-            <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-                <div class="rounded-3xl border border-gray-200 bg-gray-50 p-8 text-center sm:p-10">
-                    <p class="text-sm font-medium uppercase tracking-[0.2em] text-gray-500">Next Step</p>
-                    <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Not Sure Where To Start?</h2>
-                    <p class="mx-auto mt-4 max-w-2xl text-sm leading-6 text-gray-600">Let us help you compare destinations, identify the right academic path, and build a study plan that suits your future goals.</p>
-                    <a href="#destinations" class="mt-6 inline-flex items-center justify-center rounded-md border border-black bg-black px-5 py-2.5 text-sm font-medium text-white">Explore Destinations →</a>
+            <div class="container">
+                <div class="cta-wrap reveal">
+                    <p class="eyebrow eyebrow-light">Need clarity?</p>
+                    <h2>Get expert help choosing your destination country</h2>
+                    <p>Our consultants compare your profile, budget, and goals to map the best international options.</p>
+                    <a class="btn" href="contact.html">Talk to a Consultant</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="border-t border-gray-200">
-        <div class="mx-auto max-w-7xl px-4 py-10 text-center sm:px-6 lg:px-8 lg:py-12">
-            <p class="text-sm text-gray-600">&copy; 2026 The Forward Society.</p>
-        </div>
+    <footer class="site-footer">
+        <p>Copyright 2026 The Forward Society. All rights reserved.</p>
     </footer>
 
     <script>
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
+        const menuToggle = document.getElementById("menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
 
-        menuToggle.addEventListener('click', function () {
-            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-            menuToggle.setAttribute('aria-expanded', String(!isExpanded));
-            mobileMenu.classList.toggle('hidden');
+        menuToggle.addEventListener("click", function () {
+            const expanded = menuToggle.getAttribute("aria-expanded") === "true";
+            menuToggle.setAttribute("aria-expanded", String(!expanded));
+            mobileMenu.classList.toggle("open");
+        });
+
+        const revealItems = document.querySelectorAll(".reveal");
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        revealItems.forEach(function (item) {
+            observer.observe(item);
         });
     </script>
 </body>

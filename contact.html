@@ -1,210 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>The Forward Society | Contact</title>
-	<script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Forward Society | Contact</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/site.css">
 </head>
-<body class="bg-white text-gray-900">
-	<header class="border-b border-gray-200">
-		<nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8" aria-label="Primary">
-			<a href="index.html" class="text-lg font-semibold tracking-tight">The Forward Society</a>
+<body class="page-contact">
+    <header class="site-header">
+        <nav class="nav-wrap" aria-label="Primary">
+            <a href="index.html" class="brand">
+                <img src="assets/logo.png" alt="The Forward Society logo" class="brand-logo">
+                <span>The Forward Society</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <div class="nav-group">
+                    <a href="destination-countries.html" aria-haspopup="true"><span>Education Consultancy</span><span aria-hidden="true">+</span></a>
+                    <div class="nav-dropdown" role="menu" aria-label="Education Consultancy">
+                        <a href="#" role="menuitem">Academic Consultancy</a>
+                        <a href="pathways.html" role="menuitem">Pathways</a>
+                        <div class="submenu-group">
+                            <a class="submenu-trigger" href="destination-countries.html" role="menuitem"><span>Destination Countries</span><span aria-hidden="true">&gt;</span></a>
+                            <div class="nav-submenu" role="menu" aria-label="Destination Countries">
+                                <a href="destination-countries.html#germany" role="menuitem">Germany</a>
+                                <a href="destination-countries.html#italy" role="menuitem">Italy</a>
+                                <a href="destination-countries.html#korea" role="menuitem">Korea</a>
+                                <a href="destination-countries.html#japan" role="menuitem">Japan</a>
+                                <a href="destination-countries.html#thailand" role="menuitem">Thailand</a>
+                                <a href="destination-countries.html#hong-kong" role="menuitem">Hong Kong</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="activities-achievement.html">Activities &amp; Achievement</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html" aria-current="page">Contact Us</a>
+            </div>
+            <button type="button" id="menu-toggle" class="menu-btn" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
+        </nav>
+        <div id="mobile-menu" class="mobile-menu">
+            <a href="index.html">Home</a>
+            <details>
+                <summary>Education Consultancy</summary>
+                <div class="mobile-detail-links">
+                    <a href="#">Academic Consultancy</a>
+                    <a href="pathways.html">Pathways</a>
+                    <a href="destination-countries.html">Destination Countries</a>
+                    <details>
+                        <summary>Destination Countries</summary>
+                        <div class="mobile-detail-links">
+                            <a href="destination-countries.html#germany">Germany</a>
+                            <a href="destination-countries.html#italy">Italy</a>
+                            <a href="destination-countries.html#korea">Korea</a>
+                            <a href="destination-countries.html#japan">Japan</a>
+                            <a href="destination-countries.html#thailand">Thailand</a>
+                            <a href="destination-countries.html#hong-kong">Hong Kong</a>
+                        </div>
+                    </details>
+                </div>
+            </details>
+            <a href="activities-achievement.html">Activities &amp; Achievement</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </header>
 
-			<div class="hidden items-center gap-8 md:flex">
-				<a href="index.html" class="text-sm font-medium">Home</a>
+    <main>
+        <section class="hero">
+            <div class="container reveal">
+                <p class="eyebrow">Contact</p>
+                <h1>Let us help you plan your study abroad journey</h1>
+                <p class="copy-centered">Share your goals and our team will help you choose the right pathway, destination, and next steps.</p>
+            </div>
+        </section>
 
-				<div class="group relative">
-					<a href="destination-countries.html" class="inline-flex items-center gap-2 text-sm font-medium">
-						<span>Education Consultancy</span>
-						<span aria-hidden="true">+</span>
-					</a>
-					<div class="invisible absolute left-0 top-full z-10 w-64 pt-2 opacity-0 transition duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-						<div class="border border-gray-200 bg-white p-2 text-sm">
-						  <a href="" class="block px-3 py-2">Academic Consultancy</a>
-                            <a href="" class="block px-3 py-2">Pathways</a>
-                            <div class="group/destination relative">
-                                <a href="destination-countries.html" class="flex w-full items-center justify-between px-3 py-2 text-left">
-                                    <span>Destination Countries</span>
-                                    <span aria-hidden="true">&gt;</span>
-                                </a>
-								<div class="invisible absolute left-full top-0 z-20 w-52 pl-2 opacity-0 transition duration-150 group-hover/destination:visible group-hover/destination:opacity-100 group-focus-within/destination:visible group-focus-within/destination:opacity-100">
-									<div class="border border-gray-200 bg-white p-2">
-										<a href="destination-countries.html#germany" class="block px-3 py-2">Germany</a>
-										<a href="destination-countries.html#italy" class="block px-3 py-2">Italy</a>
-										<a href="destination-countries.html#korea" class="block px-3 py-2">Korea</a>
-										<a href="destination-countries.html#japan" class="block px-3 py-2">Japan</a>
-										<a href="destination-countries.html#thailand" class="block px-3 py-2">Thailand</a>
-										<a href="destination-countries.html#hong-kong" class="block px-3 py-2">Hong Kong</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+        <section>
+            <div class="container contact-grid">
+                <article class="card reveal">
+                    <h2>Send us a message</h2>
+                    <form action="#" method="post">
+                        <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" placeholder="Your full name"></div>
+                        <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="name@example.com"></div>
+                        <div class="field"><label for="subject">Subject</label><input id="subject" name="subject" type="text" placeholder="How can we help?"></div>
+                        <div class="field"><label for="message">Message</label><textarea id="message" name="message" rows="5" placeholder="Tell us your goals"></textarea></div>
+                        <button class="btn-primary" type="submit">Send Message</button>
+                    </form>
+                </article>
+                <article class="card reveal">
+                    <h2>Contact details</h2>
+                    <div class="contact-list">
+                        <div class="contact-item"><strong>Email</strong><span>hello@theforwardsociety.com</span></div>
+                        <div class="contact-item"><strong>Phone</strong><span>+95 9 773 737147</span></div>
+                        <div class="contact-item"><strong>LinkedIn</strong><span>linkedin.com/company/theforwardsociety</span></div>
+                        <div class="contact-item"><strong>Facebook</strong><span>facebook.com/theforwardsociety</span></div>
+                    </div>
+                </article>
+            </div>
+        </section>
 
-				<a href="index.html#latest-content" class="text-sm font-medium">Activities &amp; Achievement</a>
-				<a href="about.html" class="text-sm font-medium">About Us</a>
-				<a href="contact.html" class="text-sm font-medium" aria-current="page">Contact Us</a>
-			</div>
+        <section>
+            <div class="container reveal">
+                <p class="eyebrow">FAQ</p>
+                <h2>Common questions</h2>
+                <div class="faq">
+                    <details><summary>How do I choose a destination country?</summary><p>We compare your goals, budget, profile, and timeline to recommend best-fit options.</p></details>
+                    <details><summary>Do you support scholarship applications?</summary><p>Yes, we guide you on scholarship matching, timelines, and profile preparation.</p></details>
+                    <details><summary>Can I book an online consultation?</summary><p>Yes, we offer online consultations.</p></details>
+                </div>
+            </div>
+        </section>
+    </main>
 
-			<button
-				id="menu-toggle"
-				type="button"
-				class="inline-flex items-center justify-center rounded-md border border-gray-300 px-3 py-2 text-sm font-medium md:hidden"
-				aria-controls="mobile-menu"
-				aria-expanded="false"
-			>
-				Menu
-			</button>
-		</nav>
+    <footer class="site-footer">
+        <p>Copyright 2026 The Forward Society. All rights reserved.</p>
+    </footer>
 
-		<div id="mobile-menu" class="hidden border-t border-gray-200 px-4 py-4 md:hidden">
-			<div class="flex flex-col gap-3 text-sm">
-				<a href="index.html" class="font-medium">Home</a>
+    <script>
+        const menuToggle = document.getElementById("menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
 
-				<details class="rounded-lg border border-gray-200 p-3">
-					<summary class="cursor-pointer list-none font-medium">Education Consultancy</summary>
-					<div class="mt-3 flex flex-col gap-2 border-t border-gray-200 pt-3">
-						<a href="destination-countries.html">Destination Countries</a>
-						<details class="rounded-md border border-gray-200 p-2">
-							<summary class="cursor-pointer list-none">Destination Countries</summary>
-							<div class="mt-2 flex flex-col gap-2 border-t border-gray-200 pt-2">
-								<a href="destination-countries.html#germany">Germany</a>
-								<a href="destination-countries.html#italy">Italy</a>
-								<a href="destination-countries.html#korea">Korea</a>
-								<a href="destination-countries.html#japan">Japan</a>
-								<a href="destination-countries.html#thailand">Thailand</a>
-								<a href="destination-countries.html#hong-kong">Hong Kong</a>
-							</div>
-						</details>
-					</div>
-				</details>
+        menuToggle.addEventListener("click", function () {
+            const expanded = menuToggle.getAttribute("aria-expanded") === "true";
+            menuToggle.setAttribute("aria-expanded", String(!expanded));
+            mobileMenu.classList.toggle("open");
+        });
 
-				<a href="index.html#latest-content" class="font-medium">Activities &amp; Achievement</a>
-				<a href="about.html" class="font-medium">About Us</a>
-				<a href="contact.html" class="font-medium" aria-current="page">Contact Us</a>
-			</div>
-		</div>
-	</header>
+        const revealItems = document.querySelectorAll(".reveal");
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
 
-	<main>
-		<section class="border-b border-gray-200">
-			<div class="mx-auto max-w-6xl px-4 py-16 text-center lg:py-20">
-				<h1 class="text-4xl font-bold tracking-tight sm:text-5xl">Get in Touch</h1>
-				<p class="mx-auto mt-6 max-w-2xl text-base leading-7 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Commodo ullamcorper a lacus vestibulum sed arcu non odio euismod.</p>
-			</div>
-		</section>
-
-		<section class="border-b border-gray-200">
-			<div class="mx-auto grid max-w-6xl gap-8 px-4 py-16 lg:grid-cols-2 lg:gap-10 lg:py-20">
-				<div class="rounded-3xl border border-gray-200 p-8 lg:p-10">
-					<h2 class="text-2xl font-semibold">Send Us a Message</h2>
-					<form class="mt-8 space-y-5" action="#" method="post">
-						<div>
-							<label for="name" class="mb-2 block text-sm font-medium">Name</label>
-							<input id="name" name="name" type="text" class="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm" placeholder="Lorem Ipsum">
-						</div>
-						<div>
-							<label for="email" class="mb-2 block text-sm font-medium">Email</label>
-							<input id="email" name="email" type="email" class="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm" placeholder="name@example.com">
-						</div>
-						<div>
-							<label for="subject" class="mb-2 block text-sm font-medium">Subject</label>
-							<input id="subject" name="subject" type="text" class="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm" placeholder="Lorem Ipsum">
-						</div>
-						<div>
-							<label for="message" class="mb-2 block text-sm font-medium">Message</label>
-							<textarea id="message" name="message" rows="5" class="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm" placeholder="Lorem ipsum dolor sit amet"></textarea>
-						</div>
-						<button type="submit" class="inline-flex items-center rounded-md border border-gray-300 px-5 py-3 text-sm font-medium">Send Message</button>
-					</form>
-				</div>
-
-				<div class="rounded-3xl border border-gray-200 p-8 lg:p-10">
-					<h2 class="text-2xl font-semibold">Contact Information</h2>
-					<div class="mt-8 space-y-6 text-sm">
-						<div class="flex items-start gap-3">
-							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mt-0.5 h-7 w-7 shrink-0">
-								<path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25H4.5a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5H4.5a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.914A2.25 2.25 0 0 1 2.25 6.998V6.75" />
-							</svg>
-							<div>
-								<p class="font-medium">Email</p>
-								<a href="mailto:hr@theforwardsociety.org" class="mt-1 block text-gray-600">hr@theforwardsociety.org</a>
-								<a href="mailto:hello@theforwardsociety.com" class="mt-1 block text-gray-600">hello@theforwardsociety.com</a>
-							</div>
-						</div>
-
-						<div class="flex items-start gap-3">
-							<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="mt-0.5 h-7 w-7 shrink-0">
-								<path d="M13.5 8.25h2.25V5.625H13.5A3.375 3.375 0 0 0 10.125 9v1.5H8.25v2.625h1.875v5.25h2.625v-5.25h2.25l.375-2.625H12.75V9a.75.75 0 0 1 .75-.75Z"/>
-							</svg>
-							<div>
-								<p class="font-medium">Facebook</p>
-								<a href="https://www.facebook.com/share/1Mpf37pHqf/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="mt-1 block break-all text-gray-600">https://www.facebook.com/share/1Mpf37pHqf/?mibextid=wwXIfr</a>
-							</div>
-						</div>
-
-						<div class="flex items-start gap-3">
-							<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="mt-0.5 h-7 w-7 shrink-0">
-								<path d="M5.25 3A2.25 2.25 0 0 0 3 5.25v13.5A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V5.25A2.25 2.25 0 0 0 18.75 3H5.25ZM8.063 9.188v7.125H5.813V9.188h2.25ZM6.938 8.25a1.313 1.313 0 1 1 0-2.625 1.313 1.313 0 0 1 0 2.625ZM18.188 16.313h-2.25v-3.45c0-.938-.356-1.575-1.22-1.575-.664 0-1.058.45-1.233.883-.064.153-.08.368-.08.584v3.558h-2.25V9.188h2.25v1.013c.299-.46.833-1.113 2.027-1.113 1.48 0 2.586.966 2.586 3.045v4.18Z"/>
-							</svg>
-							<div>
-								<p class="font-medium">LinkedIn</p>
-								<a href="https://www.linkedin.com/company/theforwardsociety/" target="_blank" rel="noopener noreferrer" class="mt-1 block break-all text-gray-600">https://www.linkedin.com/company/theforwardsociety/</a>
-							</div>
-						</div>
-
-						<div class="flex items-start gap-3">
-							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mt-0.5 h-7 w-7 shrink-0">
-								<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 4.5A2.25 2.25 0 0 1 4.5 2.25h1.636c.965 0 1.806.658 2.04 1.594l.66 2.64a2.25 2.25 0 0 1-.52 2.08l-1.084 1.084a16.5 16.5 0 0 0 7.12 7.12l1.084-1.084a2.25 2.25 0 0 1 2.08-.52l2.64.66A2.25 2.25 0 0 1 21.75 17.864V19.5a2.25 2.25 0 0 1-2.25 2.25h-.75C9.335 21.75 2.25 14.665 2.25 6.75V4.5Z" />
-							</svg>
-							<div>
-								<p class="font-medium">Phone</p>
-								<a href="tel:+959773737147" class="mt-1 block text-gray-600">+95 9 773 737147</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<section>
-			<div class="mx-auto max-w-6xl px-4 py-16 lg:py-20">
-				<h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Frequently Asked Questions</h2>
-				<div class="mt-8 space-y-4">
-					<details class="rounded-2xl border border-gray-200 p-5">
-						<summary class="cursor-pointer text-sm font-medium">Lorem ipsum dolor sit amet?</summary>
-						<p class="mt-3 text-sm leading-6 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-					</details>
-					<details class="rounded-2xl border border-gray-200 p-5">
-						<summary class="cursor-pointer text-sm font-medium">Consectetur adipiscing elit sed do?</summary>
-						<p class="mt-3 text-sm leading-6 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra ipsum nunc aliquet bibendum enim facilisis gravida neque convallis.</p>
-					</details>
-					<details class="rounded-2xl border border-gray-200 p-5">
-						<summary class="cursor-pointer text-sm font-medium">Tempor incididunt ut labore?</summary>
-						<p class="mt-3 text-sm leading-6 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi blandit cursus risus at ultrices mi tempus imperdiet nulla.</p>
-					</details>
-				</div>
-			</div>
-		</section>
-	</main>
-
-	<footer class="border-t border-gray-200">
-		<div class="mx-auto max-w-7xl px-4 py-10 text-center sm:px-6 lg:px-8 lg:py-12">
-			<p class="text-sm text-gray-600">&copy; 2026 The Forward Society.</p>
-		</div>
-	</footer>
-
-	<script>
-		const menuToggle = document.getElementById('menu-toggle');
-		const mobileMenu = document.getElementById('mobile-menu');
-
-		menuToggle.addEventListener('click', function () {
-			const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-			menuToggle.setAttribute('aria-expanded', String(!isExpanded));
-			mobileMenu.classList.toggle('hidden');
-		});
-	</script>
+        revealItems.forEach(function (item) {
+            observer.observe(item);
+        });
+    </script>
 </body>
 </html>
