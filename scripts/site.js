@@ -5,6 +5,14 @@
     const menuToggle = document.getElementById("menu-toggle");
     const mobileMenu = document.getElementById("mobile-menu");
     const galleryStack = document.getElementById("gallery-stack");
+    const heroSearchInput = document.getElementById("hero-search-input");
+    const heroSearchButton = document.getElementById("hero-search-button");
+    const searchModal = document.getElementById("search-modal");
+    const searchModalInput = document.getElementById("search-modal-input");
+    const searchModalClose = document.getElementById("search-modal-close");
+    const searchClearFilters = document.getElementById("search-clear-filters");
+    const searchShowResults = document.getElementById("search-show-results");
+    const searchModalCheckboxes = searchModal ? searchModal.querySelectorAll('input[type="checkbox"]') : [];
 
     function closeDevNotice() {
         if (!devNotice) {
@@ -17,6 +25,40 @@
         } catch (error) {
             // Ignore storage failures and just close the modal for this session.
         }
+    }
+
+    function openSearchModal() {
+        if (!searchModal) {
+            return;
+        }
+
+        searchModal.hidden = false;
+        document.body.classList.add("search-open");
+
+        if (searchModalInput && heroSearchInput) {
+            searchModalInput.value = heroSearchInput.value;
+            window.setTimeout(function () {
+                searchModalInput.focus();
+                searchModalInput.select();
+            }, 0);
+        }
+    }
+
+    function closeSearchModal() {
+        if (!searchModal) {
+            return;
+        }
+
+        searchModal.hidden = true;
+        document.body.classList.remove("search-open");
+    }
+
+    function syncHeroSearchValue() {
+        if (!heroSearchInput || !searchModalInput) {
+            return;
+        }
+
+        heroSearchInput.value = searchModalInput.value.trim();
     }
 
     if (devNotice && devNoticeClose) {
@@ -37,11 +79,6 @@
             }
         });
 
-        document.addEventListener("keydown", function (event) {
-            if (event.key === "Escape" && !devNotice.hidden) {
-                closeDevNotice();
-            }
-        });
     }
 
     if (menuToggle && mobileMenu) {
@@ -81,6 +118,66 @@
             });
         }
     }
+
+    if (searchModal && heroSearchInput) {
+        heroSearchInput.addEventListener("focus", function () {
+            heroSearchInput.blur();
+            openSearchModal();
+        });
+
+        heroSearchInput.addEventListener("click", openSearchModal);
+
+        if (heroSearchButton) {
+            heroSearchButton.addEventListener("click", openSearchModal);
+        }
+
+        if (searchModalClose) {
+            searchModalClose.addEventListener("click", closeSearchModal);
+        }
+
+        searchModal.addEventListener("click", function (event) {
+            if (event.target === searchModal) {
+                closeSearchModal();
+            }
+        });
+
+        if (searchClearFilters) {
+            searchClearFilters.addEventListener("click", function () {
+                if (searchModalInput) {
+                    searchModalInput.value = "";
+                    searchModalInput.focus();
+                }
+
+                searchModalCheckboxes.forEach(function (checkbox) {
+                    checkbox.checked = false;
+                });
+
+                heroSearchInput.value = "";
+            });
+        }
+
+        if (searchShowResults) {
+            searchShowResults.addEventListener("click", function () {
+                syncHeroSearchValue();
+                closeSearchModal();
+            });
+        }
+    }
+
+    document.addEventListener("keydown", function (event) {
+        if (event.key !== "Escape") {
+            return;
+        }
+
+        if (searchModal && !searchModal.hidden) {
+            closeSearchModal();
+            return;
+        }
+
+        if (devNotice && !devNotice.hidden) {
+            closeDevNotice();
+        }
+    });
 
     const revealItems = document.querySelectorAll(".reveal, .stagger");
     if (revealItems.length === 0) {
