@@ -13,6 +13,13 @@
     const searchClearFilters = document.getElementById("search-clear-filters");
     const searchShowResults = document.getElementById("search-show-results");
     const searchModalCheckboxes = searchModal ? searchModal.querySelectorAll('input[type="checkbox"]') : [];
+    const globeMarkers = document.querySelectorAll(".globe-marker");
+    const destinationInfoCard = document.getElementById("destination-info-card");
+    const destinationCardCountry = document.getElementById("destination-card-country");
+    const destinationCardFlag = document.getElementById("destination-card-flag");
+    const destinationCardDescription = document.getElementById("destination-card-description");
+    const destinationCardBenefits = document.getElementById("destination-card-benefits");
+    const destinationCardCta = document.getElementById("destination-card-cta");
 
     function closeDevNotice() {
         if (!devNotice) {
@@ -162,6 +169,134 @@
                 closeSearchModal();
             });
         }
+    }
+
+    function positionDestinationCard(marker) {
+        if (!destinationInfoCard || !marker) {
+            return;
+        }
+
+        const visual = destinationInfoCard.closest(".destination-visual");
+        const globe = visual ? visual.querySelector(".soft-globe") : null;
+        if (!visual) {
+            return;
+        }
+
+        if (window.matchMedia("(max-width: 768px)").matches) {
+            destinationInfoCard.style.top = "";
+            destinationInfoCard.style.bottom = "";
+            destinationInfoCard.style.left = "";
+            destinationInfoCard.style.right = "";
+            destinationInfoCard.style.transform = "";
+            destinationInfoCard.classList.add("align-right");
+            destinationInfoCard.classList.remove("align-left");
+            return;
+        }
+
+        const markerRect = marker.getBoundingClientRect();
+        const visualRect = visual.getBoundingClientRect();
+        const globeRect = globe ? globe.getBoundingClientRect() : visualRect;
+        const markerCenterX = markerRect.left + markerRect.width / 2;
+        const cardWidth = Math.min(destinationInfoCard.offsetWidth, visualRect.width - 24);
+        const sidePadding = 12;
+        const gap = 24;
+        const globeLeft = globeRect.left - visualRect.left;
+        const globeRight = globeRect.right - visualRect.left;
+        const preferredRightLeft = globeRight + gap;
+        const preferredLeftLeft = globeLeft - cardWidth - gap;
+        const fitsOnRight = preferredRightLeft + cardWidth <= visualRect.width - sidePadding;
+        const fitsOnLeft = preferredLeftLeft >= sidePadding;
+        const shouldAlignLeft = markerCenterX < globeRect.left + globeRect.width / 2;
+        let cardLeft;
+        let isLeftSide;
+
+        if (shouldAlignLeft && fitsOnLeft) {
+            cardLeft = preferredLeftLeft;
+            isLeftSide = true;
+        } else if (!shouldAlignLeft && fitsOnRight) {
+            cardLeft = preferredRightLeft;
+            isLeftSide = false;
+        } else if (fitsOnRight) {
+            cardLeft = preferredRightLeft;
+            isLeftSide = false;
+        } else if (fitsOnLeft) {
+            cardLeft = preferredLeftLeft;
+            isLeftSide = true;
+        } else {
+            cardLeft = Math.max(sidePadding, Math.min(visualRect.width - cardWidth - sidePadding, preferredRightLeft));
+            isLeftSide = cardLeft + cardWidth / 2 < globeLeft + (globeRight - globeLeft) / 2;
+        }
+
+        destinationInfoCard.style.top = "50%";
+        destinationInfoCard.style.bottom = "auto";
+        destinationInfoCard.style.left = cardLeft + "px";
+        destinationInfoCard.style.right = "auto";
+        destinationInfoCard.style.transform = "translateY(-50%)";
+        destinationInfoCard.classList.toggle("align-left", isLeftSide);
+        destinationInfoCard.classList.toggle("align-right", !isLeftSide);
+    }
+
+    function updateDestinationCard(marker) {
+        if (!marker || !destinationInfoCard) {
+            return;
+        }
+
+        const country = marker.dataset.country || "";
+        const flag = marker.dataset.flag || "";
+        const description = marker.dataset.description || "";
+        const benefits = (marker.dataset.benefits || "").split("|").map(function (item) {
+            return item.trim();
+        }).filter(Boolean);
+        const ctaLabel = marker.dataset.ctaLabel || "Explore Destination";
+        const ctaHref = marker.dataset.ctaHref || "destination-countries.html";
+
+        globeMarkers.forEach(function (item) {
+            item.classList.toggle("is-active", item === marker);
+        });
+
+        if (destinationCardCountry) {
+            destinationCardCountry.textContent = country;
+        }
+        if (destinationCardFlag) {
+            destinationCardFlag.textContent = flag;
+        }
+        if (destinationCardDescription) {
+            destinationCardDescription.textContent = description;
+        }
+        if (destinationCardBenefits) {
+            destinationCardBenefits.innerHTML = "";
+            benefits.forEach(function (benefit) {
+                const listItem = document.createElement("li");
+                listItem.textContent = benefit;
+                destinationCardBenefits.appendChild(listItem);
+            });
+        }
+        if (destinationCardCta) {
+            destinationCardCta.textContent = ctaLabel;
+            destinationCardCta.setAttribute("href", ctaHref);
+        }
+
+        positionDestinationCard(marker);
+    }
+
+    if (globeMarkers.length > 0 && destinationInfoCard) {
+        globeMarkers.forEach(function (marker) {
+            marker.addEventListener("mouseenter", function () {
+                updateDestinationCard(marker);
+            });
+
+            marker.addEventListener("focus", function () {
+                updateDestinationCard(marker);
+            });
+        });
+
+        const initialMarker = document.querySelector(".globe-marker.is-active") || globeMarkers[0];
+        updateDestinationCard(initialMarker);
+
+        window.addEventListener("resize", function () {
+            const activeMarker = document.querySelector(".globe-marker.is-active") || globeMarkers[0];
+            positionDestinationCard(activeMarker);
+        });
     }
 
     document.addEventListener("keydown", function (event) {
