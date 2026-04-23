@@ -2736,6 +2736,37 @@ p {
     box-shadow: var(--shadow-hover);
 }
 
+.page-leadership .supervisor-profile {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.page-leadership .supervisor-avatar {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    flex: 0 0 58px;
+    background:
+        radial-gradient(circle at 50% 32%, rgba(255, 255, 255, 0.88) 0 14px, transparent 14px),
+        radial-gradient(circle at 50% 92%, rgba(255, 255, 255, 0.88) 0 18px, transparent 18px),
+        linear-gradient(145deg, #90b9ff, #5f8ff3);
+    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.52), 0 10px 18px rgba(26, 72, 160, 0.24);
+}
+
+.page-leadership .supervisor-meta h3 {
+    margin: 0;
+    font-size: 1.08rem;
+}
+
+.page-leadership .supervisor-role {
+    margin: 3px 0 0;
+    color: #4c6795;
+    font-size: 0.86rem;
+    font-weight: 600;
+}
+
 .page-leadership .team-card ul,
 .page-leadership .stream-card ul {
     margin: 12px 0 0;
