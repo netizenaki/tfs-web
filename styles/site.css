@@ -2755,6 +2755,15 @@ p {
     box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.52), 0 10px 18px rgba(26, 72, 160, 0.24);
 }
 
+.page-leadership .supervisor-avatar-image {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    flex: 0 0 58px;
+    object-fit: cover;
+    box-shadow: 0 10px 18px rgba(26, 72, 160, 0.24);
+}
+
 .page-leadership .supervisor-meta h3 {
     margin: 0;
     font-size: 1.08rem;
@@ -2791,6 +2800,74 @@ p {
     top: 0;
     color: var(--primary-blue);
     font-weight: 700;
+}
+
+.page-leadership .leadership-status-card {
+    grid-column: 1 / -1;
+    text-align: center;
+}
+
+.page-leadership .leadership-skeleton-card {
+    border-top: 4px solid rgba(0, 103, 243, 0.18);
+}
+
+.page-leadership .skeleton-line,
+.page-leadership .skeleton-avatar {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(120deg, #e9eef7 0%, #f4f7fc 40%, #e9eef7 80%);
+}
+
+.page-leadership .skeleton-line::after,
+.page-leadership .skeleton-avatar::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.72) 50%, transparent 100%);
+    animation: leadership-shimmer 1.4s ease-in-out infinite;
+}
+
+.page-leadership .skeleton-line {
+    display: block;
+    border-radius: 999px;
+    height: 11px;
+    margin: 0;
+}
+
+.page-leadership .skeleton-line-sm {
+    width: 36%;
+}
+
+.page-leadership .skeleton-line-md {
+    width: 72%;
+    margin-top: 2px;
+}
+
+.page-leadership .skeleton-line-lg {
+    width: 100%;
+}
+
+.page-leadership .supervisor-meta .skeleton-line-sm {
+    width: 56%;
+    margin-top: 9px;
+}
+
+.page-leadership .skeleton-avatar {
+    box-shadow: none;
+}
+
+@keyframes leadership-shimmer {
+    to {
+        transform: translateX(100%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page-leadership .skeleton-line::after,
+    .page-leadership .skeleton-avatar::after {
+        animation: none;
+    }
 }
 
 .page-leadership .cta-wrap p {

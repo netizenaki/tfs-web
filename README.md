@@ -1,42 +1,31 @@
 # tfs-web
 Static website for The Forward Society, a youth-led social enterprise empowering students through education, skills, and opportunities.
 
-## Admin Content Platform (Sanity Backed)
+## CMS Workflow (Sanity Studio)
 
-This workspace now includes a separate admin host for managing content, and all admin runtime files live under `admin/`.
+This project now uses Sanity Studio as the content management interface.
 
-### What it does
+### Current architecture
 
-- Admin server connects to Sanity using environment variables and manages content documents.
-- Main site does not include Sanity logic; it only reads from an admin bridge endpoint.
-- Leadership page (`leadership.html`) currently consumes bridge content for CEO and supervisor cards.
+- Editors manage leadership content in Sanity Studio.
+- Public site reads leadership content directly from Sanity's query API.
+- No custom admin dashboard is required for the content workflow.
 
-### Setup
+### Main site setup
 
-1. Copy `admin/.env.example` to `admin/.env` and set:
-	- `SANITY_PROJECT_ID`
-	- `SANITY_DATASET`
-	- `SANITY_API_VERSION`
-	- `SANITY_WRITE_TOKEN`
-	- `ALLOWED_PUBLIC_ORIGINS`
-2. Change into `admin` and install dependencies with `npm install`.
-3. Start the admin server from `admin` with `npm start`.
-4. Open `http://localhost:5500/`.
-5. Open `scripts/site-bridge-config.js` and set:
-	- `adminBaseUrl` (separately hosted admin domain)
-	- `endpoints.leadership` (bridge endpoint path)
-6. In Sanity project settings, allow CORS for your admin host if needed.
-7. Edit content in the admin page and save.
+1. Open `scripts/site-cms-config.js` and verify:
+	- `sanity.projectId`
+	- `sanity.dataset`
+	- `sanity.apiVersion`
+	- `sanity.leadershipDocumentId`
+2. In Sanity project settings, allow CORS for your website origin.
+3. Publish leadership content in Sanity Studio.
 
-### Security note
+### Do we need Node.js on the main site?
 
-- The Sanity write token stays on the admin server and is not exposed in browser code.
-- Do not commit `admin/.env`.
-
-### Bridge Contract Files
-
-- API contract: `admin/bridge-api-spec.md`
-- Sample response payload: `admin/bridge-sample-leadership.json`
+- No, not for the current read-only CMS usage.
+- The main site can stay static and fetch published content directly from Sanity CDN.
+- Node is only needed if you later add server-only logic (private tokens, webhooks, secure mutations, etc.).
 
 ## UI Consistency Rules
 
