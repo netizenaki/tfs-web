@@ -1242,16 +1242,13 @@ p {
 }
 
 .page-home .stat-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 11px;
+    width: 50px;
+    height: 50px;
+   
     display: inline-flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 14px;
-    color: #f3e139;
-    background: rgba(255, 255, 255, 0.18);
-    border: 1px solid rgba(255, 255, 255, 0.3);
     font-weight: 700;
     font-size: 1.05rem;
 }
@@ -3160,6 +3157,240 @@ p {
     }
 }
 
+/* Country detail */
+.page-country-detail .section-head {
+    max-width: 700px;
+    margin-bottom: 32px;
+}
+
+.page-country-detail .country-detail-actions {
+    margin-top: 26px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.page-country-detail .detail-link {
+    margin-top: 10px;
+    display: inline-flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 12px 20px;
+    border-radius: 999px;
+    border: 1px solid rgba(0, 103, 243, 0.16);
+    background: rgba(255, 255, 255, 0.76);
+    color: #184488;
+    font-size: 0.92rem;
+    font-weight: 600;
+    box-shadow: var(--shadow-soft);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.page-country-detail .detail-link:hover {
+    transform: translateY(-2px);
+    border-color: rgba(0, 103, 243, 0.32);
+    box-shadow: var(--shadow-hover);
+    color: var(--primary-blue);
+}
+
+.page-country-detail .detail-grid,
+.page-country-detail .journey-grid,
+.page-country-detail .opportunity-grid {
+    margin-top: 10px;
+    display: grid;
+    gap: 18px;
+}
+
+.page-country-detail .detail-grid,
+.page-country-detail .opportunity-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.page-country-detail .journey-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.page-country-detail .detail-card,
+.page-country-detail .journey-card {
+    background: #fff;
+    border: 1px solid rgba(17, 17, 17, 0.08);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    transition: transform var(--transition-mid), box-shadow var(--transition-mid), border-color var(--transition-mid);
+}
+
+.page-country-detail .detail-card {
+    overflow: hidden;
+}
+
+.page-country-detail .detail-card:nth-child(odd),
+.page-country-detail .journey-card:nth-child(odd) {
+    border-top: 4px solid rgba(0, 103, 243, 0.36);
+}
+
+.page-country-detail .detail-card:nth-child(even),
+.page-country-detail .journey-card:nth-child(even) {
+    border-top: 4px solid rgba(243, 225, 57, 0.85);
+}
+
+.page-country-detail .detail-card:hover,
+.page-country-detail .journey-card:hover {
+    transform: translateY(-5px);
+}
+
+.page-country-detail .detail-card:nth-child(odd):hover,
+.page-country-detail .journey-card:nth-child(odd):hover {
+    border-color: rgba(243, 225, 57, 0.9);
+    border-top-color: rgba(243, 225, 57, 0.9);
+    box-shadow: 0 20px 35px rgba(243, 225, 57, 0.24);
+}
+
+.page-country-detail .detail-card:nth-child(even):hover,
+.page-country-detail .journey-card:nth-child(even):hover {
+    border-color: rgba(0, 103, 243, 0.45);
+    border-top-color: rgba(0, 103, 243, 0.45);
+    box-shadow: var(--shadow-hover);
+}
+
+.page-country-detail .detail-card-body,
+.page-country-detail .journey-card {
+    padding: 22px;
+}
+
+.page-country-detail .detail-card-body h3,
+.page-country-detail .journey-card h3,
+.page-country-detail .opportunity-body h3 {
+    color: #152749;
+}
+
+.page-country-detail .detail-card-body h3,
+.page-country-detail .journey-card h3 {
+    margin-bottom: 10px;
+}
+
+.page-country-detail .detail-card-body h4 {
+    margin: 14px 0 8px;
+    font-size: 0.9rem;
+    color: #1f2a44;
+}
+
+.page-country-detail .journey-card {
+    position: relative;
+    padding-top: 58px;
+}
+
+.page-country-detail .journey-card h3 {
+    margin-top: 8px;
+}
+
+.page-country-detail .journey-step {
+    position: absolute;
+    top: 18px;
+    left: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 42px;
+    min-height: 42px;
+    padding: 0 12px;
+    border-radius: 999px;
+    background: rgba(0, 103, 243, 0.08);
+    color: #2154a7;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.page-country-detail .opportunity-card {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background: var(--brand-premium-gradient);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 22px 36px rgba(0, 103, 243, 0.24);
+    transition: transform var(--transition-mid), box-shadow var(--transition-mid), border-color var(--transition-mid);
+}
+
+.page-country-detail .opportunity-card::after {
+    content: "";
+    position: absolute;
+    inset: -20% auto auto -40%;
+    width: 70%;
+    height: 160%;
+    background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.16), transparent);
+    opacity: 0;
+    transform: translateX(-120%) rotate(12deg);
+    transition: transform 560ms ease, opacity 220ms ease;
+    pointer-events: none;
+}
+
+.page-country-detail .opportunity-card:hover {
+    transform: scale(1.02) translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.48);
+    box-shadow: 0 28px 42px rgba(0, 103, 243, 0.3);
+}
+
+.page-country-detail .opportunity-card:hover::after {
+    opacity: 1;
+    transform: translateX(190%) rotate(12deg);
+}
+
+.page-country-detail .opportunity-body {
+    padding: 22px;
+}
+
+.page-country-detail .opportunity-body h3 {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.page-country-detail .opportunity-body h3::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    border-radius: 999px;
+    background: #f3e139;
+}
+
+.page-country-detail .opportunity-body p,
+.page-country-detail .opportunity-list li {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.page-country-detail .opportunity-list {
+    margin: 14px 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 6px;
+}
+
+.page-country-detail .opportunity-list li {
+    position: relative;
+    padding-left: 20px;
+    font-size: 0.88rem;
+}
+
+.page-country-detail .opportunity-list li::before {
+    content: "+";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #f3e139;
+    font-weight: 700;
+}
+
+.page-country-detail .opportunity-card .card-link {
+    margin-top: 18px;
+}
+
 @media (max-width: 960px) {
     .page-contact .contact-grid {
         grid-template-columns: 1fr;
@@ -3211,7 +3442,10 @@ p {
     .page-destinations .country-grid,
     .page-activities .achievements-grid,
     .page-leadership .leadership-grid,
-    .page-leadership .stream-grid {
+    .page-leadership .stream-grid,
+    .page-country-detail .detail-grid,
+    .page-country-detail .journey-grid,
+    .page-country-detail .opportunity-grid {
         grid-template-columns: 1fr;
     }
 
@@ -3298,5 +3532,20 @@ p {
     .site-footer-button,
     .site-footer-link {
         width: min(100%, 280px);
+    }
+
+    .page-country-detail .country-detail-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .page-country-detail .detail-link,
+    .page-country-detail .country-detail-actions .card-link {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .page-country-detail .country-detail-actions .detail-link {
+        margin-top: 0;
     }
 }
