@@ -19,6 +19,12 @@
     const sliderHintLeft = document.getElementById("leadership-slider-hint-left");
     const sliderHintRight = document.getElementById("leadership-slider-hint-right");
     const visibleCards = 3;
+    const sliderSmoothDurationMs = 460;
+    const wheelDeltaThreshold = 44;
+    const touchSwipeThreshold = 48;
+    const dragSwipeThresholdMin = 18;
+    const dragSwipeThresholdRatio = 0.045;
+    const dragIntentThreshold = 4;
     const sliderState = {
         currentIndex: 0,
         totalSteps: 1,
@@ -26,6 +32,16 @@
         cardOffsets: []
     };
     let wheelScrollLocked = false;
+    let wheelLockFallbackTimer = 0;
+    let wheelDeltaBuffer = 0;
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchIsTracking = false;
+    let dragStartX = 0;
+    let dragStartY = 0;
+    let dragLastX = 0;
+    let dragIsTracking = false;
+    let dragMoved = false;
 
     if (!supervisorGrid) {
         return;
@@ -46,6 +62,15 @@
         sliderState.totalSteps = 1;
         sliderState.isActive = false;
         sliderState.cardOffsets = [];
+        wheelDeltaBuffer = 0;
+        touchIsTracking = false;
+        dragIsTracking = false;
+        dragMoved = false;
+        releaseWheelScrollLock();
+
+        if (supervisorViewport) {
+            supervisorViewport.classList.remove("leadership-slider-dragging");
+        }
 
         if (supervisorGrid) {
             supervisorGrid.classList.remove("leadership-grid-slider");
@@ -63,7 +88,7 @@
             return;
         }
 
-        supervisorGrid.style.transitionDuration = smooth ? "360ms" : "0ms";
+        supervisorGrid.style.transitionDuration = smooth ? String(sliderSmoothDurationMs) + "ms" : "0ms";
         supervisorGrid.style.transform = "translate3d(-" + String(targetOffset) + "px, 0, 0)";
     }
 
@@ -172,7 +197,54 @@
     }
 
     function releaseWheelScrollLock() {
+        if (wheelLockFallbackTimer) {
+            window.clearTimeout(wheelLockFallbackTimer);
+            wheelLockFallbackTimer = 0;
+        }
+
         wheelScrollLocked = false;
+    }
+
+    function endMouseDragTracking() {
+        dragIsTracking = false;
+        dragMoved = false;
+
+        if (supervisorViewport) {
+            supervisorViewport.classList.remove("leadership-slider-dragging");
+        }
+    }
+
+    function queueSliderMove(direction) {
+        if (!sliderState.isActive || wheelScrollLocked || direction === 0) {
+            return false;
+        }
+
+        const nextIndex = sliderState.currentIndex + direction;
+        const boundedIndex = Math.max(0, Math.min(nextIndex, sliderState.totalSteps - 1));
+
+        if (boundedIndex === sliderState.currentIndex) {
+            return false;
+        }
+
+        wheelScrollLocked = true;
+        moveSupervisorSlider(boundedIndex, true);
+
+        if (wheelLockFallbackTimer) {
+            window.clearTimeout(wheelLockFallbackTimer);
+        }
+
+        // Fallback unlock in case transitionend doesn't fire.
+        wheelLockFallbackTimer = window.setTimeout(releaseWheelScrollLock, sliderSmoothDurationMs + 180);
+        return true;
+    }
+
+    function getDragSwipeThreshold() {
+        if (!supervisorViewport) {
+            return dragSwipeThresholdMin;
+        }
+
+        const adaptive = Math.round(supervisorViewport.clientWidth * dragSwipeThresholdRatio);
+        return Math.max(dragSwipeThresholdMin, adaptive);
     }
 
     async function loadLeadershipData() {
@@ -245,6 +317,17 @@
         );
     }
 
+    if (supervisorGrid) {
+        supervisorGrid.addEventListener("transitionend", function (event) {
+            if (event.propertyName !== "transform") {
+                return;
+            }
+
+            wheelDeltaBuffer = 0;
+            releaseWheelScrollLock();
+        });
+    }
+
     if (supervisorViewport) {
         supervisorViewport.addEventListener("wheel", function (event) {
             const delta = Math.abs(event.deltaY) > Math.abs(event.deltaX) ? event.deltaY : event.deltaX;
@@ -253,16 +336,148 @@
                 return;
             }
 
-            event.preventDefault();
-
             if (wheelScrollLocked) {
+                event.preventDefault();
                 return;
             }
 
-            wheelScrollLocked = true;
-            moveSupervisorSlider(sliderState.currentIndex + (delta > 0 ? 1 : -1), true);
-            window.setTimeout(releaseWheelScrollLock, 420);
+            wheelDeltaBuffer += delta;
+
+            if (Math.abs(wheelDeltaBuffer) < wheelDeltaThreshold) {
+                return;
+            }
+
+            const direction = wheelDeltaBuffer > 0 ? 1 : -1;
+            wheelDeltaBuffer = 0;
+
+            if (queueSliderMove(direction)) {
+                event.preventDefault();
+            }
         }, {passive: false});
+
+        supervisorViewport.addEventListener("mousedown", function (event) {
+            if (event.button !== 0 || !sliderState.isActive || wheelScrollLocked) {
+                return;
+            }
+
+            dragStartX = event.clientX;
+            dragStartY = event.clientY;
+            dragLastX = event.clientX;
+            dragIsTracking = true;
+            dragMoved = false;
+            supervisorViewport.classList.add("leadership-slider-dragging");
+        });
+
+        supervisorViewport.addEventListener("mousemove", function (event) {
+            if (!dragIsTracking) {
+                return;
+            }
+
+            dragLastX = event.clientX;
+
+            if (dragMoved) {
+                event.preventDefault();
+                return;
+            }
+
+            const deltaX = event.clientX - dragStartX;
+            const deltaY = event.clientY - dragStartY;
+
+            if (Math.abs(deltaX) > dragIntentThreshold && Math.abs(deltaX) > Math.abs(deltaY)) {
+                dragMoved = true;
+                event.preventDefault();
+            }
+        });
+
+        window.addEventListener("mouseup", function (event) {
+            if (!dragIsTracking) {
+                return;
+            }
+
+            const endX = event.clientX || dragLastX;
+            const deltaX = endX - dragStartX;
+            const deltaY = event.clientY - dragStartY;
+            const wasDragging = dragMoved;
+
+            endMouseDragTracking();
+
+            if (!wasDragging || wheelScrollLocked || !sliderState.isActive) {
+                return;
+            }
+
+            if (Math.abs(deltaX) < getDragSwipeThreshold() || Math.abs(deltaX) <= Math.abs(deltaY)) {
+                return;
+            }
+
+            const direction = deltaX < 0 ? 1 : -1;
+            queueSliderMove(direction);
+        });
+
+        supervisorViewport.addEventListener("mouseleave", function () {
+            if (dragIsTracking && !dragMoved) {
+                endMouseDragTracking();
+            }
+        });
+
+        window.addEventListener("blur", endMouseDragTracking);
+
+        supervisorViewport.addEventListener("touchstart", function (event) {
+            if (!sliderState.isActive || !event.touches || event.touches.length !== 1) {
+                touchIsTracking = false;
+                return;
+            }
+
+            touchStartX = event.touches[0].clientX;
+            touchStartY = event.touches[0].clientY;
+            touchIsTracking = true;
+        }, {passive: true});
+
+        supervisorViewport.addEventListener("touchmove", function (event) {
+            if (!touchIsTracking || !event.touches || event.touches.length !== 1) {
+                return;
+            }
+
+            const deltaX = event.touches[0].clientX - touchStartX;
+            const deltaY = event.touches[0].clientY - touchStartY;
+
+            if (Math.abs(deltaX) > Math.abs(deltaY) && sliderState.isActive) {
+                event.preventDefault();
+            }
+        }, {passive: false});
+
+        supervisorViewport.addEventListener("touchend", function (event) {
+            if (!touchIsTracking || !event.changedTouches || event.changedTouches.length !== 1) {
+                touchIsTracking = false;
+                return;
+            }
+
+            touchIsTracking = false;
+
+            if (wheelScrollLocked || !sliderState.isActive) {
+                return;
+            }
+
+            const deltaX = event.changedTouches[0].clientX - touchStartX;
+            const deltaY = event.changedTouches[0].clientY - touchStartY;
+
+            if (Math.abs(deltaX) < touchSwipeThreshold || Math.abs(deltaX) <= Math.abs(deltaY)) {
+                return;
+            }
+
+            const direction = deltaX < 0 ? 1 : -1;
+
+            if (queueSliderMove(direction)) {
+                event.preventDefault();
+            }
+        }, {passive: false});
+
+        supervisorViewport.addEventListener("touchcancel", function () {
+            touchIsTracking = false;
+        }, {passive: true});
+
+        supervisorViewport.addEventListener("dragstart", function (event) {
+            event.preventDefault();
+        });
     }
 
     window.addEventListener("resize", function () {

@@ -2732,6 +2732,13 @@ p {
     position: relative;
     padding: 8px 8px 16px;
     margin: -8px -8px -16px;
+    cursor: grab;
+    user-select: none;
+    touch-action: pan-y;
+}
+
+.page-leadership .leadership-slider-viewport.leadership-slider-dragging {
+    cursor: grabbing;
 }
 
 .page-leadership .leadership-grid.leadership-grid-slider {
@@ -2740,7 +2747,9 @@ p {
     gap: 18px;
     will-change: transform;
     transition-property: transform;
-    transition-timing-function: ease-in-out;
+    transition-duration: 460ms;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    backface-visibility: hidden;
 }
 
 .page-leadership .leadership-grid.leadership-grid-slider .team-card {
