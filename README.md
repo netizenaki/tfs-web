@@ -1,31 +1,11 @@
 # tfs-web
 Static website for The Forward Society, a youth-led social enterprise empowering students through education, skills, and opportunities.
 
-## CMS Workflow (Sanity Studio)
+### TO DO LIST
 
-This project now uses Sanity Studio as the content management interface.
-
-### Current architecture
-
-- Editors manage leadership content in Sanity Studio.
-- Public site reads leadership content directly from Sanity's query API.
-- No custom admin dashboard is required for the content workflow.
-
-### Main site setup
-
-1. Open `scripts/site-cms-config.js` and verify:
-	- `sanity.projectId`
-	- `sanity.dataset`
-	- `sanity.apiVersion`
-	- `sanity.leadershipDocumentId`
-2. In Sanity project settings, allow CORS for your website origin.
-3. Publish leadership content in Sanity Studio.
-
-### Do we need Node.js on the main site?
-
-- No, not for the current read-only CMS usage.
-- The main site can stay static and fetch published content directly from Sanity CDN.
-- Node is only needed if you later add server-only logic (private tokens, webhooks, secure mutations, etc.).
+- in nav bar add soft gradient that appears on scroll
+- redesign left over cards
+- fix message text field in contact us 
 
 ## UI Consistency Rules
 
