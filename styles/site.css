@@ -552,6 +552,28 @@ p {
     width: 100%;
 }
 
+.nav-links a.nav-contact-pill {
+    padding: 8px 14px;
+    border-radius: 999px;
+    color: #fff;
+    font-weight: 700;
+    background: linear-gradient(145deg, #0067f3, #1f88ff);
+    box-shadow: 0 8px 18px rgba(0, 103, 243, 0.22);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
+}
+
+.nav-links a.nav-contact-pill::after {
+    display: none;
+}
+
+.nav-links a.nav-contact-pill:hover,
+.nav-links a.nav-contact-pill:focus-visible {
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 12px 22px rgba(0, 103, 243, 0.28);
+    filter: saturate(1.05);
+}
+
 .nav-group {
     position: relative;
 }
@@ -2705,6 +2727,81 @@ p {
     grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.page-leadership .leadership-slider-viewport {
+    overflow: hidden;
+    position: relative;
+    padding: 8px 8px 16px;
+    margin: -8px -8px -16px;
+}
+
+.page-leadership .leadership-grid.leadership-grid-slider {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 18px;
+    will-change: transform;
+    transition-property: transform;
+    transition-timing-function: ease-in-out;
+}
+
+.page-leadership .leadership-grid.leadership-grid-slider .team-card {
+    flex: 0 0 calc((100% - 36px) / 3);
+}
+
+.page-leadership .leadership-slider-hint {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #0b53ba;
+    opacity: 0.28;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.page-leadership .leadership-slider-hint-left {
+    left: 10px;
+}
+
+.page-leadership .leadership-slider-hint-right {
+    right: 10px;
+}
+
+.page-leadership .leadership-slider-hint-arrow {
+    display: inline-block;
+    font-size: 1.9rem;
+    font-weight: 700;
+    line-height: 1;
+    animation: leadership-hint-nudge 1.5s ease-in-out infinite;
+}
+
+.page-leadership .leadership-slider-hint-left .leadership-slider-hint-arrow {
+    animation-name: leadership-hint-nudge-left;
+}
+
+@keyframes leadership-hint-nudge {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
+}
+
+@keyframes leadership-hint-nudge-left {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-5px);
+    }
+}
+
 .page-leadership .stream-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
 }
@@ -2734,6 +2831,10 @@ p {
 .page-leadership .stream-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-hover);
+}
+
+.page-leadership .leadership-grid.leadership-grid-slider .team-card:hover {
+    transform: translateY(-3px);
 }
 
 .page-leadership .supervisor-profile {

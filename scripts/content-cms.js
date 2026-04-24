@@ -14,10 +14,95 @@
     const ceoName = document.getElementById("leadership-ceo-name");
     const ceoBio1 = document.getElementById("leadership-ceo-bio1");
     const ceoPortrait = document.getElementById("leadership-ceo-photo");
+    const supervisorViewport = document.getElementById("leadership-supervisor-viewport");
     const supervisorGrid = document.getElementById("leadership-supervisor-grid");
+    const sliderHintLeft = document.getElementById("leadership-slider-hint-left");
+    const sliderHintRight = document.getElementById("leadership-slider-hint-right");
+    const visibleCards = 3;
+    const sliderState = {
+        currentIndex: 0,
+        totalSteps: 1,
+        isActive: false,
+        cardOffsets: []
+    };
+    let wheelScrollLocked = false;
 
     if (!supervisorGrid) {
         return;
+    }
+
+    function updateSliderControls() {
+        if (sliderHintLeft) {
+            sliderHintLeft.hidden = !sliderState.isActive || sliderState.currentIndex <= 0;
+        }
+
+        if (sliderHintRight) {
+            sliderHintRight.hidden = !sliderState.isActive || sliderState.currentIndex >= sliderState.totalSteps - 1;
+        }
+    }
+
+    function resetSupervisorSlider() {
+        sliderState.currentIndex = 0;
+        sliderState.totalSteps = 1;
+        sliderState.isActive = false;
+        sliderState.cardOffsets = [];
+
+        if (supervisorGrid) {
+            supervisorGrid.classList.remove("leadership-grid-slider");
+            supervisorGrid.style.transform = "";
+            supervisorGrid.style.transitionDuration = "";
+        }
+
+        updateSliderControls();
+    }
+
+    function applySupervisorSliderPosition(smooth) {
+        const targetOffset = sliderState.cardOffsets[sliderState.currentIndex] || 0;
+
+        if (!supervisorGrid) {
+            return;
+        }
+
+        supervisorGrid.style.transitionDuration = smooth ? "360ms" : "0ms";
+        supervisorGrid.style.transform = "translate3d(-" + String(targetOffset) + "px, 0, 0)";
+    }
+
+    function moveSupervisorSlider(nextIndex, smooth) {
+        if (!sliderState.isActive) {
+            return;
+        }
+
+        const boundedIndex = Math.max(0, Math.min(nextIndex, sliderState.totalSteps - 1));
+
+        sliderState.currentIndex = boundedIndex;
+        updateSliderControls();
+        applySupervisorSliderPosition(smooth);
+    }
+
+    function measureSupervisorSliderCards() {
+        const cards = supervisorGrid.querySelectorAll(".team-card");
+
+        sliderState.cardOffsets = Array.prototype.map.call(cards, function (card) {
+            return card.offsetLeft;
+        });
+    }
+
+    function initializeSupervisorSlider() {
+        const cards = supervisorGrid.querySelectorAll(".team-card");
+
+        if (!cards.length || cards.length <= visibleCards || !supervisorViewport) {
+            resetSupervisorSlider();
+            return;
+        }
+
+        supervisorGrid.classList.add("leadership-grid-slider");
+        sliderState.totalSteps = cards.length - visibleCards + 1;
+        sliderState.currentIndex = 0;
+        sliderState.isActive = true;
+        measureSupervisorSliderCards();
+
+        updateSliderControls();
+        moveSupervisorSlider(0, false);
     }
 
     function escapeHtml(value) {
@@ -86,6 +171,10 @@
         });
     }
 
+    function releaseWheelScrollLock() {
+        wheelScrollLocked = false;
+    }
+
     async function loadLeadershipData() {
         const query = 'coalesce(*[_id == "' + documentId + '"][0], *[_type == "leadershipPage"] | order(_updatedAt desc)[0]){ceoName, ceoBio1, ceoPhoto{asset->{url}}, supervisors[]{department, name, role, description, photo{asset->{url}}}}';
         const host = useCdn ? ".apicdn.sanity.io" : ".api.sanity.io";
@@ -145,14 +234,43 @@
 
         if (Array.isArray(data.supervisors) && data.supervisors.length > 0) {
             supervisorGrid.innerHTML = data.supervisors.map(buildSupervisorCard).join("\n");
+            initializeSupervisorSlider();
             return;
         }
 
+        resetSupervisorSlider();
         supervisorGrid.innerHTML = buildStatusCard(
             "No supervisors published yet",
             "Add supervisors in the CMS to automatically populate this section."
         );
     }
+
+    if (supervisorViewport) {
+        supervisorViewport.addEventListener("wheel", function (event) {
+            const delta = Math.abs(event.deltaY) > Math.abs(event.deltaX) ? event.deltaY : event.deltaX;
+
+            if (!sliderState.isActive || delta === 0) {
+                return;
+            }
+
+            event.preventDefault();
+
+            if (wheelScrollLocked) {
+                return;
+            }
+
+            wheelScrollLocked = true;
+            moveSupervisorSlider(sliderState.currentIndex + (delta > 0 ? 1 : -1), true);
+            window.setTimeout(releaseWheelScrollLock, 420);
+        }, {passive: false});
+    }
+
+    window.addEventListener("resize", function () {
+        if (sliderState.isActive) {
+            measureSupervisorSliderCards();
+            moveSupervisorSlider(sliderState.currentIndex, false);
+        }
+    });
 
     loadLeadershipDataWithRetry()
         .then(applyLeadershipData)
