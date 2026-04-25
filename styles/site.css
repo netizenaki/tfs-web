@@ -3212,6 +3212,79 @@ p {
     color: var(--primary-blue);
 }
 
+.page-country-detail #overview .detail-grid {
+    grid-template-columns: 1fr;
+}
+
+.page-country-detail #overview .detail-card,
+.page-country-detail #admission .detail-card,
+.page-country-detail #visa-process .journey-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(160deg, #ffffff 0%, #eff5ff 100%);
+    border: 1px solid rgba(0, 103, 243, 0.14);
+    box-shadow: var(--shadow-soft);
+}
+
+
+.page-country-detail #admission .detail-card
+{
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(160deg, #ffffff 0%, #eff5ff 100%);
+    border: 1px solid rgba(0, 103, 243, 0.14);
+    box-shadow: var(--shadow-soft);
+}
+
+
+.page-country-detail #overview .detail-card::before,
+.page-country-detail #admission .detail-card::before,
+.page-country-detail #visa-process .journey-card::before{
+    content: "";
+    position: absolute;
+    top: 18px;
+    bottom: 18px;
+    left: 0;
+    width: 5px;
+    border-radius: 0 999px 999px 0;
+    background: linear-gradient(180deg, #1360cd 0%, #0067f3 56%, #395ef3 100%);
+}
+
+
+.page-country-detail #admission .detail-card::before
+{
+    content: "";
+    position: absolute;
+    top: 18px;
+    bottom: 18px;
+    left: 0;
+    width: 5px;
+    border-radius: 0 999px 999px 0;
+    background: linear-gradient(180deg, #1360cd 0%, #0067f3 56%, #395ef3 100%);
+}
+
+.page-country-detail #overview .detail-card-body {
+    position: relative;
+    padding: 28px;
+}
+
+.page-country-detail #overview .detail-card-body + .detail-card-body {
+    padding-top: 26px;
+    border-top: 1px solid rgba(0, 103, 243, 0.12);
+}
+
+.page-country-detail #overview .detail-card-body p {
+    color: var(--muted-text);
+}
+
+.page-country-detail #overview .detail-card-body h3 {
+    color: #132545;
+    font-size: 1.2rem;
+}
+
+
 .page-country-detail .detail-grid,
 .page-country-detail .journey-grid,
 .page-country-detail .opportunity-grid {
@@ -3242,30 +3315,15 @@ p {
     overflow: hidden;
 }
 
-.page-country-detail .detail-card:nth-child(odd),
-.page-country-detail .journey-card:nth-child(odd) {
-    border-top: 4px solid rgba(0, 103, 243, 0.36);
-}
-
-.page-country-detail .detail-card:nth-child(even),
-.page-country-detail .journey-card:nth-child(even) {
-    border-top: 4px solid rgba(243, 225, 57, 0.85);
-}
-
-.page-country-detail .detail-card:hover,
-.page-country-detail .journey-card:hover {
+.page-country-detail #overview .detail-card:hover,
+.page-country-detail #admission .detail-card:hover,
+.page-country-detail #visa-process .journey-card:hover {
     transform: translateY(-5px);
 }
 
-.page-country-detail .detail-card:nth-child(odd):hover,
-.page-country-detail .journey-card:nth-child(odd):hover {
-    border-color: rgba(243, 225, 57, 0.9);
-    border-top-color: rgba(243, 225, 57, 0.9);
-    box-shadow: 0 20px 35px rgba(243, 225, 57, 0.24);
-}
-
-.page-country-detail .detail-card:nth-child(even):hover,
-.page-country-detail .journey-card:nth-child(even):hover {
+.page-country-detail #overview .detail-card:hover,
+.page-country-detail #admission .detail-card:hover,
+.page-country-detail #visa-process .journey-card:hover {
     border-color: rgba(0, 103, 243, 0.45);
     border-top-color: rgba(0, 103, 243, 0.45);
     box-shadow: var(--shadow-hover);
