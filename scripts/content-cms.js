@@ -21,6 +21,7 @@
     ];
 
     const visibleCards = 3;
+   const LOADING_DELAY = 1200;
 
     function escapeHtml(str) {
         return String(str || "")
@@ -119,35 +120,71 @@
         return json.result;
     }
 
-    function render(data) {
-        if (!data) return;
+    function setGridLayout(grid, count) {
+    grid.classList.remove("cols-1", "cols-2", "cols-3");
 
-        if (ceoName) ceoName.textContent = data.ceoName;
-        if (ceoBio) ceoBio.textContent = data.ceoBio1;
+    if (count === 1) grid.classList.add("cols-1");
+    else if (count === 2) grid.classList.add("cols-2");
+    else grid.classList.add("cols-3");
+}
 
-        if (ceoPhoto && data.ceoPhoto?.asset?.url) {
-            ceoPhoto.style.backgroundImage = `url("${data.ceoPhoto.asset.url}")`;
+function createSkeleton(count = 9) {
+    return Array.from({ length: count }).map(() => `
+        <article class="team-card leadership-skeleton-card">
+            <div class="supervisor-avatar skeleton-avatar"></div>
+            <div class="supervisor-meta">
+                <div class="skeleton-line skeleton-line-md"></div>
+                <div class="skeleton-line skeleton-line-sm"></div>
+            </div>
+        </article>
+    `).join("");
+}
+
+ function render(data) {
+    if (!data) return;
+
+    if (ceoName) ceoName.textContent = data.ceoName;
+    if (ceoBio) ceoBio.textContent = data.ceoBio1;
+
+    if (ceoPhoto && data.ceoPhoto?.asset?.url) {
+        ceoPhoto.style.backgroundImage = `url("${data.ceoPhoto.asset.url}")`;
+    }
+
+    sections.forEach(sec => {
+        const grid = document.getElementById(sec.gridId);
+        const viewport = document.getElementById(sec.viewportId);
+
+        if (!grid || !viewport) return;
+
+        const filtered = (data.supervisors || []).filter(
+            m => (m.department || "").toLowerCase() === sec.key.toLowerCase()
+        );
+
+        
+        if (filtered.length === 0) {
+            setGridLayout(grid, 3); 
+            grid.classList.add("is-loading");
+            grid.innerHTML = createSkeleton(3);
+            return;
         }
 
-        sections.forEach(sec => {
-            const grid = document.getElementById(sec.gridId);
-            const viewport = document.getElementById(sec.viewportId);
+     
+        setGridLayout(grid, filtered.length);
+        grid.classList.add("is-loading");
 
-            if (!grid || !viewport) return;
-
-            const filtered = (data.supervisors || []).filter(
-                m => (m.department || "").toLowerCase() === sec.key.toLowerCase()
-            );
-
-            if (!filtered.length) {
-                grid.innerHTML = `<p>No members</p>`;
-                return;
-            }
-
+        setTimeout(() => {
             grid.innerHTML = filtered.map(buildCard).join("");
+
+            requestAnimationFrame(() => {
+                grid.classList.remove("is-loading");
+            });
+
             setupSlider(viewport, grid);
-        });
-    }
+        }, LOADING_DELAY);
+    });
+}
+
+
 
     fetchData()
         .then(render)
