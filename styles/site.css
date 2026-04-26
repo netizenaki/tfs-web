@@ -86,6 +86,13 @@ body.page-leadership {
         linear-gradient(180deg, #f8fbff 0%, #fdfdfd 54%);
 }
 
+body.page-blog {
+    background:
+        radial-gradient(circle at 8% -10%, rgba(0, 103, 243, 0.14), transparent 34%),
+        radial-gradient(circle at 92% 14%, rgba(243, 225, 57, 0.15), transparent 25%),
+        linear-gradient(180deg, #f8fbff 0%, #fdfdfd 54%);
+}
+
 body.page-error {
     background:
         radial-gradient(circle at 8% -12%, rgba(0, 103, 243, 0.16), transparent 35%),
@@ -3086,6 +3093,158 @@ p {
     box-shadow: 0 16px 30px rgba(10, 48, 113, 0.25);
 }
 
+/* Blog */
+.page-blog section {
+    padding: 84px 0;
+}
+
+.page-blog .hero {
+    padding-top: 98px;
+    text-align: center;
+}
+
+.page-blog .hero h1 {
+    font-size: clamp(2rem, 4.2vw, 3.4rem);
+    margin-bottom: 14px;
+    color: #132545;
+}
+
+.page-blog .hero .eyebrow,
+.page-blog .section-head .eyebrow {
+    color: #2b6fd2;
+}
+
+.page-blog .section-head {
+    max-width: 760px;
+    margin-bottom: 30px;
+}
+
+.page-blog .section-head h2 {
+    color: #132545;
+}
+
+.page-blog .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.page-blog .blog-card {
+    background: transparent;
+    border: none;
+    border-radius: 16px 16px 16px 0px;
+    box-shadow: none;
+    overflow: hidden;
+    transition: transform var(--transition-mid);
+}
+
+.page-blog .blog-card:hover {
+    transform: translateY(-4px);
+}
+
+.page-blog .blog-card-art {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    background: #2f88f7;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    transition: filter var(--transition-fast);
+}
+
+.page-blog .blog-tag {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    margin: 0;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #352506;
+    background: linear-gradient(150deg, #f3e139 0%, #ffe947 58%, #ffe99b 100%);
+    z-index: 2;
+}
+
+.page-blog .blog-art-icon {
+    font-size: clamp(2.5rem, 4vw, 3.6rem);
+    line-height: 1;
+    filter: drop-shadow(0 10px 14px rgba(8, 50, 120, 0.28));
+}
+
+.page-blog .blog-art-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.page-blog .blog-card-overlay {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    z-index: 2;
+    padding: 12px;
+    min-height: 108px;
+    max-height: 108px;
+    border-radius: 12px;
+    background: rgba(251, 253, 255, 0.672);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(6px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(6px);
+    transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.page-blog .blog-card-overlay h3 {
+    margin: 0;
+    color: #152749;
+    font-size: 1.02rem;
+    line-height: 1.3;
+    line-clamp: 2;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.page-blog .read-link {
+    margin-top: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #1d63cf;
+    font-weight: 600;
+    font-size: 0.86rem;
+    transition: gap var(--transition-fast), color var(--transition-fast);
+}
+
+.page-blog .read-link:hover {
+    gap: 14px;
+    color: #0e4da8;
+}
+
+.page-blog .blog-card:hover .blog-card-overlay {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.page-blog .blog-card:hover .blog-card-art {
+    filter: brightness(0.84);
+}
+
 /* Responsive */
 @media (max-width: 1040px) {
     .page-home .hero-grid,
@@ -3143,6 +3302,10 @@ p {
 
     .page-activities .showcase-grid {
         grid-template-columns: 1fr;
+    }
+
+    .page-blog .blog-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .page-home .soft-globe,
@@ -3464,7 +3627,8 @@ p {
     .page-pathways section,
     .page-contact section,
     .page-activities section,
-    .page-leadership section {
+    .page-leadership section,
+    .page-blog section {
         padding: 72px 0;
     }
 
@@ -3560,6 +3724,10 @@ p {
 
     .page-home .hero-visual {
         min-height: 280px;
+    }
+
+    .page-blog .blog-grid {
+        grid-template-columns: 1fr;
     }
 
     .page-home .cta-wrap {
