@@ -114,11 +114,10 @@
     }
 
     async function fetchData() {
-        const query = `*[_id==$documentId || _type=="leadershipPage"][0]{
+        const query = `*[_type=="leadershipPage"][0]{
             ceoName,
             ceoBio1,
             ceoPhoto{asset->{url}},
-            ceoPhotoUrl,
             supervisors[]{
                 department,
                 name,
@@ -130,13 +129,8 @@
 
         const host = useCdn ? ".apicdn.sanity.io" : ".api.sanity.io";
 
-        const params = new URLSearchParams({
-            query: query,
-            "$documentId": documentId
-        });
-
         const res = await fetch(
-            `https://${projectId}${host}/v${apiVersion}/data/query/${dataset}?${params.toString()}`
+            `https://${projectId}${host}/v${apiVersion}/data/query/${dataset}?query=${encodeURIComponent(query)}`
         );
 
         const json = await res.json();
@@ -169,15 +163,8 @@ function createSkeleton(count = 9) {
     if (ceoName) ceoName.textContent = data.ceoName;
     if (ceoBio) ceoBio.textContent = data.ceoBio1;
 
-    const ceoPhotoUrl = (data.ceoPhoto && data.ceoPhoto.asset && data.ceoPhoto.asset.url)
-        || data.ceoPhotoUrl
-        || "";
-
-    if (ceoPhoto && ceoPhotoUrl) {
-        ceoPhoto.style.backgroundImage = `url("${ceoPhotoUrl}")`;
-        ceoPhoto.style.backgroundSize = "cover";
-        ceoPhoto.style.backgroundPosition = "center";
-        ceoPhoto.style.backgroundRepeat = "no-repeat";
+    if (ceoPhoto && data.ceoPhoto?.asset?.url) {
+        ceoPhoto.style.backgroundImage = `url("${data.ceoPhoto.asset.url}")`;
     }
 
     sections.forEach(sec => {
