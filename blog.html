@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex">
-    <title>Error 503 | The Forward Society</title>
+    <title>The Forward Society | Blog</title>
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="apple-touch-icon" href="assets/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +12,7 @@
     <link rel="stylesheet" href="styles/site.css">
     <script defer src="https://cloud.umami.is/script.js" data-website-id="ca60e73e-5abb-467a-9024-a4fc5810cddb"></script>
 </head>
-<body class="page-error">
+<body class="page-blog">
     <header class="site-header">
         <nav class="nav-wrap" aria-label="Primary">
             <a href="index.html" class="brand">
@@ -47,7 +46,7 @@
                     </div>
                 </div>
                 <a href="activities-achievement.html">Activities &amp; Achievement</a>
-                <a href="blog.html">Blog</a>
+                <a href="blog.html" aria-current="page">Blog</a>
                 <div class="nav-group">
     <a href="about.html" aria-haspopup="true"><span>About Us</span><span aria-hidden="true">+</span></a>
     <div class="nav-dropdown" role="menu" aria-label="About Us">
@@ -80,7 +79,7 @@
                 </div>
             </details>
             <a href="activities-achievement.html">Activities &amp; Achievement</a>
-            <a href="blog.html">Blog</a>
+            <a href="blog.html" aria-current="page">Blog</a>
             <details>
   <summary>About Us</summary>
   <a href="leadership.html">Leadership</a>
@@ -89,15 +88,75 @@
         </div>
     </header>
 
-    <main class="error-main">
-        <section class="container error-shell">
-            <p class="eyebrow">Error</p>
-            <p class="error-code">503</p>
-            <h1 class="error-title">Service temporarily unavailable</h1>
-            <p class="error-copy">The service is currently unavailable due to maintenance or a temporary outage. Please try again shortly.</p>
-            <div class="error-actions">
-                <a class="error-button" href="index.html">Back to Home</a>
-                <a class="error-link" href="contact.html">Contact Support</a>
+    <div id="dev-notice" class="site-notice" role="dialog" aria-modal="true" aria-labelledby="dev-notice-title" hidden>
+        <div class="site-notice-panel">
+            <p class="eyebrow">Development Notice</p>
+            <h2 id="dev-notice-title">This website is still under development</h2>
+            <p>What you are seeing right now is a demo version of the site.</p>
+            <p>All content, images, structure, and copy are placeholders and may change in the final release.</p>
+            <div class="site-notice-actions">
+                <button type="button" id="dev-notice-close" class="site-notice-button">Continue to Site</button>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <section class="hero">
+            <div class="container reveal">
+                <p class="eyebrow">Blog and Insights</p>
+                <h1>Guides, stories, and study abroad updates</h1>
+                <p class="copy-centered">Explore practical resources from The Forward Society team to help you plan admissions, scholarships, and student life abroad.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="section-head reveal">
+                    <p class="eyebrow">Latest Posts</p>
+                    <h2>Fresh content for students and families</h2>
+                </div>
+                <div class="blog-grid reveal">
+                    <article class="blog-card">
+                        <div class="blog-card-art">
+                            <p class="blog-tag">Admissions</p>
+                            <img class="blog-art-image" src="assets/blog_placeholder.png" alt="Admissions blog artwork" loading="lazy" decoding="async">
+                            <div class="blog-card-overlay">
+                                <h3>How to shortlist your dream universities in 2026</h3>
+                                <a class="read-link" href="#"><span>Learn more</span><span aria-hidden="true">→</span></a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="blog-card">
+                        <div class="blog-card-art">
+                            <p class="blog-tag">Scholarships</p>
+                            <img class="blog-art-image" src="assets/blog_placeholder.png" alt="Scholarships blog artwork" loading="lazy" decoding="async">
+                            <div class="blog-card-overlay">
+                                <h3>Scholarship playbook for international students</h3>
+                                <a class="read-link" href="#"><span>Learn more</span><span aria-hidden="true">→</span></a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="blog-card">
+                        <div class="blog-card-art">
+                            <p class="blog-tag">Visa</p>
+                            <img class="blog-art-image" src="assets/blog_placeholder.png" alt="Visa blog artwork" loading="lazy" decoding="async">
+                            <div class="blog-card-overlay">
+                                <h3>Visa interview confidence: what students should prepare</h3>
+                                <a class="read-link" href="#"><span>Learn more</span><span aria-hidden="true">→</span></a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="blog-card">
+                        <div class="blog-card-art">
+                            <p class="blog-tag">Student Life</p>
+                            <img class="blog-art-image" src="assets/blog_placeholder.png" alt="Student life blog artwork" loading="lazy" decoding="async">
+                            <div class="blog-card-overlay">
+                                <h3>First 30 days abroad: student setup checklist</h3>
+                                <a class="read-link" href="#"><span>Learn more</span><span aria-hidden="true">→</span></a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
             </div>
         </section>
     </main>
@@ -105,9 +164,9 @@
     <footer class="site-footer">
         <div class="container">
             <div class="site-footer-card reveal">
-                <p class="eyebrow eyebrow-light">Need quick help?</p>
-                <h2>Our team is available to assist your next step</h2>
-                <p>Reach out and we will guide you to the right program, destination, and admission strategy.</p>
+                <p class="eyebrow eyebrow-light">Ready to move forward?</p>
+                <h2>Plan your study abroad journey with expert guidance</h2>
+                <p>Book a strategic consultation and get a personalized roadmap based on your goals, profile, and destination preferences.</p>
                 <div class="site-footer-actions">
                     <a class="site-footer-button" href="contact.html">Book Consultation</a>
                     <a class="site-footer-link" href="leadership.html">Meet Our Team</a>
