@@ -15,9 +15,9 @@
     const ceoPhoto = document.getElementById("leadership-ceo-photo");
 
     const sections = [
-        { key: "HR", gridId: "hr-grid", viewportId: "hr-viewport" },
-        { key: "Marketing", gridId: "marketing-grid", viewportId: "marketing-viewport" },
-        { key: "Operations", gridId: "operations-grid", viewportId: "operations-viewport" }
+        { gridId: "hr-grid", viewportId: "hr-viewport" },
+        { gridId: "marketing-grid", viewportId: "marketing-viewport" },
+        { gridId: "operations-grid", viewportId: "operations-viewport" }
     ];
 
     const visibleCards = 3;
@@ -32,6 +32,23 @@
 
     function getImage(photo) {
         return photo?.asset?.url || "";
+    }
+
+    function normalizeDepartmentName(value) {
+        const normalized = String(value || "")
+            .toLowerCase()
+            .replace(/&/g, " and ")
+            .replace(/[^a-z0-9]+/g, " ")
+            .trim();
+
+        const aliasMap = {
+            "hr": "human resources",
+            "human resource": "human resources",
+            "marketing communications": "marketing and communications",
+            "operations": "operations management"
+        };
+
+        return aliasMap[normalized] || normalized;
     }
 
     function buildCard(m) {
@@ -97,10 +114,11 @@
     }
 
     async function fetchData() {
-        const query = `*[_type=="leadershipPage"][0]{
+        const query = `*[_id==$documentId || _type=="leadershipPage"][0]{
             ceoName,
             ceoBio1,
             ceoPhoto{asset->{url}},
+            ceoPhotoUrl,
             supervisors[]{
                 department,
                 name,
@@ -112,8 +130,13 @@
 
         const host = useCdn ? ".apicdn.sanity.io" : ".api.sanity.io";
 
+        const params = new URLSearchParams({
+            query: query,
+            "$documentId": documentId
+        });
+
         const res = await fetch(
-            `https://${projectId}${host}/v${apiVersion}/data/query/${dataset}?query=${encodeURIComponent(query)}`
+            `https://${projectId}${host}/v${apiVersion}/data/query/${dataset}?${params.toString()}`
         );
 
         const json = await res.json();
@@ -146,18 +169,26 @@ function createSkeleton(count = 9) {
     if (ceoName) ceoName.textContent = data.ceoName;
     if (ceoBio) ceoBio.textContent = data.ceoBio1;
 
-    if (ceoPhoto && data.ceoPhoto?.asset?.url) {
-        ceoPhoto.style.backgroundImage = `url("${data.ceoPhoto.asset.url}")`;
+    const ceoPhotoUrl = (data.ceoPhoto && data.ceoPhoto.asset && data.ceoPhoto.asset.url)
+        || data.ceoPhotoUrl
+        || "";
+
+    if (ceoPhoto && ceoPhotoUrl) {
+        ceoPhoto.style.backgroundImage = `url("${ceoPhotoUrl}")`;
+        ceoPhoto.style.backgroundSize = "cover";
+        ceoPhoto.style.backgroundPosition = "center";
+        ceoPhoto.style.backgroundRepeat = "no-repeat";
     }
 
     sections.forEach(sec => {
         const grid = document.getElementById(sec.gridId);
         const viewport = document.getElementById(sec.viewportId);
+        const expectedDepartment = normalizeDepartmentName(grid ? grid.getAttribute("data-department") : "");
 
         if (!grid || !viewport) return;
 
         const filtered = (data.supervisors || []).filter(
-            m => (m.department || "").toLowerCase() === sec.key.toLowerCase()
+            m => normalizeDepartmentName(m.department) === expectedDepartment
         );
 
         
