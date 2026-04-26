@@ -15,13 +15,12 @@
     const ceoPhoto = document.getElementById("leadership-ceo-photo");
 
     const sections = [
-        { gridId: "hr-grid", viewportId: "hr-viewport" },
-        { gridId: "marketing-grid", viewportId: "marketing-viewport" },
-        { gridId: "operations-grid", viewportId: "operations-viewport" }
+        { gridId: "hr-grid" },
+        { gridId: "marketing-grid" },
+        { gridId: "operations-grid" }
     ];
 
-    const visibleCards = 3;
-   const LOADING_DELAY = 1200;
+    const LOADING_DELAY = 1200;
 
     function escapeHtml(str) {
         return String(str || "")
@@ -68,49 +67,6 @@
             </div>
             <p class="copy-top-10">${escapeHtml(m.description)}</p>
         </article>`;
-    }
-
-    function setupSlider(viewport, grid) {
-        const cards = grid.querySelectorAll(".team-card");
-
-        if (cards.length <= visibleCards) return;
-
-        let index = 0;
-
-        function update() {
-            const offset = cards[index].offsetLeft;
-            grid.style.transform = `translateX(-${offset}px)`;
-        }
-
-        viewport.addEventListener("wheel", (e) => {
-            if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
-
-            e.preventDefault();
-
-            if (e.deltaY > 0) index++;
-            else index--;
-
-            index = Math.max(0, Math.min(index, cards.length - visibleCards));
-            update();
-        }, { passive: false });
-
-        let startX = 0;
-
-        viewport.addEventListener("touchstart", e => {
-            startX = e.touches[0].clientX;
-        });
-
-        viewport.addEventListener("touchend", e => {
-            const diff = e.changedTouches[0].clientX - startX;
-
-            if (Math.abs(diff) < 50) return;
-
-            if (diff < 0) index++;
-            else index--;
-
-            index = Math.max(0, Math.min(index, cards.length - visibleCards));
-            update();
-        });
     }
 
     async function fetchData() {
@@ -169,10 +125,9 @@ function createSkeleton(count = 9) {
 
     sections.forEach(sec => {
         const grid = document.getElementById(sec.gridId);
-        const viewport = document.getElementById(sec.viewportId);
         const expectedDepartment = normalizeDepartmentName(grid ? grid.getAttribute("data-department") : "");
 
-        if (!grid || !viewport) return;
+        if (!grid) return;
 
         const filtered = (data.supervisors || []).filter(
             m => normalizeDepartmentName(m.department) === expectedDepartment
@@ -196,8 +151,6 @@ function createSkeleton(count = 9) {
             requestAnimationFrame(() => {
                 grid.classList.remove("is-loading");
             });
-
-            setupSlider(viewport, grid);
         }, LOADING_DELAY);
     });
 }
