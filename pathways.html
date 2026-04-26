@@ -46,8 +46,12 @@
                     </div>
                 </div>
                 <a href="activities-achievement.html">Activities &amp; Achievement</a>
-                <a href="about.html">About Us</a>
-                <a href="leadership.html">Leadership</a>
+                <div class="nav-group">
+    <a href="about.html" aria-haspopup="true"><span>About Us</span><span aria-hidden="true">+</span></a>
+    <div class="nav-dropdown" role="menu" aria-label="About Us">
+        <a href="leadership.html" role="menuitem">Leadership</a>
+    </div>
+</div>
                 <a href="contact.html" class="nav-contact-pill">Contact Us</a>
             </div>
             <button type="button" id="menu-toggle" class="menu-btn" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
@@ -74,8 +78,10 @@
                 </div>
             </details>
             <a href="activities-achievement.html">Activities &amp; Achievement</a>
-            <a href="about.html">About Us</a>
-            <a href="leadership.html">Leadership</a>
+            <details>
+  <summary>About Us</summary>
+  <a href="leadership.html">Leadership</a>
+</details>
             <a href="contact.html">Contact Us</a>
         </div>
     </header>
