@@ -13,6 +13,8 @@
     const searchClearFilters = document.getElementById("search-clear-filters");
     const searchShowResults = document.getElementById("search-show-results");
     const searchModalCheckboxes = searchModal ? searchModal.querySelectorAll('input[type="checkbox"]') : [];
+    const blogCards = document.querySelectorAll(".page-blog .blog-card");
+    const blogSearchEmpty = document.getElementById("blog-search-empty");
     const globeMarkers = document.querySelectorAll(".globe-marker");
     const destinationInfoCard = document.getElementById("destination-info-card");
     const destinationCardCountry = document.getElementById("destination-card-country");
@@ -66,6 +68,29 @@
         }
 
         heroSearchInput.value = searchModalInput.value.trim();
+    }
+
+    function filterBlogPosts() {
+        if (!heroSearchInput || blogCards.length === 0) {
+            return;
+        }
+
+        const query = heroSearchInput.value.trim().toLowerCase();
+        let visibleCount = 0;
+
+        blogCards.forEach(function (card) {
+            const text = card.textContent.toLowerCase();
+            const matches = query === "" || text.indexOf(query) !== -1;
+            card.classList.toggle("is-hidden", !matches);
+
+            if (matches) {
+                visibleCount += 1;
+            }
+        });
+
+        if (blogSearchEmpty) {
+            blogSearchEmpty.hidden = visibleCount !== 0;
+        }
     }
 
     if (devNotice && devNoticeClose) {
@@ -126,7 +151,19 @@
         }
     }
 
-    if (searchModal && heroSearchInput) {
+    if (document.body.classList.contains("page-blog") && heroSearchInput) {
+        heroSearchInput.addEventListener("input", filterBlogPosts);
+        heroSearchInput.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                filterBlogPosts();
+            }
+        });
+
+        if (heroSearchButton) {
+            heroSearchButton.addEventListener("click", filterBlogPosts);
+        }
+    } else if (searchModal && heroSearchInput) {
         heroSearchInput.addEventListener("focus", function () {
             heroSearchInput.blur();
             openSearchModal();

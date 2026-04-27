@@ -101,19 +101,21 @@
     </div>
 
     <main>
-        <section class="hero">
-            <div class="container reveal">
-                <p class="eyebrow">Blog and Insights</p>
-                <h1>Guides, stories, and study abroad updates</h1>
-                <p class="copy-centered">Explore practical resources from The Forward Society team to help you plan admissions, scholarships, and student life abroad.</p>
-            </div>
-        </section>
-
         <section>
             <div class="container">
                 <div class="section-head reveal">
-                    <p class="eyebrow">Latest Posts</p>
-                    <h2>Fresh content for students and families</h2>
+                    <div class="section-head-copy">
+                        <p class="eyebrow">Latest Posts</p>
+                        <h2>Fresh content for students and families</h2>
+                    </div>
+                    <div class="search-box">
+                        <input id="hero-search-input" type="search" aria-label="Search blog posts" placeholder="Search blog posts...">
+                        <button id="hero-search-button" class="btn-primary blog-search-button" type="button" aria-label="Search blog posts">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path d="M10.5 4a6.5 6.5 0 1 0 4.03 11.6l4.43 4.43 1.41-1.41-4.43-4.43A6.5 6.5 0 0 0 10.5 4Zm0 2a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Z"></path>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
                 <div class="blog-grid reveal">
                     <article class="blog-card">
@@ -157,6 +159,7 @@
                         </div>
                     </article>
                 </div>
+                <p id="blog-search-empty" class="blog-search-empty" hidden>No blog posts match that search yet.</p>
             </div>
         </section>
     </main>
