@@ -3252,13 +3252,32 @@ p {
     }
 }
 
+.page-blog .hero-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; 
+    gap: 2rem;
+}
+
+.page-blog .hero-grid .blog-card {
+    grid-row: span 2;
+}
+
+
+
 .page-blog .blog-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 18px;
 }
 
-.page-blog .blog-card.is-hidden {
+.page-blog .podcast-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.page-blog .blog-card.is-hidden,
+.page-blog .podcast-card.is-hidden {
     display: none;
 }
 
@@ -3278,7 +3297,26 @@ p {
     transition: transform var(--transition-mid);
 }
 
-.page-blog .blog-card:hover {
+.page-blog .podcast-card {
+    background: var(--brand-premium-gradient);
+    border-radius: 16px 16px 16px 0px;
+    border: none;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+}
+
+.page-blog .podcast-card-body {
+    padding: 20px;
+}
+
+.page-blog .podcast-card-body h3 {
+    color: var(--bg-white);
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.page-blog .blog-card:hover,
+.page-blog .podcast-card:hover {
     transform: translateY(-4px);
 }
 
@@ -3291,6 +3329,13 @@ p {
     padding: 0;
     overflow: hidden;
     box-shadow: var(--shadow-soft);
+    transition: filter var(--transition-fast);
+}
+
+.page-blog .podcast-card-art {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    display: grid;
     transition: filter var(--transition-fast);
 }
 
@@ -3827,12 +3872,14 @@ p {
     top: 1px;
 }
 
-.page-country-detail .section-head {
+.page-country-detail .section-head,
+.page-pathway-detail .section-head {
     max-width: 700px;
     margin-bottom: 32px;
 }
 
-.page-country-detail .country-detail-actions {
+.page-country-detail .country-detail-actions,
+.page-pathways-detail .pathway-detail-actions  {
     margin-top: 26px;
     display: flex;
     align-items: center;
@@ -3840,7 +3887,8 @@ p {
     gap: 14px;
 }
 
-.page-country-detail .detail-link {
+.page-country-detail .detail-link,
+.page-pathways-detail .detail-link {
     margin-top: 10px;
     display: inline-flex;
     align-items: center;
@@ -3856,21 +3904,25 @@ p {
     transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
 }
 
-.page-country-detail .detail-link:hover {
+.page-country-detail .detail-link:hover,
+.page-pathways-detail .detail-link:hover {
     transform: translateY(-2px);
     border-color: rgba(0, 103, 243, 0.32);
     box-shadow: var(--shadow-hover);
     color: var(--primary-blue);
 }
 
-.detail-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+
+
+.igcse-detail-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-auto-rows: minmax(200px, auto);
+    gap: 2rem;
 }
 
-.detail-grid .detail-card:first-child {
-  grid-column: 1 / -1;
+.detail-card-feature {
+    grid-row: span 2;
 }
 
 @media (max-width: 768px) {
@@ -3886,7 +3938,11 @@ p {
 .page-country-detail #overview .detail-card,
 .page-country-detail #admission .detail-card,
 .page-country-detail #visa-process .journey-card,
-.page-country-detail #opportunities .opportunity-card {
+.page-country-detail #opportunities .opportunity-card,
+.page-pathways-detail #overview .detail-card,
+.page-pathways-detail #admission .detail-card,
+.page-pathways-detail #visa-process .journey-card,
+.page-pathways-detail #opportunities .opportunity-card {
     position: relative;
     overflow: hidden;
     border-radius: var(--radius-lg);
@@ -3896,19 +3952,24 @@ p {
 
 .page-country-detail .detail-card-body,
 .page-country-detail .opportunity-body,
-.page-country-detail .journey-card {
+.page-country-detail .journey-card,
+.page-pathways-detail .detail-card-body,
+.page-pathways-detail .opportunity-body,
+.page-pathways-detail .journey-card {
   padding: 26px;
 }
 
 
-.page-country-detail h3 {
+.page-country-detail h3,
+.page-pathways-detail h3 {
   font-size: 1.2rem;
   font-weight: 600;
   color: #132545;
   margin-bottom: 10px;
 }
 
-.page-country-detail p {
+.page-country-detail p,
+.page-pathways-detail p {
   color: #5f6f87;
   line-height: 1.6;
   font-size: 0.95rem;
@@ -3924,18 +3985,24 @@ p {
 
 
 .page-country-detail .journey-grid,
-.page-country-detail .opportunity-grid {
+.page-country-detail .opportunity-grid,
+.page-pathways-detail .journey-grid,
+.page-pathways-detail .opportunity-grid,
+.page-pathways-detail .requirement-grid {
     margin-top: 10px;
     display: grid;
     gap: 18px;
 }
 
 
-.page-country-detail .opportunity-grid {
+.page-country-detail .opportunity-grid,
+.page-pathways-detail .opportunity-grid,
+.page-pathways-detail .requirement-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.page-country-detail .journey-grid {
+.page-country-detail .journey-grid,
+.page-pathways-detail .journey-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
@@ -4009,9 +4076,379 @@ p {
     margin-top: 18px;
 }
 
+.page-igcse .hero {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at top right, rgba(38, 116, 255, 0.18), transparent 30%),
+        linear-gradient(180deg, #f7fbff 0%, #eef5ff 100%);
+}
+
+.page-igcse .hero::before,
+.page-igcse .hero::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.page-igcse .hero::before {
+    width: 420px;
+    height: 420px;
+    left: -130px;
+    top: -180px;
+    background: radial-gradient(circle, rgba(50, 129, 255, 0.24), transparent 68%);
+}
+
+.page-igcse .hero::after {
+    width: 320px;
+    height: 320px;
+    right: -70px;
+    bottom: -120px;
+    background: radial-gradient(circle, rgba(138, 215, 255, 0.28), transparent 68%);
+}
+
+.page-igcse main {
+    background:
+        linear-gradient(180deg, rgba(247, 251, 255, 0.62) 0%, rgba(255, 255, 255, 0) 22%),
+        #fdfefe;
+}
+
+.page-igcse .hero-grid {
+    display: grid;
+    grid: none;
+    align-items: center;
+}
+
+.page-igcse .hero h1 {
+   font-size: clamp(2rem, 8vw, 5rem); 
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+    color: #10213f;
+}
+
+.page-igcse .hero p:not(.eyebrow) {
+    max-width: 620px;
+    color: #546684;
+    font-size: 1rem;
+}
+
+.page-igcse .hero .eyebrow {
+    color: #2b72e0;
+}
+
+.page-igcse .hero-facts-strip {
+    margin-top: 28px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    max-width: 720px;
+}
+
+.page-igcse .hero-fact {
+    position: relative;
+    padding: 18px 18px 16px;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(72, 118, 209, 0.12);
+    box-shadow: 0 18px 34px rgba(35, 77, 150, 0.1);
+    backdrop-filter: blur(12px);
+}
+
+.page-igcse .hero-fact::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto auto 18px;
+    width: 52px;
+    height: 4px;
+    border-radius: 0 0 999px 999px;
+    background: linear-gradient(90deg, #2a74ff, #87c2ff);
+}
+
+.page-igcse .hero-fact-label {
+    display: inline-block;
+    margin-bottom: 8px;
+    color: #6a7a92;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.page-igcse .hero-fact strong {
+    display: block;
+    color: #132545;
+    font-size: 1rem;
+    line-height: 1.3;
+}
+
+.page-igcse .country-hero-visual {
+    position: relative;
+    min-height: 470px;
+}
+
+.page-igcse .country-detail-actions {
+    margin-top: 28px;
+    gap: 14px;
+}
+
+.page-igcse .country-detail-actions .card-link,
+.page-igcse .detail-link {
+    min-height: 50px;
+}
+
+.page-igcse .detail-link {
+    background: rgba(255, 255, 255, 0.82);
+    border-color: rgba(42, 116, 255, 0.16);
+}
+
+.page-igcse .igcse-section {
+    position: relative;
+}
+
+.page-igcse .igcse-section::before {
+    content: "";
+    position: absolute;
+    inset: 40px 0 auto;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(111, 150, 222, 0.18), transparent);
+    pointer-events: none;
+}
+
+.page-igcse .igcse-section .container {
+    position: relative;
+}
+
+.page-igcse .section-soft {
+    background:
+        linear-gradient(180deg, rgba(239, 247, 255, 0.86), rgba(249, 252, 255, 0.98));
+}
+
+.page-igcse .section-head {
+    max-width: 760px;
+    margin-bottom: 34px;
+}
+
+.page-igcse .section-head h2 {
+    color: #132545;
+    font-size: clamp(1.9rem, 3.3vw, 2.75rem);
+    letter-spacing: -0.03em;
+}
+
+.page-igcse .section-head .eyebrow {
+    color: #2b72e0;
+}
+
+.page-igcse .igcse-detail-grid,
+.page-igcse .igcse-journey-grid,
+.page-igcse .igcse-opportunity-grid {
+    gap: 22px;
+}
+
+
+
+.page-igcse .igcse-card,
+.page-igcse .igcse-step-card,
+.page-igcse .igcse-opportunity-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(98, 137, 229, 0.16);
+    border-radius: 28px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(244, 249, 255, 0.98));
+    box-shadow: 0 18px 44px rgba(34, 74, 145, 0.1);
+}
+
+.page-igcse .igcse-card::before,
+.page-igcse .igcse-step-card::before,
+.page-igcse .igcse-opportunity-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #2a74ff, #77b3ff 65%, #b6dbff);
+    opacity: 0.95;
+}
+
+.page-igcse .igcse-card-body,
+.page-igcse .igcse-step-card,
+.page-igcse .igcse-opportunity-card .igcse-card-body {
+    display: grid;
+    align-content: start;
+    gap: 14px;
+}
+
+.page-igcse .section-card-head,
+.page-igcse .section-card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+.page-igcse .section-card-icon {
+    width: 42px;
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 42px;
+    color: #1260d4;
+}
+
+.page-igcse .section-card-icon svg {
+    width: 42px;
+    height: 42px;
+    display: block;
+    fill: currentColor;
+}
+
+.page-igcse .igcse-card-body {
+    padding: 30px 28px 28px;
+}
+
+.page-igcse .igcse-card-hero {
+    background:
+        radial-gradient(circle at top right, rgba(103, 163, 255, 0.22), transparent 28%),
+        linear-gradient(145deg, rgba(245, 250, 255, 1), rgba(255, 255, 255, 0.98));
+}
+
+.page-igcse .igcse-card-accent {
+    background: linear-gradient(180deg, rgba(241, 248, 255, 0.98), rgba(255, 255, 255, 0.98));
+}
+
+.page-igcse .igcse-card-soft,
+.page-igcse .igcse-opportunity-card-soft {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 252, 255, 0.98));
+}
+
+.page-igcse .igcse-card-body h3,
+.page-igcse .igcse-step-card h3,
+.page-igcse .igcse-opportunity-card h3 {
+    margin-bottom: 0;
+    color: #132545;
+    font-size: 1.28rem;
+    line-height: 1.16;
+    letter-spacing: -0.015em;
+}
+
+.page-igcse .igcse-card-body p,
+.page-igcse .igcse-step-card p,
+.page-igcse .igcse-opportunity-card p {
+    color: #52627c;
+}
+
+.page-igcse .igcse-card-hero .igcse-card-body h3 {
+    max-width: 680px;
+    font-size: clamp(1.5rem, 2.6vw, 1.95rem);
+}
+
+.page-igcse .igcse-chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.page-igcse .igcse-chip {
+    display: inline-flex;
+    align-items: center;
+    min-height: 34px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(42, 116, 255, 0.09);
+    border: 1px solid rgba(42, 116, 255, 0.14);
+    color: #1b4c99;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.page-igcse .igcse-step-card {
+    padding: 30px 28px 28px;
+}
+
+.page-igcse .igcse-step-card .section-card-meta {
+    margin-bottom: 0;
+}
+
+.page-igcse .igcse-step-card .country-floating-stat {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 18px;
+    background: linear-gradient(145deg, rgba(42, 116, 255, 0.12), rgba(159, 211, 255, 0.32));
+    box-shadow: inset 0 0 0 1px rgba(42, 116, 255, 0.08);
+}
+
+.page-igcse .igcse-opportunity-card .card-link {
+    display: inline-flex;
+    margin-top: 10px;
+    width: fit-content;
+}
+
+.page-igcse .benefit-list,
+.page-igcse .opportunity-list {
+    display: grid;
+    gap: 10px;
+    margin-top: 2px;
+}
+
+.page-igcse .benefit-list li,
+.page-igcse .opportunity-list li {
+    margin-bottom: 0;
+    padding-left: 18px;
+    color: #4f607a;
+}
+
+.page-igcse .benefit-list li::before,
+.page-igcse .opportunity-list li::before {
+    color: #2a74ff;
+    font-size: 1rem;
+    top: 1px;
+}
+
+.page-igcse .igcse-card:hover,
+.page-igcse .igcse-step-card:hover,
+.page-igcse .igcse-opportunity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 24px 52px rgba(34, 74, 145, 0.14);
+}
+
+.page-igcse .igcse-card:hover .section-card-icon,
+.page-igcse .igcse-opportunity-card:hover .section-card-icon {
+    color: #0c53bf;
+    transform: translateY(-1px);
+}
+
 @media (max-width: 960px) {
     .page-contact .contact-grid {
         grid-template-columns: 1fr;
+    }
+
+    .page-igcse .hero-grid {
+        gap: 24px;
+    }
+
+    .page-igcse .hero-facts-strip {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+    }
+
+    .page-igcse .country-hero-visual {
+        min-height: 420px;
+    }
+
+    .page-igcse .igcse-card,
+    .page-igcse .igcse-step-card,
+    .page-igcse .igcse-opportunity-card {
+        border-radius: 24px;
+    }
+
+    .page-igcse .igcse-card-body,
+    .page-igcse .igcse-step-card {
+        padding: 26px 24px 24px;
     }
 }
 
@@ -4093,8 +4530,37 @@ p {
     .page-leadership .stream-grid,
     
     .page-country-detail .journey-grid,
-    .page-country-detail .opportunity-grid {
+    .page-country-detail .opportunity-grid,
+    .page-pathways-detail .journey-grid,
+    .page-pathways-detail .opportunity-grid {
         grid-template-columns: 1fr;
+    }
+
+    .page-igcse .igcse-detail-grid,
+    .page-igcse .igcse-journey-grid,
+    .page-igcse .igcse-opportunity-grid {
+        gap: 16px;
+    }
+
+    .page-igcse .igcse-card,
+    .page-igcse .igcse-step-card,
+    .page-igcse .igcse-opportunity-card {
+        border-radius: 22px;
+    }
+
+    .page-igcse .igcse-card-body,
+    .page-igcse .igcse-step-card {
+        padding: 22px 20px 20px;
+    }
+
+    .page-igcse .igcse-step-card .country-floating-stat {
+        width: 46px;
+        height: 46px;
+        border-radius: 15px;
+    }
+
+    .page-igcse .igcse-chip-row {
+        gap: 8px;
     }
 
     .page-home .destination-visual {
@@ -4157,7 +4623,9 @@ p {
         min-height: 280px;
     }
 
-    .page-blog .blog-grid {
+    .page-blog .blog-grid,
+    .page-blog .podcast-grid,
+    .page-blog .hero-grid {
         grid-template-columns: 1fr;
     }
 
@@ -4214,6 +4682,31 @@ p {
         right: auto;
         bottom: auto;
         margin-top: 16px;
+    }
+
+    .page-igcse .hero {
+        padding-top: 98px;
+    }
+
+    .page-igcse .country-hero-visual {
+        min-height: 500px;
+    }
+
+    .page-igcse .country-hero-visual .globe {
+        margin-top: 0;
+        width: min(88vw, 380px);
+    }
+
+    .page-igcse .country-floating-card {
+        position: relative;
+        max-width: none;
+        right: auto;
+        bottom: auto;
+        margin-top: 18px;
+    }
+
+    .page-igcse .section-head {
+        margin-bottom: 28px;
     }
 
     .page-country-detail .detail-link,
