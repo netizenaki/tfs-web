@@ -400,4 +400,89 @@ if (document.body.classList.contains("page-blog") && heroSearchInput) {
     revealItems.forEach(function (item) {
         observer.observe(item);
     });
+
+  const grid = document.querySelector('.blog-detail-hero-grid');
+
+if (grid) {
+    let cards = Array.from(grid.children);
+
+    const allImages = cards.map(card => {
+        const img = card.querySelector('img');
+        return img ? img.src : null;
+    }).filter(Boolean);
+
+    const total = cards.length;
+
+    if (total > 4) {
+        const extraCount = total - 4;
+
+        cards.slice(4).forEach(card => card.remove());
+
+        const lastCard = grid.children[3];
+
+        const overlay = document.createElement('div');
+        overlay.className = 'more-overlay';
+        overlay.textContent = `+${extraCount}`;
+
+        lastCard.appendChild(overlay);
+    }
+
+    const visibleCount = Math.min(total, 4);
+    grid.classList.add(`items-${visibleCount}`);
+
+   
+    const lightbox = document.getElementById('fb-lightbox');
+    const lightboxImg = lightbox.querySelector('.fb-lightbox-image');
+    const closeBtn = lightbox.querySelector('.fb-close');
+    const prevBtn = lightbox.querySelector('.fb-prev');
+    const nextBtn = lightbox.querySelector('.fb-next');
+
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+        currentIndex = index;
+        lightboxImg.src = allImages[currentIndex];
+        lightbox.hidden = false;
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        lightbox.hidden = true;
+        document.body.style.overflow = '';
+    }
+
+    function showNext() {
+        currentIndex = (currentIndex + 1) % allImages.length;
+        lightboxImg.src = allImages[currentIndex];
+    }
+
+    function showPrev() {
+        currentIndex = (currentIndex - 1 + allImages.length) % allImages.length;
+        lightboxImg.src = allImages[currentIndex];
+    }
+
+    // Click any visible card
+    grid.querySelectorAll('.blog-card').forEach((card, index) => {
+        card.addEventListener('click', () => {
+            openLightbox(index);
+        });
+    });
+
+    // Controls
+    closeBtn.addEventListener('click', closeLightbox);
+    nextBtn.addEventListener('click', showNext);
+    prevBtn.addEventListener('click', showPrev);
+
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (lightbox.hidden) return;
+
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') showNext();
+        if (e.key === 'ArrowLeft') showPrev();
+    });
+}
 }());
