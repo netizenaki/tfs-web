@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Forward Society | Blog</title>
+    <title>The Forward Society | Blog Post</title>
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="apple-touch-icon" href="assets/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="styles/site.css">
     <script defer src="https://cloud.umami.is/script.js" data-website-id="ca60e73e-5abb-467a-9024-a4fc5810cddb"></script>
 </head>
-<body class="page-blog">
+<body class="page-blog page-blog-post">
     <header class="site-header">
         <nav class="nav-wrap" aria-label="Primary">
             <a href="index.html" class="brand">
@@ -48,11 +48,11 @@
                 <a href="activities-achievement.html">Activities &amp; Achievement</a>
                 <a href="blog.html" aria-current="page">Blog</a>
                 <div class="nav-group">
-    <a href="about.html" aria-haspopup="true"><span>About Us</span><span aria-hidden="true">+</span></a>
-    <div class="nav-dropdown" role="menu" aria-label="About Us">
-        <a href="leadership.html" role="menuitem">Leadership</a>
-    </div>
-</div>
+                    <a href="about.html" aria-haspopup="true"><span>About Us</span><span aria-hidden="true">+</span></a>
+                    <div class="nav-dropdown" role="menu" aria-label="About Us">
+                        <a href="leadership.html" role="menuitem">Leadership</a>
+                    </div>
+                </div>
                 <a href="contact.html" class="nav-contact-pill">Contact Us</a>
             </div>
             <button type="button" id="menu-toggle" class="menu-btn" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
@@ -81,47 +81,39 @@
             <a href="activities-achievement.html">Activities &amp; Achievement</a>
             <a href="blog.html" aria-current="page">Blog</a>
             <details>
-  <summary>About Us</summary>
-  <a href="leadership.html">Leadership</a>
-</details>
+                <summary>About Us</summary>
+                <a href="leadership.html">Leadership</a>
+            </details>
             <a href="contact.html">Contact Us</a>
         </div>
     </header>
 
-    <div id="dev-notice" class="site-notice" role="dialog" aria-modal="true" aria-labelledby="dev-notice-title" hidden>
-        <div class="site-notice-panel">
-            <p class="eyebrow">Development Notice</p>
-            <h2 id="dev-notice-title">This website is still under development</h2>
-            <p>What you are seeing right now is a demo version of the site.</p>
-            <p>All content, images, structure, and copy are placeholders and may change in the final release.</p>
-            <div class="site-notice-actions">
-                <button type="button" id="dev-notice-close" class="site-notice-button">Continue to Site</button>
-            </div>
-        </div>
-    </div>
-
     <main>
+        <section>
+            <div class="container">
+                <a class="read-link" href="blog.html"><span>Back to Blog</span><span aria-hidden="true">←</span></a>
+                <p id="blog-post-loading" class="blog-search-empty">Loading post...</p>
+                <article id="blog-post-article" class="blog-post-article" hidden>
+                    <p id="blog-post-category" class="blog-tag blog-post-tag">General</p>
+                    <h1 id="blog-post-title">Blog Post</h1>
+                    <p id="blog-post-meta" class="blog-post-meta"></p>
+                    <img id="blog-post-cover" class="blog-post-cover" alt="Blog cover image" hidden>
+                    <p id="blog-post-excerpt" class="hero-sub"></p>
+                    <div id="blog-post-content" class="blog-post-content"></div>
+                </article>
+                <p id="blog-post-empty" class="blog-search-empty" hidden>This blog post could not be found.</p>
+            </div>
+        </section>
+
         <section>
             <div class="container">
                 <div class="section-head reveal">
                     <div class="section-head-copy">
-                        <p class="eyebrow">Latest Posts</p>
-                        <h2>Stories, tips, and updates for students and families</h2>
-                    </div>
-                    <div class="search-box">
-                        <input id="blog-search-input" type="search" aria-label="Search blog posts" placeholder="Search posts...">
-                        <button id="blog-search-button" class="btn-primary blog-search-button" type="button" aria-label="Search blog posts">
-                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                                <path d="M10.5 4a6.5 6.5 0 1 0 4.03 11.6l4.43 4.43 1.41-1.41-4.43-4.43A6.5 6.5 0 0 0 10.5 4Zm0 2a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Z"></path>
-                            </svg>
-                        </button>
+                        <p class="eyebrow">Related Posts</p>
+                        <h2>Keep reading</h2>
                     </div>
                 </div>
-
-                <p id="blog-loading" class="blog-search-empty">Loading posts...</p>
-                <div id="blog-post-grid" class="blog-grid reveal" hidden></div>
-                <p id="blog-search-empty" class="blog-search-empty" hidden>No blog posts match that search yet.</p>
-                <p id="blog-empty" class="blog-search-empty" hidden>No blog posts are published yet.</p>
+                <div id="related-post-grid" class="blog-grid"></div>
             </div>
         </section>
     </main>
