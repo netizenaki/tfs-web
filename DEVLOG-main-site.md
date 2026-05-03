@@ -33,3 +33,22 @@ Focused on making the public website cleaner, easier to use, and better aligned 
 ## To Do List
 - Blog page
 - Country & Pathway content display page
+
+---
+
+Date: 2026-05-03
+
+## What Was Worked On
+- Made sure the website works smoothly for everyone, both on the live site and when testing new features.
+- Set things up so only trusted versions of the site can connect to the content system.
+- Cleaned up how blog and leadership content is loaded so it’s always reliable.
+
+## What Improved
+- The blog and leadership pages now always show the latest updates, whether you’re visiting the real site or testing changes.
+- Most of the bugs and errors when viewing the blog have been eliminated by the firing squad.
+- The site is safer because only approved versions can get content.
+
+## What This Means
+- You can visit the site or test it locally and everything should “just work.”
+- Content updates will always show up as expected.
+- The site is more secure and dependable for everyone.
