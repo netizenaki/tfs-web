@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Universities</title>
+    <link rel="stylesheet" href="/styles/site.css">
+    <link rel="stylesheet" href="/explore/universities/universities.css">
+    <script defer src="/explore/universities/universities.js"></script>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav-wrap" aria-label="Primary">
+            <a href="/index.html" class="brand" aria-current="page">
+                <img src="/assets/logo.png" alt="The Forward Society logo" class="brand-logo">
+                <span>The Forward Society</span>
+            </a>
+            <div class="shortlist-icon" id="shortlist-icon">
+                <span id="shortlist-count">0</span>
+                <span class="star">⭐</span>
+                Shortlist
+            </div>
+        </nav>
+    </header>
+    <main class="explore-main">
+        <aside class="explore-sidebar">
+            <h2>Filters</h2>
+            <form id="filter-form">
+                <div class="filter-group">
+                    <label>Country/Region</label>
+                    <select name="country" id="filter-country">
+                        <option value="">All</option>
+                        <option value="germany">Germany</option>
+                        <option value="thailand">Thailand</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Tuition Range (€)</label>
+                    <input type="range" min="0" max="20000" step="500" id="filter-tuition" name="tuition">
+                    <span id="tuition-value">0 - 20000</span>
+                </div>
+                <div class="filter-group">
+                    <label>Language</label>
+                    <select name="language" id="filter-language">
+                        <option value="">All</option>
+                        <option value="english">English</option>
+                        <option value="thai">Thai</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Program</label>
+                    <select name="program" id="filter-program">
+                        <option value="">All</option>
+                        <option value="cs">Computer Science</option>
+                        <option value="business">Business</option>
+                        <option value="design">Design</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Type</label>
+                    <select name="type" id="filter-type">
+                        <option value="">All</option>
+                        <option value="public">Public</option>
+                        <option value="applied">Applied Sciences</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary">Apply Filters</button>
+            </form>
+        </aside>
+        <section class="explore-content">
+            <div class="university-grid" id="university-grid">
+                <!-- University cards will be rendered here by JS -->
+            </div>
+        </section>
+    </main>
+    <div id="shortlist-modal" class="shortlist-modal hidden">
+        <div class="shortlist-modal-content">
+            <h2>Your Shortlist</h2>
+            <div id="shortlist-list"></div>
+            <button id="close-shortlist" class="btn-secondary">Close</button>
+        </div>
+    </div>
+</body>
+</html>
