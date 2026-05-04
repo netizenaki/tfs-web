@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Explore Universities</title>
     <link rel="stylesheet" href="/styles/site.css">
-    <link rel="stylesheet" href="/explore/universities/universities.css">
-    <script defer src="/explore/universities/universities.js"></script>
+    <link rel="stylesheet" href="/explore/assets/css/explore.css">
+    <script defer src="/explore/assets/js/explore.js"></script>
 </head>
-<body>
+<body class="explore-page">
     <header class="site-header">
         <nav class="nav-wrap" aria-label="Primary">
             <a href="/index.html" class="brand" aria-current="page">
@@ -17,7 +17,7 @@
             </a>
             <div class="shortlist-icon" id="shortlist-icon">
                 <span id="shortlist-count">0</span>
-                <span class="star">⭐</span>
+                <img class="star" src="/explore/assets/solid-star.webp" alt="Shortlist icon">
                 Shortlist
             </div>
         </nav>
@@ -37,7 +37,7 @@
                 <div class="filter-group">
                     <label>Tuition Range (€)</label>
                     <input type="range" min="0" max="20000" step="500" id="filter-tuition" name="tuition">
-                    <span id="tuition-value">0 - 20000</span>
+                    <span id="tuition-value" class="filter-range-value">0 - 20000</span>
                 </div>
                 <div class="filter-group">
                     <label>Language</label>
@@ -68,7 +68,7 @@
             </form>
         </aside>
         <section class="explore-content">
-            <div class="university-grid" id="university-grid">
+            <div class="item-grid" id="university-grid">
                 <!-- University cards will be rendered here by JS -->
             </div>
         </section>
@@ -78,6 +78,13 @@
             <h2>Your Shortlist</h2>
             <div id="shortlist-list"></div>
             <button id="close-shortlist" class="btn-secondary">Close</button>
+        </div>
+    </div>
+    <div id="university-details-modal" class="shortlist-modal hidden">
+        <div class="shortlist-modal-content">
+            <h2 id="university-details-title">University details</h2>
+            <div id="university-details-body"></div>
+            <button id="close-university-details" class="btn-secondary">Close</button>
         </div>
     </div>
 </body>

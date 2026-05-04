@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Scholarships</title>
+    <link rel="stylesheet" href="/styles/site.css">
+    <link rel="stylesheet" href="/explore/assets/css/explore.css">
+</head>
+<body class="explore-page">
+    <header class="site-header">
+        <nav class="nav-wrap" aria-label="Primary">
+            <a href="/index.html" class="brand" aria-current="page">
+                <img src="/assets/logo.png" alt="The Forward Society logo" class="brand-logo">
+                <span>The Forward Society</span>
+            </a>
+        </nav>
+    </header>
+    <main class="explore-main">
+        <aside class="explore-sidebar">
+            <h2>Scholarship Filters</h2>
+            <form id="scholarship-filter-form">
+                <div class="filter-group">
+                    <label for="filter-country">Country</label>
+                    <select id="filter-country">
+                        <option value="">All</option>
+                        <option value="germany">Germany</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="europe">Europe</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filter-level">Level</label>
+                    <select id="filter-level">
+                        <option value="">All</option>
+                        <option value="postgraduate">Postgraduate</option>
+                        <option value="masters">Masters</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filter-amount">Funding Amount</label>
+                    <input type="range" id="filter-amount" min="0" max="25000" step="1000" value="25000">
+                    <span id="amount-value" class="filter-range-value">0 - 25000</span>
+                </div>
+                <button type="submit" class="btn-primary">Apply Filters</button>
+            </form>
+        </aside>
+        <section class="explore-content">
+            <div id="scholarship-grid" class="item-grid"></div>
+        </section>
+    </main>
+    <script defer src="/explore/assets/js/explore.js"></script>
+</body>
+</html>
