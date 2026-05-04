@@ -2222,7 +2222,7 @@ p {
     min-height: 34px;
     padding: 8px 14px;
     border-radius: 999px;
-    background: #dfe9f7;
+    background: #f0f5fc;
     border: 1px solid var(--primary-blue);
     color: var(--primary-blue);
     font-size: 0.92rem;
@@ -2230,7 +2230,7 @@ p {
     max-width: fit-content;
 }
 
-.page-germany .card-link-Green{ 
+.page-germany .card-link-Green { 
         display: inline-flex;
         align-items: center;
         min-height: 34px;
@@ -2264,7 +2264,7 @@ p {
     min-height: 34px;
     padding: 8px 14px;
     border-radius: 999px;
-    background: #f3fff6;
+    background: #f5fcf7;
     border: 1px solid #00C48C;
     color: #00C48C;
     font-size: 0.92rem;
@@ -4232,24 +4232,23 @@ p {
 }
 
 /* Page: IGCSE */
-.page-igcse .hero {
+.page-igcse .igcse-hero {
     position: relative;
     overflow: hidden;
-    padding: 102px 0 82px;
     background:
         radial-gradient(circle at top right, rgba(38, 116, 255, 0.18), transparent 30%),
         linear-gradient(180deg, #f7fbff 0%, #eef5ff 100%);
 }
 
-.page-igcse .hero::before,
-.page-igcse .hero::after {
+.page-igcse .igcse-hero::before,
+.page-igcse .igcse-hero::after {
     content: "";
     position: absolute;
     border-radius: 50%;
     pointer-events: none;
 }
 
-.page-igcse .hero::before {
+.page-igcse .igcse-hero::before {
     width: 420px;
     height: 420px;
     left: -130px;
@@ -4257,7 +4256,7 @@ p {
     background: radial-gradient(circle, rgba(50, 129, 255, 0.24), transparent 68%);
 }
 
-.page-igcse .hero::after {
+.page-igcse .igcse-hero::after {
     width: 320px;
     height: 320px;
     right: -70px;
@@ -4265,13 +4264,21 @@ p {
     background: radial-gradient(circle, rgba(138, 215, 255, 0.28), transparent 68%);
 }
 
+.page-igcse .igcse-hero-mascot {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+.page-igcse .igcse-hero-mascot img{
+    width: 300px;
+}
 .page-igcse main {
     background:
         linear-gradient(180deg, rgba(247, 251, 255, 0.62) 0%, rgba(255, 255, 255, 0) 22%),
         #fdfefe;
 }
 
-.page-igcse .hero h1 {
+.page-igcse .igcse-hero h1 {
     font-size: clamp(2.2rem, 4.7vw, 4rem);
     font-weight: 800;
     margin-bottom: 18px;
@@ -4280,18 +4287,18 @@ p {
     color: #10213f;
 }
 
-.page-igcse .hero p:not(.eyebrow) {
+.page-igcse .igcse-hero p:not(.eyebrow) {
     max-width: 640px;
     color: #546684;
     font-size: 1rem;
     line-height: 1.75;
 }
 
-.page-igcse .hero .eyebrow {
+.page-igcse .igcse-hero .eyebrow {
     color: #2b72e0;
 }
 
-.page-igcse .hero-facts-strip {
+.page-igcse .igcse-hero-facts-strip {
     margin-top: 28px;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -4299,7 +4306,7 @@ p {
     max-width: 900px;
 }
 
-.page-igcse .hero-fact {
+.page-igcse .igcse-hero-fact {
     display: grid;
     grid-template-columns: 0.8fr 1.2fr;
     position: relative;
@@ -4311,8 +4318,8 @@ p {
     backdrop-filter: blur(12px);
 }
 
-.page-igcse .hero-fact:nth-child(1)::before,
-.page-germany .hero-fact:nth-child(1)::before {
+.page-igcse .igcse-hero-fact:nth-child(1)::before,
+.page-germany .igcse-hero-fact:nth-child(1)::before {
     content: "";
     position: absolute;
     left: 0;
@@ -4323,8 +4330,8 @@ p {
     background: linear-gradient(180deg, #2a74ff, #87c2ff);
 }
 
-.page-igcse .hero-fact:nth-child(2)::before,
-.page-germany .hero-fact:nth-child(2)::before {
+.page-igcse .igcse-hero-fact:nth-child(2)::before,
+.page-germany .igcse-hero-fact:nth-child(2)::before {
     content: "";
     position: absolute;
     left: 0;
@@ -4335,8 +4342,8 @@ p {
     background: linear-gradient(90deg, #F3E139, #FFF3A3);
 }
 
-.page-igcse .hero-fact:nth-child(3)::before,
-.page-germany .hero-fact:nth-child(3)::before {
+.page-igcse .igcse-hero-fact:nth-child(3)::before,
+.page-germany .igcse-hero-fact:nth-child(3)::before {
     content: "";
     position: absolute;
     left: 0;
@@ -4347,7 +4354,7 @@ p {
     background: linear-gradient(90deg, #22c55e, #86efac);
 }
 
-.page-igcse .hero-fact-label {
+.page-igcse .igcse-hero-fact-label {
     display: inline-block;
     margin-bottom: 8px;
     color: #6a7a92;
@@ -4357,14 +4364,14 @@ p {
     text-transform: uppercase;
 }
 
-.page-igcse .hero-fact strong {
+.page-igcse .igcse-hero-fact strong {
     display: block;
     color: #132545;
     font-size: 1rem;
     line-height: 1.3;
 }
 
-.page-igcse .hero-fact:nth-child(1) .hero-icons {
+.page-igcse .igcse-hero-fact:nth-child(1) .igcse-hero-icons {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -4374,7 +4381,7 @@ p {
     background: linear-gradient(145deg, rgba(42, 116, 255, 0.12), rgba(159, 211, 255, 0.32));
 }
 
-.page-igcse .hero-fact:nth-child(2) .hero-icons {
+.page-igcse .igcse-hero-fact:nth-child(2) .igcse-hero-icons {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -4384,7 +4391,7 @@ p {
     background: linear-gradient(145deg, rgba(243, 225, 57, 0.14), rgba(255, 243, 163, 0.35));
 }
 
-.page-igcse .hero-fact:nth-child(3) .hero-icons {
+.page-igcse .igcse-hero-fact:nth-child(3) .igcse-hero-icons {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -4429,14 +4436,20 @@ p {
     height: auto;
 }
 
-
-.page-igcse .overview-grid,
 .page-country-detail .overview-grid {
     display: grid;
     grid-template-columns: minmax(120px, auto) 1fr;
     gap: 18px;
     padding: 30px;
 }
+
+.page-igcse .overview-grid {
+    display:grid;
+    grid-template-columns: 1fr;
+    gap:18px;
+    padding: 20px;
+}
+
 
 .page-germany .overview-icons,
 .page-igcse .overview-icons,
@@ -4557,6 +4570,7 @@ p {
     box-shadow: 0 18px 44px rgba(34, 74, 145, 0.1);
 }
 
+.page-igcse .requirement-card::before,
 .page-igcse .igcse-card::before,
 .page-igcse .igcse-step-card::before {
     content: "";
@@ -4596,7 +4610,7 @@ p {
     inset: 0 auto auto 0;
     width: 100%;
     height: 5px;
-    border-radius: 0 0 999px 999px;
+    border-radius: 0 999px 999px;
     background: linear-gradient(90deg, #2a74ff, #87c2ff);
 }
 
