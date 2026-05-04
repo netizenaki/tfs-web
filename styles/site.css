@@ -3750,38 +3750,53 @@ p {
     background: #f3e139;
 }
 
-.page-germany #visa-process .journey-card:nth-child(3)::before {
+.page-germany #visa-process .journey-card:nth-of-type(3)::before {
     width: 84px;
 }
 
-.page-germany #visa-process .journey-card:nth-child(3) {
-    overflow: visible;
-    --plane-x: 150px;
-    --plane-y: -300px;
-    --plane-angle: -63deg;
-    --plane-distance: 336px;
-}
-
-.page-germany #visa-process .journey-card:nth-child(3) .section-card-meta {
+.page-germany #visa-process {
     position: relative;
     overflow: visible;
 }
 
+.page-germany #visa-process .container {
+    position: relative;
+    z-index: 1;
+}
 
-
-.page-germany #visa-process .journey-card:nth-child(3)::after {
-    content: "✈";
+.page-germany #visa-process .container > svg[aria-hidden="true"] {
     position: absolute;
-    top: 18px;
-    right: 22px;
-    color: #f3e139;
-    font-size: 3rem;
-    line-height: 1;
-    transform: translate(0, 0) rotate(-25deg);
+    top: 0;
+    /* left: min(calc(50% + 188px), calc(100% - 360px)); */
+    right:0;
+    width: clamp(230px, 30vw, 347px);
     pointer-events: none;
-    transform-origin: center;
-    transition: color 280ms ease;
+    opacity: 0.95;
+    z-index: 0;
+    display: block;
+    height: auto;
+    width: 280px;
+}
+
+.page-germany #visa-process .journey-grid {
+    position: relative;
+    z-index: 1;
+    overflow: visible;
+}
+
+.page-germany #visa-process .journey-grid .journey-card {
+    position: relative;
+    z-index: 1;
+}
+
+.page-germany #visa-process .journey-card:nth-of-type(3) {
+    overflow: visible;
+    position: relative;
     z-index: 2;
+}
+
+.page-germany #visa-process .journey-card:nth-of-type(3)::after {
+    content: none;
 }
 
 .page-blog-detail .detail-card:hover,
@@ -3799,39 +3814,6 @@ p {
 .page-germany .opportunity-card:hover::before {
     background: #0d57c4;
 }
-
-/* .page-germany #visa-process .journey-card:nth-child(3):hover::after {
-    color: #0d57c4;
-    animation: germany-plane-flight 5s cubic-bezier(0.22, 0.84, 0.24, 1) forwards;
-}
-
-
-
-@keyframes germany-plane-flight {
-    0% {
-        transform: translate(0, 0) rotate(-25deg) scale(1);
-    }
-    12% {
-        transform: translate(-12px, -30px) rotate(-50deg) scale(1.02);
-    }
-    36% {
-        transform: translate(-20px, -60px) rotate(-148deg) scale(1.02);
-    }
-    48% {
-        transform: translate(18px, -6px) rotate(-318deg) scale(1.03);
-    }
-    60% {
-        transform: translate(-10px, -16px) rotate(-396deg) scale(1.03);
-    }
-    72% {
-        transform: translate(-24px, 4px) rotate(-472deg) scale(1.02);
-    }
-    100% {
-        transform: translate(var(--plane-x), var(--plane-y)) rotate(-35deg) scale(1.06);
-    }
-} */
-
-
 
 .page-blog-detail .detail-card-feature,
 .page-germany .detail-card-feature {
@@ -4994,6 +4976,10 @@ p {
     .page-pathways-detail .journey-grid,
     .page-pathways-detail .opportunity-grid {
         grid-template-columns: 1fr;
+    }
+
+    .page-germany #visa-process .container > svg[aria-hidden="true"] {
+        display: none;
     }
 
     .page-igcse .igcse-detail-grid,
