@@ -2291,6 +2291,26 @@ p {
     transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
     box-shadow: 0 14px 24px rgba(243, 225, 57, 0.28);
 }
+
+.page-destinations .card-link-Blue{
+   display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    margin-top: 14px;
+    padding: 12px 21px;
+    border-radius: 999px;
+    background: #f0f5fc;
+    border: 1px solid var(--primary-blue);
+    color: var(--primary-blue);
+    font-size: 0.92rem;
+    font-weight: 600;
+   
+}
+
 .page-pathways .card-link {
     background: linear-gradient(150deg, #f3e139 0%, #ffe947 58%, #ffe99b 100%);
     color: #352506;
@@ -2417,8 +2437,14 @@ p {
     transition: transform var(--transition-mid), box-shadow var(--transition-mid), border-color var(--transition-mid), opacity var(--transition-fast), filter var(--transition-fast);
 }
 
+.page-destinations .country-card-grid{
+    display: grid;
+   
+}
+
 .page-destinations .country-card{
-    border-top: 4px solid rgba(0, 103, 243, 0.36);
+    border-top: 4px solid transparent;
+    border-color: var(--primary-blue);
 }
 
 
@@ -2435,22 +2461,14 @@ p {
     box-shadow: var(--shadow-hover);
 }
 
-.page-destinations .country-art {
-    height: 152px;
-    background: linear-gradient(145deg, #dceaff, #b8d8ff);
-    position: relative;
+
+
+.page-destinations .country-art img{
+    aspect-ratio: 16/9;
+    width: 100%;
+    object-fit: cover;
 }
 
-.page-destinations .country-art::before {
-    content: "";
-    position: absolute;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    right: -24px;
-    top: -18px;
-    background: rgba(255, 255, 255, 0.5);
-}
 
 .page-destinations .country-body {
     padding: 18px;
