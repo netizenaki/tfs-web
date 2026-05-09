@@ -701,8 +701,8 @@ p {
 
 .nav-group:hover .nav-dropdown,
 .nav-group:focus-within .nav-dropdown,
-.submenu-group:hover .nav-submenu,
-.submenu-group:focus-within .nav-submenu {
+.submenu-group:hover > .nav-submenu,
+.submenu-group:focus-within > .nav-submenu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
