@@ -933,7 +933,7 @@ p {
 
 /* Home */
 .page-home main > section {
-    padding: 88px 0;
+    padding: 60px 0;
 }
 
 .page-home .section-head {
@@ -964,8 +964,8 @@ p {
 .page-home .hero {
     position: relative;
     overflow: hidden;
-    padding-top: 102px;
-    padding-bottom: 96px;
+    padding-top: 72px;
+    padding-bottom: 64px;
 }
 
 .page-home .hero::before,
@@ -1456,72 +1456,241 @@ p {
 }
 
 .page-home .destination-experience {
-    margin-top: 30px;
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: minmax(260px, 0.9fr) minmax(0, 1.35fr);
+    align-items: stretch;
+}
+
+.page-home .destination-copy {
+    align-self: center;
+    max-width: 360px;
+}
+
+.page-home .destination-copy .eyebrow {
+    margin-bottom: 14px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: #2b6fd2;
+    text-transform: uppercase;
+}
+
+.page-home .destination-copy h2 {
+    font-size: clamp(2rem, 3.2vw, 3.2rem);
+    line-height: 1.07;
+    color: #0f1f37;
+    font-weight: 800;
+    letter-spacing: -0.015em;
+}
+
+.page-home .destination-copy p {
+    margin-top: 18px;
+    color: #547499;
+    font-size: 1.02rem;
+    line-height: 1.54;
+    font-weight: 400;
+}
+
+.page-home .destination-copy-note {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: 16px;
+    border: 1px solid rgba(82, 120, 220, 0.22);
+    background: rgba(255, 255, 255, 0.58);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 20px rgba(32, 67, 138, 0.08);
+}
+
+.page-home .destination-copy-note-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: inline-grid;
+    place-items: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1d5ed9;
+    background: linear-gradient(135deg, #ffffff 0%, #e6f0ff 50%, #d0e2ff 100%);
+    border: 1px solid rgba(70, 121, 216, 0.35);
+    box-shadow: 0 4px 12px rgba(45, 100, 201, 0.15);
+}
+
+.page-home .destination-copy-note span:last-child {
+    color: #355171;
+    font-size: 0.94rem;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.page-home .destination-copy-cta {
+    margin-top: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    border-radius: 16px;
+    border: 2px solid #2b6fd2;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.96rem;
+    background: linear-gradient(135deg, #2b6fd2 0%, #1d5ed9 100%);
+    box-shadow: 0 8px 20px rgba(43, 111, 210, 0.28);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+    cursor: pointer;
+}
+
+.page-home .destination-copy-cta:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #1d5ed9 0%, #164fb8 100%);
+    box-shadow: 0 12px 28px rgba(43, 111, 210, 0.36);
 }
 
 .page-home .destination-visual {
     position: relative;
-    min-height: 470px;
+    min-height: 640px;
     border-radius: 28px;
-    padding: 34px;
-    background: transparent;
-    border: none;
-    box-shadow: none;
+    padding: 10px 12px;
+    background: 
+        radial-gradient(circle at 65% 35%, rgba(225, 240, 255, 0.4) 0%, transparent 35%),
+        radial-gradient(circle at 75% 65%, rgba(200, 225, 255, 0.25) 0%, transparent 40%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, transparent 50%);
+    border: 1px solid rgba(100, 150, 230, 0.12);
+    box-shadow: 
+        inset 0 1px 2px rgba(255, 255, 255, 0.6),
+        inset 0 -1px 3px rgba(0, 0, 0, 0.02);
     overflow: visible;
+    backdrop-filter: blur(2px);
+}
+
+.page-home .destination-visual::before {
+    content: "";
+    position: absolute;
+    inset: -80px;
+    background: radial-gradient(circle at 50% 45%, rgba(82, 140, 230, 0.08) 0%, transparent 60%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.page-home .destination-visual::after {
+    content: "";
+    position: absolute;
+    inset: -120px;
+    background: 
+        conic-gradient(from 0deg at 50% 50%, rgba(75, 130, 220, 0.05) 0deg, transparent 60deg, transparent 180deg, rgba(75, 130, 220, 0.03) 360deg);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.5;
 }
 
 .page-home .destination-blob {
     position: absolute;
     border-radius: 999px;
-    filter: blur(2px);
+    filter: blur(40px);
     pointer-events: none;
+    opacity: 0.4;
 }
 
 .page-home .blob-a {
-    display: none;
+    display: block;
+    width: 320px;
+    height: 320px;
+    left: -80px;
+    top: 40px;
+    background: linear-gradient(135deg, rgba(75, 130, 220, 0.15) 0%, transparent 70%);
 }
 
 .page-home .blob-b {
-    display: none;
+    display: block;
+    width: 280px;
+    height: 280px;
+    right: -40px;
+    bottom: 80px;
+    background: linear-gradient(225deg, rgba(75, 130, 220, 0.12) 0%, transparent 70%);
 }
 
 .page-home .blob-c {
-    display: none;
+    display: block;
+    width: 240px;
+    height: 240px;
+    left: 50%;
+    top: -60px;
+    transform: translateX(-50%);
+    background: radial-gradient(circle, rgba(82, 140, 230, 0.1) 0%, transparent 70%);
 }
 
 .page-home .soft-globe {
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 49%;
     transform: translate(-50%, -50%);
-    width: clamp(255px, 33vw, 430px);
+    width: clamp(335px, 41vw, 560px);
     aspect-ratio: 1;
     border-radius: 50%;
     background:
-        radial-gradient(circle at 30% 26%, #b9dcff 0%, #8ec7ff 36%, #669df2 72%, #557ee0 100%);
+        radial-gradient(circle at 28% 28%, #d8edff 0%, #b9dcff 18%, #8ec7ff 40%, #669df2 68%, #4b7fd9 85%, #2d5cb8 100%);
     box-shadow:
-        inset -24px -30px 56px rgba(33, 77, 170, 0.32),
-        inset 20px 18px 42px rgba(255, 255, 255, 0.32),
-        0 28px 58px rgba(41, 81, 170, 0.28);
+        inset -28px -32px 68px rgba(20, 60, 140, 0.24),
+        inset 24px 20px 48px rgba(255, 255, 255, 0.36),
+        inset -8px -8px 16px rgba(0, 0, 0, 0.08),
+        0 0 60px rgba(45, 92, 184, 0.22),
+        0 40px 80px rgba(30, 70, 160, 0.2),
+        0 0 120px rgba(75, 130, 220, 0.12);
+    z-index: 2;
+    animation: globeFloat 6s ease-in-out infinite;
+}
+
+@keyframes globeFloat {
+    0%, 100% {
+        transform: translate(-50%, -50%);
+    }
+    50% {
+        transform: translate(-50%, calc(-50% - 4px));
+    }
 }
 
 .page-home .soft-globe::before {
     content: "";
     position: absolute;
-    inset: 12%;
+    inset: 10%;
     border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.26);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    box-shadow: 
+        inset 0 1px 8px rgba(255, 255, 255, 0.4),
+        0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.page-home .soft-globe::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: 
+        radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.25) 0%, transparent 25%),
+        radial-gradient(circle at 35% 32%, rgba(255, 255, 255, 0.15) 0%, transparent 20%);
+    box-shadow:
+        inset -60px -60px 100px rgba(10, 30, 90, 0.1),
+        inset 40px 30px 60px rgba(255, 255, 255, 0.15);
 }
 
 .page-home .globe-sheen {
     position: absolute;
-    width: 46%;
-    height: 32%;
-    top: 10%;
-    left: 11%;
+    width: 48%;
+    height: 34%;
+    top: 8%;
+    left: 10%;
     border-radius: 999px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0));
-    transform: rotate(-18deg);
+    background: 
+        radial-gradient(ellipse at 40% 35%, rgba(255, 255, 255, 0.52) 0%, rgba(255, 255, 255, 0.2) 40%, transparent 70%);
+    transform: rotate(-20deg);
+    z-index: 1;
+    filter: blur(1px);
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.3) inset;
 }
 
 .page-home .globe-map {
@@ -1529,68 +1698,117 @@ p {
     inset: 0;
     width: 100%;
     height: 100%;
-    filter: drop-shadow(0 6px 10px rgba(21, 65, 138, 0.25));
-}
-
-.page-home .globe-marker {
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    border: none;
-    padding: 0;
     border-radius: 50%;
-    background: #fff;
-    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.22), 0 0 22px rgba(255, 234, 139, 0.82);
-    cursor: pointer;
-    transform: translate(-50%, -50%);
+    filter: 
+        drop-shadow(0 8px 16px rgba(15, 50, 140, 0.18))
+        brightness(1.02)
+        contrast(1.08)
+        saturate(1.05)
+        hue-rotate(2deg);
+    opacity: 0.96;
 }
 
-.page-home .globe-marker span {
+
+
+.page-home .destination-spot-card {
     position: absolute;
-    inset: -8px;
+    z-index: 4;
+    width: min(230px, 42vw);
+    border-radius: 20px;
+    padding: 16px 16px 14px;
+    background: 
+        linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.78) 100%);
+    border: 1px solid rgba(120, 160, 240, 0.24);
+    box-shadow: 
+        0 8px 24px rgba(20, 50, 130, 0.12),
+        0 32px 64px rgba(20, 50, 130, 0.08),
+        inset 0 1px 2px rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.page-home .destination-spot-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 
+        0 12px 32px rgba(20, 50, 130, 0.16),
+        0 40px 80px rgba(20, 50, 130, 0.12),
+        inset 0 1px 2px rgba(255, 255, 255, 0.9);
+    border-color: rgba(100, 140, 240, 0.36);
+    background: 
+        linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.84) 100%);
+}
+
+.page-home .destination-spot-card.is-active {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 
+        0 10px 28px rgba(43, 111, 210, 0.18),
+        0 36px 72px rgba(43, 111, 210, 0.12),
+        inset 0 1px 2px rgba(255, 255, 255, 0.9),
+        inset 0 0 20px rgba(255, 214, 51, 0.08);
+    border: 1px solid rgba(75, 130, 220, 0.36);
+    background: 
+        linear-gradient(135deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.88) 100%);
+}
+
+.page-home .destination-spot-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.page-home .destination-spot-head strong {
+    color: #0f1f37;
+    font-size: 0.98rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.page-home .spot-dot {
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
-    border: 1px solid rgba(255, 238, 176, 0.9);
-    animation: markerPulse 2s ease-out infinite;
+    background: #ffd633;
+    box-shadow: 
+        0 0 0 4px rgba(255, 214, 51, 0.2),
+        0 0 12px rgba(255, 214, 51, 0.48),
+        inset 0 1px 2px rgba(255, 255, 255, 0.4);
+    flex-shrink: 0;
 }
 
-.page-home .globe-marker.is-active {
-    background: #ffe866;
-    box-shadow: 0 0 0 7px rgba(255, 230, 120, 0.25), 0 0 24px rgba(255, 226, 122, 0.92);
+.page-home .destination-spot-card p {
+    margin: 10px 0 0;
+    color: #547499;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    font-weight: 400;
 }
 
-.page-home .marker-uk { left: 12%; top: 39%; }
-.page-home .marker-china { left: 58%; top: 52%; }
-.page-home .marker-japan { left: 73%; top: 51%; }
-.page-home .marker-singapore { left: 56%; top: 65%; }
+/* Arch layout: left col = Europe/Malaysia/Thailand, right col = Japan/Taiwan/Singapore */
+.page-home .spot-europe    { top:  52px; left: -4%; }
+.page-home .spot-malaysia  { top: 248px; left: -5%; }
+.page-home .spot-thailand  { top: 436px; left: -4%; }
+.page-home .spot-japan     { top:  52px; right: -4%; }
+.page-home .spot-taiwan    { top: 248px; right: -5%; }
+.page-home .spot-singapore { top: 436px; right: -4%; }
 
-.page-home .destination-globe-hint {
+.page-home .destination-mascot {
     position: absolute;
-    bottom: 16px;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 0;
-    width: min(340px, calc(100% - 24px));
-    padding: 7px 12px;
-    border-radius: 999px;
-    border: 1px solid rgba(137, 162, 235, 0.34);
-    background: rgba(255, 255, 255, 0.82);
-    color: #385172;
-    text-align: center;
-    font-size: 0.76rem;
-    font-weight: 500;
-    letter-spacing: 0.01em;
-    box-shadow: 0 10px 24px rgba(32, 67, 138, 0.12);
-    backdrop-filter: blur(8px);
+    right: 2%;
+    bottom: -8px;
+    width: clamp(160px, 18vw, 280px);
+    z-index: 5;
+    filter: drop-shadow(0 20px 40px rgba(12, 58, 132, 0.24));
+    pointer-events: none;
+    animation: mascotFloat 5s ease-in-out infinite;
 }
 
-@keyframes markerPulse {
-    0% {
-        opacity: 0.9;
-        transform: scale(0.7);
+@keyframes mascotFloat {
+    0%, 100% {
+        transform: translateY(0);
     }
-    100% {
-        opacity: 0;
-        transform: scale(1.9);
+    50% {
+        transform: translateY(-8px);
     }
 }
 
@@ -1617,6 +1835,87 @@ p {
 .page-home .destination-info-card.align-right {
     left: auto;
     right: 12px;
+}
+
+.page-home .destination-side-rail {
+    position: absolute;
+    width: min(250px, calc(100% - 40px));
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    border-radius: 20px;
+    padding: 17px 16px;
+    background: rgba(248, 252, 255, 0.88);
+    border: 1px solid rgba(137, 162, 235, 0.22);
+    box-shadow: 0 14px 34px rgba(25, 53, 108, 0.12);
+    backdrop-filter: blur(8px);
+    transition: left var(--transition-mid), right var(--transition-mid), transform var(--transition-mid), opacity var(--transition-fast);
+}
+
+.page-home .destination-side-rail.align-left {
+    left: 12px;
+    right: auto;
+}
+
+.page-home .destination-side-rail.align-right {
+    right: 12px;
+    left: auto;
+}
+
+.page-home .destination-side-kicker {
+    margin: 0;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    font-size: 0.67rem;
+    color: #687ea8;
+    font-weight: 700;
+}
+
+.page-home .destination-side-rail h3 {
+    margin-top: 7px;
+    font-size: 1.02rem;
+    color: #14315d;
+}
+
+.page-home .destination-side-list {
+    margin: 11px 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 8px;
+}
+
+.page-home .destination-side-list li a {
+    display: block;
+    padding: 8px 10px;
+    border-radius: 11px;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(118, 148, 216, 0.2);
+    color: #2a4776;
+    font-size: 0.83rem;
+    font-weight: 600;
+    transition: transform var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.page-home .destination-side-list li a:hover {
+    transform: translateX(2px);
+    border-color: rgba(79, 122, 214, 0.42);
+    background: rgba(255, 255, 255, 0.96);
+}
+
+.page-home .destination-side-cta {
+    margin-top: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #0b57ca;
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.page-home .destination-side-cta::after {
+    content: "->";
+    font-size: 0.74rem;
 }
 
 .page-home .destination-card-kicker {
@@ -1835,12 +2134,12 @@ p {
 
 /* About */
 .page-about section {
-    padding: 86px 0;
+    padding: 60px 0;
 }
 
 .page-about .hero {
-    padding-top: 104px;
-    padding-bottom: 92px;
+    padding-top: 72px;
+    padding-bottom: 64px;
 }
 
 .page-about .hero-grid {
@@ -2044,12 +2343,12 @@ p {
 
 /* Pathways */
 .page-pathways section {
-    padding: 86px 0;
+    padding: 60px 0;
 }
 
 .page-pathways .hero {
-    padding-top: 104px;
-    padding-bottom: 92px;
+    padding-top: 72px;
+    padding-bottom: 64px;
 }
 
 .page-pathways .hero-grid {
@@ -2346,11 +2645,11 @@ p {
 
 /* Destinations */
 .page-destinations section {
-    padding: 84px 0;
+    padding: 58px 0;
 }
 
 .page-destinations .hero {
-    padding-top: 98px;
+    padding-top: 68px;
 }
 
 .page-destinations .hero-grid {
@@ -2476,11 +2775,11 @@ p {
 
 /* Contact */
 .page-contact section {
-    padding: 84px 0;
+    padding: 58px 0;
 }
 
 .page-contact .hero {
-    padding-top: 96px;
+    padding-top: 68px;
     text-align: center;
 }
 
@@ -2605,12 +2904,12 @@ p {
 
 /* Activities */
 .page-activities section {
-    padding: 84px 0;
+    padding: 58px 0;
 }
 
 .page-activities .hero {
-    padding-top: 100px;
-    padding-bottom: 90px;
+    padding-top: 70px;
+    padding-bottom: 62px;
 }
 
 .page-activities .hero-grid {
@@ -2828,12 +3127,12 @@ p {
 
 /* Leadership */
 .page-leadership section {
-    padding: 84px 0;
+    padding: 58px 0;
 }
 
 .page-leadership .hero {
-    padding-top: 100px;
-    padding-bottom: 90px;
+    padding-top: 70px;
+    padding-bottom: 62px;
 }
 
 .page-leadership .hero-grid {
@@ -3176,11 +3475,11 @@ p {
 
 /* Blog */
 .page-blog section {
-    padding: 84px 0;
+    padding: 58px 0;
 }
 
 .page-blog .hero {
-    padding-top: 98px;
+    padding-top: 68px;
     text-align: center;
 }
 
@@ -3584,7 +3883,6 @@ p {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .page-home .destination-experience,
     .page-about .timeline-grid,
     .page-about .value-grid,
     .page-about .split-grid,
@@ -3594,13 +3892,29 @@ p {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    .page-home .destination-experience {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .page-home .destination-copy {
+        max-width: none;
+    }
+
     .page-home .destination-visual {
         min-height: 560px;
     }
 
-    .page-home .destination-globe-hint {
-        bottom: 14px;
+    .page-home .destination-spot-card {
+        width: min(210px, 40vw);
     }
+
+    .page-home .spot-europe    { top:  48px; left: -2%; }
+    .page-home .spot-malaysia   { top: 226px; left: -2%; }
+    .page-home .spot-thailand   { top: 402px; left: -2%; }
+    .page-home .spot-japan      { top:  48px; right: -2%; }
+    .page-home .spot-taiwan     { top: 226px; right: -2%; }
+    .page-home .spot-singapore  { top: 402px; right: -2%; }
 
     .page-home .soft-globe {
         left: 50%;
@@ -3611,6 +3925,10 @@ p {
         top: auto;
         bottom: 20px;
         transform: none;
+    }
+
+    .page-home .destination-side-rail {
+        display: none;
     }
 
     .page-leadership .leadership-grid,
@@ -3644,8 +3962,8 @@ p {
 .page-germany .hero {
     position: relative;
     overflow: hidden;
-    padding-top: 102px;
-    padding-bottom: 82px;
+    padding-top: 70px;
+    padding-bottom: 58px;
 }
 
 .page-germany .hero::before,
@@ -5088,16 +5406,16 @@ p {
     .page-igcse .igcse-card,
     .page-igcse .igcse-step-card,
     .page-igcse .igcse-opportunity-card {
-        border-radius: 24px;
+        border-radius: 22px;
     }
 
     .page-igcse .igcse-card-body,
     .page-igcse .igcse-step-card {
-        padding: 26px 24px 24px;
+        padding: 22px 20px 20px;
     }
 
     .page-igcse .requirement-card-body{
-        padding: 26px 24px 24px;
+        padding: 22px 20px 20px;
     }
 
     .page-igcse .requirement-card .requirement-icons {
@@ -5122,11 +5440,11 @@ p {
     .page-activities section,
     .page-leadership section,
     .page-blog section {
-        padding: 72px 0;
+        padding: 48px 0;
     }
 
     .page-destinations section {
-        padding: 70px 0;
+        padding: 46px 0;
     }
 
     .page-home .search-box {
@@ -5226,12 +5544,38 @@ p {
         padding: 22px;
     }
 
-    .page-home .destination-globe-hint {
-        bottom: 12px;
-        width: calc(100% - 28px);
-        padding: 6px 9px;
-        border-radius: 14px;
-        font-size: 0.72rem;
+    .page-home .destination-copy h2 {
+        font-size: clamp(1.8rem, 7vw, 2.4rem);
+    }
+
+    .page-home .destination-copy p {
+        font-size: 0.96rem;
+    }
+
+    .page-home .destination-spot-card {
+        width: min(188px, 46vw);
+        padding: 11px 11px 10px;
+    }
+
+    .page-home .destination-spot-head strong {
+        font-size: 0.86rem;
+    }
+
+    .page-home .destination-spot-card p {
+        font-size: 0.74rem;
+    }
+
+    .page-home .spot-europe    { top:  88px; left:  2px; }
+    .page-home .spot-malaysia   { top: 224px; left:  2px; }
+    .page-home .spot-thailand   { top: 368px; left:  2px; }
+    .page-home .spot-japan      { top:  88px; right: 2px; }
+    .page-home .spot-taiwan     { top: 224px; right: 2px; }
+    .page-home .spot-singapore  { top: 368px; right: 2px; }
+
+    .page-home .destination-mascot {
+        width: 112px;
+        right: 8px;
+        bottom: 56px;
     }
 
     .page-home .soft-globe {
@@ -5250,6 +5594,12 @@ p {
         bottom: 14px;
         width: auto;
         transform: none;
+    }
+
+    .page-home .destination-side-rail,
+    .page-home .destination-side-rail.align-left,
+    .page-home .destination-side-rail.align-right {
+        display: none;
     }
 
     .page-about .timeline::before {

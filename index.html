@@ -219,76 +219,82 @@
 
         <section id="destination" class="section-alt">
             <div class="container">
-                <div class="section-head reveal centered-head">
-                    <p class="eyebrow">Destination Countries</p>
-                    <h2>Find your best-fit global destination</h2>
-                    <p class="copy-top-12">Explore study destinations through a modern, map-inspired view that highlights the strengths of each country.</p>
-                </div>
                 <div class="destination-experience reveal">
+                    <div class="destination-copy">
+                        <p class="eyebrow">Destination Spotlight</p>
+                        <h2>Find your ideal destination</h2>
+                        <p>Explore study destinations through a curated global spotlight that highlights the strengths of each country.</p>
+
+                        <div class="destination-copy-note">
+                            <span class="destination-copy-note-icon" aria-hidden="true">o</span>
+                            <span>Explore countries and discover the right place for your future.</span>
+                        </div>
+
+                        <a class="destination-copy-cta" href="destination-countries.html">Explore more options</a>
+                    </div>
+
                     <div class="destination-visual">
                         <span class="destination-blob blob-a" aria-hidden="true"></span>
                         <span class="destination-blob blob-b" aria-hidden="true"></span>
                         <span class="destination-blob blob-c" aria-hidden="true"></span>
 
                         <div class="soft-globe" aria-label="Study destination globe">
-                            <span class="globe-sheen" aria-hidden="true"></span>
-                            <img class="globe-map" src="assets/euroasia.png" alt="Stylized globe showing Eurasia" loading="lazy" decoding="async">
-
-                            <button class="globe-marker marker-uk" type="button" aria-label="United Kingdom"
-                                data-country="United Kingdom"
-                                data-flag="🇬🇧"
-                                data-description="A leading destination for globally recognized degrees, research excellence, and strong graduate outcomes."
-                                data-benefits="Top-ranked universities|1-year master's options|Strong global networking|Graduate route opportunities"
-                                data-cta-label="Explore UK Options"
-                                data-cta-href="destination-countries.html">
-                                <span></span>
-                            </button>
-
-                            <button class="globe-marker marker-china" type="button" aria-label="China"
-                                data-country="China"
-                                data-flag="🇨🇳"
-                                data-description="A fast-growing education ecosystem with strong STEM programs, innovation hubs, and competitive scholarship pathways."
-                                data-benefits="High-impact STEM universities|Scholarship opportunities|Innovation ecosystems|Modern city campuses"
-                                data-cta-label="Explore China Options"
-                                data-cta-href="destination-countries.html">
-                                <span></span>
-                            </button>
-
-                            <button class="globe-marker marker-japan is-active" type="button" aria-label="Japan"
-                                data-country="Japan"
-                                data-flag="🇯🇵"
-                                data-description="A premium destination for technology, engineering, design, and future-facing research with excellent student safety."
-                                data-benefits="Tech-forward institutions|Innovation-led curriculum|Scholarship-friendly tracks|Safe and efficient cities"
-                                data-cta-label="Explore Japan Options"
-                                data-cta-href="destination-countries.html#japan">
-                                <span></span>
-                            </button>
-
-                            <button class="globe-marker marker-singapore" type="button" aria-label="Singapore"
-                                data-country="Singapore"
-                                data-flag="🇸🇬"
-                                data-description="A compact global hub with elite universities, strong employability, and direct links to Asia-Pacific industries."
-                                data-benefits="World-class universities|Industry-connected programs|Multicultural student life|Career-focused ecosystem"
-                                data-cta-label="Explore Singapore Options"
-                                data-cta-href="destination-countries.html">
-                                <span></span>
-                            </button>
+                            <!-- <span class="globe-sheen" aria-hidden="true"></span> -->
+                            <video class="globe-map" autoplay muted loop playsinline aria-label="Stylized globe showing Eurasia">
+                                <source src="assets/globe.webm" type="video/webm">
+                                <img src="assets/globe_placeholder.png" alt="Stylized globe placeholder" loading="lazy" decoding="async">
+                            </video>
                         </div>
 
-                        <p class="destination-globe-hint">Tip: Hover a glowing marker on the globe to preview destination details.</p>
+                        <article class="destination-spot-card spot-europe" data-country="Germany">
+                            <div class="destination-spot-head">
+                                <strong>🇩🇪 Germany</strong>
+                                <span class="spot-dot"></span>
+                            </div>
+                            <p>Leading research universities with world-class STEM programs.</p>
+                        </article>
 
-                        <aside id="destination-info-card" class="destination-info-card align-right" aria-live="polite">
-                            <p class="destination-card-kicker">Study Destination</p>
-                            <h3><span id="destination-card-flag" aria-hidden="true">🇯🇵</span> <span id="destination-card-country">Japan</span></h3>
-                            <p id="destination-card-description">A premium destination for technology, engineering, design, and future-facing research with excellent student safety.</p>
-                            <ul id="destination-card-benefits" class="destination-benefits-list">
-                                <li>Tech-forward institutions</li>
-                                <li>Innovation-led curriculum</li>
-                                <li>Scholarship-friendly tracks</li>
-                                <li>Safe and efficient cities</li>
-                            </ul>
-                            <a id="destination-card-cta" class="destination-card-cta" href="destination-countries.html#japan">Explore Japan Options</a>
-                        </aside>
+                        <article class="destination-spot-card spot-thailand" data-country="Italy">
+                            <div class="destination-spot-head">
+                                <strong>🇮🇹 Italy</strong>
+                                <span class="spot-dot"></span>
+                            </div>
+                            <p>Rich academic heritage with accessible, high-quality education.</p>
+                        </article>
+
+                        <article class="destination-spot-card spot-japan is-active" data-country="Japan">
+                            <div class="destination-spot-head">
+                                <strong>🇯🇵 Japan</strong>
+                                <span class="spot-dot"></span>
+                            </div>
+                            <p>Innovation, tech, and future opportunities.</p>
+                        </article>
+
+                        <article class="destination-spot-card spot-singapore" data-country="Singapore">
+                            <div class="destination-spot-head">
+                                <strong>🇸🇬 Singapore</strong>
+                                <span class="spot-dot"></span>
+                            </div>
+                            <p>High-impact education and strong graduate outcomes.</p>
+                        </article>
+
+                        <article class="destination-spot-card spot-taiwan" data-country="Taiwan">
+                            <div class="destination-spot-head">
+                                <strong>🇹🇼 Taiwan</strong>
+                                <span class="spot-dot"></span>
+                            </div>
+                            <p>Technology-driven universities and strong innovation culture.</p>
+                        </article>
+
+                        <article class="destination-spot-card spot-malaysia" data-country="Netherlands">
+                            <div class="destination-spot-head">
+                                <strong>🇳🇱 Netherlands</strong>
+                                <span class="spot-dot"></span>
+                            </div>
+                            <p>Innovation hubs with world-class English-taught programs.</p>
+                        </article>
+
+                        <img class="destination-mascot" src="assets/mascot_sample.png" alt="TFS mascot" loading="lazy" decoding="async">
                     </div>
                 </div>
             </div>

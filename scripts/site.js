@@ -17,11 +17,52 @@
     const blogSearchEmpty = document.getElementById("blog-search-empty");
     const globeMarkers = document.querySelectorAll(".globe-marker");
     const destinationInfoCard = document.getElementById("destination-info-card");
+    const destinationSideRail = document.getElementById("destination-side-rail");
+    const destinationSideList = document.getElementById("destination-side-list");
     const destinationCardCountry = document.getElementById("destination-card-country");
     const destinationCardFlag = document.getElementById("destination-card-flag");
     const destinationCardDescription = document.getElementById("destination-card-description");
     const destinationCardBenefits = document.getElementById("destination-card-benefits");
     const destinationCardCta = document.getElementById("destination-card-cta");
+    const destinationSpotCards = document.querySelectorAll(".destination-spot-card");
+
+    function updateDestinationSpotCards(activeCountry) {
+        if (destinationSpotCards.length === 0) {
+            return;
+        }
+
+        destinationSpotCards.forEach(function (card) {
+            const cardCountry = (card.dataset.country || "").trim();
+            card.classList.toggle("is-active", cardCountry === activeCountry);
+        });
+    }
+
+    function updateDestinationSideRail(activeMarker) {
+        if (!destinationSideRail || !destinationSideList || globeMarkers.length === 0) {
+            return;
+        }
+
+        const alternatives = Array.from(globeMarkers).filter(function (marker) {
+            return marker !== activeMarker;
+        }).slice(0, 3);
+
+        destinationSideList.innerHTML = "";
+        alternatives.forEach(function (marker) {
+            const item = document.createElement("li");
+            const link = document.createElement("a");
+            const flag = marker.dataset.flag || "";
+            const country = marker.dataset.country || "Destination";
+            const href = marker.dataset.ctaHref || "destination-countries.html";
+            link.href = href;
+            link.textContent = (flag ? flag + " " : "") + country;
+            item.appendChild(link);
+            destinationSideList.appendChild(item);
+        });
+
+        const infoOnLeft = destinationInfoCard ? destinationInfoCard.classList.contains("align-left") : false;
+        destinationSideRail.classList.toggle("align-left", !infoOnLeft);
+        destinationSideRail.classList.toggle("align-right", infoOnLeft);
+    }
 
     function closeDevNotice() {
         if (!devNotice) {
@@ -296,10 +337,12 @@ if (document.body.classList.contains("page-blog") && heroSearchInput) {
         destinationInfoCard.style.transform = "translateY(-50%)";
         destinationInfoCard.classList.toggle("align-left", isLeftSide);
         destinationInfoCard.classList.toggle("align-right", !isLeftSide);
+
+        updateDestinationSideRail(marker);
     }
 
     function updateDestinationCard(marker) {
-        if (!marker || !destinationInfoCard) {
+        if (!marker) {
             return;
         }
 
@@ -315,6 +358,8 @@ if (document.body.classList.contains("page-blog") && heroSearchInput) {
         globeMarkers.forEach(function (item) {
             item.classList.toggle("is-active", item === marker);
         });
+
+        updateDestinationSpotCards(country);
 
         if (destinationCardCountry) {
             destinationCardCountry.textContent = country;
@@ -338,10 +383,13 @@ if (document.body.classList.contains("page-blog") && heroSearchInput) {
             destinationCardCta.setAttribute("href", ctaHref);
         }
 
-        positionDestinationCard(marker);
+        if (destinationInfoCard) {
+            positionDestinationCard(marker);
+        }
+        updateDestinationSideRail(marker);
     }
 
-    if (globeMarkers.length > 0 && destinationInfoCard) {
+    if (globeMarkers.length > 0) {
         globeMarkers.forEach(function (marker) {
             marker.addEventListener("mouseenter", function () {
                 updateDestinationCard(marker);
@@ -357,7 +405,7 @@ if (document.body.classList.contains("page-blog") && heroSearchInput) {
 
         window.addEventListener("resize", function () {
             const activeMarker = document.querySelector(".globe-marker.is-active") || globeMarkers[0];
-            positionDestinationCard(activeMarker);
+            updateDestinationCard(activeMarker);
         });
     }
 
