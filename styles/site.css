@@ -1794,9 +1794,9 @@ p {
 
 .page-home .destination-mascot {
     position: absolute;
-    right: 12%;
-    bottom: -8px;
-    width: clamp(160px, 18vw, 280px);
+    right: 2%;
+    bottom: -70px;
+    width: clamp(190px, 22vw, 340px);
     z-index: 5;
     filter: drop-shadow(0 20px 40px rgba(12, 58, 132, 0.24));
     pointer-events: none;

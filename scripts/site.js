@@ -1,4 +1,11 @@
 (function () {
+    // Slow down globe.webm playback if present
+    window.addEventListener('DOMContentLoaded', function () {
+        var globe = document.querySelector('.globe-map');
+        if (globe && globe.tagName === 'VIDEO') {
+            globe.playbackRate = 0.5;
+        }
+    });
     const devNotice = document.getElementById("dev-notice");
     const devNoticeClose = document.getElementById("dev-notice-close");
     const devNoticeKey = "tfs-dev-notice-dismissed";
