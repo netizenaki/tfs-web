@@ -218,7 +218,7 @@ img {
     line-height: var(--section-eyebrow-line-height);
     font-size: var(--section-eyebrow-size);
     text-transform: uppercase;
-    color: #667089;
+    color: var(--section-eyebrow-color);
     font-weight: 600;
     margin-bottom: 10px;
 }
@@ -257,14 +257,7 @@ p {
     background: linear-gradient(180deg, #ffffff, #f5f9ff);
 }
 
-.section-head .eyebrow {
-    color: var(--section-eyebrow-color);
-    font-size: var(--section-eyebrow-size);
-    line-height: var(--section-eyebrow-line-height);
-    letter-spacing: var(--section-eyebrow-letter-spacing);
-}
-
-.section-head h2 {
+ h2 {
     font-size: var(--section-title-size);
     line-height: var(--section-title-line-height);
     letter-spacing: var(--section-title-letter-spacing);
@@ -1642,16 +1635,7 @@ p {
 
 .page-home .destination-copy {
     align-self: center;
-    max-width: 360px;
-}
-
-.page-home .destination-copy .eyebrow {
-    margin-bottom: 14px;
-    font-size: 0.88rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    color: #2b6fd2;
-    text-transform: uppercase;
+    max-width: 400px;
 }
 
 .page-home .destination-copy h2 {
