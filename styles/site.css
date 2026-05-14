@@ -4160,6 +4160,9 @@ p {
     border: 1px solid rgba(0, 103, 243, 0.16);
     position: relative;
     overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .page-leadership .leader-portrait::after {
