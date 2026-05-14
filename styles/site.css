@@ -15,6 +15,7 @@
     --section-title-line-height: 1.15;
     --section-title-letter-spacing: -0.02em;
     --section-title-color: #132545;
+    --section-title-weight: 800;
     --brand-premium-gradient:
         radial-gradient(circle at 0% 0%, #0a3c8372, transparent 28%),
         radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.2), transparent 30%),
@@ -262,6 +263,7 @@ p {
     line-height: var(--section-title-line-height);
     letter-spacing: var(--section-title-letter-spacing);
     color: var(--section-title-color);
+    font-weight: var(--section-title-weight);
 }
 
 .eyebrow-tight {
@@ -1638,22 +1640,6 @@ p {
     max-width: 400px;
 }
 
-.page-home .destination-copy h2 {
-    font-size: clamp(2rem, 3.2vw, 3.2rem);
-    line-height: 1.07;
-    color: #0f1f37;
-    font-weight: 800;
-    letter-spacing: -0.015em;
-}
-
-.page-home .destination-copy p {
-    margin-top: 18px;
-    color: #547499;
-    font-size: 1.02rem;
-    line-height: 1.54;
-    font-weight: 400;
-}
-
 .page-home .destination-copy-note {
     margin-top: 24px;
     display: flex; 
@@ -1665,6 +1651,7 @@ p {
     background: rgba(255, 255, 255, 0.58);
     backdrop-filter: blur(8px);
     box-shadow: 0 8px 20px rgba(32, 67, 138, 0.08);
+    max-width: 345px;
 }
 
 .page-home .destination-copy-note-icon {
