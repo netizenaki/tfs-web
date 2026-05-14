@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="styles/site.css">
     <script defer src="https://cloud.umami.is/script.js" data-website-id="ca60e73e-5abb-467a-9024-a4fc5810cddb"></script>
 </head>
@@ -149,34 +150,77 @@
         </section>
 
         <section id="about">
-           <div class="container">
-                  <div class="section-head reveal centered-head">
+            <div class="container">
+                <div class="section-head reveal centered-head about-head">
                     <p class="eyebrow">About The Forward Society</p>
-                    <h2>Built for students planning beyond borders</h2>
+                    <h2>Built for students<br>planning <span class="brand-gradient-text">beyond borders</span></h2>
                     <p class="copy-top-14">We combine strategic counselling, destination expertise, and data-backed guidance to help students move confidently toward international education opportunities.</p>
                 </div>
-                
-                <div class="cards-grid stats-grid stagger reveal">
+
+                <div class="cards-grid stats-grid stagger reveal about-stats-grid">
                     <article class="stat-card">
-                        <span class="stat-icon"><img src="gallery/webinar.png"></span>
+                        <span class="stat-icon" aria-hidden="true"><i class="fa-solid fa-video"></i></span>
+                        <span class="stat-dot" aria-hidden="true"></span>
                         <p class="stat-number">300+</p>
-                        <p>Webinars Hosted</p>
+                        <p class="stat-label">Global Education<br>Webinars</p>
+                        <p class="stat-copy">Expert-led sessions to empower informed decisions.</p>
                     </article>
-                    <article class="stat-card alt">
-                        <span class="stat-icon"><img src="gallery/attendees.png"></span>
-                         <p class="stat-number">3K+</p>
-                        <p>Webinar Attendees</p>
+
+                    <article class="stat-card is-featured">
+                        <span class="stat-icon" aria-hidden="true"><i class="fa-solid fa-users"></i></span>
+                        <span class="stat-pill">★ Impact</span>
+                        <p class="stat-number">3K+</p>
+                        <p class="stat-label">Students<br>Guided</p>
+                        <p class="stat-copy">Personalized support at every step of their journey.</p>
+                        <span class="stat-swoosh" aria-hidden="true"></span>
                     </article>
+
                     <article class="stat-card">
-                        <span class="stat-icon"><img src="gallery/consultant.png"></span>
-                       <p class="stat-number">300+</p>
-                         <p>Expert Consultants</p>
+                        <span class="stat-icon" aria-hidden="true"><i class="fa-solid fa-user-graduate"></i></span>
+                        <span class="stat-dot" aria-hidden="true"></span>
+                        <p class="stat-number">300+</p>
+                        <p class="stat-label">Expert<br>Consultants</p>
+                        <p class="stat-copy">Experienced mentors with global education expertise.</p>
                     </article>
-                    <article class="stat-card alt">
-                        <span class="stat-icon"><img src="gallery/volunteers.png"></span>
+
+                    <article class="stat-card">
+                        <span class="stat-icon" aria-hidden="true"><i class="fa-solid fa-hand-holding-heart"></i></span>
+                        <span class="stat-dot" aria-hidden="true"></span>
                         <p class="stat-number">100+</p>
-                        <p>Volunteers</p>
+                        <p class="stat-label">Volunteers &<br>Mentors</p>
+                        <p class="stat-copy">Passionate individuals driving impact and transformation.</p>
                     </article>
+                </div>
+
+                <div class="about-strip reveal">
+                    <div class="about-strip-item">
+                        <span class="about-strip-icon"><i class="fa-solid fa-globe"></i></span>
+                        <div>
+                            <strong>Global Reach</strong>
+                            <p>Presence across 12+ countries.</p>
+                        </div>
+                    </div>
+                    <div class="about-strip-item">
+                        <span class="about-strip-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+                        <div>
+                            <strong>University Network</strong>
+                            <p>Partnerships with 500+ top global institutions.</p>
+                        </div>
+                    </div>
+                    <div class="about-strip-item">
+                        <span class="about-strip-icon"><i class="fa-solid fa-shield-halved"></i></span>
+                        <div>
+                            <strong>Proven Outcomes</strong>
+                            <p>High success rate in admissions & visas.</p>
+                        </div>
+                    </div>
+                    <div class="about-strip-item">
+                        <span class="about-strip-icon"><i class="fa-solid fa-chart-column"></i></span>
+                        <div>
+                            <strong>Data-Backed Guidance</strong>
+                            <p>Insights that help students make smarter choices.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -226,7 +270,9 @@
                         <p>Explore study destinations through a curated global spotlight that highlights the strengths of each country.</p>
 
                         <div class="destination-copy-note">
-                            <span class="destination-copy-note-icon" aria-hidden="true">o</span>
+                            <span class="destination-copy-note-icon" aria-hidden="true">
+                                <i class="fa-solid fa-globe"></i>
+                            </span>
                             <span>Explore countries and discover the right place for your future.</span>
                         </div>
 
