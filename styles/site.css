@@ -3883,25 +3883,23 @@ p {
 }
 
 .page-contact .contact-grid {
+    margin-top: 18px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 18px;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 0;
+    align-items: stretch;
+    overflow: hidden;
+    border-radius: 26px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 103, 243, 0.08);
+    box-shadow: 0 18px 34px rgba(8, 30, 66, 0.07); 
 }
 
-.page-contact .card {
-    background: #fff;
-    border: 1px solid rgba(17, 17, 17, 0.08);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-soft);
-    padding: 24px;
-}
-
-.page-contact .card:nth-child(1) {
-    border-top: 4px solid rgba(0, 103, 243, 0.4);
-}
-
-.page-contact .card:nth-child(2) {
-    border-top: 4px solid rgba(243, 225, 57, 0.85);
+.page-contact .card{
+    align-items: flex-start;
+    gap: 12px;
+    padding: 20px 18px;
+    border-left: 1px solid rgba(0, 103, 243, 0.08);
 }
 
 .page-contact label {
@@ -3930,7 +3928,7 @@ p {
 .page-contact textarea {
     display: block;
     resize: vertical;
-    min-height: 140px;
+    min-height: 250px;
 }
 
 .page-contact form button.btn-primary {
@@ -3955,10 +3953,25 @@ p {
 }
 
 .page-contact .contact-item {
+    display: flex;
+    gap: 12px;
     padding: 12px 14px;
     border-radius: 12px;
     border: 1px solid rgba(0, 103, 243, 0.16);
     background: #f7fbff;
+}
+
+.page-contact .contact-list svg{
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    color: #1f2a44;
+}
+
+.page-contact .contact-list-image img{
+    aspect-ratio: 16/9;
+    width: 100%;
+    height: auto;
 }
 
 .page-contact .contact-item span {
@@ -5250,6 +5263,13 @@ p {
     overflow: hidden;
     padding-top: 70px;
     padding-bottom: 58px;
+}
+
+.page-germany .hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 28px;
+    align-items: center;
 }
 
 .page-germany .hero::before,
@@ -6772,6 +6792,34 @@ p {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 12px;
     max-width: 800px;
+}
+.page-germany .requirement-card:nth-child(odd) .requirement-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 18px;
+    background: linear-gradient(145deg, rgba(42, 116, 255, 0.12), rgba(159, 211, 255, 0.32));
+    padding: 10px;
+    place-self: center;
+}
+
+.page-germany .requirement-card:nth-child(even) .requirement-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 18px;
+   background: linear-gradient(145deg, rgba(34, 197, 94, 0.12), rgba(134, 239, 172, 0.32));
+   padding: 10px;
+   place-self: center;
+}
+
+.page-germany .requirement-card .requirement-icons svg {
+    width: 48px;
+    height: auto;
 }
 
 .page-germany .hero-fact {
