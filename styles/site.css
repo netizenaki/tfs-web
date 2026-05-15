@@ -1,4 +1,4 @@
-:root {
+﻿:root {
     --primary-blue: #0067F3;
     --bg-white: #FDFDFD;
     --accent-yellow: #F3E139;
@@ -4008,48 +4008,19 @@ p {
 
 .page-activities .hero-grid {
     display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
+    grid-template-columns: 0.75fr 0.25fr;
     gap: 28px;
     align-items: center;
 }
 
 .page-activities .hero h1 {
     font-size: clamp(2rem, 4.2vw, 3.5rem);
+    
     margin-bottom: 14px;
 }
 
-.page-activities .hero-art {
-    min-height: 320px;
-    border-radius: 22px;
-    background:
-        radial-gradient(circle at 18% 16%, rgba(255, 255, 255, 0.42), transparent 32%),
-        linear-gradient(145deg, #c8deff, #8ebdff 55%, #5ea2ff 100%);
-    border: 1px solid rgba(0, 103, 243, 0.2);
-    box-shadow: var(--shadow-soft);
-    position: relative;
-    overflow: hidden;
-}
-
-.page-activities .hero-art::before {
-    content: "";
-    position: absolute;
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    right: -34px;
-    top: -24px;
-    background: rgba(255, 255, 255, 0.5);
-}
-
-.page-activities .hero-art::after {
-    content: "";
-    position: absolute;
-    width: 98px;
-    height: 98px;
-    border-radius: 50%;
-    left: 22px;
-    bottom: 24px;
-    background: rgba(243, 225, 57, 0.82);
+.page-activities .hero p {
+    max-width: 680px;
 }
 
 .page-activities .section-head {
@@ -4057,14 +4028,14 @@ p {
     margin-bottom: 30px;
 }
 
-.page-activities .achievement-card:nth-child(odd) {
+/* .page-activities .achievement-card:nth-child(odd) {
     border-top: 4px solid rgba(0, 103, 243, 0.36);
 }
 
 .page-activities .achievement-card:nth-child(even) {
     border-top: 4px solid rgba(243, 225, 57, 0.85);
     background: linear-gradient(160deg, #ffffff 0%, #fffef2 100%);
-}
+} */
 
 .page-activities .gallery-stack {
     display: flex;
@@ -4103,35 +4074,113 @@ p {
 .page-activities .achievements-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    align-items: stretch;
+    overflow: hidden;
+    border-radius: 26px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 103, 243, 0.08);
+    box-shadow: 0 18px 34px rgba(8, 30, 66, 0.07);
+}
+
+.page-activities .achievement-card{
+     display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 20px 18px;
+    min-height: 92px;
+    backdrop-filter: blur(6px);
+      border-left: 1px solid rgba(0, 103, 243, 0.08);
+}
+
+.page-activities .achievements-grid .achievement-sub-grid {
+    display: grid;
+    grid-template-columns: 0.5fr 1.5fr;
+    gap: 12px;
+}
+
+.page-activities .achievements-grid .achievements-icons {
+      width: 40px;
+    height: 40px;
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: linear-gradient(145deg, rgba(0, 103, 243, 0.08), rgba(255, 255, 255, 0.95));
+    color: var(--primary-blue);
+    box-shadow: 0 8px 18px rgba(12, 45, 94, 0.06);
+    font-size: 0.95rem;
+}
+
+/* .page-activities .achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 18px;
 }
 
 .page-activities .achievement-card {
-    background: #fff;
-    border-radius: var(--radius-lg);
-    border: 1px solid rgba(17, 17, 17, 0.08);
-    box-shadow: var(--shadow-soft);
-    padding: 22px;
-    transition: transform var(--transition-mid), box-shadow var(--transition-mid);
+    position: relative;
+    overflow: hidden;
+    min-height: 100px;
+    border-radius: 28px;
+    padding: 24px 22px 22px;
+    border-top: 1px var(--primary-blue) solid;
+    background:
+        radial-gradient(circle at 100% 100%, rgba(99, 148, 230, 0.18), transparent 22%),
+        linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+    border: 1px solid rgba(0, 103, 243, 0.08);
+    box-shadow: 0 22px 40px rgba(8, 30, 66, 0.08);
+    transition: transform var(--transition-mid), box-shadow var(--transition-mid), border-color var(--transition-mid);
+    backdrop-filter: blur(6px);
+} */
+
+.page-activities .achievement-card p {
+    border-top-color: rgba(255, 255, 255, 0.22);
 }
 
-.page-activities .achievement-card:hover {
+
+/* .page-activities .achievement-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-hover);
-}
+} */
 
 .page-activities .achievement-value {
-    color: #0f1f3a;
-    font-size: 1.8rem;
-    font-weight: 700;
-    line-height: 1.1;
-    margin-bottom: 6px;
+    position: relative;
+    z-index: 1;
+    margin-top: 22px;
+    color: #132545;
+    font-size: clamp(2.7rem, 4vw, 3rem);
+    line-height: 0.92;
+    font-weight: 800;
+    letter-spacing: -0.04em;
 }
 
 .page-activities .achievement-title {
-    color: #223052;
-    font-weight: 600;
-    margin-bottom: 6px;
+  position: relative;
+    z-index: 1;
+    margin-top: 12px;
+    color: #17274a;
+    font-size: 1.02rem;
+    line-height: 1.15;
+    font-weight: 700;
+}
+
+.page-activities .achievement-desc { 
+    position: relative;
+    z-index: 1;
+    margin-top: 22px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(25, 44, 77, 0.08);
+    color: #5e6c86;
+    font-size: 0.92rem;
+    line-height: 1.55;}
+
+.page-activities .showcase-container {
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    
 }
 
 .page-activities .showcase-wrap {
@@ -4140,16 +4189,20 @@ p {
     border: 1px solid rgba(17, 17, 17, 0.08);
     box-shadow: var(--shadow-soft);
     padding: 24px;
+      background:
+        radial-gradient(circle at 100% 100%, rgba(99, 148, 230, 0.18), transparent 22%),
+        linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
 }
 
 .page-activities .showcase-grid {
     display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
 
 .page-activities .showcase-list {
-    margin: 0;
+    margin-top: 20px;
+  
     padding: 0;
     list-style: none;
     display: grid;
@@ -4181,8 +4234,8 @@ p {
 
 .page-activities .badge-row {
     margin-top: 14px;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
 }
 
