@@ -2443,24 +2443,82 @@ p {
     transition: transform var(--transition-mid), box-shadow var(--transition-mid);
 }
 
+.page-about .value-card {
+     position: relative;
+    overflow: hidden;
+    min-height: 240px;
+    border-radius: 28px;
+    padding: 24px 22px 22px;
+    background:
+        radial-gradient(circle at 100% 100%, rgba(99, 148, 230, 0.18), transparent 22%),
+        linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+    border: 1px solid rgba(0, 103, 243, 0.08);
+    box-shadow: 0 22px 40px rgba(8, 30, 66, 0.08);
+    transition: transform var(--transition-mid), box-shadow var(--transition-mid), border-color var(--transition-mid);
+}
+
+.page-about .value-card:hover {
+   transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
 .page-about .card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-hover);
 }
 
-.page-about .value-grid .card {
-    border-top: 4px solid rgba(0, 103, 243, 0.45);
+.page-about .value-card h3 {
+    position: relative;
+    z-index: 1;
+    color: #17274a;
+    font-size: 1.82rem;
+    line-height: 1.15;
+    font-weight: 700;
 }
 
-.page-about .value-grid .card:nth-child(even) {
-    border-top-color: rgba(243, 225, 57, 0.85);
-    background: linear-gradient(160deg, #ffffff 0%, #fffef2 100%);
+.page-about .value-card p{
+    position: relative;
+    z-index: 1;
+    padding-top: 12px;
+    border-top: 1px solid rgba(25, 44, 77, 0.08);
+    color: #5e6c86;
+    font-size: 0.92rem;
+    line-height: 1.55;
 }
 
-.page-about .split-grid {
+.page-about .panel-card h3{
+    position: relative;
+    z-index: 1;
+    color: #17274a;
+    font-size: 1.82rem;
+    line-height: 1.15;
+    font-weight: 700;
+}
+
+.page-about .panel-card .desc {
+    position: relative;
+    z-index: 1;
+    padding-top: 12px;
+    border-top: 1px solid rgba(25, 44, 77, 0.08);
+    color: #5e6c86;
+    font-size: 0.92rem;
+    line-height: 1.55;
+}
+
+.split-grid-main{
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px;
+    grid-template-columns: 0.5fr 1.5fr;
+    gap: 32px;
+}
+
+.page-about .split-grid-1 {
+    display: grid;
+    grid-template-columns: 1.5fr 0.5fr;
+}
+
+.page-about .split-grid-2 {
+    display: grid;
+    grid-template-columns: 0.5fr 1.5fr;
 }
 
 .page-about .panel {
@@ -2469,7 +2527,10 @@ p {
     border: 1px solid rgba(0, 103, 243, 0.14);
     padding: 28px;
     box-shadow: var(--shadow-soft);
+    margin-bottom: 18px;
+    transition: transform var(--transition-mid), box-shadow var(--transition-mid);
 }
+
 
 .page-about .btn,
 .page-destinations .btn {
@@ -4315,7 +4376,7 @@ p {
 
 .page-activities .achievements-grid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: 1.1fr 0.9fr 0.9fr 0.9fr;
     gap: 0;
     align-items: stretch;
     overflow: hidden;
@@ -4326,20 +4387,20 @@ p {
 }
 
 .page-activities .achievement-card{
-     display: flex;
+    display: flex;
     align-items: flex-start;
     gap: 12px;
     padding: 20px 18px;
-    min-height: 92px;
+    min-height: 240px;
     backdrop-filter: blur(6px);
-      border-left: 1px solid rgba(0, 103, 243, 0.08);
+    border-left: 1px solid rgba(0, 103, 243, 0.08);
 }
 
-.page-activities .achievements-grid .achievement-sub-grid {
+/* .page-activities .achievements-grid .achievement-sub-grid {
     display: grid;
     grid-template-columns: 0.5fr 1.5fr;
     gap: 12px;
-}
+} */
 
 .page-activities .achievements-grid .achievements-icons {
       width: 40px;
@@ -4410,12 +4471,13 @@ p {
 .page-activities .achievement-desc { 
     position: relative;
     z-index: 1;
-    margin-top: 22px;
     padding-top: 12px;
-    border-top: 1px solid rgba(25, 44, 77, 0.08);
+    border-top: 1px solid var(--accent-yellow);
     color: #5e6c86;
     font-size: 0.92rem;
-    line-height: 1.55;}
+    line-height: 1.55;
+}
+
 
 .page-activities .showcase-container {
     margin-bottom: 20px;
@@ -4431,9 +4493,6 @@ p {
     border: 1px solid rgba(17, 17, 17, 0.08);
     box-shadow: var(--shadow-soft);
     padding: 24px;
-      background:
-        radial-gradient(circle at 100% 100%, rgba(99, 148, 230, 0.18), transparent 22%),
-        linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
 }
 
 .page-activities .showcase-grid {
