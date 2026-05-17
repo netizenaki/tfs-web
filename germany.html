@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Forward Society | Home</title>
-    <link rel="icon" type="image/png" href="assets/favicon.png">
+     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="apple-touch-icon" href="assets/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="styles/site.css">
     <script defer src="https://cloud.umami.is/script.js" data-website-id="ca60e73e-5abb-467a-9024-a4fc5810cddb"></script>
 </head>
@@ -205,8 +206,9 @@
                     <h2>Admissions and living essentials at a glance</h2>
                 </div>
 
-                <div class="detail-grid">
-                    <article class="detail-card detail-card-feature detail-card-no-accent igcse-card igcse-card-hero reveal">
+                <div>
+                    <div class="overview-section">
+                        <article class="detail-card detail-card-feature detail-card-no-accent igcse-card igcse-card-hero reveal">
                         <div class="overview-grid">
                             <div class="overview-icons">
                                 <img src="assets/germany flag.jpg" alt="Germany overview visual" class="detail-card-image">
@@ -218,9 +220,11 @@
                                 <p>Germany appeals to students who want dependable academic standards, practical program structures, and a study environment that supports both personal independence and professional growth.</p>
                             </div>
                         </div>
-                    </article>
+                        </article>
+                    </div>
 
-                    <article class="requirement-card reveal">
+                    <div class="country-detail-grid">
+                         <article class="requirement-card reveal">
                         <div class="requirement-card-body">
                             <div class="section-card-head">
                                 <h3>Admission Requirements</h3>
@@ -265,6 +269,9 @@
                                 </svg>
                             </div>
                     </article>
+                    </div>
+                   
+
                 </div>
             </div>
         </section>
@@ -339,32 +346,46 @@
                 <div class="opportunity-grid">
                     <article class="opportunity-card reveal">
                         <div class="opportunity-body">
-                            <div class="section-card-head">
+                            <div class="section-card-head panel">
+                                <div>
+                                     <span class="opportunity-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+                                </div>
+                                <div>
                                 <h3>Universities</h3>
+                                </div>
                             </div>
-                            <p>Students often compare institutions by location, language of instruction, research strengths, and employability.</p>
-                            <ul class="opportunity-list">
+                            <div class="panel">
+                            <p class="opportunity-desc">Students often compare institutions by location, language of instruction, research strengths, and employability.</p>
+                            <ul class="opportunity-list ">
                                 <li>Public universities with strong academic reputation</li>
-                                <li>Universities of applied sciences with practical pathways</li>
+                                <li>Universities of applied sciences</li>
                                 <li>Specialized programs in engineering, business, and design</li>
-                                <li>Regional choices based on lifestyle and career goals</li>
+                                <li>Regional choices based on lifestyle</li>
                             </ul>
+                            </div>
                             <a class="card-link-Blue" href="/explore/universities.html">Build Your Shortlist</a>
                         </div>
                     </article>
                     <article class="opportunity-card reveal">
                         <div class="opportunity-body">
-                            <div class="section-card-head">
-                                <h3>Scholarships</h3>
+                            <div class="section-card-head panel">
+                                <div>
+                                      <span class="opportunity-icon" aria-hidden="true"><i class="fa-solid fa-hand-holding-heart"></i></span>
+                                </div>
+                                <div>
+                                     <h3>Scholarships</h3>
+                                </div>
                             </div>
-                            <p>Funding options vary by university, academic profile, and the support structure available to international students.</p>
+                            <div class="panel">
+                                <p class="opportunity-desc">Funding options vary by university, academic profile, and the support structure available to international students.</p>
                             <ul class="opportunity-list">
                                 <li>Merit-based scholarships and tuition support</li>
                                 <li>University-specific grants and discounts</li>
                                 <li>External foundations and mobility funding</li>
                                 <li>Application strategies for stronger scholarship positioning</li>
                             </ul>
-                            <a class="card-link-Green" href="explore/scholarships.html">Explore scholarships</a>
+                        </div>
+                         <a class="card-link-Blue" href="explore/scholarships.html">Explore scholarships</a>
                         </div>
                     </article>
                 </div>
