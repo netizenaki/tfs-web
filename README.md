@@ -5,8 +5,9 @@ Static website for The Forward Society, a youth-led social enterprise empowering
 
 - in nav bar add soft gradient that appears on scroll
 - redesign left over cards
-- fix message text field in contact us 
-- temp remove consultancy page
+- redesign overview card in germany page 
+- redesign pathway detail page
+- finish aboutus card design 
 
 ## UI Consistency Rules
 
