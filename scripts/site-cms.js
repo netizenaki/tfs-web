@@ -179,7 +179,7 @@
             '<p class="supervisor-role">' + escapeHtml(member.role) + '</p>',
             '</div>',
             '</div>',
-            '<p class="copy-top-10">' + escapeHtml(member.description) + '</p>',
+            '<p class="copy-top-10 supervisor-desc">' + escapeHtml(member.description) + '</p>',
             '</article>'
         ].join("");
     }
