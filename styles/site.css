@@ -2442,11 +2442,41 @@ p {
     padding: 24px;
     transition: transform var(--transition-mid), box-shadow var(--transition-mid);
 }
+.page-about .values-desc-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 18px;
+    align-items: center;
+}
+
+.page-about .values-icons {
+    position: absolute;
+
+    right: -8px;
+    bottom: -8px;
+
+    width: 80px;
+    height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #fff;
+    font-size: 1.8rem;
+
+    z-index: 3;
+}
+
+.page-about .value-card::after {
+    right: -23px;
+    bottom: -23px;
+}
 
 .page-about .value-card {
      position: relative;
     overflow: hidden;
-    min-height: 240px;
+    min-height: 140px;
     border-radius: 28px;
     padding: 24px 22px 22px;
     background:
@@ -2456,6 +2486,48 @@ p {
     box-shadow: 0 22px 40px rgba(8, 30, 66, 0.08);
     transition: transform var(--transition-mid), box-shadow var(--transition-mid), border-color var(--transition-mid);
 }
+
+.page-about .value-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.4), transparent 48%);
+}
+
+.page-about .value-card::after {
+    content: "";
+    position: absolute;
+    right: -42px;
+    bottom: -42px;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: var(--brand-premium-gradient);
+    pointer-events: none;
+}
+
+/* .page-about .values-desc-grid {
+    display: grid;
+    grid-template-columns: 1.8fr 0.2fr;
+    gap: 14px;
+    align-items: center;
+}
+
+.page-about .values-icons {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: end;
+    border-radius: var(--radius-lg);
+    color: var(--primary-blue);
+    font-size: 1.5rem;
+    position: relative;
+    z-index: 2;
+} */
 
 .page-about .value-card:hover {
    transform: translateY(-5px);
