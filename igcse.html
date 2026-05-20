@@ -3,31 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Forward Society | IGCSE Pathway</title>
-    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <title>The Forward Society | IGCSE</title>
+     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="apple-touch-icon" href="assets/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="styles/site.css">
     <script defer src="https://cloud.umami.is/script.js" data-website-id="ca60e73e-5abb-467a-9024-a4fc5810cddb"></script>
 </head>
-<body class="page-pathways page-pathways-detail page-igcse">
+<body class="page-pathways page-pathway-detail page-igcse">
     <header class="site-header">
         <nav class="nav-wrap" aria-label="Primary">
-            <a href="index.html" class="brand">
+            <a href="index.html" class="brand" aria-current="page">
                 <img src="assets/logo.png" alt="The Forward Society logo" class="brand-logo">
                 <span>The Forward Society</span>
             </a>
             <div class="nav-links">
-                <a href="index.html">Home</a>
+                <a href="index.html" aria-current="page">Home</a>
                 <div class="nav-group">
                     <a href="destination-countries.html" aria-haspopup="true">
                         <span>Education Consultancy</span>
                         <span aria-hidden="true">+</span>
                     </a>
                     <div class="nav-dropdown" role="menu" aria-label="Education Consultancy">
-                        <a href="pathways.html" role="menuitem" aria-current="page">Pathways</a>
+                        <!-- <a href="#" role="menuitem">Academic Consultancy</a> -->
+                        <a href="pathways.html" role="menuitem">Pathways</a>
                         <div class="submenu-group">
                             <a class="submenu-trigger" href="destination-countries.html" role="menuitem">
                                 <span>Destination Countries</span>
@@ -62,11 +64,11 @@
                 <a href="activities-achievement.html">Activities &amp; Achievement</a>
                 <a href="blog.html">Blog</a>
                 <div class="nav-group">
-                    <a href="about.html" aria-haspopup="true"><span>About Us</span><span aria-hidden="true">+</span></a>
-                    <div class="nav-dropdown" role="menu" aria-label="About Us">
-                        <a href="leadership.html" role="menuitem">Leadership</a>
-                    </div>
-                </div>
+    <a href="about.html" aria-haspopup="true"><span>About Us</span><span aria-hidden="true">+</span></a>
+    <div class="nav-dropdown" role="menu" aria-label="About Us">
+        <a href="leadership.html" role="menuitem">Leadership</a>
+    </div>
+</div>
                 <a href="contact.html" class="nav-contact-pill">Contact Us</a>
             </div>
             <button type="button" id="menu-toggle" class="menu-btn" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
@@ -76,6 +78,7 @@
             <details>
                 <summary>Education Consultancy</summary>
                 <div class="mobile-detail-links">
+                    <!-- <a href="#">Academic Consultancy</a> -->
                     <a href="pathways.html">Pathways</a>
                     <a href="destination-countries.html">Destination Countries</a>
                     <details>
@@ -106,9 +109,9 @@
             <a href="activities-achievement.html">Activities &amp; Achievement</a>
             <a href="blog.html">Blog</a>
             <details>
-                <summary>About Us</summary>
-                <a href="leadership.html">Leadership</a>
-            </details>
+  <summary>About Us</summary>
+  <a href="leadership.html">Leadership</a>
+</details>
             <a href="contact.html">Contact Us</a>
         </div>
     </header>
@@ -126,172 +129,249 @@
     </div>
 
     <main>
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="reveal">
+                    <p class="eyebrow">study abroad with IGCSE</p>
+                    <h1><span class="brand-gradient-text">IGCSE</span> pathway</h1>
+                    <p>IGCSE offers an internationally respected curriculum that develops academic excellence, critical thinking, and strong preparation for future education pathways. </p>
 
-    <section class="igcse-hero">
-    <div class="container hero-center hero-grid">
-
-        <div class="hero-content reveal">
-            <h1>IGCSE</h1>
-
-            <p class="hero-lead">
-                IGCSE gives students a structured academic base, broad subject choice,
-                and a reliable bridge into A-Level, IB, foundation, and other future-focused progression routes.
-            </p>
-
-            <div class="pathway-detail-actions">
-                <a class="card-link" href="contact.html">Book Consultation</a>
-                <a class="detail-link" href="#overview">Explore Student Guide</a>
-            </div>
-
-
-        </div>
-
-        <div class="igcse-hero-mascot">
-            <img src="assets/favicon.png" alt="mascot">
-        </div>
-    </div>
-</section>
-            <section id="overview" class="igcse-section">
-            <div class="container">
-                <div class="section-head reveal">
-                    <p class="eyebrow">Overview</p>
-                    <h2>What is the IGCSE pathway?</h2>
-                </div>
-                <article class="detail-card detail-card-feature igcse-card reveal">
-                    <div class="overview-grid">
-                        <div class="detail-card-body igcse-card-body igcse-overview-card-body">
-                            <div class="section-card-head">
-                                <h3>A globally recognized route for students who want both discipline and choice</h3>
-                            </div>
-                            <p>IGCSE works especially well for students who need a strong academic framework while keeping future options open across different education systems, subjects, and destinations.</p>
-                               <div class="igcse-chip-row">
-                                <span class="igcse-chip">International recognition</span>
-                                <span class="igcse-chip">Subject flexibility</span>
-                                <span class="igcse-chip">Clear progression</span>
-                            </div>
-            </section>
-
-            <section id="requirements" class="igcse-section">
-            <div class="container">
-                <div class="section-head reveal">
-                    <p class="eyebrow">Requirements</p>
-                    <h2>What students should prepare</h2>
-                </div>
-                <div class="requirement-grid igcse-requirement-grid">
-                   <article class="requirement-card  reveal">
-                        <div class="requirement-card-body">
-                            <div class="section-card-head">
-                                <h3>Academic Readiness</h3>
-                            </div>
-                            <ul class="benefit-list">
-                                <li>Steady performance in previous school years</li>
-                                <li>Comfort with English-medium learning or support planning</li>
-                                <li>Ability to keep up with subject-by-subject coursework</li>
-                                <li>Good learning habits and time management</li>
-                                <li>Readiness for a more independent academic routine</li>
-                            </ul>
-                        </div>
-                         <div class="requirement-icons">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="currentColor" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round">
-                             <path d="M14 3.5C17.7712 3.5 19.6569 3.5 20.8284 4.7448C22 5.98959 22 7.99306 22 12C22 16.0069 22 18.0104 20.8284 19.2552C19.6569 20.5 17.7712 20.5 14 20.5L10 20.5C6.22876 20.5 4.34315 20.5 3.17157 19.2552C2 18.0104 2 16.0069 2 12C2 7.99306 2 5.98959 3.17157 4.7448C4.34315 3.5 6.22876 3.5 10 3.5L14 3.5Z" />
-                             <path d="M5 15.5C6.60865 13.3626 10.3539 13.246 12 15.5M10.249 10.2501C10.249 11.2166 9.46552 12.0001 8.49902 12.0001C7.53253 12.0001 6.74902 11.2166 6.74902 10.2501C6.74902 9.28362 7.53253 8.50012 8.49902 8.50012C9.46552 8.50012 10.249 9.28362 10.249 10.2501Z" />
-                            <path d="M15 9.5L19 9.5" />
-                            <path d="M15 13.5H17" />
+                    <div class="country-detail-actions">
+                        <a class="card-link" href="contact.html">Book Consultation</a>
+                        <a class="detail-link" href="#overview">Explore Student Guide</a>
+                    </div>
+                     <div class="hero-facts-strip">
+                        <article class="hero-fact">
+                               <div class="hero-icons">
+                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe-icon lucide-globe"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                             </div>
+                             <div class="hero-fact-text">
+                                  <strong>Global Recognition</strong>
+                             </div>
+                        </article>
+                        <article class="hero-fact">
+                            <div class="hero-icons">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="currentColor" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5.33333 3.00001C7.79379 2.99657 10.1685 3.88709 12 5.5V21C10.1685 19.3871 7.79379 18.4966 5.33333 18.5C3.77132 18.5 2.99032 18.5 2.64526 18.2792C2.4381 18.1466 2.35346 18.0619 2.22086 17.8547C2 17.5097 2 16.8941 2 15.6629V6.40322C2 4.97543 2 4.26154 2.54874 3.68286C3.09748 3.10418 3.65923 3.07432 4.78272 3.0146C4.965 3.00491 5.14858 3.00001 5.33333 3.00001Z" />
+                            <path d="M12 21V5.5C13.8315 3.88709 16.2062 2.99657 18.6667 3.00001C18.8514 3.00001 19.035 3.00491 19.2173 3.0146C20.3408 3.07432 20.9025 3.10418 21.4513 3.68286C22 4.26154 22 4.97543 22 6.40322V11.5" />
+                            <path d="M21.6887 14.9339L21.0661 14.3113C20.651 13.8962 19.978 13.8962 19.5629 14.3113L16.2141 17.6601C15.769 18.1052 15.4656 18.6722 15.3421 19.2895L15 21L16.7105 20.6579C17.3278 20.5344 17.8948 20.231 18.3399 19.7859L21.6887 16.4371C22.1038 16.022 22.1038 15.349 21.6887 14.9339Z" />
                             </svg>
-                        </div>
-                    </article>
-
-                    <article class="requirement-card reveal">
-                        <div class="requirement-card-body">
-                            <div class="section-card-head">
-                                <h3>Subject Selection Guidance</h3>
                             </div>
-                            <ul class="benefit-list">
-                                <li>Keep mathematics and language strength where possible</li>
-                                <li>Include sciences if STEM may be a future option</li>
-                                <li>Match optional subjects to interest and progression value</li>
-                                <li>Avoid overloading the timetable unnecessarily</li>
-                                <li>Confirm destination-specific expectations early</li>
-                            </ul>
-                        </div>
-                          <div class="requirement-icons">
-                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="currentColor" fill="none" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                         <path d="M8 2V18" />
-                        <path d="M20 22H6C4.89543 22 4 21.1046 4 20M4 20C4 18.8954 4.89543 18 6 18H20V6C20 4.11438 20 3.17157 19.4142 2.58579C18.8284 2 17.8856 2 16 2H10C7.17157 2 5.75736 2 4.87868 2.87868C4 3.75736 4 5.17157 4 8V20Z" />
-                         <path d="M19.5 18C19.5 18 18.5 18.7628 18.5 20C18.5 21.2372 19.5 22 19.5 22" />
+                            <div class="hero-fact-text">
+                            <strong>Independent Learning</strong>
+                            </div>
+                        </article>
+                        <article class="hero-fact">
+                            <div class="hero-icons">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="currentColor" fill="none" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="18" cy="5" r="3" />
+                            <circle cx="6" cy="19" r="3" />
+                            <path d="M12 5H8.5C6.567 5 5 6.567 5 8.5C5 10.433 6.567 12 8.5 12H15.5C17.433 12 19 13.567 19 15.5C19 17.433 17.433 19 15.5 19H12" />
                         </svg>
                         </div>
+                        <div class="hero-fact-text">
+                            <strong>International Curriculum</strong>
+                        </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="country-hero-visual reveal" aria-hidden="true">
+                    <div class="hero-image">
+                        <img class="globe-map" src="assets/favicon.png" alt="" loading="lazy" decoding="async">
+                    </div>
+                    <article class="pathway-floating-card pathway-floating-card-accent">
+                        <h3 class="pathway-floating-stat">Fact-01</h3>
+                        <p>IGCSE education prepares students for advanced study pathways such as A Levels, foundation programs, and university admission worldwide.</p>
                     </article>
                 </div>
             </div>
         </section>
-        
 
-        <section id="next-steps" class="igcse-section">
+        <section id="overview">
+            <div class="container">
+                <div class="section-head reveal container-center">
+                    <p class="eyebrow">admission Guide</p>
+                    <h2> <span class="brand-gradient-text">Admissions requirement</span></h2>
+                </div>
+
+                <div>
+                    <div class="overview-section">
+                        <div class="overview-grid">
+                            <article class="detail-card">
+                            <div class="detail-card-body">
+                                <div>
+                                <h3 class="pathway-floating-stat brand-gradient-text">
+                                Simple admission requirements
+                                </h3>
+                                </div>
+
+                                <p class="overview-desc">
+                                IGCSE admission typically requires students to submit previous academic records, demonstrate basic English language proficiency, and provide supporting documents such as identification papers, transcripts, recommendation letters, or passport copies. Some schools may also conduct placement tests or interviews to evaluate the student’s academic level and readiness. 
+
+                                </p>
+                            </div>
+
+                           
+                            
+                            <div class="pathway-detail-strip">
+                            <article class="hero-fact">
+                            <div class="hero-icons">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="currentColor" fill="none" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="18" cy="5" r="3" />
+                            <circle cx="6" cy="19" r="3" />
+                            <path d="M12 5H8.5C6.567 5 5 6.567 5 8.5C5 10.433 6.567 12 8.5 12H15.5C17.433 12 19 13.567 19 15.5C19 17.433 17.433 19 15.5 19H12" />
+                            </svg>
+                            </div>
+                            <div class="hero-fact-text">
+                                <strong>International Curriculum</strong>
+                            </div>
+                            </article>
+
+                               <article class="hero-fact">
+                            <div class="hero-icons">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="currentColor" fill="none" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="18" cy="5" r="3" />
+                            <circle cx="6" cy="19" r="3" />
+                            <path d="M12 5H8.5C6.567 5 5 6.567 5 8.5C5 10.433 6.567 12 8.5 12H15.5C17.433 12 19 13.567 19 15.5C19 17.433 17.433 19 15.5 19H12" />
+                            </svg>
+                            </div>
+                            <div class="hero-fact-text">
+                                <strong>International Curriculum</strong>
+                            </div>
+                            </article>
+
+                               <article class="hero-fact">
+                            <div class="hero-icons">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="currentColor" fill="none" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="18" cy="5" r="3" />
+                            <circle cx="6" cy="19" r="3" />
+                            <path d="M12 5H8.5C6.567 5 5 6.567 5 8.5C5 10.433 6.567 12 8.5 12H15.5C17.433 12 19 13.567 19 15.5C19 17.433 17.433 19 15.5 19H12" />
+                            </svg>
+                            </div>
+                            <div class="hero-fact-text">
+                                <strong>International Curriculum</strong>
+                            </div>
+                            </article>   
+                        </div>
+
+                        
+                        </article>
+
+                        <article class="requirement-card reveal">
+                        <div class="requirement-card-body">
+                            <div class="section-card-head">
+                                <p class="pathway-floating-stat brand-gradient-text">Requirements</p>
+                            </div>
+                        <div>
+                             <ul class="benefit-list">
+                                <li>Previous academic records and school transcripts</li>
+                                <li>English language proficiency results</li>
+                                <li>Completed application and personal statement</li>
+                                <li>Passport or identification documents</li>
+                                <li>Subject-specific entry requirements</li>
+                            </ul>
+                        </div>
+                         </div>
+                         </article>
+                        </div>
+                      
+                      
+                </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-soft" id="journey-process">
             <div class="container">
                 <div class="section-head reveal">
-                    <p class="eyebrow">Next Steps</p>
-                    <h2>Plan the pathway with clarity</h2>
+                    <p class="eyebrow">student guide</p>
+                    <h2>Prepare for the <span class="brand-gradient-text">journey</span></h2>
                 </div>
-                <div class="journey-grid igcse-journey-grid">
-                    <article class="journey-card igcse-step-card reveal">
+                
+                <div class="journey-grid">
+                    <article class="journey-card reveal">
                         <div class="section-card-meta">
                             <p class="pathway-floating-stat"><span class="stat-first-number">0</span>1</p>
+                            <h3 class="brand-gradient-text">Choose subjects</h3>
                         </div>
-                        <h3>Review academic profile</h3>
-                        <p>Assess the student's current level, subject strengths, and long-term goals before choosing an IGCSE route.</p>
+                        <div class="journey-desc">
+                            <p>Select the IGCSE subjects that match your academic interests, strengths, and future study goals.</p>
+                        </div>
                     </article>
-                    <article class="journey-card igcse-step-card reveal">
+
+                    <article class="journey-card reveal">
                         <div class="section-card-meta">
                             <p class="pathway-floating-stat"><span class="stat-first-number">0</span>2</p>
+                            <h3 class="brand-gradient-text">Meet requirements</h3>
                         </div>
-                        <h3>Build the right subject mix</h3>
-                        <p>Create a balanced subject set that supports both performance now and flexibility for future applications.</p>
+                        <div class="journey-desc">
+                            <p>Prepare academic records, language results, and supporting documents required for admission.</p>
+                        </div>
                     </article>
-                    <article class="journey-card igcse-step-card reveal">
+
+                    <article class="journey-card reveal">
                         <div class="section-card-meta">
                             <p class="pathway-floating-stat"><span class="stat-first-number">0</span>3</p>
+                            <h3 class="brand-gradient-text">Start learning</h3>
                         </div>
-                        <h3>Map progression early</h3>
-                        <p>Use the IGCSE stage to prepare for A-Level, IB, foundation, or destination-specific academic pathways afterward.</p>
+                        <div class="journey-desc">
+                            <p>Begin your IGCSE journey with internationally recognized courses designed for future academic success.</p>
+                        </div>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section id="opportunities" class="igcse-section">
+        <section id="opportunities">
             <div class="container">
                 <div class="section-head reveal">
                     <p class="eyebrow">Opportunities</p>
-                    <h2>See where the IGCSE pathway can lead</h2>
+                    <h2>Explore  <span class="brand-gradient-text">universities and scholarship</span> directions</h2>
                 </div>
-                <div class="opportunity-grid igcse-opportunity-grid">
-                    <article class="opportunity-card igcse-opportunity-card reveal">
-                        <div class="opportunity-body igcse-card-body">
-                            <div class="section-card-head">
-                                <h3>Top university</h3>
+                <div class="opportunity-grid">
+                    <article class="opportunity-card reveal">
+                        <div class="opportunity-body">
+                           
+                            <div class="panel">
+                                 <div class="opportunity-head">
+                                <div class="opportunity-icon">
+                                     <i class="fa-solid fa-graduation-cap"></i>
+                                </div>
+                                <div>
+                                <h3 class="brand-gradient-text pathway-floating-stat">Universities</h3>
+                                <p class="opportunity-desc">Students compare institutions by location, language, research, and employability.</p>
+                                </div>
                             </div>
-                            <ul class="opportunity-list">
-                                <li>Harvard University</li>
-                                <li>MIT University</li>
-                                <li>Standford University</li>
-                                <li>Mainland University</li>
+                            <ul class="opportunity-list ">
+                                <li>Public universities with strong academic reputation</li>
+                                <li>Universities of applied sciences</li>
+                                <li>Specialized programs in engineering, business, and design</li>
+                                <li>Regional choices based on lifestyle</li>
                             </ul>
-                            <a class="card-link-Blue" href="explore/universities.html">Explore Universities</a>
+                            </div>
+                            <a class="card-link-Blue" href="/explore/universities.html">Build Your Shortlist</a>
                         </div>
                     </article>
-                    <article class="opportunity-card igcse-opportunity-card igcse-opportunity-card-soft reveal">
-                        <div class="opportunity-body igcse-card-body">
-                            <div class="section-card-head">
-                                <h3>Avaliable scholarships</h3>
+                    <article class="opportunity-card reveal">
+                        <div class="opportunity-body">
+                            <div class="panel">
+                                  <div class="opportunity-head">
+                                <div class="opportunity-icon">
+                                      <i class="fa-solid fa-hand-holding-heart"></i>
+                                </div>
+                                <div>
+                                     <h3 class="brand-gradient-text pathway-floating-stat">Scholarships</h3>
+                                      <p class="opportunity-desc">Funding options depend on the university, academic profile, and student support.</p>
+                                </div>
                             </div>
                             <ul class="opportunity-list">
-                                <li>Ko pyae scholarship</li>
-                                <li>Ko sone scholarship</li>
-                                <li>Ko phyo scholarship</li>
-                                <li>PSP scholarship</li>
+                                <li>Merit-based scholarships and tuition support</li>
+                                <li>University-specific grants and discounts</li>
+                                <li>External foundations and mobility funding</li>
+                                <li>Application strategies for stronger scholarship positioning</li>
                             </ul>
-                            <a class="card-link-Green" href="explore/scholarships.html">Explore Scholarships</a>
+                        </div>
+                         <a class="card-link-Blue" href="explore/scholarships.html">Explore scholarships</a>
                         </div>
                     </article>
                 </div>
