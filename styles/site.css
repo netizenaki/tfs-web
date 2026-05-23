@@ -27,6 +27,18 @@
     --radius-sm: 8px;
     --transition-fast: 220ms ease;
     --transition-mid: 280ms ease;
+    /* Card design tokens — single source of truth for all card components */
+    --card-bg: linear-gradient(160deg, #ffffff 0%, #f8fbff 100%);
+    --card-border: 1px solid rgba(0, 103, 243, 0.12);
+    --card-border-hover: rgba(0, 103, 243, 0.28);
+    --card-radius: 24px;
+    --card-shadow: 0 16px 38px rgba(8, 30, 66, 0.09);
+    --card-shadow-hover: 0 24px 52px rgba(0, 80, 196, 0.14);
+    /* Shared page background — applied to all inner pages */
+    --page-bg:
+        radial-gradient(circle at 10% -10%, rgba(0, 103, 243, 0.13), transparent 34%),
+        radial-gradient(circle at 94% 14%, rgba(243, 225, 57, 0.15), transparent 25%),
+        linear-gradient(180deg, #f8fbff 0%, #fdfdfd 52%);
 }
 
 * {
@@ -54,61 +66,19 @@ body.page-home {
     background: radial-gradient(circle at 12% 0%, #eaf2ff 0%, #f7f9fe 18%, var(--bg-white) 48%);
 }
 
-body.page-about {
-    background:
-        radial-gradient(circle at 10% -10%, rgba(0, 103, 243, 0.14), transparent 34%),
-        radial-gradient(circle at 96% 14%, rgba(243, 225, 57, 0.16), transparent 26%),
-        linear-gradient(180deg, #f8fbff 0%, #fdfdfd 48%);
+body.page-about,
+body.page-pathways,
+body.page-destinations,
+body.page-contact,
+body.page-activities,
+body.page-leadership,
+body.page-blog,
+body.page-error {
+    background: var(--page-bg);
 }
 
 body.page-pathways {
-    background:
-        radial-gradient(circle at 8% -12%, rgba(0, 103, 243, 0.14), transparent 34%),
-        radial-gradient(circle at 92% 20%, rgba(243, 225, 57, 0.15), transparent 24%),
-        linear-gradient(180deg, #f8fbff 0%, #fdfdfd 50%);
     overflow-x: clip;
-}
-
-body.page-destinations {
-    background:
-        radial-gradient(circle at 12% -10%, rgba(0, 103, 243, 0.13), transparent 32%),
-        radial-gradient(circle at 95% 18%, rgba(243, 225, 57, 0.14), transparent 25%),
-        linear-gradient(180deg, #f7fbff 0%, #fdfdfd 52%);
-}
-
-body.page-contact {
-    background:
-        radial-gradient(circle at 10% -8%, rgba(0, 103, 243, 0.14), transparent 34%),
-        radial-gradient(circle at 92% 14%, rgba(243, 225, 57, 0.13), transparent 24%),
-        linear-gradient(180deg, #f8fbff 0%, #fdfdfd 55%);
-}
-
-body.page-activities {
-    background:
-        radial-gradient(circle at 8% -12%, rgba(0, 103, 243, 0.14), transparent 36%),
-        radial-gradient(circle at 96% 16%, rgba(243, 225, 57, 0.16), transparent 24%),
-        linear-gradient(180deg, #f8fbff 0%, #fdfdfd 52%);
-}
-
-body.page-leadership {
-    background:
-        radial-gradient(circle at 8% -12%, rgba(0, 103, 243, 0.15), transparent 35%),
-        radial-gradient(circle at 94% 14%, rgba(243, 225, 57, 0.15), transparent 25%),
-        linear-gradient(180deg, #f8fbff 0%, #fdfdfd 54%);
-}
-
-body.page-blog {
-    background:
-        radial-gradient(circle at 8% -10%, rgba(0, 103, 243, 0.14), transparent 34%),
-        radial-gradient(circle at 92% 14%, rgba(243, 225, 57, 0.15), transparent 25%),
-        linear-gradient(180deg, #f8fbff 0%, #fdfdfd 54%);
-}
-
-body.page-error {
-    background:
-        radial-gradient(circle at 8% -12%, rgba(0, 103, 243, 0.16), transparent 35%),
-        radial-gradient(circle at 92% 12%, rgba(243, 225, 57, 0.15), transparent 24%),
-        linear-gradient(180deg, #f8fbff 0%, #fdfdfd 56%);
 }
 
 .page-error .error-main {
@@ -120,10 +90,10 @@ body.page-error {
 
 .page-error .error-shell {
     width: min(840px, 100%);
-    background: rgba(255, 255, 255, 0.94);
-    border: 1px solid rgba(0, 103, 243, 0.14);
-    border-radius: 24px;
-    box-shadow: 0 18px 42px rgba(10, 46, 102, 0.12);
+    background: var(--card-bg);
+    border: var(--card-border);
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
     padding: clamp(28px, 4.5vw, 54px);
 }
 
@@ -252,12 +222,9 @@ p {
 
 
 .section-soft {
-    background: linear-gradient(180deg, #f7faff, #fdfdfd);
+    background: linear-gradient(180deg, #f7faff 0%, #fdfdfd 100%);
 }
 
-.section-alt {
-    background: linear-gradient(180deg, #ffffff, #f5f9ff);
-}
 
  h2 {
     font-size: var(--section-title-size);
@@ -329,12 +296,12 @@ p {
 
 .site-notice-panel {
     width: min(100%, 640px);
-    border-radius: 24px;
+    border-radius: var(--card-radius);
     padding: 28px;
     background:
         radial-gradient(circle at 100% 0%, rgba(243, 225, 57, 0.16), transparent 28%),
-        linear-gradient(160deg, #ffffff 0%, #f5f9ff 100%);
-    border: 1px solid rgba(0, 103, 243, 0.18);
+        var(--card-bg);
+    border: var(--card-border);
     box-shadow: 0 28px 60px rgba(8, 30, 66, 0.24);
 }
 
@@ -1242,13 +1209,13 @@ p {
     position: relative;
     overflow: hidden;
     min-height: 300px;
-    border-radius: 28px;
+    border-radius: var(--card-radius);
     padding: 24px 22px 22px;
     background:
-        radial-gradient(circle at 100% 100%, rgba(99, 148, 230, 0.18), transparent 22%),
-        linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
-    border: 1px solid rgba(0, 103, 243, 0.08);
-    box-shadow: 0 22px 40px rgba(8, 30, 66, 0.08);
+        radial-gradient(circle at 100% 100%, rgba(99, 148, 230, 0.14), transparent 22%),
+        var(--card-bg);
+    border: var(--card-border);
+    box-shadow: var(--card-shadow);
     transition: transform var(--transition-mid), box-shadow var(--transition-mid), border-color var(--transition-mid);
 }
 
@@ -1275,7 +1242,8 @@ p {
 
 .page-home .stat-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 28px 48px rgba(0, 103, 243, 0.18);
+    box-shadow: var(--card-shadow-hover);
+    border-color: var(--card-border-hover);
 }
 
 .page-home .stat-card.is-featured {
@@ -1460,17 +1428,18 @@ p {
 }
 
 .page-home .panel-card {
-    border-radius: var(--radius-lg);
-    background: linear-gradient(160deg, #ffffff 0%, #eff5ff 100%);
-    border: 1px solid rgba(0, 103, 243, 0.14);
+    border-radius: var(--card-radius);
+    background: var(--card-bg);
+    border: var(--card-border);
     padding: 28px;
-    box-shadow: var(--shadow-soft);
-    transition: transform var(--transition-mid), box-shadow var(--transition-mid);
+    box-shadow: var(--card-shadow);
+    transition: transform var(--transition-mid), box-shadow var(--transition-mid), border-color var(--transition-mid);
 }
 
 .page-home .panel-card:hover {
     transform: translateY(-4px);
-    box-shadow: var(--shadow-hover);
+    box-shadow: var(--card-shadow-hover);
+    border-color: var(--card-border-hover);
 }
 
 .page-home .panel-card h3 {
@@ -1481,10 +1450,9 @@ p {
 .page-home .panel-card-editorial {
     position: relative;
     overflow: hidden;
-    background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(247, 251, 255, 0.92));
-    border: 1px solid rgba(0, 103, 243, 0.16);
-    box-shadow: 0 16px 34px rgba(8, 30, 66, 0.1);
+    background: var(--card-bg);
+    border: var(--card-border);
+    box-shadow: var(--card-shadow);
 }
 
 .page-home .panel-card-editorial::before {
@@ -1516,10 +1484,10 @@ p {
     position: relative;
     overflow: hidden;
     background:
-        radial-gradient(circle at 100% 0%, rgba(243, 225, 57, 0.18), transparent 42%),
-        linear-gradient(165deg, #ffffff 0%, #f7fbff 62%, #f2f8ff 100%);
-    border: 1px solid rgba(0, 103, 243, 0.14);
-    box-shadow: 0 14px 30px rgba(8, 30, 66, 0.1);
+        radial-gradient(circle at 100% 0%, rgba(243, 225, 57, 0.16), transparent 42%),
+        var(--card-bg);
+    border: var(--card-border);
+    box-shadow: var(--card-shadow);
 }
 
 .page-home .country-card-porcelain::before {
@@ -2162,17 +2130,18 @@ p {
 }
 
 .page-home .article-card {
-    background: #fff;
-    border: 1px solid rgba(17, 17, 17, 0.08);
-    border-radius: var(--radius-lg);
+    background: var(--card-bg);
+    border: var(--card-border);
+    border-radius: var(--card-radius);
     overflow: hidden;
-    box-shadow: var(--shadow-soft);
-    transition: transform var(--transition-mid), box-shadow var(--transition-mid);
+    box-shadow: var(--card-shadow);
+    transition: transform var(--transition-mid), box-shadow var(--transition-mid), border-color var(--transition-mid);
 }
 
 .page-home .article-card:hover {
     transform: translateY(-6px);
-    box-shadow: var(--shadow-hover);
+    box-shadow: var(--card-shadow-hover);
+    border-color: var(--card-border-hover);
 }
 
 .page-home .article-thumb {
@@ -2447,11 +2416,11 @@ p {
 }
 .page-about .timeline-card {
     position: relative;
-    background: #fff;
+    background: var(--card-bg);
     padding: 24px;
-    border-radius: 24px;
-    border: 1px solid rgba(0, 103, 243, 0.18);
-    box-shadow: var(--shadow-soft);
+    border-radius: var(--card-radius);
+    border: var(--card-border);
+    box-shadow: var(--card-shadow);
     transition:
         transform var(--transition-mid),
         box-shadow var(--transition-mid),
@@ -2461,8 +2430,8 @@ p {
 
 .page-about .timeline-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 20px 50px rgba(0, 103, 243, 0.12);
-    border-color: rgba(0, 103, 243, 0.3);
+    box-shadow: var(--card-shadow-hover);
+    border-color: var(--card-border-hover);
 }
 
 
@@ -2538,12 +2507,12 @@ p {
 }
 
 .page-about .card {
-    background: #fff;
-    border-radius: var(--radius-lg);
-    border: 1px solid rgba(17, 17, 17, 0.07);
-    box-shadow: var(--shadow-soft);
+    background: var(--card-bg);
+    border-radius: var(--card-radius);
+    border: var(--card-border);
+    box-shadow: var(--card-shadow);
     padding: 24px;
-    transition: transform var(--transition-mid), box-shadow var(--transition-mid);
+    transition: transform var(--transition-mid), box-shadow var(--transition-mid), border-color var(--transition-mid);
 }
 
 .page-about .values-desc-grid {
@@ -2578,15 +2547,13 @@ p {
 }
 
 .page-about .value-card {
-    background: #fff;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-soft);
-    border: 1px solid rgba(0, 103, 243, 0.18);
-    border-radius: 24px;
-     position: relative;
+    background: var(--card-bg);
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
+    border: var(--card-border);
+    position: relative;
     overflow: hidden;
     min-height: 140px;
-    border-radius: 28px;
     padding: 24px 22px 22px;
     transition: transform var(--transition-mid), box-shadow var(--transition-mid), border-color var(--transition-mid);
 }
@@ -2645,8 +2612,9 @@ p {
 } */
 
 .page-about .value-card:hover {
-   transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
+    transform: translateY(-5px);
+    box-shadow: var(--card-shadow-hover);
+    border-color: var(--card-border-hover);
 }
 
 .page-about .card:hover {
@@ -2879,15 +2847,12 @@ p {
     display: flex;
     flex-direction: column;
     padding: 22px;
-    border-radius: 28px;
-    border: 1px solid rgba(80, 133, 220, 0.18);
+    border-radius: var(--card-radius);
+    border: var(--card-border);
     background:
-        radial-gradient(circle at 0% 0%, rgba(255, 214, 51, 0.2), transparent 32%),
-        linear-gradient(160deg, rgba(255, 255, 255, 0.96) 0%, rgba(242, 248, 255, 0.92) 100%);
-    box-shadow:
-        0 22px 42px rgba(14, 48, 99, 0.08),
-        0 40px 80px rgba(14, 48, 99, 0.05),
-        inset 0 1px 0 rgba(255, 255, 255, 0.88);
+        radial-gradient(circle at 0% 0%, rgba(255, 214, 51, 0.18), transparent 32%),
+        var(--card-bg);
+    box-shadow: var(--card-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.88);
     transition: transform var(--transition-mid), box-shadow var(--transition-mid), border-color var(--transition-mid), opacity var(--transition-fast), filter var(--transition-fast);
 }
 
@@ -2911,12 +2876,8 @@ p {
 
 .page-pathways .pathway-card:hover {
     transform: translateY(-8px);
-    border-color: rgba(43, 111, 210, 0.34);
-    box-shadow:
-        0 24px 50px rgba(14, 48, 99, 0.11),
-        0 48px 94px rgba(14, 48, 99, 0.08),
-        0 0 0 1px rgba(255, 214, 51, 0.18),
-        0 0 38px rgba(59, 137, 255, 0.12);
+    border-color: var(--card-border-hover);
+    box-shadow: var(--card-shadow-hover), inset 0 1px 0 rgba(255, 255, 255, 0.88);
 }
 
 .page-pathways .pathway-card-featured {
@@ -4048,18 +4009,20 @@ p {
 .page-destinations .destination-editorial-card {
     position: relative;
     overflow: hidden;
-    border-radius: 24px;
-    border: 1px solid rgba(84, 140, 226, 0.18);
-    background: radial-gradient(circle at 0 0, rgba(255, 230, 120, 0.2), transparent 30%), linear-gradient(155deg, rgba(255, 255, 255, 0.95), rgba(242, 248, 255, 0.92));
-    box-shadow: 0 20px 42px rgba(9, 42, 98, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.82);
+    border-radius: var(--card-radius);
+    border: var(--card-border);
+    background:
+        radial-gradient(circle at 0 0, rgba(255, 230, 120, 0.16), transparent 30%),
+        var(--card-bg);
+    box-shadow: var(--card-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.82);
     transition: transform var(--transition-mid), box-shadow var(--transition-mid), border-color var(--transition-mid);
 }
 
 .page-destinations .destination-feature-card:hover,
 .page-destinations .destination-editorial-card:hover {
     transform: translateY(-6px);
-    border-color: rgba(84, 140, 226, 0.34);
-    box-shadow: 0 26px 54px rgba(9, 42, 98, 0.13), 0 0 28px rgba(84, 140, 226, 0.16);
+    border-color: var(--card-border-hover);
+    box-shadow: var(--card-shadow-hover), inset 0 1px 0 rgba(255, 255, 255, 0.82);
 }
 
 .page-destinations .destination-feature-card {
@@ -4653,10 +4616,10 @@ p {
     gap: 0;
     align-items: stretch;
     overflow: hidden;
-    border-radius: 26px;
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(0, 103, 243, 0.08);
-    box-shadow: 0 18px 34px rgba(8, 30, 66, 0.07);
+    border-radius: var(--card-radius);
+    background: var(--card-bg);
+    border: var(--card-border);
+    box-shadow: var(--card-shadow);
 }
 
 .page-activities .achievement-card{
@@ -4800,9 +4763,9 @@ p {
 }
 
 .page-activities .showcase-panel {
-    border-radius: 16px;
-    border: 1px solid rgba(0, 103, 243, 0.2);
-    background: linear-gradient(160deg, #f6faff 0%, #e7f1ff 100%);
+    border-radius: var(--card-radius);
+    border: var(--card-border);
+    background: var(--card-bg);
     padding: 20px;
 }
 
@@ -4939,10 +4902,10 @@ p {
     grid-template-columns: 260px minmax(0, 1fr);
     gap: 24px;
     align-items: center;
-    background: linear-gradient(160deg, #ffffff 0%, #eef5ff 100%);
-    border: 1px solid rgba(0, 103, 243, 0.18);
-    border-radius: 24px;
-    box-shadow: var(--shadow-soft);
+    background: var(--card-bg);
+    border: var(--card-border);
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
     padding: 24px;
 }
 
@@ -5043,12 +5006,11 @@ p {
 
 .page-leadership .team-card,
 .page-leadership .stream-card {
-    background: #fff;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-soft);
+    background: var(--card-bg);
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
     padding: 22px;
-    border: 1px solid rgba(0, 103, 243, 0.18);
-    border-radius: 24px;
+    border: var(--card-border);
     transition: transform var(--transition-mid), box-shadow var(--transition-mid), border-color var(--transition-mid);
 }
 
@@ -5083,7 +5045,8 @@ p {
 .page-leadership .team-card:hover,
 .page-leadership .stream-card:hover {
     transform: translateY(-5px);
-    box-shadow:  rgba(0, 103, 243, 0.18);
+    box-shadow: var(--card-shadow-hover);
+    border-color: var(--card-border-hover);
 }
 
 
@@ -5469,12 +5432,12 @@ p {
 }
 
 .page-blog .blog-card {
-    background: #ffffff;
-    border: 1px solid rgba(21, 39, 73, 0.08);
-    border-radius: 16px 16px 16px 16px;
-    box-shadow: var(--shadow-soft);
+    background: var(--card-bg);
+    border: var(--card-border);
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
     overflow: hidden;
-    transition: transform var(--transition-mid);
+    transition: transform var(--transition-mid), box-shadow var(--transition-mid), border-color var(--transition-mid);
 }
 
 .page-blog .blog-card-link {
@@ -5485,10 +5448,10 @@ p {
 
 .page-blog .podcast-card {
     background: var(--brand-premium-gradient);
-    border-radius: 16px 16px 16px 0px;
+    border-radius: var(--card-radius);
     border: none;
     overflow: hidden;
-    box-shadow: var(--shadow-soft);
+    box-shadow: var(--card-shadow);
 }
 
 .page-blog .podcast-card-body {
@@ -5501,7 +5464,12 @@ p {
     margin-bottom: 8px;
 }
 
-.page-blog .blog-card:hover,
+.page-blog .blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--card-shadow-hover);
+    border-color: var(--card-border-hover);
+}
+
 .page-blog .podcast-card:hover {
     transform: translateY(-4px);
 }
@@ -6102,11 +6070,11 @@ p {
 .page-pathway-detail .journey-card{
     position: relative;
     overflow: hidden;
-    background: rgba(255, 255, 255, 0.96);
-    border: 1px solid rgba(19, 37, 69, 0.08);
-    border-radius: 18px;
+    background: var(--card-bg);
+    border: var(--card-border);
+    border-radius: var(--card-radius);
     padding: 24px;
-    box-shadow: 0 14px 28px rgba(13, 38, 82, 0.08);
+    box-shadow: var(--card-shadow);
     transition: transform var(--transition-mid), box-shadow var(--transition-mid), border-color var(--transition-mid);
 }
 
@@ -6163,11 +6131,9 @@ p {
 .page-pathway-detail .requirement-card:hover,
 .page-pathway-detail .journey-card:hover,
 .page-pathway-detail .opportunity-card:hover {
- transform: translateY(-6px);
-    box-shadow:
-        0 18px 40px rgba(42, 116, 255, 0.12);
-
-    border-color: rgba(42, 116, 255, 0.3);
+    transform: translateY(-6px);
+    box-shadow: var(--card-shadow-hover);
+    border-color: var(--card-border-hover);
 }
 
 .page-pathway-detail .journey-card .journey-desc,
@@ -6405,10 +6371,10 @@ p {
 .page-country-detail .visa-card{
     position: relative;
     overflow: hidden;
-    background: rgba(255, 255, 255, 0.96);
-    border: 1px solid rgba(19, 37, 69, 0.08);
-    border-radius: 18px;
-    box-shadow: 0 14px 28px rgba(13, 38, 82, 0.08);
+    background: var(--card-bg);
+    border: var(--card-border);
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
     transition: transform var(--transition-mid), box-shadow var(--transition-mid), border-color var(--transition-mid);
 }
 
@@ -6528,11 +6494,9 @@ p {
 .page-country-detail .requirement-card:hover,
 .page-country-detail .visa-card:hover,
 .page-country-detail .opportunity-card:hover {
-   transform: translateY(-6px);
-    box-shadow:
-        0 18px 40px rgba(42, 116, 255, 0.12);
-
-    border-color: rgba(42, 116, 255, 0.3);
+    transform: translateY(-6px);
+    box-shadow: var(--card-shadow-hover);
+    border-color: var(--card-border-hover);
 }
 
 .page-country-detail #visa-process .country-floating-stat {
