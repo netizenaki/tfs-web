@@ -1,5 +1,4 @@
 (function () {
-    // Slow down globe.webm playback if present
     window.addEventListener('DOMContentLoaded', function () {
         var globe = document.querySelector('.globe-map');
         if (globe && globe.tagName === 'VIDEO') {
@@ -80,7 +79,6 @@
         try {
             localStorage.setItem(devNoticeKey, "true");
         } catch (error) {
-            // Ignore storage failures and just close the modal for this session.
         }
     }
 
@@ -124,7 +122,6 @@
     const query = heroSearchInput.value.trim().toLowerCase();
     let visibleCount = 0;
 
-    // Reset if empty
     if (query === "") {
         searchableCards.forEach(card => card.classList.remove("is-hidden"));
         if (blogSearchEmpty) blogSearchEmpty.hidden = true;
@@ -203,39 +200,17 @@
         }
     }
 
-if (document.body.classList.contains("page-blog") && heroSearchInput) {
-
-    heroSearchInput.addEventListener("keydown", function (event) {
-        if (event.key === "Enter") {
-            event.preventDefault();
-            filterContent();
-        }
-    });
-
-    if (heroSearchButton) {
-        heroSearchButton.addEventListener("click", filterContent);
-    }
-}
+    if (document.body.classList.contains("page-blog") && heroSearchInput) {
+        heroSearchInput.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                filterContent();
+            }
+        });
 
         if (heroSearchButton) {
-           if (document.body.classList.contains("page-blog") && heroSearchInput) {
-
-    heroSearchInput.addEventListener("keydown", function (event) {
-        if (event.key === "Enter") {
-            event.preventDefault();
-            filterContent();
+            heroSearchButton.addEventListener("click", filterContent);
         }
-    });
-
-
-    if (heroSearchButton) {
-        heroSearchButton.addEventListener("click", filterContent);
-    }
-    }
-
-    
-
-        
     } else if (searchModal && heroSearchInput) {
         heroSearchInput.addEventListener("focus", function () {
             heroSearchInput.blur();
@@ -516,14 +491,12 @@ if (grid) {
         lightboxImg.src = allImages[currentIndex];
     }
 
-    // Click any visible card
     grid.querySelectorAll('.blog-card').forEach((card, index) => {
         card.addEventListener('click', () => {
             openLightbox(index);
         });
     });
 
-    // Controls
     closeBtn.addEventListener('click', closeLightbox);
     nextBtn.addEventListener('click', showNext);
     prevBtn.addEventListener('click', showPrev);

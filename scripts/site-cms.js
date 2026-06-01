@@ -8,7 +8,6 @@
     const apiVersion = String(sanity.apiVersion || "2026-04-24").trim();
     const useCdn = sanity.useCdn !== false;
     const leadershipDocumentType = String(sanity.leadershipDocumentType || "leadershipPage").trim();
-    const blogDocumentType = String(sanity.blogDocumentType || "blogPost").trim();
     const leadershipLoadingDelay = 1200;
 
     if (!projectId || !dataset || !apiVersion) {
@@ -42,24 +41,9 @@
         });
     }
 
-    function getSanityHost() {
-        return useCdn ? ".apicdn.sanity.io" : ".api.sanity.io";
-    }
-
-    function getPublishedBlogFilter() {
-        return '(!defined(status) || status == "published")';
-    }
-
-    function getContentApiBase() {
-        if (contentApiBase) {
-            return contentApiBase;
-        }
-
-        return "";
-    }
-
     async function runQuery(query) {
-        const url = "https://" + projectId + getSanityHost() + "/v" + apiVersion + "/data/query/" + dataset + "?query=" + encodeURIComponent(query);
+        const host = useCdn ? ".apicdn.sanity.io" : ".api.sanity.io";
+        const url = "https://" + projectId + host + "/v" + apiVersion + "/data/query/" + dataset + "?query=" + encodeURIComponent(query);
         const response = await fetch(url, {
             cache: "no-store",
             headers: {
@@ -77,13 +61,11 @@
     }
 
     async function runContentRequest(pathname) {
-        const baseUrl = getContentApiBase();
-
-        if (!baseUrl) {
+        if (!contentApiBase) {
             throw new Error("Blog content API base URL is not configured.");
         }
 
-        const response = await fetch(baseUrl + pathname, {
+        const response = await fetch(contentApiBase + pathname, {
             cache: "no-store",
             headers: {
                 Accept: "application/json"
