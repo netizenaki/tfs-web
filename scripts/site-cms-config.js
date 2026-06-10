@@ -6,6 +6,8 @@ window.TFSCmsConfig = {
         apiVersion: "2026-04-24",
         useCdn: false,
         leadershipDocumentId: "leadershipPageSingleton",
-        blogDocumentType: "blogPost"
+        blogDocumentType: "blogPost",
+        universityDocumentType: "university",
+        scholarshipDocumentType: "scholarship"
     }
 };

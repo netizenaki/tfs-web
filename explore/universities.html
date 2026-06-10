@@ -3,88 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explore Universities</title>
+    <title>The Forward Society | Explore Universities</title>
+    <link rel="icon" type="image/png" href="/assets/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="/styles/site.css">
     <link rel="stylesheet" href="/explore/assets/css/explore.css">
-    <script defer src="/explore/assets/js/explore.js"></script>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="ca60e73e-5abb-467a-9024-a4fc5810cddb"></script>
 </head>
 <body class="explore-page">
+    <div id="dev-notice" class="site-notice" role="dialog" aria-modal="true" aria-labelledby="dev-notice-title" hidden>
+        <div class="site-notice-panel">
+            <p class="eyebrow">Development Notice</p>
+            <h2 id="dev-notice-title">This website is still under development</h2>
+            <p>What you are seeing right now is a demo version of the site.</p>
+            <button id="dev-notice-close" class="site-notice-close" type="button" aria-label="Close notice">&times;</button>
+        </div>
+    </div>
+
     <header class="site-header">
         <nav class="nav-wrap" aria-label="Primary">
-            <a href="/index.html" class="brand" aria-current="page">
+            <a href="/index.html" class="brand">
                 <img src="/assets/logo.png" alt="The Forward Society logo" class="brand-logo">
                 <span>The Forward Society</span>
             </a>
-            <div class="shortlist-icon" id="shortlist-icon">
-                <span id="shortlist-count">0</span>
-                <img class="star" src="/explore/assets/solid-star.webp" alt="Shortlist icon">
-                Shortlist
+            <div class="nav-links">
+                <a href="/index.html">Home</a>
+                <div class="nav-group">
+                    <a href="/destination-countries.html" aria-haspopup="true">
+                        <span>Education Consultancy</span>
+                        <span aria-hidden="true">+</span>
+                    </a>
+                    <div class="nav-dropdown" role="menu" aria-label="Education Consultancy">
+                        <a href="/pathways.html" role="menuitem">Pathways</a>
+                        <div class="submenu-group">
+                            <a class="submenu-trigger" href="/destination-countries.html" role="menuitem">
+                                <span>Destination Countries</span>
+                                <span aria-hidden="true">&gt;</span>
+                            </a>
+                            <div class="nav-submenu" role="menu" aria-label="Destination Countries">
+                                <div class="submenu-group">
+                                    <a class="submenu-trigger" href="/destination-countries.html#europe" role="menuitem">
+                                        <span>Europe</span>
+                                        <span aria-hidden="true">&gt;</span>
+                                    </a>
+                                    <div class="nav-submenu" role="menu" aria-label="Europe">
+                                        <a href="/destination-countries.html#belgium" role="menuitem">Belgium</a>
+                                        <a href="/destination-countries.html#czech-republic" role="menuitem">Czech Republic</a>
+                                        <a href="/destination-countries.html#germany" role="menuitem">Germany</a>
+                                        <a href="/destination-countries.html#hungary" role="menuitem">Hungary</a>
+                                        <a href="/destination-countries.html#italy" role="menuitem">Italy</a>
+                                        <a href="/destination-countries.html#netherlands" role="menuitem">Netherlands</a>
+                                        <a href="/destination-countries.html#sweden" role="menuitem">Sweden</a>
+                                    </div>
+                                </div>
+                                <a href="/destination-countries.html#thailand" role="menuitem">Thailand</a>
+                                <a href="/destination-countries.html#japan" role="menuitem">Japan</a>
+                                <a href="/destination-countries.html#taiwan" role="menuitem">Taiwan</a>
+                                <a href="/destination-countries.html#indonesia" role="menuitem">Indonesia</a>
+                                <a href="/destination-countries.html#malaysia" role="menuitem">Malaysia</a>
+                                <a href="/destination-countries.html#singapore" role="menuitem">Singapore</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="/activities-achievement.html">Activities &amp; Achievement</a>
+                <a href="/blog.html">Blog</a>
+                <div class="nav-group">
+                    <a href="/about.html" aria-haspopup="true"><span>About Us</span><span aria-hidden="true">+</span></a>
+                    <div class="nav-dropdown" role="menu" aria-label="About Us">
+                        <a href="/leadership.html" role="menuitem">Leadership</a>
+                    </div>
+                </div>
+                <a href="/contact.html" class="nav-contact-pill">Contact Us</a>
             </div>
+            <button type="button" id="menu-toggle" class="menu-btn" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
         </nav>
+        <div id="mobile-menu" class="mobile-menu">
+            <a href="/index.html">Home</a>
+            <details>
+                <summary>Education Consultancy</summary>
+                <div class="mobile-detail-links">
+                    <a href="/pathways.html">Pathways</a>
+                    <a href="/destination-countries.html">Destination Countries</a>
+                    <details>
+                        <summary>Destination Countries</summary>
+                        <div class="mobile-detail-links">
+                            <details>
+                                <summary>Europe</summary>
+                                <div class="mobile-detail-links">
+                                    <a href="/destination-countries.html#belgium">Belgium</a>
+                                    <a href="/destination-countries.html#czech-republic">Czech Republic</a>
+                                    <a href="/destination-countries.html#germany">Germany</a>
+                                    <a href="/destination-countries.html#hungary">Hungary</a>
+                                    <a href="/destination-countries.html#italy">Italy</a>
+                                    <a href="/destination-countries.html#netherlands">Netherlands</a>
+                                    <a href="/destination-countries.html#sweden">Sweden</a>
+                                </div>
+                            </details>
+                            <a href="/destination-countries.html#thailand">Thailand</a>
+                            <a href="/destination-countries.html#japan">Japan</a>
+                            <a href="/destination-countries.html#taiwan">Taiwan</a>
+                            <a href="/destination-countries.html#indonesia">Indonesia</a>
+                            <a href="/destination-countries.html#malaysia">Malaysia</a>
+                            <a href="/destination-countries.html#singapore">Singapore</a>
+                        </div>
+                    </details>
+                </div>
+            </details>
+            <a href="/activities-achievement.html">Activities &amp; Achievement</a>
+            <a href="/blog.html">Blog</a>
+            <details>
+                <summary>About Us</summary>
+                <a href="/leadership.html">Leadership</a>
+            </details>
+            <a href="/contact.html">Contact Us</a>
+        </div>
     </header>
-    <main class="explore-main">
-        <aside class="explore-sidebar">
-            <h2>Filters</h2>
-            <form id="filter-form">
-                <div class="filter-group">
-                    <label>Country/Region</label>
-                    <select name="country" id="filter-country">
-                        <option value="">All</option>
-                        <option value="germany">Germany</option>
-                        <option value="thailand">Thailand</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label>Tuition Range (€)</label>
-                    <input type="range" min="0" max="20000" step="500" id="filter-tuition" name="tuition">
-                    <span id="tuition-value" class="filter-range-value">0 - 20000</span>
-                </div>
-                <div class="filter-group">
-                    <label>Language</label>
-                    <select name="language" id="filter-language">
-                        <option value="">All</option>
-                        <option value="english">English</option>
-                        <option value="thai">Thai</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label>Program</label>
-                    <select name="program" id="filter-program">
-                        <option value="">All</option>
-                        <option value="cs">Computer Science</option>
-                        <option value="business">Business</option>
-                        <option value="design">Design</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label>Type</label>
-                    <select name="type" id="filter-type">
-                        <option value="">All</option>
-                        <option value="public">Public</option>
-                        <option value="applied">Applied Sciences</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn-primary">Apply Filters</button>
-            </form>
-        </aside>
-        <section class="explore-content">
-            <div class="item-grid" id="university-grid">
+
+    <main>
+        <section class="explore-hero">
+            <div class="container">
+                <p class="eyebrow">University Explorer</p>
+                <h1>Find your <span class="brand-gradient-text">ideal university</span></h1>
+                <p>Browse and filter universities by country, program, language, and tuition. Save your favourites to a shortlist.</p>
             </div>
         </section>
+
+        <div class="container explore-layout">
+            <aside class="explore-sidebar">
+                <div class="explore-filter-panel">
+                    <p class="explore-filter-title">Filter</p>
+                    <form id="filter-form">
+                        <div class="filter-group">
+                            <label for="filter-country">Country</label>
+                            <select id="filter-country">
+                                <option value="">All</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="filter-language">Language</label>
+                            <select id="filter-language">
+                                <option value="">All</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="filter-program">Program</label>
+                            <select id="filter-program">
+                                <option value="">All</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="filter-type">Type</label>
+                            <select id="filter-type">
+                                <option value="">All</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="filter-tuition">Max Tuition (€/year)</label>
+                            <input type="range" id="filter-tuition" min="0" max="10000" step="500" value="10000">
+                            <span id="tuition-value" class="filter-range-value">0 – 10,000</span>
+                        </div>
+                        <div class="filter-actions">
+                            <button type="submit" class="btn-apply">Apply</button>
+                            <button type="reset" class="btn-reset">Clear</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="explore-shortlist-panel">
+                    <button id="shortlist-icon" class="shortlist-btn" aria-label="View shortlist">
+                        <img src="/explore/assets/solid-star.webp" class="star" alt="">
+                        <span id="shortlist-count">0</span> Shortlisted
+                    </button>
+                </div>
+            </aside>
+
+            <section class="explore-content" aria-label="University listing">
+                <div id="university-grid" class="item-grid"></div>
+            </section>
+        </div>
     </main>
-    <div id="shortlist-modal" class="shortlist-modal hidden">
-        <div class="shortlist-modal-content">
-            <h2>Your Shortlist</h2>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="site-footer-card reveal">
+                <p class="eyebrow eyebrow-light">Volunteer With Us</p>
+                <h2>Help us create more opportunities for students</h2>
+                <p>Join The Forward Society to support events, student facilitation, creative projects, outreach, and community programs that move learners forward.</p>
+                <div class="site-footer-actions">
+                    <a class="site-footer-button" href="/contact.html">Become a Volunteer</a>
+                </div>
+            </div>
+            <p class="site-footer-meta">Copyright 2026 The Forward Society. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="shortlist-modal" class="explore-modal hidden" role="dialog" aria-modal="true" aria-labelledby="shortlist-modal-title">
+        <div class="explore-modal-panel">
+            <div class="explore-modal-head">
+                <h2 id="shortlist-modal-title">Your Shortlist</h2>
+                <button id="close-shortlist" class="explore-modal-close" aria-label="Close shortlist">&times;</button>
+            </div>
             <div id="shortlist-list"></div>
-            <button id="close-shortlist" class="btn-secondary">Close</button>
         </div>
     </div>
-    <div id="university-details-modal" class="shortlist-modal hidden">
-        <div class="shortlist-modal-content">
-            <h2 id="university-details-title">University details</h2>
+
+    <div id="university-details-modal" class="explore-modal hidden" role="dialog" aria-modal="true" aria-labelledby="university-details-title">
+        <div class="explore-modal-panel">
+            <div class="explore-modal-head">
+                <h2 id="university-details-title"></h2>
+                <button id="close-university-details" class="explore-modal-close" aria-label="Close details">&times;</button>
+            </div>
             <div id="university-details-body"></div>
-            <button id="close-university-details" class="btn-secondary">Close</button>
         </div>
     </div>
+
+    <script src="/scripts/site.js"></script>
+    <script defer src="/explore/assets/js/explore.js"></script>
 </body>
 </html>
