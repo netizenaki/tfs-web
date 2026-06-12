@@ -1486,17 +1486,46 @@ body main > section:not(.hero) {
 }
 
 .page-home .pathway-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    margin-top: 28px;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: 16px;
+    margin: 28px -20px 0;
+    padding: 20px max(16px, calc(50% - 38vw)) 40px;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
 }
+.page-home .pathway-grid::-webkit-scrollbar { display: none; }
 
 .page-home .pathway-card {
+    flex: 0 0 clamp(260px, 76vw, 340px);
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    transform-origin: center center;
+    will-change: transform, opacity;
     background: #fff;
     border-radius: var(--radius-lg);
     border: 1px solid rgba(17, 17, 17, 0.08);
     overflow: hidden;
     box-shadow: var(--shadow-soft);
-    transition: transform var(--transition-mid), box-shadow var(--transition-mid), border-color var(--transition-mid);
+    transition: transform 380ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                opacity  380ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                filter   380ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                box-shadow 380ms ease;
+    opacity: 0.58;
+    transform: scale(0.9);
+    filter: blur(4px);
+}
+.page-home .pathway-card.carousel-active {
+    opacity: 1;
+    transform: scale(1);
+    filter: none;
+    box-shadow: 0 10px 36px rgba(0, 103, 243, 0.18), 0 3px 10px rgba(0, 0, 0, 0.08);
 }
 
 .page-home .pathway-card:hover {
@@ -2071,17 +2100,46 @@ body main > section:not(.hero) {
 }
 
 .page-home .articles-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    margin-top: 28px;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: 16px;
+    margin: 28px -20px 0;
+    padding: 20px max(16px, calc(50% - 38vw)) 40px;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
 }
+.page-home .articles-grid::-webkit-scrollbar { display: none; }
 
 .page-home .article-card {
+    flex: 0 0 clamp(260px, 76vw, 340px);
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    transform-origin: center center;
+    will-change: transform, opacity;
     background: var(--card-bg);
     border: var(--card-border);
     border-radius: var(--card-radius);
     overflow: hidden;
     box-shadow: var(--card-shadow);
-    transition: transform var(--transition-mid), box-shadow var(--transition-mid), border-color var(--transition-mid);
+    transition: transform 380ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                opacity  380ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                filter   380ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                box-shadow 380ms ease;
+    opacity: 0.58;
+    transform: scale(0.9);
+    filter: blur(4px);
+}
+.page-home .article-card.carousel-active {
+    opacity: 1;
+    transform: scale(1);
+    filter: none;
+    box-shadow: 0 10px 36px rgba(0, 103, 243, 0.18), 0 3px 10px rgba(0, 0, 0, 0.08);
 }
 
 .page-home .article-card:hover {
@@ -4032,15 +4090,18 @@ body main > section:not(.hero) {
     z-index: 1;
     min-width: 34px;
     min-height: 34px;
-    padding: 6px;
+    padding: 4px;
     display: inline-grid;
     place-items: center;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.88);
-    border: 1px solid rgba(255, 255, 255, 0.94);
-    color: #1f4b85;
-    font-size: 0.72rem;
-    font-weight: 800;
+    font-size: 1.2rem;
+}
+
+.page-destinations .flag-accent img {
+    display: block;
+    width: 22px;
+    height: auto;
+    border-radius: 2px;
 }
 
 .page-destinations .destination-content {
@@ -5674,9 +5735,7 @@ body main > section:not(.hero) {
         grid-template-columns: 1fr;
     }
 
-    .page-home .stats-grid,
-    .page-home .pathway-grid,
-    .page-home .articles-grid {
+    .page-home .stats-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
@@ -7212,59 +7271,6 @@ body main > section:not(.hero) {
     text-decoration: none;
 }
 
-/* 640px — Apple-style snap showcase carousel */
-@media (max-width: 640px) {
-    .page-home .pathway-grid,
-    .page-home .articles-grid {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        overscroll-behavior-x: contain;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-        gap: 16px;
-        /* negative bleed keeps the row full-viewport-wide */
-        margin: 0 -20px;
-        /* centering padding: ensures first/last card snaps exactly to center */
-        padding: 20px max(16px, calc(50% - 38vw)) 40px;
-    }
-
-    .page-home .pathway-grid::-webkit-scrollbar,
-    .page-home .articles-grid::-webkit-scrollbar {
-        display: none;
-    }
-
-    /* ── Card base state (inactive) ──────────────────────── */
-    .page-home .pathway-grid > *,
-    .page-home .articles-grid > * {
-        flex: 0 0 76vw;
-        scroll-snap-align: center;
-        scroll-snap-stop: always;
-        transform-origin: center center;
-        will-change: transform, opacity;
-        /* transition fires only during the settle phase (disabled during active drag) */
-        transition: transform 380ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                    opacity  380ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                    filter   380ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                    box-shadow 380ms ease;
-        /* initial (will be overridden by JS on first render) */
-        opacity: 0.58;
-        transform: scale(0.9);
-        filter: blur(4px);
-    }
-
-    /* ── Active / centred card ───────────────────────────── */
-    .page-home .pathway-grid > *.carousel-active,
-    .page-home .articles-grid > *.carousel-active {
-        opacity: 1;
-        transform: scale(1);
-        filter: none;
-        box-shadow: 0 10px 36px rgba(0, 103, 243, 0.18),
-                    0 3px 10px rgba(0, 0, 0, 0.08);
-    }
-}
 
 /* 360px — prevent nav overflow on the smallest phones */
 @media (max-width: 360px) {
@@ -7483,7 +7489,7 @@ body main > section:not(.hero) {
     }
 
     .page-destinations .destination-editorial-card .destination-content h3 {
-        font-size: 0.87rem;
+        font-size: 0.92rem;
         line-height: 1.2;
     }
 
@@ -7493,18 +7499,46 @@ body main > section:not(.hero) {
     }
 
     .page-destinations .destination-editorial-card .card-link {
-        font-size: 0.74rem;
+        display: inline-flex;
+        width: fit-content;
+        min-height: 28px;
+        padding: 4px 10px;
+        font-size: 0.65rem;
         align-self: flex-start;
         margin-top: auto;
-        padding-top: 2px;
     }
 
-    /* Flag accent: centered in strip on mobile */
-    .page-destinations .destination-feature-card .flag-accent,
-    .page-destinations .destination-editorial-card .flag-accent {
+    /* Flag accent: centered in feature card strip (not carousel cards) */
+    .page-destinations .destination-feature-card .flag-accent {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+    }
+
+    /* Carousel cards override — restore full size (carousel cards are ~76vw wide, not grid tiles) */
+    .page-destinations .region-showcase > .destination-editorial-card .destination-media {
+        min-height: 150px;
+    }
+
+    .page-destinations .region-showcase > .destination-editorial-card .destination-content {
+        padding: 14px 16px;
+        gap: 8px;
+    }
+
+    .page-destinations .region-showcase > .destination-editorial-card .destination-content > p {
+        display: block;
+    }
+
+    .page-destinations .region-showcase > .destination-editorial-card .destination-content h3 {
+        font-size: 0.92rem;
+    }
+
+    .page-destinations .region-showcase > .destination-editorial-card .card-link {
+        min-height: 36px;
+        padding: 7px 16px;
+        font-size: 0.75rem;
+        width: fit-content;
+        align-self: flex-start;
     }
 
     /* Tags: smaller pills */

@@ -474,66 +474,9 @@ if (grid) {
     });
 }
 
-    /* ── Home-page carousel (home only, mobile snap) ───────────── */
-    function initCarousels() {
-        document.querySelectorAll('.page-home .pathway-grid, .page-home .articles-grid').forEach(function (grid) {
-            if (grid.scrollWidth <= grid.clientWidth) { return; }
-
-            if (grid.dataset.carouselInit) {
-                var cc = Array.from(grid.children);
-                if (cc.length >= 1) {
-                    cc[0].scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'instant' });
-                }
-                if (grid._applyCarouselStates) { grid._applyCarouselStates(); }
-                return;
-            }
-            grid.dataset.carouselInit = '1';
-
-            var rafPending = false;
-            var stopTimer;
-
-            function applyStates() {
-                var containerCenter = grid.scrollLeft + grid.clientWidth / 2;
-                Array.from(grid.children).forEach(function (card) {
-                    var dist = Math.abs((card.offsetLeft + card.offsetWidth / 2) - containerCenter);
-                    var t = Math.min(dist / (card.offsetWidth + 16), 1);
-                    card.style.transform  = 'scale(' + (1 - 0.10 * t).toFixed(4) + ')';
-                    card.style.opacity    = (1 - 0.42 * t).toFixed(4);
-                    card.style.filter     = t > 0.02 ? 'blur(' + (4 * t).toFixed(2) + 'px)' : 'none';
-                    card.classList.toggle('carousel-active', t < 0.1);
-                });
-            }
-
-            grid._applyCarouselStates = applyStates;
-
-            grid.addEventListener('scroll', function () {
-                Array.from(grid.children).forEach(function (c) { c.style.transition = 'none'; });
-                if (!rafPending) {
-                    rafPending = true;
-                    requestAnimationFrame(function () { rafPending = false; applyStates(); });
-                }
-                clearTimeout(stopTimer);
-                stopTimer = setTimeout(function () {
-                    Array.from(grid.children).forEach(function (c) { c.style.transition = ''; });
-                    applyStates();
-                }, 80);
-            }, { passive: true });
-
-            requestAnimationFrame(function () {
-                requestAnimationFrame(function () {
-                    var cards = Array.from(grid.children);
-                    if (cards.length >= 1) {
-                        cards[0].scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'instant' });
-                    }
-                    applyStates();
-                });
-            });
-        });
-    }
-
-    /* ── Listing-page carousel: infinite loop, all viewports ───── */
+    /* ── All carousels: infinite loop, all viewports ───── */
     function initListingCarousels() {
-        document.querySelectorAll('.page-pathways .pathway-grid, .page-destinations .region-showcase').forEach(function (grid) {
+        document.querySelectorAll('.page-home .pathway-grid, .page-pathways .pathway-grid, .page-destinations .region-showcase').forEach(function (grid) {
             if (grid.dataset.carouselInit) { return; }
             grid.dataset.carouselInit = 'listing';
 
@@ -682,11 +625,107 @@ if (grid) {
         });
     }
 
-    window.initCarousels = initCarousels;
+    /* ── Articles carousel: finite, starts on last (newest) card ── */
+    function initArticlesCarousel() {
+        document.querySelectorAll('.page-home .articles-grid').forEach(function (grid) {
+            if (grid.dataset.carouselInit) { return; }
+            grid.dataset.carouselInit = 'articles';
+
+            var GAP = 16;
+
+            function applyStates() {
+                var cc = grid.scrollLeft + grid.clientWidth / 2;
+                Array.from(grid.children).forEach(function (card) {
+                    var dist = Math.abs((card.offsetLeft + card.offsetWidth / 2) - cc);
+                    var t = Math.min(dist / (card.offsetWidth + GAP), 1);
+                    card.style.transform = 'scale(' + (1 - 0.10 * t).toFixed(4) + ')';
+                    card.style.opacity   = (1 - 0.42 * t).toFixed(4);
+                    card.style.filter    = t > 0.02 ? 'blur(' + (4 * t).toFixed(2) + 'px)' : 'none';
+                    card.classList.toggle('carousel-active', t < 0.1);
+                });
+            }
+
+            var rafPending = false;
+            var stopTimer;
+            var wheelLocked = false;
+            var isHovered = false;
+
+            grid.addEventListener('scroll', function () {
+                Array.from(grid.children).forEach(function (c) { c.style.transition = 'none'; });
+                if (!rafPending) {
+                    rafPending = true;
+                    requestAnimationFrame(function () { rafPending = false; applyStates(); });
+                }
+                clearTimeout(stopTimer);
+                stopTimer = setTimeout(function () {
+                    Array.from(grid.children).forEach(function (c) { c.style.transition = ''; });
+                    grid.style.scrollSnapType = '';
+                    applyStates();
+                    wheelLocked = false;
+                }, 80);
+            }, { passive: true });
+
+            grid.addEventListener('mouseenter', function () { isHovered = true; });
+            grid.addEventListener('mouseleave', function () { isHovered = false; });
+            grid.addEventListener('wheel', function (e) {
+                if (!isHovered) { return; }
+                if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) { return; }
+                e.preventDefault();
+                if (wheelLocked) { return; }
+                wheelLocked = true;
+                var cc = grid.scrollLeft + grid.clientWidth / 2;
+                var children = Array.from(grid.children);
+                var idx = 0, minDist = Infinity;
+                children.forEach(function (card, i) {
+                    var d = Math.abs((card.offsetLeft + card.offsetWidth / 2) - cc);
+                    if (d < minDist) { minDist = d; idx = i; }
+                });
+                var dir = e.deltaY > 0 ? 1 : -1;
+                var target = children[idx + dir];
+                if (!target) { wheelLocked = false; return; }
+                var to = target.offsetLeft + target.offsetWidth / 2 - grid.clientWidth / 2;
+                grid.style.scrollSnapType = 'none';
+                grid.scrollTo({ left: to, behavior: 'smooth' });
+            }, { passive: false });
+
+            var started = false;
+            function start() {
+                if (started) { return; }
+                started = true;
+                var cardW = grid.firstElementChild ? grid.firstElementChild.offsetWidth : 0;
+                var contW = grid.clientWidth;
+                if (cardW > 0 && contW > 0) {
+                    var sp = Math.max(16, (contW - cardW) / 2);
+                    grid.style.paddingLeft = sp + 'px';
+                    grid.style.paddingRight = sp + 'px';
+                }
+                /* Scroll to first card (latest article) */
+                var first = grid.firstElementChild;
+                if (first) {
+                    grid.scrollLeft = first.offsetLeft + first.offsetWidth / 2 - grid.clientWidth / 2;
+                }
+                applyStates();
+            }
+
+            requestAnimationFrame(function () {
+                requestAnimationFrame(function () {
+                    if (grid.firstElementChild && grid.firstElementChild.offsetWidth > 0) { start(); }
+                });
+            });
+
+            if ('IntersectionObserver' in window) {
+                var io = new IntersectionObserver(function (entries) {
+                    if (entries[0].isIntersecting) { start(); io.disconnect(); }
+                }, { threshold: 0.05 });
+                io.observe(grid);
+            }
+        });
+    }
+
     requestAnimationFrame(function () {
         requestAnimationFrame(function () {
-            initCarousels();
             initListingCarousels();
+            initArticlesCarousel();
         });
     });
 }());
