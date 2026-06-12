@@ -174,32 +174,42 @@
     }
 
     if (galleryStack) {
-        const galleryImageFiles = (galleryStack.dataset.images || "").split(",").map(function (src) {
-            return src.trim();
-        }).filter(Boolean);
-
         function showGalleryEmptyState() {
-            galleryStack.innerHTML = "<p class=\"gallery-empty\">No gallery images found. Add image files to the gallery folder.</p>";
+            galleryStack.innerHTML = "<p class=\"gallery-empty\">No gallery photos yet.</p>";
         }
 
-        if (galleryImageFiles.length === 0) {
-            showGalleryEmptyState();
-        } else {
-            galleryImageFiles.forEach(function (src, index) {
-                const image = document.createElement("img");
+        function renderGalleryImages(sources) {
+            if (!sources.length) { showGalleryEmptyState(); return; }
+            sources.forEach(function (item, index) {
+                var src = typeof item === "string" ? item : item.url;
+                var caption = typeof item === "object" ? (item.caption || "") : "";
+                if (!src) return;
+                var image = document.createElement("img");
                 image.src = src;
-                image.alt = "Activity gallery image " + (index + 1);
+                image.alt = caption || ("Activity gallery image " + (index + 1));
                 image.className = "gallery-photo";
                 image.loading = "lazy";
                 image.decoding = "async";
                 image.addEventListener("error", function () {
                     image.remove();
-                    if (galleryStack.children.length === 0) {
-                        showGalleryEmptyState();
-                    }
+                    if (galleryStack.children.length === 0) showGalleryEmptyState();
                 });
                 galleryStack.appendChild(image);
             });
+        }
+
+        var apiUrl = galleryStack.dataset.api;
+        if (apiUrl) {
+            fetch(apiUrl, { headers: { Accept: "application/json" }, cache: "no-store" })
+                .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+                .then(function (payload) {
+                    var images = Array.isArray(payload.images) ? payload.images : [];
+                    renderGalleryImages(images);
+                })
+                .catch(showGalleryEmptyState);
+        } else {
+            var fallback = (galleryStack.dataset.images || "").split(",").map(function (s) { return s.trim(); }).filter(Boolean);
+            renderGalleryImages(fallback);
         }
     }
 
