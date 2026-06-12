@@ -2148,6 +2148,63 @@ body main > section:not(.hero) {
     border-color: var(--card-border-hover);
 }
 
+/* ── Desktop: pathway + articles grids → static layout (no carousel) ── */
+@media (min-width: 769px) {
+    .page-home .pathway-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin: 28px 0 0;
+        padding: 0;
+        overflow: visible;
+        scroll-snap-type: none;
+        -webkit-mask-image: none;
+        mask-image: none;
+    }
+
+    .page-home .pathway-card {
+        flex: unset;
+        width: auto;
+        scroll-snap-align: none;
+        opacity: 1;
+        transform: none;
+        filter: none;
+        transition: transform 300ms ease, box-shadow 300ms ease, border-color 300ms ease;
+    }
+
+    .page-home .pathway-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(0, 103, 243, 0.4);
+        box-shadow: 0 20px 35px rgba(0, 103, 243, 0.18);
+    }
+
+    .page-home .articles-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin: 28px 0 0;
+        padding: 0;
+        overflow: visible;
+        scroll-snap-type: none;
+        -webkit-mask-image: none;
+        mask-image: none;
+    }
+
+    .page-home .article-card {
+        flex: unset;
+        width: auto;
+        scroll-snap-align: none;
+        opacity: 1;
+        transform: none;
+        filter: none;
+        transition: transform 300ms ease, box-shadow 300ms ease, border-color 300ms ease;
+    }
+
+    .page-home .article-card:hover {
+        transform: translateY(-5px);
+    }
+}
+
 .page-home .article-thumb {
     aspect-ratio: 16 / 10;
     background: linear-gradient(150deg, #d8e8ff, #afccff);

@@ -478,6 +478,8 @@ if (grid) {
     function initListingCarousels() {
         document.querySelectorAll('.page-home .pathway-grid, .page-pathways .pathway-grid, .page-destinations .region-showcase').forEach(function (grid) {
             if (grid.dataset.carouselInit) { return; }
+            /* Home pathway grid: carousel only on mobile */
+            if (grid.closest('.page-home') && !window.matchMedia('(max-width: 768px)').matches) { return; }
             grid.dataset.carouselInit = 'listing';
 
             var originals = Array.from(grid.children);
@@ -725,7 +727,9 @@ if (grid) {
     requestAnimationFrame(function () {
         requestAnimationFrame(function () {
             initListingCarousels();
-            initArticlesCarousel();
+            if (window.matchMedia('(max-width: 768px)').matches) {
+                initArticlesCarousel();
+            }
         });
     });
 }());

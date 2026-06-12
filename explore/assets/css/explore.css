@@ -373,6 +373,38 @@
     transition: opacity 0.4s ease;
 }
 
+.item-website-link {
+    color: var(--primary-blue);
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.item-website-link:hover {
+    text-decoration: underline;
+}
+
+.sch-detail-section {
+    margin-top: 14px;
+    display: grid;
+    gap: 4px;
+}
+
+.sch-detail-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted-text);
+    margin: 0;
+}
+
+.sch-detail-row {
+    font-size: 0.87rem;
+    color: var(--text);
+    margin: 0;
+}
+
 @media (max-width: 900px) {
     .explore-layout {
         flex-direction: column;

@@ -151,13 +151,9 @@ async function initUniversitiesPage() {
         return;
     }
 
-    populateSelect("filter-country", universities.map((u) => u.region), toLabel);
-    populateSelect("filter-language", universities.map((u) => u.language), toLabel);
+    populateSelect("filter-country", universities.map((u) => u.country), toLabel);
     populateSelect("filter-type", universities.map((u) => u.type), toLabel);
-    populateSelect("filter-program", universities.flatMap((u) => u.program || []), toLabel);
 
-    const tuitionInput = document.getElementById("filter-tuition");
-    const tuitionValue = document.getElementById("tuition-value");
     const shortlistCount = document.getElementById("shortlist-count");
     const shortlistIcon = document.getElementById("shortlist-icon");
     const shortlistModal = document.getElementById("shortlist-modal");
@@ -169,19 +165,9 @@ async function initUniversitiesPage() {
     const detailsClose = document.getElementById("close-university-details");
     const filterForm = document.getElementById("filter-form");
 
-    const maxTuition = Math.max(...universities.map((u) => u.tuition || 0), 10000);
-    if (tuitionInput) {
-        tuitionInput.max = maxTuition;
-        tuitionInput.value = maxTuition;
-    }
-    if (tuitionValue) tuitionValue.textContent = `0 – ${maxTuition.toLocaleString()}`;
-
     function getFilters() {
         return {
             country: document.getElementById("filter-country")?.value || "",
-            tuition: Number(tuitionInput?.value || 0),
-            language: document.getElementById("filter-language")?.value || "",
-            program: document.getElementById("filter-program")?.value || "",
             type: document.getElementById("filter-type")?.value || "",
         };
     }
@@ -189,11 +175,8 @@ async function initUniversitiesPage() {
     function getFiltered() {
         const f = getFilters();
         return universities.filter((u) => {
-            if (f.country && u.region !== f.country) return false;
-            if (f.language && u.language !== f.language) return false;
+            if (f.country && u.country !== f.country) return false;
             if (f.type && u.type !== f.type) return false;
-            if (f.program && !(u.program || []).includes(f.program)) return false;
-            if (f.tuition < maxTuition && u.tuition > f.tuition) return false;
             return true;
         });
     }
@@ -206,15 +189,33 @@ async function initUniversitiesPage() {
         renderGrid();
     }
 
+    function rankBadge(label, value) {
+        if (!value) return "";
+        return `<span class="item-tag">${label} #${value}</span>`;
+    }
+
     function openDetails(university) {
         if (!detailsModal || !detailsTitle || !detailsBody) return;
-        const tagsHtml = (university.tags || []).map((t) => `<span class="item-tag">${t}</span>`).join("");
         const logoHtml = university.logo
             ? `<img class="item-logo" src="${university.logo}" alt="${university.name} logo" style="margin-bottom:12px">`
             : "";
+        const location = [university.city, university.country].filter(Boolean).join(", ");
+        const rankHtml = [rankBadge("QS", university.qsRank), rankBadge("THE", university.theRank)].filter(Boolean).join(" ");
+        const websiteHtml = university.website
+            ? `<p style="margin-top:12px"><a href="${university.website}" target="_blank" rel="noopener noreferrer" class="item-website-link">Visit official website &rarr;</a></p>`
+            : "";
         detailsTitle.textContent = university.name;
-        detailsBody.innerHTML = `${logoHtml}<div class="item-location" style="margin-bottom:10px">${university.location || ""}</div><div class="item-tags" style="margin-bottom:12px">${tagsHtml}</div><p class="item-desc" style="overflow:visible;-webkit-line-clamp:unset">${university.desc || ""}</p>`;
+        detailsBody.innerHTML = `${logoHtml}<div class="item-location" style="margin-bottom:8px">${location}</div>${university.type ? `<div class="item-location" style="margin-bottom:8px">${university.type}</div>` : ""}<div class="item-tags" style="margin-bottom:12px">${rankHtml}</div>${university.knownFor ? `<p class="item-desc" style="overflow:visible;-webkit-line-clamp:unset"><strong>Known for:</strong> ${university.knownFor}</p>` : ""}${websiteHtml}`;
         detailsModal.classList.remove("hidden");
+    }
+
+    function renderUniversityCard(u) {
+        const location = [u.city, u.country].filter(Boolean).join(", ");
+        const rankHtml = [rankBadge("QS", u.qsRank), rankBadge("THE", u.theRank)].filter(Boolean).join(" ");
+        return renderItemCard(
+            { ...u, location, tags: [], desc: u.knownFor || "" },
+            { detailsLabel: "View details", onDetailsClick: () => openDetails(u), shortlistEnabled: true, onShortlistToggle: toggleShortlist }
+        );
     }
 
     function renderGrid() {
@@ -223,12 +224,7 @@ async function initUniversitiesPage() {
             grid.innerHTML = '<div class="empty-state">No universities match your filters.</div>';
             return;
         }
-        clearAndRender(grid, filtered.map((u) => renderItemCard(u, {
-            detailsLabel: "View details",
-            onDetailsClick: openDetails,
-            shortlistEnabled: true,
-            onShortlistToggle: toggleShortlist,
-        })));
+        clearAndRender(grid, filtered.map(renderUniversityCard));
     }
 
     function renderShortlistModal() {
@@ -239,31 +235,19 @@ async function initUniversitiesPage() {
             return;
         }
         const saved = ids.map((id) => universities.find((u) => u.id === id)).filter(Boolean);
-        clearAndRender(shortlistList, saved.map((u) => renderItemCard(u, {
-            detailsLabel: "View details",
-            onDetailsClick: openDetails,
-            shortlistEnabled: true,
-            onShortlistToggle: (id) => {
-                removeFromShortlist(id);
-                refreshCount();
-                renderShortlistModal();
-                renderGrid();
-            },
-        })));
+        clearAndRender(shortlistList, saved.map((u) => renderItemCard(
+            { ...u, location: [u.city, u.country].filter(Boolean).join(", "), tags: [], desc: u.knownFor || "" },
+            {
+                detailsLabel: "View details",
+                onDetailsClick: () => openDetails(u),
+                shortlistEnabled: true,
+                onShortlistToggle: (id) => { removeFromShortlist(id); refreshCount(); renderShortlistModal(); renderGrid(); },
+            }
+        )));
     }
 
     filterForm?.addEventListener("submit", (e) => { e.preventDefault(); renderGrid(); });
-    filterForm?.addEventListener("reset", () => {
-        window.setTimeout(() => {
-            if (tuitionInput) tuitionInput.value = maxTuition;
-            if (tuitionValue) tuitionValue.textContent = `0 – ${maxTuition.toLocaleString()}`;
-            renderGrid();
-        }, 0);
-    });
-
-    tuitionInput?.addEventListener("input", () => {
-        if (tuitionValue) tuitionValue.textContent = `0 – ${Number(tuitionInput.value).toLocaleString()}`;
-    });
+    filterForm?.addEventListener("reset", () => { window.setTimeout(renderGrid, 0); });
 
     shortlistIcon?.addEventListener("click", () => { renderShortlistModal(); shortlistModal?.classList.remove("hidden"); });
     shortlistClose?.addEventListener("click", () => shortlistModal?.classList.add("hidden"));
@@ -296,49 +280,135 @@ async function initScholarshipsPage() {
         return;
     }
 
-    populateSelect("filter-country", scholarships.map((s) => s.country), toLabel);
-    populateSelect("filter-level", scholarships.map((s) => s.level), toLabel);
+    populateSelect("filter-country", scholarships.map((s) => s.host_country));
 
-    const amountInput = document.getElementById("filter-amount");
-    const amountValue = document.getElementById("amount-value");
     const form = document.getElementById("scholarship-filter-form");
     const detailsModal = document.getElementById("scholarship-details-modal");
     const detailsTitle = document.getElementById("scholarship-details-title");
     const detailsBody = document.getElementById("scholarship-details-body");
     const detailsClose = document.getElementById("close-scholarship-details");
 
-    const maxAmount = Math.max(...scholarships.map((s) => s.amount || 0), 25000);
-    if (amountInput) { amountInput.max = maxAmount; amountInput.value = maxAmount; }
-    if (amountValue) amountValue.textContent = `0 – ${maxAmount.toLocaleString()}`;
-
     function getFilters() {
         return {
             country: document.getElementById("filter-country")?.value || "",
             level: document.getElementById("filter-level")?.value || "",
-            amount: Number(amountInput?.value || 0),
+            funding: document.getElementById("filter-funding")?.value || "",
+            status: document.getElementById("filter-status")?.value || ""
         };
     }
 
     function getFiltered() {
         const f = getFilters();
         return scholarships.filter((s) => {
-            if (f.country && s.country !== f.country) return false;
-            if (f.level && s.level !== f.level) return false;
-            if (f.amount < maxAmount && s.amount > f.amount) return false;
+            if (f.country && s.host_country !== f.country) return false;
+            if (f.level && !(s.education_levels || []).includes(f.level)) return false;
+            if (f.funding && s.funding_level !== f.funding) return false;
+            if (f.status && s.status !== f.status) return false;
             return true;
         });
     }
 
-    function openDetails(scholarship) {
+    function tag(text, style) {
+        return `<span class="item-tag"${style ? ' style="' + style + '"' : ""}>${text}</span>`;
+    }
+
+    function statusColor(status) {
+        if (status === "Open") return "background:#d1fae5;color:#065f46";
+        if (status === "Closed") return "background:#fee2e2;color:#991b1b";
+        return "background:#fef9c3;color:#854d0e";
+    }
+
+    function openDetails(s) {
         if (!detailsModal || !detailsTitle || !detailsBody) return;
-        const tagsHtml = (scholarship.tags || []).map((t) => `<span class="item-tag">${t}</span>`).join("");
-        const logoHtml = scholarship.logo
-            ? `<img class="item-logo" src="${scholarship.logo}" alt="${scholarship.name} logo" style="margin-bottom:12px">`
+        detailsTitle.textContent = s.name;
+
+        const coverageTags = Object.entries(s.coverage || {})
+            .filter(([, v]) => v)
+            .map(([k]) => tag(k.replace("covers_", "").replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())))
+            .join(" ");
+
+        const eduTags = (s.education_levels || []).map((l) => tag(l)).join(" ");
+        const fieldTags = (s.study_fields || []).map((f) => tag(f)).join(" ");
+
+        const cyclesHtml = (s.application_cycles || []).length ? [
+            '<div class="sch-detail-section"><p class="sch-detail-label">Application Cycles</p>',
+            (s.application_cycles || []).map((c) => {
+                const parts = [c.intake, c.open_date ? "Open: " + c.open_date : "", c.close_date ? "Close: " + c.close_date : "", c.result_date ? "Result: " + c.result_date : ""].filter(Boolean).join(" · ");
+                return `<p class="sch-detail-row">${parts}</p>`;
+            }).join(""),
+            '</div>'
+        ].join("") : "";
+
+        const eligHtml = (s.eligibility || []).length ? [
+            '<div class="sch-detail-section"><p class="sch-detail-label">Eligibility</p>',
+            (s.eligibility || []).map((e) => `<p class="sch-detail-row"><strong>${e.type}:</strong> ${e.value}</p>`).join(""),
+            '</div>'
+        ].join("") : "";
+
+        const b = s.benefits || {};
+        const benefitParts = [];
+        if (b.tuition_coverage) benefitParts.push("Tuition: " + b.tuition_coverage + "%");
+        if (b.monthly_stipend) benefitParts.push("Stipend: " + Number(b.monthly_stipend).toLocaleString() + " " + (b.monthly_stipend_currency || "EUR") + "/mo");
+        if (b.accommodation) benefitParts.push("Accommodation");
+        if (b.health_insurance) benefitParts.push("Health insurance");
+        if (b.travel_allowance) benefitParts.push("Travel allowance");
+        const benefitsHtml = benefitParts.length ? `<div class="sch-detail-section"><p class="sch-detail-label">Benefits</p><p class="sch-detail-row">${benefitParts.join(" · ")}</p></div>` : "";
+
+        const docsHtml = (s.required_documents || []).length
+            ? `<div class="sch-detail-section"><p class="sch-detail-label">Required Documents</p><p class="sch-detail-row">${s.required_documents.join(", ")}</p></div>`
             : "";
-        const amountHtml = scholarship.amount ? `<p class="item-location" style="margin-bottom:8px">Funding: €${Number(scholarship.amount).toLocaleString()}</p>` : "";
-        detailsTitle.textContent = scholarship.name;
-        detailsBody.innerHTML = `${logoHtml}<div class="item-location" style="margin-bottom:6px">${scholarship.country ? scholarship.country.charAt(0).toUpperCase() + scholarship.country.slice(1) : ""}${scholarship.level ? " · " + scholarship.level : ""}</div>${amountHtml}<div class="item-tags" style="margin-bottom:12px">${tagsHtml}</div><p class="item-desc" style="overflow:visible;-webkit-line-clamp:unset">${scholarship.desc || ""}</p>`;
+
+        const notesHtml = (s.notes || []).length
+            ? `<div class="sch-detail-section"><p class="sch-detail-label">Notes</p>${s.notes.map((n) => `<p class="sch-detail-row">• ${n}</p>`).join("")}</div>`
+            : "";
+
+        const websiteHtml = s.official_url
+            ? `<a href="${s.official_url}" target="_blank" rel="noopener noreferrer" class="item-website-link" style="display:inline-block;margin-top:14px">Visit official page &rarr;</a>`
+            : "";
+
+        detailsBody.innerHTML = [
+            `<div class="item-location" style="margin-bottom:6px">${s.provider || ""}${s.host_country ? " · " + s.host_country : ""}</div>`,
+            s.status ? `<div style="margin-bottom:8px">${tag(s.status, statusColor(s.status))} ${s.funding_level ? tag(s.funding_level) : ""} ${s.scholarship_type ? tag(s.scholarship_type) : ""}</div>` : "",
+            eduTags ? `<div class="item-tags" style="margin-bottom:10px">${eduTags}</div>` : "",
+            fieldTags ? `<div class="item-tags" style="margin-bottom:10px">${fieldTags}</div>` : "",
+            s.description ? `<p class="item-desc" style="overflow:visible;-webkit-line-clamp:unset;margin-bottom:12px">${s.description}</p>` : "",
+            coverageTags ? `<div class="sch-detail-section"><p class="sch-detail-label">Coverage</p><div class="item-tags">${coverageTags}</div></div>` : "",
+            benefitsHtml,
+            cyclesHtml,
+            eligHtml,
+            docsHtml,
+            notesHtml,
+            websiteHtml
+        ].join("");
+
         detailsModal.classList.remove("hidden");
+    }
+
+    function renderScholarshipCard(s) {
+        const card = document.createElement("article");
+        card.className = "item-card";
+        const eduTags = (s.education_levels || []).map((l) => `<span class="item-tag">${l}</span>`).join("");
+        const statusStyle = statusColor(s.status);
+        card.innerHTML = `
+            <div class="item-card-top">
+                <div class="item-logo-placeholder"><i class="fa-solid fa-award" aria-hidden="true"></i></div>
+                <div>
+                    <div class="item-name">${s.name}</div>
+                    <div class="item-location">${s.provider || ""}${s.host_country ? " · " + s.host_country : ""}</div>
+                </div>
+            </div>
+            <div class="item-tags" style="margin-bottom:4px">
+                ${s.status ? `<span class="item-tag" style="${statusStyle}">${s.status}</span>` : ""}
+                ${s.funding_level ? `<span class="item-tag">${s.funding_level}</span>` : ""}
+            </div>
+            <div class="item-tags">${eduTags}</div>
+            <div class="item-desc">${s.description || ""}</div>
+            <div class="item-actions">
+                <button class="btn-details" type="button">View details</button>
+            </div>
+        `;
+        card.querySelector(".btn-details").addEventListener("click", () => openDetails(s));
+        return card;
     }
 
     function renderScholarships() {
@@ -347,25 +417,11 @@ async function initScholarshipsPage() {
             grid.innerHTML = '<div class="empty-state">No scholarships match your filters.</div>';
             return;
         }
-        clearAndRender(grid, filtered.map((s) => renderItemCard(s, {
-            detailsLabel: "View details",
-            onDetailsClick: openDetails,
-            shortlistEnabled: false,
-        })));
+        clearAndRender(grid, filtered.map(renderScholarshipCard));
     }
 
     form?.addEventListener("submit", (e) => { e.preventDefault(); renderScholarships(); });
-    form?.addEventListener("reset", () => {
-        window.setTimeout(() => {
-            if (amountInput) amountInput.value = maxAmount;
-            if (amountValue) amountValue.textContent = `0 – ${maxAmount.toLocaleString()}`;
-            renderScholarships();
-        }, 0);
-    });
-
-    amountInput?.addEventListener("input", () => {
-        if (amountValue) amountValue.textContent = `0 – ${Number(amountInput.value).toLocaleString()}`;
-    });
+    form?.addEventListener("reset", () => { window.setTimeout(renderScholarships, 0); });
 
     detailsClose?.addEventListener("click", () => detailsModal?.classList.add("hidden"));
     detailsModal?.addEventListener("click", (e) => { if (e.target === detailsModal) detailsModal.classList.add("hidden"); });

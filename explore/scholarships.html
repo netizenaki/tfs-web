@@ -128,7 +128,7 @@
             <div class="container">
                 <p class="eyebrow">Scholarship Explorer</p>
                 <h1>Discover <span class="brand-gradient-text">funding opportunities</span></h1>
-                <p>Filter scholarships by country, study level, and funding amount to find the right match for your goals.</p>
+                <p>Filter scholarships by country, education level, and funding type — then view full details including benefits, eligibility, and application dates.</p>
             </div>
         </section>
 
@@ -144,15 +144,31 @@
                             </select>
                         </div>
                         <div class="filter-group">
-                            <label for="filter-level">Level</label>
+                            <label for="filter-level">Education Level</label>
                             <select id="filter-level">
                                 <option value="">All</option>
+                                <option value="Bachelor">Bachelor</option>
+                                <option value="Master">Master</option>
+                                <option value="PhD">PhD</option>
+                                <option value="Certificate">Certificate</option>
                             </select>
                         </div>
                         <div class="filter-group">
-                            <label for="filter-amount">Max Funding (€)</label>
-                            <input type="range" id="filter-amount" min="0" max="25000" step="1000" value="25000">
-                            <span id="amount-value" class="filter-range-value">0 – 25,000</span>
+                            <label for="filter-funding">Funding</label>
+                            <select id="filter-funding">
+                                <option value="">All</option>
+                                <option value="Full">Full</option>
+                                <option value="Partial">Partial</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="filter-status">Status</label>
+                            <select id="filter-status">
+                                <option value="">All</option>
+                                <option value="Open">Open</option>
+                                <option value="Closed">Closed</option>
+                                <option value="Coming Soon">Coming Soon</option>
+                            </select>
                         </div>
                         <div class="filter-actions">
                             <button type="submit" class="btn-apply">Apply</button>
@@ -183,8 +199,8 @@
     </footer>
 
     <div id="scholarship-details-modal" class="explore-modal hidden" role="dialog" aria-modal="true" aria-labelledby="scholarship-details-title">
-        <div class="explore-modal-inner">
-            <div class="explore-modal-header">
+        <div class="explore-modal-panel">
+            <div class="explore-modal-head">
                 <h2 id="scholarship-details-title"></h2>
                 <button id="close-scholarship-details" class="explore-modal-close" aria-label="Close details">&times;</button>
             </div>
