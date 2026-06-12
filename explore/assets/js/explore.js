@@ -302,6 +302,10 @@ async function initScholarshipsPage() {
     const amountInput = document.getElementById("filter-amount");
     const amountValue = document.getElementById("amount-value");
     const form = document.getElementById("scholarship-filter-form");
+    const detailsModal = document.getElementById("scholarship-details-modal");
+    const detailsTitle = document.getElementById("scholarship-details-title");
+    const detailsBody = document.getElementById("scholarship-details-body");
+    const detailsClose = document.getElementById("close-scholarship-details");
 
     const maxAmount = Math.max(...scholarships.map((s) => s.amount || 0), 25000);
     if (amountInput) { amountInput.max = maxAmount; amountInput.value = maxAmount; }
@@ -325,16 +329,29 @@ async function initScholarshipsPage() {
         });
     }
 
+    function openDetails(scholarship) {
+        if (!detailsModal || !detailsTitle || !detailsBody) return;
+        const tagsHtml = (scholarship.tags || []).map((t) => `<span class="item-tag">${t}</span>`).join("");
+        const logoHtml = scholarship.logo
+            ? `<img class="item-logo" src="${scholarship.logo}" alt="${scholarship.name} logo" style="margin-bottom:12px">`
+            : "";
+        const amountHtml = scholarship.amount ? `<p class="item-location" style="margin-bottom:8px">Funding: €${Number(scholarship.amount).toLocaleString()}</p>` : "";
+        detailsTitle.textContent = scholarship.name;
+        detailsBody.innerHTML = `${logoHtml}<div class="item-location" style="margin-bottom:6px">${scholarship.country ? scholarship.country.charAt(0).toUpperCase() + scholarship.country.slice(1) : ""}${scholarship.level ? " · " + scholarship.level : ""}</div>${amountHtml}<div class="item-tags" style="margin-bottom:12px">${tagsHtml}</div><p class="item-desc" style="overflow:visible;-webkit-line-clamp:unset">${scholarship.desc || ""}</p>`;
+        detailsModal.classList.remove("hidden");
+    }
+
     function renderScholarships() {
         const filtered = getFiltered();
         if (!filtered.length) {
             grid.innerHTML = '<div class="empty-state">No scholarships match your filters.</div>';
             return;
         }
-        clearAndRender(grid, filtered.map((s) => renderItemCard(
-            { ...s, id: `scholarship:${s.id}` },
-            { detailsLabel: "View details", shortlistEnabled: false }
-        )));
+        clearAndRender(grid, filtered.map((s) => renderItemCard(s, {
+            detailsLabel: "View details",
+            onDetailsClick: openDetails,
+            shortlistEnabled: false,
+        })));
     }
 
     form?.addEventListener("submit", (e) => { e.preventDefault(); renderScholarships(); });
@@ -350,8 +367,11 @@ async function initScholarshipsPage() {
         if (amountValue) amountValue.textContent = `0 – ${Number(amountInput.value).toLocaleString()}`;
     });
 
+    detailsClose?.addEventListener("click", () => detailsModal?.classList.add("hidden"));
+    detailsModal?.addEventListener("click", (e) => { if (e.target === detailsModal) detailsModal.classList.add("hidden"); });
+
     renderScholarships();
 }
 
-initUniversitiesPage();
-initScholarshipsPage();
+if (document.getElementById("university-grid")) initUniversitiesPage();
+if (document.getElementById("scholarship-grid")) initScholarshipsPage();

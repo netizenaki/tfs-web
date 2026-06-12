@@ -7300,9 +7300,17 @@ body main > section:not(.hero) {
         grid-template-columns: 1fr;
     }
 
+    .page-leadership .spotlight-card {
+        grid-template-columns: 1fr;
+    }
+
+    .page-leadership .leader-portrait {
+        min-height: 180px;
+    }
+
     .page-leadership .leadership-grid,
     .page-leadership .stream-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .page-activities .achievements-grid {
@@ -7774,3 +7782,74 @@ body main > section:not(.hero) {
     color: #576c89;
 }
 
+/* ═══════════════════════════════════════════════════════
+   Leadership — Mobile responsive (≤640px · ≤480px)
+═══════════════════════════════════════════════════════ */
+@media (max-width: 640px) {
+    .page-leadership section {
+        padding: 36px 0;
+    }
+
+    .page-leadership .hero h1 {
+        font-size: clamp(1.5rem, 7vw, 2rem);
+    }
+
+    .page-leadership .section-head {
+        margin-bottom: 20px;
+    }
+
+    .page-leadership .spotlight-card {
+        padding: 16px;
+        gap: 14px;
+    }
+
+    .page-leadership .leader-portrait {
+        min-height: 120px;
+    }
+
+    .page-leadership .spotlight-copy h3 {
+        font-size: 1.2rem;
+    }
+
+    .page-leadership .leadership-grid,
+    .page-leadership .stream-grid {
+        gap: 12px;
+    }
+
+    .page-leadership .team-card,
+    .page-leadership .stream-card {
+        padding: 14px;
+    }
+
+    .page-leadership .supervisor-profile {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .page-leadership .supervisor-avatar-image {
+        width: 56px;
+        height: 56px;
+        margin-right: 0;
+    }
+
+    .page-leadership .supervisor-meta {
+        padding: 8px 12px;
+        min-height: unset;
+    }
+
+    .page-leadership .supervisor-meta h3 {
+        font-size: 0.92rem;
+    }
+
+    .page-leadership .supervisor-role {
+        font-size: 0.76rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-leadership .leadership-grid,
+    .page-leadership .stream-grid {
+        grid-template-columns: 1fr;
+    }
+}
