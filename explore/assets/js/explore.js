@@ -333,7 +333,13 @@ async function initScholarshipsPage() {
         const cyclesHtml = (s.application_cycles || []).length ? [
             '<div class="sch-detail-section"><p class="sch-detail-label">Application Cycles</p>',
             (s.application_cycles || []).map((c) => {
-                const parts = [c.intake, c.open_date ? "Open: " + c.open_date : "", c.close_date ? "Close: " + c.close_date : "", c.result_date ? "Result: " + c.result_date : ""].filter(Boolean).join(" · ");
+                const parts = [
+                    c.intake,
+                    c.open_date    ? "Open: "       + c.open_date    : "",
+                    c.close_date   ? "Close: "      + c.close_date   : "",
+                    c.result_date  ? "Result: "     + c.result_date  : "",
+                    c.enrollment_date ? "Enrollment: " + c.enrollment_date : ""
+                ].filter(Boolean).join(" · ");
                 return `<p class="sch-detail-row">${parts}</p>`;
             }).join(""),
             '</div>'
@@ -366,10 +372,15 @@ async function initScholarshipsPage() {
             ? `<a href="${s.official_url}" target="_blank" rel="noopener noreferrer" class="item-website-link" style="display:inline-block;margin-top:14px">Visit official page &rarr;</a>`
             : "";
 
+        const appFeeHtml = s.application_fee
+            ? `<p class="sch-detail-row" style="color:#b45309;font-size:0.82rem;margin-top:6px">⚠ Application fee required</p>`
+            : "";
+
         detailsBody.innerHTML = [
             `<div class="item-location" style="margin-bottom:6px">${s.provider || ""}${s.host_country ? " · " + s.host_country : ""}</div>`,
-            s.status ? `<div style="margin-bottom:8px">${tag(s.status, statusColor(s.status))} ${s.funding_level ? tag(s.funding_level) : ""} ${s.scholarship_type ? tag(s.scholarship_type) : ""}</div>` : "",
-            eduTags ? `<div class="item-tags" style="margin-bottom:10px">${eduTags}</div>` : "",
+            `<div style="margin-bottom:8px">${tag(s.status || "Unknown", statusColor(s.status))} ${s.funding_level ? tag(s.funding_level) : ""} ${s.scholarship_type ? tag(s.scholarship_type) : ""}</div>`,
+            appFeeHtml,
+            eduTags ? `<div class="item-tags" style="margin-top:8px;margin-bottom:10px">${eduTags}</div>` : "",
             fieldTags ? `<div class="item-tags" style="margin-bottom:10px">${fieldTags}</div>` : "",
             s.description ? `<p class="item-desc" style="overflow:visible;-webkit-line-clamp:unset;margin-bottom:12px">${s.description}</p>` : "",
             coverageTags ? `<div class="sch-detail-section"><p class="sch-detail-label">Coverage</p><div class="item-tags">${coverageTags}</div></div>` : "",
@@ -400,6 +411,7 @@ async function initScholarshipsPage() {
             <div class="item-tags" style="margin-bottom:4px">
                 ${s.status ? `<span class="item-tag" style="${statusStyle}">${s.status}</span>` : ""}
                 ${s.funding_level ? `<span class="item-tag">${s.funding_level}</span>` : ""}
+                ${s.scholarship_type ? `<span class="item-tag">${s.scholarship_type}</span>` : ""}
             </div>
             <div class="item-tags">${eduTags}</div>
             <div class="item-desc">${s.description || ""}</div>
@@ -417,7 +429,8 @@ async function initScholarshipsPage() {
             grid.innerHTML = '<div class="empty-state">No scholarships match your filters.</div>';
             return;
         }
-        clearAndRender(grid, filtered.map(renderScholarshipCard));
+        const sorted = [...filtered].sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+        clearAndRender(grid, sorted.map(renderScholarshipCard));
     }
 
     form?.addEventListener("submit", (e) => { e.preventDefault(); renderScholarships(); });
