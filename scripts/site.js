@@ -198,7 +198,9 @@
             });
         }
 
-        var apiUrl = galleryStack.dataset.api;
+        var apiBase = (window.TFSCmsConfig && window.TFSCmsConfig.contentApiBase) || "https://tfs-admin-xi.vercel.app/api/content";
+        var apiKey = galleryStack.dataset.api;
+        var apiUrl = apiKey ? (apiBase + "/" + apiKey) : null;
         if (apiUrl) {
             fetch(apiUrl, { headers: { Accept: "application/json" }, cache: "no-store" })
                 .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
