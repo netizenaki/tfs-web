@@ -37,21 +37,21 @@
                                         <span aria-hidden="true">&gt;</span>
                                     </a>
                                     <div class="nav-submenu" role="menu" aria-label="Europe">
-                                        <a href="#belgium" role="menuitem">Belgium</a>
-                                        <a href="#czech-republic" role="menuitem">Czech Republic</a>
-                                        <a href="#germany" role="menuitem">Germany</a>
-                                        <a href="#hungary" role="menuitem">Hungary</a>
-                                        <a href="#italy" role="menuitem">Italy</a>
-                                        <a href="#netherlands" role="menuitem">Netherlands</a>
-                                        <a href="#sweden" role="menuitem">Sweden</a>
+                                        <a href="countries/belgium.html" role="menuitem">Belgium</a>
+                                        <a href="countries/czech-republic.html" role="menuitem">Czech Republic</a>
+                                        <a href="countries/germany.html" role="menuitem">Germany</a>
+                                        <a href="countries/hungary.html" role="menuitem">Hungary</a>
+                                        <a href="countries/italy.html" role="menuitem">Italy</a>
+                                        <a href="countries/netherlands.html" role="menuitem">Netherlands</a>
+                                        <a href="countries/sweden.html" role="menuitem">Sweden</a>
                                     </div>
                                 </div>
-                                <a href="#thailand" role="menuitem">Thailand</a>
-                                <a href="#japan" role="menuitem">Japan</a>
-                                <a href="#taiwan" role="menuitem">Taiwan</a>
-                                <a href="#indonesia" role="menuitem">Indonesia</a>
-                                <a href="#malaysia" role="menuitem">Malaysia</a>
-                                <a href="#singapore" role="menuitem">Singapore</a>
+                                <a href="countries/japan.html" role="menuitem">Japan</a>
+                                <a href="countries/thailand.html" role="menuitem">Thailand</a>
+                                <a href="countries/taiwan.html" role="menuitem">Taiwan</a>
+                                <a href="countries/indonesia.html" role="menuitem">Indonesia</a>
+                                <a href="countries/malaysia.html" role="menuitem">Malaysia</a>
+                                <a href="countries/singapore.html" role="menuitem">Singapore</a>
                             </div>
                         </div>
                     </div>
@@ -66,49 +66,60 @@
 </div>
                 <a href="contact.html" class="nav-contact-pill">Contact Us</a>
             </div>
-            <button type="button" id="menu-toggle" class="menu-btn" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
+            <button type="button" id="menu-toggle" class="menu-btn" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
+            <span class="ham-bar"></span>
+            <span class="ham-bar"></span>
+            <span class="ham-bar"></span>
+        </button>
         </nav>
-        <div id="mobile-menu" class="mobile-menu">
-            <a href="index.html">Home</a>
-            <details>
-                <summary>Education Consultancy</summary>
-                <div class="mobile-detail-links">
-                    <a href="pathways.html">Pathways</a>
-                    <a href="destination-countries.html">Destination Countries</a>
-                    <details>
-                        <summary>Destination Countries</summary>
-                        <div class="mobile-detail-links">
-                            <details>
-                                <summary>Europe</summary>
-                                <div class="mobile-detail-links">
-                                    <a href="#belgium">Belgium</a>
-                                    <a href="#czech-republic">Czech Republic</a>
-                                    <a href="#germany">Germany</a>
-                                    <a href="#hungary">Hungary</a>
-                                    <a href="#italy">Italy</a>
-                                    <a href="#netherlands">Netherlands</a>
-                                    <a href="#sweden">Sweden</a>
-                                </div>
-                            </details>
-                            <a href="#thailand">Thailand</a>
-                            <a href="#japan">Japan</a>
-                            <a href="#taiwan">Taiwan</a>
-                            <a href="#indonesia">Indonesia</a>
-                            <a href="#malaysia">Malaysia</a>
-                            <a href="#singapore">Singapore</a>
-                        </div>
-                    </details>
-                </div>
-            </details>
-            <a href="activities-achievement.html">Activities &amp; Achievement</a>
-            <a href="blog.html">Blog</a>
-            <details>
-  <summary>About Us</summary>
-  <a href="leadership.html">Leadership</a>
-</details>
-            <a href="contact.html">Contact Us</a>
-        </div>
     </header>
+    <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+            <div class="mob-inner">
+                <div class="mob-header">
+                    <a href="index.html" class="mob-brand">
+                        <img src="assets/logo.png" alt="The Forward Society" class="brand-logo">
+                        <span>The Forward Society</span>
+                    </a>
+                    <button type="button" id="mob-close" class="mob-close" aria-label="Close menu">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                            <path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <nav class="mob-nav" aria-label="Mobile navigation">
+                    <a href="index.html" class="mob-link">Home</a>
+                    <div class="mob-group">
+                        <button class="mob-link mob-trigger" type="button" aria-expanded="false">
+                            Education Consultancy
+                            <svg class="mob-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                                <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="mob-sub">
+                            <a href="pathways.html" class="mob-sub-link">Pathways</a>
+                            <a href="destination-countries.html" class="mob-sub-link">Destination Countries</a>
+                        </div>
+                    </div>
+                    <a href="activities-achievement.html" class="mob-link">Activities &amp; Achievement</a>
+                    <a href="blog.html" class="mob-link">Blog</a>
+                    <div class="mob-group">
+                        <button class="mob-link mob-trigger" type="button" aria-expanded="false">
+                            About Us
+                            <svg class="mob-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                                <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="mob-sub">
+                            <a href="about.html" class="mob-sub-link">About Us</a>
+                            <a href="leadership.html" class="mob-sub-link">Leadership</a>
+                        </div>
+                    </div>
+                </nav>
+                <div class="mob-footer">
+                    <a href="contact.html" class="mob-cta">Contact Us</a>
+                </div>
+            </div>
+        </div>
 
     <div id="dev-notice" class="site-notice" role="dialog" aria-modal="true" aria-labelledby="dev-notice-title" hidden>
         <div class="site-notice-panel">
@@ -181,89 +192,82 @@
                 </div>
 
                 <div class="region-showcase reveal">
-                    <article id="germany" class="destination-feature-card">
-                        <div class="destination-media art-germany">
-                            <span class="flag-accent">DE</span>
-                        </div>
+                    <article id="germany" class="destination-editorial-card">
+                        <div class="destination-media art-germany"><span class="flag-accent">DE</span></div>
                         <div class="destination-content">
                             <h3>Germany</h3>
                             <p>A top destination for engineering, AI, and research-led programs with excellent value and strong global recognition.</p>
-                            <div class="destination-tags">
-                                <span>STEM</span>
-                                <span>Scholarships</span>
-                                <span>High Employability</span>
-                            </div>
-                            <div class="destination-metrics">
-                                <span><strong>Tuition</strong><em>Low to Moderate</em></span>
-                                <span><strong>Work Rights</strong><em>Strong</em></span>
-                                <span><strong>Visa</strong><em>Supportive</em></span>
-                                <span><strong>Lifestyle</strong><em>High Quality</em></span>
-                            </div>
-                            <a class="card-link" href="germany.html">Explore Germany</a>
+                            <div class="destination-tags"><span>STEM</span><span>Scholarships</span><span>High Employability</span></div>
+                            <div class="dest-stats"><span>Tuition: Low–Moderate</span><span>Work: Strong</span></div>
+                            <a class="card-link" href="countries/germany.html">Explore Germany</a>
                         </div>
                     </article>
 
-                    <div class="country-grid destination-card-grid">
-                        <article id="belgium" class="destination-editorial-card">
-                            <div class="destination-media art-belgium"><span class="flag-accent">BE</span></div>
-                            <div class="destination-content">
-                                <h3>Belgium</h3>
-                                <p>Central European access with multilingual campuses and strong research networks.</p>
-                                <div class="destination-tags"><span>English Friendly</span><span>Safe</span></div>
-                                <a class="card-link" href="belgium.html">Explore Belgium</a>
-                            </div>
-                        </article>
+                    <article id="belgium" class="destination-editorial-card">
+                        <div class="destination-media art-belgium"><span class="flag-accent">BE</span></div>
+                        <div class="destination-content">
+                            <h3>Belgium</h3>
+                            <p>Central European access with multilingual campuses and strong research networks.</p>
+                            <div class="destination-tags"><span>English Friendly</span><span>Safe</span></div>
+                            <div class="dest-stats"><span>Tuition: Moderate</span><span>Work: Yes</span></div>
+                            <a class="card-link" href="countries/belgium.html">Explore Belgium</a>
+                        </div>
+                    </article>
 
-                        <article id="czech-republic" class="destination-editorial-card">
-                            <div class="destination-media art-czech"><span class="flag-accent">CZ</span></div>
-                            <div class="destination-content">
-                                <h3>Czech Republic</h3>
-                                <p>Affordable tuition with modern technical institutions and strong student life.</p>
-                                <div class="destination-tags"><span>STEM</span><span>Affordable</span></div>
-                                <a class="card-link" href="czech-republic.html">Explore Czech Republic</a>
-                            </div>
-                        </article>
+                    <article id="czech-republic" class="destination-editorial-card">
+                        <div class="destination-media art-czech"><span class="flag-accent">CZ</span></div>
+                        <div class="destination-content">
+                            <h3>Czech Republic</h3>
+                            <p>Affordable tuition with modern technical institutions and strong student life.</p>
+                            <div class="destination-tags"><span>STEM</span><span>Affordable</span></div>
+                            <div class="dest-stats"><span>Tuition: Low</span><span>Work: Yes</span></div>
+                            <a class="card-link" href="countries/czech-republic.html">Explore Czech Republic</a>
+                        </div>
+                    </article>
 
-                        <article id="hungary" class="destination-editorial-card">
-                            <div class="destination-media art-hungary"><span class="flag-accent">HU</span></div>
-                            <div class="destination-content">
-                                <h3>Hungary</h3>
-                                <p>A scholarship-friendly path with established medicine and engineering programs.</p>
-                                <div class="destination-tags"><span>Scholarships</span><span>Safe</span></div>
-                                <a class="card-link" href="hungary.html">Explore Hungary</a>
-                            </div>
-                        </article>
+                    <article id="hungary" class="destination-editorial-card">
+                        <div class="destination-media art-hungary"><span class="flag-accent">HU</span></div>
+                        <div class="destination-content">
+                            <h3>Hungary</h3>
+                            <p>A scholarship-friendly path with established medicine and engineering programs.</p>
+                            <div class="destination-tags"><span>Scholarships</span><span>Safe</span></div>
+                            <div class="dest-stats"><span>Tuition: Low</span><span>Work: Yes</span></div>
+                            <a class="card-link" href="countries/hungary.html">Explore Hungary</a>
+                        </div>
+                    </article>
 
-                        <article id="italy" class="destination-editorial-card">
-                            <div class="destination-media art-italy"><span class="flag-accent">IT</span></div>
-                            <div class="destination-content">
-                                <h3>Italy</h3>
-                                <p>Historic academic excellence blended with design, innovation, and culture.</p>
-                                <div class="destination-tags"><span>Creative Tech</span><span>Scholarships</span></div>
-                                <a class="card-link" href="italy.html">Explore Italy</a>
-                            </div>
-                        </article>
+                    <article id="italy" class="destination-editorial-card">
+                        <div class="destination-media art-italy"><span class="flag-accent">IT</span></div>
+                        <div class="destination-content">
+                            <h3>Italy</h3>
+                            <p>Historic academic excellence blended with design, innovation, and culture.</p>
+                            <div class="destination-tags"><span>Creative Tech</span><span>Scholarships</span></div>
+                            <div class="dest-stats"><span>Tuition: Low</span><span>Work: Limited</span></div>
+                            <a class="card-link" href="countries/italy.html">Explore Italy</a>
+                        </div>
+                    </article>
 
-                        <article id="netherlands" class="destination-editorial-card is-wide">
-                            <div class="destination-media art-netherlands"><span class="flag-accent">NL</span></div>
-                            <div class="destination-content">
-                                <h3>Netherlands</h3>
-                                <p>Innovation-focused universities with globally recognized English-taught programs and excellent outcomes.</p>
-                                <div class="destination-tags"><span>English Friendly</span><span>High Employability</span></div>
-                                <a class="card-link" href="netherlands.html">Explore Netherlands</a>
-                            </div>
-                        </article>
+                    <article id="netherlands" class="destination-editorial-card">
+                        <div class="destination-media art-netherlands"><span class="flag-accent">NL</span></div>
+                        <div class="destination-content">
+                            <h3>Netherlands</h3>
+                            <p>Innovation-focused universities with globally recognized English-taught programs and excellent outcomes.</p>
+                            <div class="destination-tags"><span>English Friendly</span><span>High Employability</span></div>
+                            <div class="dest-stats"><span>Tuition: Moderate</span><span>Work: Yes</span></div>
+                            <a class="card-link" href="countries/netherlands.html">Explore Netherlands</a>
+                        </div>
+                    </article>
 
-                        <article id="sweden" class="destination-editorial-card">
-                            <div class="destination-media art-sweden"><span class="flag-accent">SE</span></div>
-                            <div class="destination-content">
-                                <h3>Sweden</h3>
-                                <p>Sustainability-led education with strong research and startup ecosystems.</p>
-                                <div class="destination-tags"><span>Innovation</span><span>Safe</span></div>
-                                <a class="card-link" href="sweden.html">Explore Sweden</a>
-                            </div>
-                        </article>
-                    </div>
+                    <article id="sweden" class="destination-editorial-card">
+                        <div class="destination-media art-sweden"><span class="flag-accent">SE</span></div>
+                        <div class="destination-content">
+                            <h3>Sweden</h3>
+                            <p>Sustainability-led education with strong research and startup ecosystems.</p>
+                            <div class="destination-tags"><span>Innovation</span><span>Safe</span></div>
+                            <div class="dest-stats"><span>Tuition: Moderate</span><span>Work: Yes</span></div>
+                            <a class="card-link" href="countries/sweden.html">Explore Sweden</a>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
@@ -277,79 +281,71 @@
                 </div>
 
                 <div class="region-showcase reveal">
-                    <article id="japan" class="destination-feature-card">
-                        <div class="destination-media art-japan">
-                            <span class="flag-accent">JP</span>
-                        </div>
+                    <article id="japan" class="destination-editorial-card">
+                        <div class="destination-media art-japan"><span class="flag-accent">JP</span></div>
                         <div class="destination-content">
                             <h3>Japan</h3>
                             <p>A premium destination for advanced technology, engineering, design, and innovation-led learning.</p>
-                            <div class="destination-tags">
-                                <span>STEM</span>
-                                <span>Safe</span>
-                                <span>High Employability</span>
-                            </div>
-                            <div class="destination-metrics">
-                                <span><strong>Tuition</strong><em>Moderate</em></span>
-                                <span><strong>Work Rights</strong><em>Strong</em></span>
-                                <span><strong>Visa</strong><em>Well Structured</em></span>
-                                <span><strong>Lifestyle</strong><em>Premium Urban</em></span>
-                            </div>
-                            <a class="card-link" href="japan.html">Explore Japan</a>
+                            <div class="destination-tags"><span>STEM</span><span>Safe</span><span>High Employability</span></div>
+                            <div class="dest-stats"><span>Tuition: Moderate</span><span>Work: Strong</span></div>
+                            <a class="card-link" href="countries/japan.html">Explore Japan</a>
                         </div>
                     </article>
 
-                    <div class="country-grid destination-card-grid">
-                        <article id="thailand" class="destination-editorial-card">
-                            <div class="destination-media art-thailand"><span class="flag-accent">TH</span></div>
-                            <div class="destination-content">
-                                <h3>Thailand</h3>
-                                <p>Accessible study pathways with welcoming campuses and practical outcomes.</p>
-                                <div class="destination-tags"><span>Affordable</span><span>Lifestyle</span></div>
-                                <a class="card-link" href="thailand.html">Explore Thailand</a>
-                            </div>
-                        </article>
+                    <article id="thailand" class="destination-editorial-card">
+                        <div class="destination-media art-thailand"><span class="flag-accent">TH</span></div>
+                        <div class="destination-content">
+                            <h3>Thailand</h3>
+                            <p>Accessible study pathways with welcoming campuses and practical outcomes.</p>
+                            <div class="destination-tags"><span>Affordable</span><span>Lifestyle</span></div>
+                            <div class="dest-stats"><span>Tuition: Low</span><span>Work: Limited</span></div>
+                            <a class="card-link" href="countries/thailand.html">Explore Thailand</a>
+                        </div>
+                    </article>
 
-                        <article id="taiwan" class="destination-editorial-card">
-                            <div class="destination-media art-taiwan"><span class="flag-accent">TW</span></div>
-                            <div class="destination-content">
-                                <h3>Taiwan</h3>
-                                <p>Tech-driven institutions with strong innovation culture and student-friendly living.</p>
-                                <div class="destination-tags"><span>STEM</span><span>Safe</span></div>
-                                <a class="card-link" href="taiwan.html">Explore Taiwan</a>
-                            </div>
-                        </article>
+                    <article id="taiwan" class="destination-editorial-card">
+                        <div class="destination-media art-taiwan"><span class="flag-accent">TW</span></div>
+                        <div class="destination-content">
+                            <h3>Taiwan</h3>
+                            <p>Tech-driven institutions with strong innovation culture and student-friendly living.</p>
+                            <div class="destination-tags"><span>STEM</span><span>Safe</span></div>
+                            <div class="dest-stats"><span>Tuition: Low</span><span>Work: Yes</span></div>
+                            <a class="card-link" href="countries/taiwan.html">Explore Taiwan</a>
+                        </div>
+                    </article>
 
-                        <article id="indonesia" class="destination-editorial-card">
-                            <div class="destination-media art-indonesia"><span class="flag-accent">ID</span></div>
-                            <div class="destination-content">
-                                <h3>Indonesia</h3>
-                                <p>Emerging international campuses with growing regional opportunities.</p>
-                                <div class="destination-tags"><span>Growth</span><span>Regional Hub</span></div>
-                                <a class="card-link" href="indonesia.html">Explore Indonesia</a>
-                            </div>
-                        </article>
+                    <article id="indonesia" class="destination-editorial-card">
+                        <div class="destination-media art-indonesia"><span class="flag-accent">ID</span></div>
+                        <div class="destination-content">
+                            <h3>Indonesia</h3>
+                            <p>Emerging international campuses with growing regional opportunities.</p>
+                            <div class="destination-tags"><span>Growth</span><span>Regional Hub</span></div>
+                            <div class="dest-stats"><span>Tuition: Low</span><span>Work: Limited</span></div>
+                            <a class="card-link" href="countries/indonesia.html">Explore Indonesia</a>
+                        </div>
+                    </article>
 
-                        <article id="malaysia" class="destination-editorial-card">
-                            <div class="destination-media art-malaysia"><span class="flag-accent">MY</span></div>
-                            <div class="destination-content">
-                                <h3>Malaysia</h3>
-                                <p>International branch campuses with competitive tuition and diverse pathways.</p>
-                                <div class="destination-tags"><span>English Friendly</span><span>Affordable</span></div>
-                                <a class="card-link" href="malaysia.html">Explore Malaysia</a>
-                            </div>
-                        </article>
+                    <article id="malaysia" class="destination-editorial-card">
+                        <div class="destination-media art-malaysia"><span class="flag-accent">MY</span></div>
+                        <div class="destination-content">
+                            <h3>Malaysia</h3>
+                            <p>International branch campuses with competitive tuition and diverse pathways.</p>
+                            <div class="destination-tags"><span>English Friendly</span><span>Affordable</span></div>
+                            <div class="dest-stats"><span>Tuition: Low</span><span>Work: Yes</span></div>
+                            <a class="card-link" href="countries/malaysia.html">Explore Malaysia</a>
+                        </div>
+                    </article>
 
-                        <article id="singapore" class="destination-editorial-card is-wide">
-                            <div class="destination-media art-singapore"><span class="flag-accent">SG</span></div>
-                            <div class="destination-content">
-                                <h3>Singapore</h3>
-                                <p>A compact global education hub with exceptional university quality, industry links, and career outcomes.</p>
-                                <div class="destination-tags"><span>High Employability</span><span>English Friendly</span></div>
-                                <a class="card-link" href="singapore.html">Explore Singapore</a>
-                            </div>
-                        </article>
-                    </div>
+                    <article id="singapore" class="destination-editorial-card">
+                        <div class="destination-media art-singapore"><span class="flag-accent">SG</span></div>
+                        <div class="destination-content">
+                            <h3>Singapore</h3>
+                            <p>A compact global education hub with exceptional university quality, industry links, and career outcomes.</p>
+                            <div class="destination-tags"><span>High Employability</span><span>English Friendly</span></div>
+                            <div class="dest-stats"><span>Tuition: High</span><span>Work: Yes</span></div>
+                            <a class="card-link" href="countries/singapore.html">Explore Singapore</a>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>

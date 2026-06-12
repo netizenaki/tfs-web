@@ -530,7 +530,54 @@
         }
     }
 
+    async function renderHomeArticles() {
+        const grid = document.getElementById("home-articles-grid");
+        if (!grid) {
+            return;
+        }
+
+        try {
+            const apiPayload = await runContentRequest("/blog-posts");
+            const result = apiPayload && Array.isArray(apiPayload.posts) ? apiPayload.posts : [];
+            const posts = result.map(normalizeBlogPost).filter(function (post) {
+                return post.slug;
+            }).slice(0, 3);
+
+            if (!posts.length) {
+                return;
+            }
+
+            grid.innerHTML = posts.map(function (post) {
+                const excerpt = post.excerpt ? post.excerpt.slice(0, 130) + (post.excerpt.length > 130 ? "…" : "") : "";
+                const thumbStyle = post.coverImageUrl
+                    ? ' style="background-image:url(\'' + escapeHtml(post.coverImageUrl) + '\');background-size:cover;background-position:center;"'
+                    : "";
+
+                return [
+                    '<article class="article-card">',
+                    '<a href="blog-post.html?slug=' + encodeURIComponent(post.slug) + '" class="article-card-link">',
+                    '<div class="article-thumb"' + thumbStyle + "></div>",
+                    '<div class="article-body">',
+                    "<h3>" + escapeHtml(post.title) + "</h3>",
+                    "<p>" + escapeHtml(excerpt) + "</p>",
+                    '<span class="read-link">Read More</span>',
+                    "</div>",
+                    "</a>",
+                    "</article>"
+                ].join("");
+            }).join("");
+            requestAnimationFrame(function () {
+                requestAnimationFrame(function () {
+                    window.initCarousels && window.initCarousels();
+                });
+            });
+        } catch (e) {
+            // keep static fallback on error
+        }
+    }
+
     renderLeadershipPage();
     renderBlogIndexPage();
     renderBlogPostPage();
+    renderHomeArticles();
 })();

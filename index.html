@@ -41,21 +41,21 @@
                                         <span aria-hidden="true">&gt;</span>
                                     </a>
                                     <div class="nav-submenu" role="menu" aria-label="Europe">
-                                        <a href="destination-countries.html#belgium" role="menuitem">Belgium</a>
-                                        <a href="destination-countries.html#czech-republic" role="menuitem">Czech Republic</a>
-                                        <a href="destination-countries.html#germany" role="menuitem">Germany</a>
-                                        <a href="destination-countries.html#hungary" role="menuitem">Hungary</a>
-                                        <a href="destination-countries.html#italy" role="menuitem">Italy</a>
-                                        <a href="destination-countries.html#netherlands" role="menuitem">Netherlands</a>
-                                        <a href="destination-countries.html#sweden" role="menuitem">Sweden</a>
+                                        <a href="countries/belgium.html" role="menuitem">Belgium</a>
+                                        <a href="countries/czech-republic.html" role="menuitem">Czech Republic</a>
+                                        <a href="countries/germany.html" role="menuitem">Germany</a>
+                                        <a href="countries/hungary.html" role="menuitem">Hungary</a>
+                                        <a href="countries/italy.html" role="menuitem">Italy</a>
+                                        <a href="countries/netherlands.html" role="menuitem">Netherlands</a>
+                                        <a href="countries/sweden.html" role="menuitem">Sweden</a>
                                     </div>
                                 </div>
-                                <a href="destination-countries.html#thailand" role="menuitem">Thailand</a>
-                                <a href="destination-countries.html#japan" role="menuitem">Japan</a>
-                                <a href="destination-countries.html#taiwan" role="menuitem">Taiwan</a>
-                                <a href="destination-countries.html#indonesia" role="menuitem">Indonesia</a>
-                                <a href="destination-countries.html#malaysia" role="menuitem">Malaysia</a>
-                                <a href="destination-countries.html#singapore" role="menuitem">Singapore</a>
+                                <a href="countries/thailand.html" role="menuitem">Thailand</a>
+                                <a href="countries/japan.html" role="menuitem">Japan</a>
+                                <a href="countries/taiwan.html" role="menuitem">Taiwan</a>
+                                <a href="countries/indonesia.html" role="menuitem">Indonesia</a>
+                                <a href="countries/malaysia.html" role="menuitem">Malaysia</a>
+                                <a href="countries/singapore.html" role="menuitem">Singapore</a>
                             </div>
                         </div>
                     </div>
@@ -70,49 +70,60 @@
 </div>
                 <a href="contact.html" class="nav-contact-pill">Contact Us</a>
             </div>
-            <button type="button" id="menu-toggle" class="menu-btn" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
+            <button type="button" id="menu-toggle" class="menu-btn" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
+            <span class="ham-bar"></span>
+            <span class="ham-bar"></span>
+            <span class="ham-bar"></span>
+        </button>
         </nav>
-        <div id="mobile-menu" class="mobile-menu">
-            <a href="index.html">Home</a>
-            <details>
-                <summary>Education Consultancy</summary>
-                <div class="mobile-detail-links">
-                    <a href="pathways.html">Pathways</a>
-                    <a href="destination-countries.html">Destination Countries</a>
-                    <details>
-                        <summary>Destination Countries</summary>
-                        <div class="mobile-detail-links">
-                            <details>
-                                <summary>Europe</summary>
-                                <div class="mobile-detail-links">
-                                    <a href="destination-countries.html#belgium">Belgium</a>
-                                    <a href="destination-countries.html#czech-republic">Czech Republic</a>
-                                    <a href="destination-countries.html#germany">Germany</a>
-                                    <a href="destination-countries.html#hungary">Hungary</a>
-                                    <a href="destination-countries.html#italy">Italy</a>
-                                    <a href="destination-countries.html#netherlands">Netherlands</a>
-                                    <a href="destination-countries.html#sweden">Sweden</a>
-                                </div>
-                            </details>
-                            <a href="destination-countries.html#thailand">Thailand</a>
-                            <a href="destination-countries.html#japan">Japan</a>
-                            <a href="destination-countries.html#taiwan">Taiwan</a>
-                            <a href="destination-countries.html#indonesia">Indonesia</a>
-                            <a href="destination-countries.html#malaysia">Malaysia</a>
-                            <a href="destination-countries.html#singapore">Singapore</a>
-                        </div>
-                    </details>
-                </div>
-            </details>
-            <a href="activities-achievement.html">Activities &amp; Achievement</a>
-            <a href="blog.html">Blog</a>
-            <details>
-  <summary>About Us</summary>
-  <a href="leadership.html">Leadership</a>
-</details>
-            <a href="contact.html">Contact Us</a>
-        </div>
     </header>
+    <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+            <div class="mob-inner">
+                <div class="mob-header">
+                    <a href="index.html" class="mob-brand">
+                        <img src="assets/logo.png" alt="The Forward Society" class="brand-logo">
+                        <span>The Forward Society</span>
+                    </a>
+                    <button type="button" id="mob-close" class="mob-close" aria-label="Close menu">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                            <path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <nav class="mob-nav" aria-label="Mobile navigation">
+                    <a href="index.html" class="mob-link">Home</a>
+                    <div class="mob-group">
+                        <button class="mob-link mob-trigger" type="button" aria-expanded="false">
+                            Education Consultancy
+                            <svg class="mob-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                                <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="mob-sub">
+                            <a href="pathways.html" class="mob-sub-link">Pathways</a>
+                            <a href="destination-countries.html" class="mob-sub-link">Destination Countries</a>
+                        </div>
+                    </div>
+                    <a href="activities-achievement.html" class="mob-link">Activities &amp; Achievement</a>
+                    <a href="blog.html" class="mob-link">Blog</a>
+                    <div class="mob-group">
+                        <button class="mob-link mob-trigger" type="button" aria-expanded="false">
+                            About Us
+                            <svg class="mob-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                                <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="mob-sub">
+                            <a href="about.html" class="mob-sub-link">About Us</a>
+                            <a href="leadership.html" class="mob-sub-link">Leadership</a>
+                        </div>
+                    </div>
+                </nav>
+                <div class="mob-footer">
+                    <a href="contact.html" class="mob-cta">Contact Us</a>
+                </div>
+            </div>
+        </div>
 
     <div id="dev-notice" class="site-notice" role="dialog" aria-modal="true" aria-labelledby="dev-notice-title" hidden>
         <div class="site-notice-panel">
@@ -133,9 +144,8 @@
                     <p class="eyebrow">Global Education Consultancy</p>
                     <h1>Together, <br>We <span class="brand-gradient-text">Move Forward</span></h1>
                     <p class="hero-sub">Premium guidance for students who want to study abroad with confidence, clarity, and a smart long-term strategy.</p>
-                    <div class="search-box">
-                        <input id="hero-search-input" type="search" aria-label="Open search filters" aria-haspopup="dialog" aria-controls="search-modal" placeholder="Type keywords (e.g. computer science, scholarships) ..." readonly>
-                        <button id="hero-search-button" class="btn-primary" type="button">Explore Options</button>
+                    <div class="home-hero-actions">
+                        <a href="destination-countries.html" class="btn-primary">Explore Destinations</a>
                     </div>
                 </div>
                 <div class="hero-visual reveal" aria-hidden="true">
@@ -350,30 +360,36 @@
                     </div>
                  
                 </div>
-                <div class="cards-grid articles-grid stagger reveal">
+                <div id="home-articles-grid" class="cards-grid articles-grid stagger reveal">
                     <article class="article-card">
-                        <div class="article-thumb"></div>
-                        <div class="article-body">
-                            <h3>How to shortlist your dream universities in 2026</h3>
-                            <p>A practical framework for balancing ranking, budget, outcomes, and visa considerations.</p>
-                            <a class="read-link" href="blog.html">Read More</a>
-                        </div>
+                        <a href="blog.html" class="article-card-link">
+                            <div class="article-thumb"></div>
+                            <div class="article-body">
+                                <h3>How to shortlist your dream universities in 2026</h3>
+                                <p>A practical framework for balancing ranking, budget, outcomes, and visa considerations.</p>
+                                <span class="read-link">Read More</span>
+                            </div>
+                        </a>
                     </article>
                     <article class="article-card">
-                        <div class="article-thumb"></div>
-                        <div class="article-body">
-                            <h3>Scholarship playbook for international students</h3>
-                            <p>Understand deadlines, profile-building tactics, and what selection committees really evaluate.</p>
-                            <a class="read-link" href="blog.html">Read More</a>
-                        </div>
+                        <a href="blog.html" class="article-card-link">
+                            <div class="article-thumb"></div>
+                            <div class="article-body">
+                                <h3>Scholarship playbook for international students</h3>
+                                <p>Understand deadlines, profile-building tactics, and what selection committees really evaluate.</p>
+                                <span class="read-link">Read More</span>
+                            </div>
+                        </a>
                     </article>
                     <article class="article-card">
-                        <div class="article-thumb"></div>
-                        <div class="article-body">
-                            <h3>Visa interview confidence: what students should prepare</h3>
-                            <p>Structured preparation tips from experienced consultants to improve interview readiness.</p>
-                            <a class="read-link" href="blog.html">Read More</a>
-                        </div>
+                        <a href="blog.html" class="article-card-link">
+                            <div class="article-thumb"></div>
+                            <div class="article-body">
+                                <h3>Visa interview confidence: what students should prepare</h3>
+                                <p>Structured preparation tips from experienced consultants to improve interview readiness.</p>
+                                <span class="read-link">Read More</span>
+                            </div>
+                        </a>
                     </article>
                 </div>
             </div>
@@ -381,71 +397,6 @@
 
     </main>
 
-    <div id="search-modal" class="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-title" hidden>
-        <div class="search-modal-panel">
-            <button id="search-modal-close" class="search-modal-close" type="button" aria-label="Close search modal">×</button>
-            <div class="search-modal-top">
-                <p class="search-modal-kicker">Curated Search</p>
-                <div class="search-modal-input-wrap">
-                    <span class="search-modal-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-                            <path d="M10.5 4a6.5 6.5 0 1 0 4.05 11.58l4.43 4.42 1.41-1.41-4.42-4.43A6.5 6.5 0 0 0 10.5 4Zm0 2a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Z"></path>
-                        </svg>
-                    </span>
-                    <input id="search-modal-input" type="search" placeholder="Type keywords (e.g. computer science, scholarships) ..." aria-label="Search keywords">
-                </div>
-            </div>
-            <div class="search-modal-filters">
-                <section class="search-filter-column" aria-labelledby="search-pathway-title">
-                    <div class="search-filter-heading">
-                        <span class="search-filter-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-                                <path d="M6 4.5A2.5 2.5 0 0 0 3.5 7v10A2.5 2.5 0 0 0 6 19.5h12a2.5 2.5 0 0 0 2.5-2.5V7A2.5 2.5 0 0 0 18 4.5H6Zm0 2h5v11H6A.5.5 0 0 1 5.5 17V7A.5.5 0 0 1 6 6.5Zm7 0h5a.5.5 0 0 1 .5.5v10a.5.5 0 0 1-.5.5h-5v-11Z"></path>
-                            </svg>
-                        </span>
-                        <h3 id="search-pathway-title">Educational Pathway</h3>
-                    </div>
-                    <div class="search-check-list">
-                        <label class="search-check-item"><input type="checkbox" name="pathway" value="Foundation"> <span>Foundation</span></label>
-                        <label class="search-check-item"><input type="checkbox" name="pathway" value="Undergraduate"> <span>Undergraduate</span></label>
-                        <label class="search-check-item"><input type="checkbox" name="pathway" value="Postgraduate"> <span>Postgraduate</span></label>
-                        <label class="search-check-item"><input type="checkbox" name="pathway" value="PhD"> <span>PhD</span></label>
-                        <label class="search-check-item"><input type="checkbox" name="pathway" value="Diploma"> <span>Diploma</span></label>
-                    </div>
-                </section>
-                <section class="search-filter-column" aria-labelledby="search-country-title">
-                    <div class="search-filter-heading">
-                        <span class="search-filter-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-                                <path d="M12 2.75a9.25 9.25 0 1 0 0 18.5 9.25 9.25 0 0 0 0-18.5Zm5.98 8.25h-2.84a14.9 14.9 0 0 0-1.13-4.1A7.3 7.3 0 0 1 17.98 11ZM12 4.7c.68.84 1.46 2.52 1.85 4.3h-3.7C10.54 7.22 11.32 5.54 12 4.7Zm-2.01 2.2A14.9 14.9 0 0 0 8.86 11H6.02a7.3 7.3 0 0 1 3.97-4.1ZM5.7 13h3.03c.12 1.56.53 3.04 1.26 4.38A7.28 7.28 0 0 1 5.7 13Zm6.3 6.3c-.68-.84-1.46-2.52-1.85-4.3h3.7c-.39 1.78-1.17 3.46-1.85 4.3Zm2.01-1.92c.73-1.34 1.14-2.82 1.26-4.38h3.03a7.28 7.28 0 0 1-4.29 4.38Z"></path>
-                            </svg>
-                        </span>
-                        <h3 id="search-country-title">Destination Countries</h3>
-                    </div>
-                    <div class="search-country-grid">
-                        <div class="search-check-list">
-                            <label class="search-check-item"><input type="checkbox" name="country" value="Italy"> <span>Italy</span></label>
-                            <label class="search-check-item"><input type="checkbox" name="country" value="Germany"> <span>Germany</span></label>
-                            <label class="search-check-item"><input type="checkbox" name="country" value="Japan"> <span>Japan</span></label>
-                            <label class="search-check-item"><input type="checkbox" name="country" value="Korea"> <span>Korea</span></label>
-                            <label class="search-check-item"><input type="checkbox" name="country" value="Hong Kong"> <span>Hong Kong</span></label>
-                        </div>
-                        <div class="search-check-list">
-                            <label class="search-check-item"><input type="checkbox" name="country" value="Canada"> <span>Canada</span></label>
-                            <label class="search-check-item"><input type="checkbox" name="country" value="Thailand"> <span>Thailand</span></label>
-                            <label class="search-check-item"><input type="checkbox" name="country" value="Japan-alt"> <span>Japan</span></label>
-                            <label class="search-check-item"><input type="checkbox" name="country" value="Korea-alt"> <span>Korea</span></label>
-                            <label class="search-check-item"><input type="checkbox" name="country" value="Hong Kong-alt"> <span>Hong Kong</span></label>
-                        </div>
-                    </div>
-                </section>
-            </div>
-            <div class="search-modal-actions">
-                <button id="search-clear-filters" class="search-clear" type="button">Clear all filters</button>
-                <button id="search-show-results" class="search-results" type="button">Show Results</button>
-            </div>
-        </div>
-    </div>
 
     <footer class="site-footer">
         <div class="container">
@@ -462,6 +413,8 @@
         </div>
     </footer>
 
+    <script src="scripts/site-cms-config.js"></script>
+    <script src="scripts/site-cms.js"></script>
     <script src="scripts/site.js"></script>
 </body>
 </html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Forward Society | OSSD</title>
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    <link rel="apple-touch-icon" href="../assets/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="../styles/site.css">
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="ca60e73e-5abb-467a-9024-a4fc5810cddb"></script>
+</head>
+<body class="page-pathways page-pathway-detail page-ossd">
+    <header class="site-header">
+        <nav class="nav-wrap" aria-label="Primary">
+            <a href="../index.html" class="brand">
+                <img src="../assets/logo.png" alt="The Forward Society logo" class="brand-logo">
+                <span>The Forward Society</span>
+            </a>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <div class="nav-group">
+                    <a href="../destination-countries.html" aria-haspopup="true"><span>Education Consultancy</span><span aria-hidden="true">+</span></a>
+                    <div class="nav-dropdown" role="menu" aria-label="Education Consultancy">
+                        <a href="../pathways.html" role="menuitem">Pathways</a>
+                        <div class="submenu-group">
+                            <a class="submenu-trigger" href="../destination-countries.html" role="menuitem"><span>Destination Countries</span><span aria-hidden="true">&gt;</span></a>
+                            <div class="nav-submenu" role="menu" aria-label="Destination Countries">
+                                <div class="submenu-group">
+                                    <a class="submenu-trigger" href="../destination-countries.html#europe" role="menuitem"><span>Europe</span><span aria-hidden="true">&gt;</span></a>
+                                    <div class="nav-submenu" role="menu" aria-label="Europe">
+                                        <a href="../countries/belgium.html" role="menuitem">Belgium</a>
+                                        <a href="../countries/czech-republic.html" role="menuitem">Czech Republic</a>
+                                        <a href="../countries/germany.html" role="menuitem">Germany</a>
+                                        <a href="../countries/hungary.html" role="menuitem">Hungary</a>
+                                        <a href="../countries/italy.html" role="menuitem">Italy</a>
+                                        <a href="../countries/netherlands.html" role="menuitem">Netherlands</a>
+                                        <a href="../countries/sweden.html" role="menuitem">Sweden</a>
+                                    </div>
+                                </div>
+                                <a href="../countries/japan.html" role="menuitem">Japan</a>
+                                <a href="../countries/thailand.html" role="menuitem">Thailand</a>
+                                <a href="../countries/taiwan.html" role="menuitem">Taiwan</a>
+                                <a href="../countries/indonesia.html" role="menuitem">Indonesia</a>
+                                <a href="../countries/malaysia.html" role="menuitem">Malaysia</a>
+                                <a href="../countries/singapore.html" role="menuitem">Singapore</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="../activities-achievement.html">Activities &amp; Achievement</a>
+                <a href="../blog.html">Blog</a>
+                <div class="nav-group">
+                    <a href="../about.html" aria-haspopup="true"><span>About Us</span><span aria-hidden="true">+</span></a>
+                    <div class="nav-dropdown" role="menu" aria-label="About Us">
+                        <a href="../leadership.html" role="menuitem">Leadership</a>
+                    </div>
+                </div>
+                <a href="../contact.html" class="nav-contact-pill">Contact Us</a>
+            </div>
+            <button type="button" id="menu-toggle" class="menu-btn" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
+                <span class="ham-bar"></span><span class="ham-bar"></span><span class="ham-bar"></span>
+            </button>
+        </nav>
+    </header>
+
+    <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+        <div class="mob-inner">
+            <div class="mob-header">
+                <a href="../index.html" class="mob-brand"><img src="../assets/logo.png" alt="The Forward Society" class="brand-logo"><span>The Forward Society</span></a>
+                <button type="button" id="mob-close" class="mob-close" aria-label="Close menu"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+            </div>
+            <nav class="mob-nav" aria-label="Mobile navigation">
+                <a href="../index.html" class="mob-link">Home</a>
+                <div class="mob-group">
+                    <button class="mob-link mob-trigger" type="button" aria-expanded="false">Education Consultancy<svg class="mob-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                    <div class="mob-sub">
+                        <a href="../pathways.html" class="mob-sub-link">Pathways</a>
+                        <a href="../destination-countries.html" class="mob-sub-link">Destination Countries</a>
+                    </div>
+                </div>
+                <a href="../activities-achievement.html" class="mob-link">Activities &amp; Achievement</a>
+                <a href="../blog.html" class="mob-link">Blog</a>
+                <div class="mob-group">
+                    <button class="mob-link mob-trigger" type="button" aria-expanded="false">About Us<svg class="mob-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                    <div class="mob-sub">
+                        <a href="../about.html" class="mob-sub-link">About Us</a>
+                        <a href="../leadership.html" class="mob-sub-link">Leadership</a>
+                    </div>
+                </div>
+            </nav>
+            <div class="mob-footer"><a href="../contact.html" class="mob-cta">Contact Us</a></div>
+        </div>
+    </div>
+
+    <div id="dev-notice" class="site-notice" role="dialog" aria-modal="true" aria-labelledby="dev-notice-title" hidden>
+        <div class="site-notice-panel">
+            <p class="eyebrow">Development Notice</p>
+            <h2 id="dev-notice-title">This website is still under development</h2>
+            <p>What you are seeing right now is a demo version of the site.</p>
+            <p>All content, images, structure, and copy are placeholders and may change in the final release.</p>
+            <div class="site-notice-actions"><button type="button" id="dev-notice-close" class="site-notice-button">Continue to Site</button></div>
+        </div>
+    </div>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="reveal">
+                    <p class="eyebrow">Canadian Diploma Pathway</p>
+                    <h1><span class="brand-gradient-text">OSSD</span> pathway</h1>
+                    <p>The Ontario Secondary School Diploma offers flexible subject choices and continuous assessment, providing an internationally recognized Canadian qualification for university admission worldwide.</p>
+                    <div class="country-detail-actions">
+                        <a class="card-link" href="../contact.html">Book Consultation</a>
+                        <a class="detail-link" href="#overview">Explore Student Guide</a>
+                    </div>
+                    <div class="hero-facts-strip">
+                        <article class="hero-fact">
+                            <div class="hero-icons">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 3a1 1 0 0 1 1 1v1.05a7 7 0 0 1 5.95 5.95H20a1 1 0 1 1 0 2h-1.05A7 7 0 0 1 13 18.95V20a1 1 0 1 1-2 0v-1.05A7 7 0 0 1 5.05 13H4a1 1 0 1 1 0-2h1.05A7 7 0 0 1 11 5.05V4a1 1 0 0 1 1-1Zm0 4a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z"/>
+                                </svg>
+                            </div>
+                            <div class="hero-fact-text"><strong>Flexible Pacing</strong></div>
+                        </article>
+                        <article class="hero-fact">
+                            <div class="hero-icons">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>
+                                </svg>
+                            </div>
+                            <div class="hero-fact-text"><strong>Canadian Diploma</strong></div>
+                        </article>
+                        <article class="hero-fact">
+                            <div class="hero-icons">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5.33333 3C7.79379 2.99657 10.1685 3.88709 12 5.5V21C10.1685 19.3871 7.79379 18.4966 5.33333 18.5C2 17.5097 2 16.8941 2 15.6629V6.40322C2 4.97543 2.54874 3.68286 4.78272 3.0146Z"/>
+                                    <path d="M12 21V5.5C13.8315 3.88709 16.2062 2.99657 18.6667 3C22 4.26154 22 4.97543 22 6.40322V11.5"/>
+                                </svg>
+                            </div>
+                            <div class="hero-fact-text"><strong>Continuous Assessment</strong></div>
+                        </article>
+                    </div>
+                </div>
+                <div class="country-hero-visual reveal" aria-hidden="true">
+                    <div class="hero-image">
+                        <img class="globe-map" src="../assets/favicon.png" alt="" loading="lazy" decoding="async">
+                    </div>
+                    <article class="pathway-floating-card pathway-floating-card-accent">
+                        <h3 class="pathway-floating-stat">Fact-01</h3>
+                        <p>OSSD is recognized for admission to universities in Canada, the UK, Europe, Australia, and across Asia — making it a genuinely portable qualification.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="overview">
+            <div class="container">
+                <div class="section-head reveal container-center">
+                    <p class="eyebrow">Admission Guide</p>
+                    <h2><span class="brand-gradient-text">Admissions requirements</span></h2>
+                </div>
+                <div>
+                    <div class="overview-section">
+                        <div class="overview-grid">
+                            <article class="detail-card">
+                                <div class="detail-card-body">
+                                    <div>
+                                        <h3 class="pathway-floating-stat brand-gradient-text">Flexible, student-centred learning</h3>
+                                    </div>
+                                    <p class="overview-desc">The OSSD is structured around 30 credits, mandatory literacy and numeracy requirements, and 40 hours of community involvement. Students can pace their studies online or in school, making it accessible to a wide range of learners.</p>
+                                </div>
+                                <div class="pathway-detail-strip">
+                                    <article class="hero-fact">
+                                        <div class="hero-icons"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a1 1 0 0 1 1 1v1.05a7 7 0 0 1 5.95 5.95H20a1 1 0 1 1 0 2h-1.05A7 7 0 0 1 13 18.95V20a1 1 0 1 1-2 0v-1.05A7 7 0 0 1 5.05 13H4a1 1 0 1 1 0-2h1.05A7 7 0 0 1 11 5.05V4a1 1 0 0 1 1-1Zm0 4a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z"/></svg></div>
+                                        <div class="hero-fact-text"><strong>Flexible</strong></div>
+                                    </article>
+                                    <article class="hero-fact">
+                                        <div class="hero-icons"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div>
+                                        <div class="hero-fact-text"><strong>Canadian</strong></div>
+                                    </article>
+                                    <article class="hero-fact">
+                                        <div class="hero-icons"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 2.8 5.67 6.26.91-4.53 4.42 1.07 6.25L12 16.3l-5.6 2.95 1.07-6.25L2.94 8.58l6.26-.91L12 2Z"/></svg></div>
+                                        <div class="hero-fact-text"><strong>Recognized</strong></div>
+                                    </article>
+                                </div>
+                            </article>
+                            <article class="requirement-card reveal">
+                                <div class="requirement-card-body">
+                                    <div class="section-card-head">
+                                        <p class="pathway-floating-stat brand-gradient-text">Requirements</p>
+                                    </div>
+                                    <ul class="benefit-list">
+                                        <li>Previous academic records and transcripts</li>
+                                        <li>English language proficiency evidence</li>
+                                        <li>Course registration and learning plan</li>
+                                        <li>Passport or government-issued identification</li>
+                                        <li>Personal statement of learning objectives</li>
+                                    </ul>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="journey-process">
+            <div class="container">
+                <div class="section-head reveal">
+                    <p class="eyebrow">Student Guide</p>
+                    <h2>Prepare for the <span class="brand-gradient-text">journey</span></h2>
+                </div>
+                <div class="journey-grid">
+                    <article class="journey-card reveal">
+                        <div class="section-card-meta">
+                            <p class="pathway-floating-stat"><span class="stat-first-number">0</span>1</p>
+                            <h3 class="brand-gradient-text">Enroll and plan</h3>
+                        </div>
+                        <div class="journey-desc">
+                            <p>Register at an accredited OSSD school and build a course plan that covers mandatory and elective credits aligned to your university goals.</p>
+                        </div>
+                    </article>
+                    <article class="journey-card reveal">
+                        <div class="section-card-meta">
+                            <p class="pathway-floating-stat"><span class="stat-first-number">0</span>2</p>
+                            <h3 class="brand-gradient-text">Complete assessments</h3>
+                        </div>
+                        <div class="journey-desc">
+                            <p>Work through continuous assignments, projects, and the Ontario Secondary School Literacy Test at your own pace online or in class.</p>
+                        </div>
+                    </article>
+                    <article class="journey-card reveal">
+                        <div class="section-card-meta">
+                            <p class="pathway-floating-stat"><span class="stat-first-number">0</span>3</p>
+                            <h3 class="brand-gradient-text">Earn diploma and progress</h3>
+                        </div>
+                        <div class="journey-desc">
+                            <p>Receive your OSSD and use it to apply to universities in Canada, Europe, the UK, Asia, or wherever your goals take you.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="opportunities">
+            <div class="container">
+                <div class="section-head reveal">
+                    <p class="eyebrow">Opportunities</p>
+                    <h2>Explore <span class="brand-gradient-text">universities and scholarship</span> directions</h2>
+                </div>
+                <div class="opportunity-grid">
+                    <article class="opportunity-card reveal">
+                        <div class="opportunity-body">
+                            <div class="panel">
+                                <div class="opportunity-head">
+                                    <div class="opportunity-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                                    <div>
+                                        <h3 class="brand-gradient-text pathway-floating-stat">Universities</h3>
+                                        <p class="opportunity-desc">OSSD opens doors to universities across multiple continents.</p>
+                                    </div>
+                                </div>
+                                <ul class="opportunity-list">
+                                    <li>Canadian universities and colleges</li>
+                                    <li>UK and European institutions</li>
+                                    <li>Australian and New Zealand universities</li>
+                                    <li>Asian partner institutions</li>
+                                </ul>
+                            </div>
+                            <a class="card-link-Blue" href="../explore/universities.html">Build Your Shortlist</a>
+                        </div>
+                    </article>
+                    <article class="opportunity-card reveal">
+                        <div class="opportunity-body">
+                            <div class="panel">
+                                <div class="opportunity-head">
+                                    <div class="opportunity-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+                                    <div>
+                                        <h3 class="brand-gradient-text pathway-floating-stat">Scholarships</h3>
+                                        <p class="opportunity-desc">Merit and need-based funding available for OSSD graduates.</p>
+                                    </div>
+                                </div>
+                                <ul class="opportunity-list">
+                                    <li>Canadian institution entry scholarships</li>
+                                    <li>International student merit awards</li>
+                                    <li>Government-funded study abroad grants</li>
+                                    <li>University-specific bursaries and discounts</li>
+                                </ul>
+                            </div>
+                            <a class="card-link-Blue" href="../explore/scholarships.html">Explore Scholarships</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="site-footer-card reveal">
+                <p class="eyebrow eyebrow-light">Ready to move forward?</p>
+                <h2>Plan your study abroad journey with expert guidance</h2>
+                <p>Book a strategic consultation and get a personalized roadmap based on your goals, profile, and destination preferences.</p>
+                <div class="site-footer-actions">
+                    <a class="site-footer-button" href="../contact.html">Book Consultation</a>
+                    <a class="site-footer-link" href="../leadership.html">Meet Our Team</a>
+                </div>
+            </div>
+            <p class="site-footer-meta">Copyright 2026 The Forward Society. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../scripts/site.js"></script>
+</body>
+</html>
