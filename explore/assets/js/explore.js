@@ -1,4 +1,4 @@
-const CONTENT_API_BASE = "https://tfs-admin-xi.vercel.app/api/content";
+const CONTENT_API_BASE = (window.TFSCmsConfig && window.TFSCmsConfig.contentApiBase) || "https://tfs-admin-xi.vercel.app/api/content";
 const shortlistStorageKey = "tfs-shortlist";
 
 function getShortlist() {
