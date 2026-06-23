@@ -176,6 +176,7 @@ async function initUniversitiesPage() {
         return {
             country: document.getElementById("filter-country")?.value || "",
             type: document.getElementById("filter-type")?.value || "",
+            level: document.getElementById("filter-level")?.value || ""
         };
     }
 
@@ -184,6 +185,7 @@ async function initUniversitiesPage() {
         return universities.filter((u) => {
             if (f.country && u.country !== f.country) return false;
             if (f.type && u.type !== f.type) return false;
+            if (f.level && !(u.levels || []).includes(f.level)) return false;
             return true;
         });
     }
@@ -208,19 +210,21 @@ async function initUniversitiesPage() {
             : "";
         const location = [university.city, university.country].filter(Boolean).join(", ");
         const rankHtml = [rankBadge("QS", university.qsRank), rankBadge("THE", university.theRank)].filter(Boolean).join(" ");
+        const levelTagsHtml = (university.levels || []).map((l) => `<span class="item-tag">${l}</span>`).join(" ");
         const websiteHtml = university.website
             ? `<p style="margin-top:12px"><a href="${university.website}" target="_blank" rel="noopener noreferrer" class="item-website-link">Visit official website &rarr;</a></p>`
             : "";
         detailsTitle.textContent = university.name;
-        detailsBody.innerHTML = `${logoHtml}<div class="item-location" style="margin-bottom:8px">${location}</div>${university.type ? `<div class="item-location" style="margin-bottom:8px">${university.type}</div>` : ""}<div class="item-tags" style="margin-bottom:12px">${rankHtml}</div>${university.knownFor ? `<p class="item-desc" style="overflow:visible;-webkit-line-clamp:unset"><strong>Known for:</strong> ${university.knownFor}</p>` : ""}${websiteHtml}`;
+        detailsBody.innerHTML = `${logoHtml}<div class="item-location" style="margin-bottom:8px">${location}</div>${university.type ? `<div class="item-location" style="margin-bottom:8px">${university.type}</div>` : ""}<div class="item-tags" style="margin-bottom:8px">${rankHtml}</div>${levelTagsHtml ? `<div class="item-tags" style="margin-bottom:12px">${levelTagsHtml}</div>` : ""}${university.knownFor ? `<p class="item-desc" style="overflow:visible;-webkit-line-clamp:unset"><strong>Known for:</strong> ${university.knownFor}</p>` : ""}${websiteHtml}`;
         detailsModal.classList.remove("hidden");
     }
 
     function renderUniversityCard(u) {
         const location = [u.city, u.country].filter(Boolean).join(", ");
         const rankHtml = [rankBadge("QS", u.qsRank), rankBadge("THE", u.theRank)].filter(Boolean).join(" ");
+        const levelTags = (u.levels || []).map((l) => `<span class="item-tag">${l}</span>`).join("");
         return renderItemCard(
-            { ...u, location, tags: [], desc: u.knownFor || "" },
+            { ...u, location, tags: [], desc: (levelTags ? `<div class="item-tags" style="margin-bottom:4px">${levelTags}</div>` : "") + (u.knownFor || "") },
             { detailsLabel: "View details", onDetailsClick: () => openDetails(u), shortlistEnabled: true, onShortlistToggle: toggleShortlist }
         );
     }
