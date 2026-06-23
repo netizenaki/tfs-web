@@ -3,6 +3,17 @@
         var globe = document.querySelector('.globe-map');
         if (globe && globe.tagName === 'VIDEO') {
             globe.playbackRate = 0.5;
+            if ('IntersectionObserver' in window) {
+                new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            globe.play();
+                        } else {
+                            globe.pause();
+                        }
+                    });
+                }, { threshold: 0 }).observe(globe);
+            }
         }
     });
     const devNotice = document.getElementById("dev-notice");
