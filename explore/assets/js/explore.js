@@ -292,7 +292,7 @@ async function initScholarshipsPage() {
         return {
             country: document.getElementById("filter-country")?.value || "",
             level: document.getElementById("filter-level")?.value || "",
-            funding: document.getElementById("filter-funding")?.value || "",
+            program_type: document.getElementById("filter-program-type")?.value || "",
             status: document.getElementById("filter-status")?.value || ""
         };
     }
@@ -301,8 +301,8 @@ async function initScholarshipsPage() {
         const f = getFilters();
         return scholarships.filter((s) => {
             if (f.country && s.host_country !== f.country) return false;
-            if (f.level && !(s.education_levels || []).includes(f.level)) return false;
-            if (f.funding && s.funding_level !== f.funding) return false;
+            if (f.level && !(s.level || []).includes(f.level)) return false;
+            if (f.program_type && s.program_type !== f.program_type) return false;
             if (f.status && s.status !== f.status) return false;
             return true;
         });
@@ -322,73 +322,43 @@ async function initScholarshipsPage() {
         if (!detailsModal || !detailsTitle || !detailsBody) return;
         detailsTitle.textContent = s.name;
 
-        const coverageTags = Object.entries(s.coverage || {})
-            .filter(([, v]) => v)
-            .map(([k]) => tag(k.replace("covers_", "").replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())))
-            .join(" ");
-
-        const eduTags = (s.education_levels || []).map((l) => tag(l)).join(" ");
+        const levelTags = (s.level || []).map((l) => tag(l)).join(" ");
         const fieldTags = (s.study_fields || []).map((f) => tag(f)).join(" ");
 
-        const cyclesHtml = (s.application_cycles || []).length ? [
-            '<div class="sch-detail-section"><p class="sch-detail-label">Application Cycles</p>',
-            (s.application_cycles || []).map((c) => {
-                const parts = [
-                    c.intake,
-                    c.open_date    ? "Open: "       + c.open_date    : "",
-                    c.close_date   ? "Close: "      + c.close_date   : "",
-                    c.result_date  ? "Result: "     + c.result_date  : "",
-                    c.enrollment_date ? "Enrollment: " + c.enrollment_date : ""
-                ].filter(Boolean).join(" · ");
-                return `<p class="sch-detail-row">${parts}</p>`;
-            }).join(""),
-            '</div>'
-        ].join("") : "";
+        const appDates = [
+            s.application_open ? "Open: " + s.application_open : "",
+            s.application_deadline ? "Deadline: " + s.application_deadline : ""
+        ].filter(Boolean).join(" · ");
 
-        const eligHtml = (s.eligibility || []).length ? [
-            '<div class="sch-detail-section"><p class="sch-detail-label">Eligibility</p>',
-            (s.eligibility || []).map((e) => `<p class="sch-detail-row"><strong>${e.type}:</strong> ${e.value}</p>`).join(""),
-            '</div>'
-        ].join("") : "";
-
-        const b = s.benefits || {};
-        const benefitParts = [];
-        if (b.tuition_coverage) benefitParts.push("Tuition: " + b.tuition_coverage + "%");
-        if (b.monthly_stipend) benefitParts.push("Stipend: " + Number(b.monthly_stipend).toLocaleString() + " " + (b.monthly_stipend_currency || "EUR") + "/mo");
-        if (b.accommodation) benefitParts.push("Accommodation");
-        if (b.health_insurance) benefitParts.push("Health insurance");
-        if (b.travel_allowance) benefitParts.push("Travel allowance");
-        const benefitsHtml = benefitParts.length ? `<div class="sch-detail-section"><p class="sch-detail-label">Benefits</p><p class="sch-detail-row">${benefitParts.join(" · ")}</p></div>` : "";
-
-        const docsHtml = (s.required_documents || []).length
-            ? `<div class="sch-detail-section"><p class="sch-detail-label">Required Documents</p><p class="sch-detail-row">${s.required_documents.join(", ")}</p></div>`
+        const reqHtml = (s.requirements || []).length
+            ? `<div class="sch-detail-section"><p class="sch-detail-label">Requirements</p>${s.requirements.map((r) => `<p class="sch-detail-row">• ${r}</p>`).join("")}</div>`
             : "";
 
-        const notesHtml = (s.notes || []).length
-            ? `<div class="sch-detail-section"><p class="sch-detail-label">Notes</p>${s.notes.map((n) => `<p class="sch-detail-row">• ${n}</p>`).join("")}</div>`
+        const additionalHtml = (s.additional_info || []).length
+            ? `<div class="sch-detail-section"><p class="sch-detail-label">Additional Info</p>${s.additional_info.map((n) => `<p class="sch-detail-row">• ${n}</p>`).join("")}</div>`
             : "";
 
         const websiteHtml = s.official_url
             ? `<a href="${s.official_url}" target="_blank" rel="noopener noreferrer" class="item-website-link" style="display:inline-block;margin-top:14px">Visit official page &rarr;</a>`
             : "";
 
-        const appFeeHtml = s.application_fee
-            ? `<p class="sch-detail-row" style="color:#b45309;font-size:0.82rem;margin-top:6px">⚠ Application fee required</p>`
+        const appFeeHtml = s.application_fee && s.application_fee.toLowerCase() !== "none"
+            ? `<p class="sch-detail-row" style="color:#b45309;font-size:0.82rem;margin-top:6px">⚠ Application fee: ${s.application_fee}</p>`
             : "";
 
         detailsBody.innerHTML = [
-            `<div class="item-location" style="margin-bottom:6px">${s.provider || ""}${s.host_country ? " · " + s.host_country : ""}</div>`,
-            `<div style="margin-bottom:8px">${tag(s.status || "Unknown", statusColor(s.status))} ${s.funding_level ? tag(s.funding_level) : ""} ${s.scholarship_type ? tag(s.scholarship_type) : ""}</div>`,
+            `<div class="item-location" style="margin-bottom:6px">${s.provider_type || ""}${s.host_country ? " · " + s.host_country : ""}</div>`,
+            `<div style="margin-bottom:8px">${tag(s.status || "Unknown", statusColor(s.status))}${s.program_type ? " " + tag(s.program_type) : ""}</div>`,
             appFeeHtml,
-            eduTags ? `<div class="item-tags" style="margin-top:8px;margin-bottom:10px">${eduTags}</div>` : "",
+            levelTags ? `<div class="item-tags" style="margin-top:8px;margin-bottom:10px">${levelTags}</div>` : "",
             fieldTags ? `<div class="item-tags" style="margin-bottom:10px">${fieldTags}</div>` : "",
-            s.description ? `<p class="item-desc" style="overflow:visible;-webkit-line-clamp:unset;margin-bottom:12px">${s.description}</p>` : "",
-            coverageTags ? `<div class="sch-detail-section"><p class="sch-detail-label">Coverage</p><div class="item-tags">${coverageTags}</div></div>` : "",
-            benefitsHtml,
-            cyclesHtml,
-            eligHtml,
-            docsHtml,
-            notesHtml,
+            s.scholarship ? `<div class="sch-detail-section"><p class="sch-detail-label">Scholarship</p><p class="sch-detail-row">${s.scholarship}</p></div>` : "",
+            s.benefit ? `<div class="sch-detail-section"><p class="sch-detail-label">Benefit</p><p class="sch-detail-row">${s.benefit}</p></div>` : "",
+            s.duration ? `<div class="sch-detail-section"><p class="sch-detail-label">Duration</p><p class="sch-detail-row">${s.duration}</p></div>` : "",
+            appDates ? `<div class="sch-detail-section"><p class="sch-detail-label">Application</p><p class="sch-detail-row">${appDates}</p></div>` : "",
+            s.application_process ? `<div class="sch-detail-section"><p class="sch-detail-label">Application Process</p><p class="sch-detail-row">${s.application_process}</p></div>` : "",
+            reqHtml,
+            additionalHtml,
             websiteHtml
         ].join("");
 
@@ -398,23 +368,22 @@ async function initScholarshipsPage() {
     function renderScholarshipCard(s) {
         const card = document.createElement("article");
         card.className = "item-card";
-        const eduTags = (s.education_levels || []).map((l) => `<span class="item-tag">${l}</span>`).join("");
+        const levelTags = (s.level || []).map((l) => `<span class="item-tag">${l}</span>`).join("");
         const statusStyle = statusColor(s.status);
         card.innerHTML = `
             <div class="item-card-top">
                 <div class="item-logo-placeholder"><i class="fa-solid fa-award" aria-hidden="true"></i></div>
                 <div>
                     <div class="item-name">${s.name}</div>
-                    <div class="item-location">${s.provider || ""}${s.host_country ? " · " + s.host_country : ""}</div>
+                    <div class="item-location">${s.provider_type || ""}${s.host_country ? " · " + s.host_country : ""}</div>
                 </div>
             </div>
             <div class="item-tags" style="margin-bottom:4px">
                 ${s.status ? `<span class="item-tag" style="${statusStyle}">${s.status}</span>` : ""}
-                ${s.funding_level ? `<span class="item-tag">${s.funding_level}</span>` : ""}
-                ${s.scholarship_type ? `<span class="item-tag">${s.scholarship_type}</span>` : ""}
+                ${s.program_type ? `<span class="item-tag">${s.program_type}</span>` : ""}
             </div>
-            <div class="item-tags">${eduTags}</div>
-            <div class="item-desc">${s.description || ""}</div>
+            <div class="item-tags">${levelTags}</div>
+            <div class="item-desc">${s.scholarship || ""}</div>
             <div class="item-actions">
                 <button class="btn-details" type="button">View details</button>
             </div>
@@ -429,8 +398,7 @@ async function initScholarshipsPage() {
             grid.innerHTML = '<div class="empty-state">No scholarships match your filters.</div>';
             return;
         }
-        const sorted = [...filtered].sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
-        clearAndRender(grid, sorted.map(renderScholarshipCard));
+        clearAndRender(grid, filtered.map(renderScholarshipCard));
     }
 
     form?.addEventListener("submit", (e) => { e.preventDefault(); renderScholarships(); });
