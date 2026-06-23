@@ -57,7 +57,6 @@ function populateSelect(id, rawValues, labelFn) {
     const select = document.getElementById(id);
     if (!select) return;
     const values = [...new Set(rawValues.filter(Boolean))].sort();
-    const current = select.value;
     select.innerHTML = '<option value="">All</option>';
     values.forEach((v) => {
         const opt = document.createElement("option");
@@ -65,7 +64,6 @@ function populateSelect(id, rawValues, labelFn) {
         opt.textContent = labelFn ? labelFn(v) : v;
         select.appendChild(opt);
     });
-    if (current) select.value = current;
 }
 
 function toLabel(value) {
@@ -135,9 +133,29 @@ async function initUniversitiesPage() {
     const grid = document.getElementById("university-grid");
     if (!grid) return;
 
-    grid.innerHTML = '<div class="empty-state">Loading universities…</div>';
+    const shortlistCount = document.getElementById("shortlist-count");
+    const shortlistIcon = document.getElementById("shortlist-icon");
+    const shortlistModal = document.getElementById("shortlist-modal");
+    const shortlistList = document.getElementById("shortlist-list");
+    const shortlistClose = document.getElementById("close-shortlist");
+    const detailsModal = document.getElementById("university-details-modal");
+    const detailsTitle = document.getElementById("university-details-title");
+    const detailsBody = document.getElementById("university-details-body");
+    const detailsClose = document.getElementById("close-university-details");
+    const filterForm = document.getElementById("filter-form");
 
     let universities;
+
+    filterForm?.addEventListener("submit", (e) => { e.preventDefault(); renderGrid(); });
+    filterForm?.addEventListener("reset", () => { window.setTimeout(renderGrid, 0); });
+    shortlistIcon?.addEventListener("click", () => { renderShortlistModal(); shortlistModal?.classList.remove("hidden"); });
+    shortlistClose?.addEventListener("click", () => shortlistModal?.classList.add("hidden"));
+    shortlistModal?.addEventListener("click", (e) => { if (e.target === shortlistModal) shortlistModal.classList.add("hidden"); });
+    detailsClose?.addEventListener("click", () => detailsModal?.classList.add("hidden"));
+    detailsModal?.addEventListener("click", (e) => { if (e.target === detailsModal) detailsModal.classList.add("hidden"); });
+
+    grid.innerHTML = '<div class="empty-state">Loading universities…</div>';
+
     try {
         const response = await fetch(CONTENT_API_BASE + "/universities", {
             headers: { Accept: "application/json" },
@@ -153,17 +171,6 @@ async function initUniversitiesPage() {
 
     populateSelect("filter-country", universities.map((u) => u.country), toLabel);
     populateSelect("filter-type", universities.map((u) => u.type), toLabel);
-
-    const shortlistCount = document.getElementById("shortlist-count");
-    const shortlistIcon = document.getElementById("shortlist-icon");
-    const shortlistModal = document.getElementById("shortlist-modal");
-    const shortlistList = document.getElementById("shortlist-list");
-    const shortlistClose = document.getElementById("close-shortlist");
-    const detailsModal = document.getElementById("university-details-modal");
-    const detailsTitle = document.getElementById("university-details-title");
-    const detailsBody = document.getElementById("university-details-body");
-    const detailsClose = document.getElementById("close-university-details");
-    const filterForm = document.getElementById("filter-form");
 
     function getFilters() {
         return {
@@ -219,6 +226,7 @@ async function initUniversitiesPage() {
     }
 
     function renderGrid() {
+        if (!universities) return;
         const filtered = getFiltered();
         if (!filtered.length) {
             grid.innerHTML = '<div class="empty-state">No universities match your filters.</div>';
@@ -228,7 +236,7 @@ async function initUniversitiesPage() {
     }
 
     function renderShortlistModal() {
-        if (!shortlistList) return;
+        if (!shortlistList || !universities) return;
         const ids = getShortlist();
         if (!ids.length) {
             shortlistList.innerHTML = '<div class="empty-state">Your shortlist is empty.</div>';
@@ -246,16 +254,6 @@ async function initUniversitiesPage() {
         )));
     }
 
-    filterForm?.addEventListener("submit", (e) => { e.preventDefault(); renderGrid(); });
-    filterForm?.addEventListener("reset", () => { window.setTimeout(renderGrid, 0); });
-
-    shortlistIcon?.addEventListener("click", () => { renderShortlistModal(); shortlistModal?.classList.remove("hidden"); });
-    shortlistClose?.addEventListener("click", () => shortlistModal?.classList.add("hidden"));
-    shortlistModal?.addEventListener("click", (e) => { if (e.target === shortlistModal) shortlistModal.classList.add("hidden"); });
-
-    detailsClose?.addEventListener("click", () => detailsModal?.classList.add("hidden"));
-    detailsModal?.addEventListener("click", (e) => { if (e.target === detailsModal) detailsModal.classList.add("hidden"); });
-
     refreshCount();
     renderGrid();
 }
@@ -264,9 +262,21 @@ async function initScholarshipsPage() {
     const grid = document.getElementById("scholarship-grid");
     if (!grid) return;
 
-    grid.innerHTML = '<div class="empty-state">Loading scholarships…</div>';
+    const form = document.getElementById("scholarship-filter-form");
+    const detailsModal = document.getElementById("scholarship-details-modal");
+    const detailsTitle = document.getElementById("scholarship-details-title");
+    const detailsBody = document.getElementById("scholarship-details-body");
+    const detailsClose = document.getElementById("close-scholarship-details");
 
     let scholarships;
+
+    form?.addEventListener("submit", (e) => { e.preventDefault(); renderScholarships(); });
+    form?.addEventListener("reset", () => { window.setTimeout(renderScholarships, 0); });
+    detailsClose?.addEventListener("click", () => detailsModal?.classList.add("hidden"));
+    detailsModal?.addEventListener("click", (e) => { if (e.target === detailsModal) detailsModal.classList.add("hidden"); });
+
+    grid.innerHTML = '<div class="empty-state">Loading scholarships…</div>';
+
     try {
         const response = await fetch(CONTENT_API_BASE + "/scholarships", {
             headers: { Accept: "application/json" },
@@ -281,12 +291,6 @@ async function initScholarshipsPage() {
     }
 
     populateSelect("filter-country", scholarships.map((s) => s.host_country));
-
-    const form = document.getElementById("scholarship-filter-form");
-    const detailsModal = document.getElementById("scholarship-details-modal");
-    const detailsTitle = document.getElementById("scholarship-details-title");
-    const detailsBody = document.getElementById("scholarship-details-body");
-    const detailsClose = document.getElementById("close-scholarship-details");
 
     function getFilters() {
         return {
@@ -393,6 +397,7 @@ async function initScholarshipsPage() {
     }
 
     function renderScholarships() {
+        if (!scholarships) return;
         const filtered = getFiltered();
         if (!filtered.length) {
             grid.innerHTML = '<div class="empty-state">No scholarships match your filters.</div>';
@@ -400,12 +405,6 @@ async function initScholarshipsPage() {
         }
         clearAndRender(grid, filtered.map(renderScholarshipCard));
     }
-
-    form?.addEventListener("submit", (e) => { e.preventDefault(); renderScholarships(); });
-    form?.addEventListener("reset", () => { window.setTimeout(renderScholarships, 0); });
-
-    detailsClose?.addEventListener("click", () => detailsModal?.classList.add("hidden"));
-    detailsModal?.addEventListener("click", (e) => { if (e.target === detailsModal) detailsModal.classList.add("hidden"); });
 
     renderScholarships();
 }
