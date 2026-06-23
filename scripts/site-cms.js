@@ -161,7 +161,6 @@
             '<p class="supervisor-role">' + escapeHtml(member.role) + '</p>',
             '</div>',
             '</div>',
-            '<p class="copy-top-10 supervisor-desc">' + escapeHtml(member.description) + '</p>',
             '</article>'
         ].join("");
     }
@@ -176,7 +175,7 @@
             return;
         }
 
-        const query = '*[_type == "' + leadershipDocumentType + '"][0]{ceoName, ceoBio1, ceoPhoto{asset->{url}}, supervisors[]{department, name, role, description, photo{asset->{url}}}}';
+        const query = '*[_type == "' + leadershipDocumentType + '"][0]{ceoName, ceoBio1, ceoPhoto{asset->{url}}, supervisors[]{department, name, role, photo{asset->{url}}}}';
 
         try {
             const data = await runQuery(query);
