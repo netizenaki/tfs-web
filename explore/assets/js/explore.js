@@ -171,12 +171,16 @@ async function initUniversitiesPage() {
 
     populateSelect("filter-country", universities.map((u) => u.country), toLabel);
     populateSelect("filter-type", universities.map((u) => u.type), toLabel);
+    populateSelect("filter-language", universities.map((u) => u.languageOfInstruction), toLabel);
 
     function getFilters() {
         return {
             country: document.getElementById("filter-country")?.value || "",
             type: document.getElementById("filter-type")?.value || "",
-            level: document.getElementById("filter-level")?.value || ""
+            level: document.getElementById("filter-level")?.value || "",
+            language: document.getElementById("filter-language")?.value || "",
+            englishTaught: document.getElementById("filter-english-taught")?.value || "",
+            intake: document.getElementById("filter-intake")?.value || ""
         };
     }
 
@@ -185,7 +189,10 @@ async function initUniversitiesPage() {
         return universities.filter((u) => {
             if (f.country && u.country !== f.country) return false;
             if (f.type && u.type !== f.type) return false;
-            if (f.level && !(u.levels || []).includes(f.level)) return false;
+            if (f.level && !(u.studyLevels || []).includes(f.level)) return false;
+            if (f.language && u.languageOfInstruction !== f.language) return false;
+            if (f.englishTaught && u.englishTaughtPrograms !== f.englishTaught) return false;
+            if (f.intake && !(u.applicationIntakes || []).includes(f.intake)) return false;
             return true;
         });
     }
@@ -205,26 +212,67 @@ async function initUniversitiesPage() {
 
     function openDetails(university) {
         if (!detailsModal || !detailsTitle || !detailsBody) return;
-        const logoHtml = university.logo
-            ? `<img class="item-logo" src="${university.logo}" alt="${university.name} logo" style="margin-bottom:12px">`
+        const logoHtml = university.logoUrl
+            ? `<img class="item-logo" src="${university.logoUrl}" alt="${university.name} logo" style="margin-bottom:12px">`
             : "";
         const location = [university.city, university.country].filter(Boolean).join(", ");
         const rankHtml = [rankBadge("QS", university.qsRank), rankBadge("THE", university.theRank)].filter(Boolean).join(" ");
-        const levelTagsHtml = (university.levels || []).map((l) => `<span class="item-tag">${l}</span>`).join(" ");
-        const websiteHtml = university.website
-            ? `<p style="margin-top:12px"><a href="${university.website}" target="_blank" rel="noopener noreferrer" class="item-website-link">Visit official website &rarr;</a></p>`
+        const levelTagsHtml = (university.studyLevels || []).map((l) => `<span class="item-tag">${l}</span>`).join(" ");
+        const qualTagsHtml = (university.acceptedQualifications || []).map((q) => `<span class="item-tag">${q}</span>`).join(" ");
+        const programTagsHtml = (university.popularPrograms || []).map((p) => `<span class="item-tag">${p}</span>`).join(" ");
+        const intakesHtml = (university.applicationIntakes || []).map((i) => `<span class="item-tag">${i}</span>`).join(" ");
+        const websiteHtml = university.officialWebsite
+            ? `<p style="margin-top:12px"><a href="${university.officialWebsite}" target="_blank" rel="noopener noreferrer" class="item-website-link">Visit official website &rarr;</a></p>`
             : "";
+
+        function detailRow(label, value) {
+            if (!value) return "";
+            return `<div class="sch-detail-section"><p class="sch-detail-label">${label}</p><p class="sch-detail-row">${value}</p></div>`;
+        }
+        function detailTags(label, html) {
+            if (!html) return "";
+            return `<div class="sch-detail-section"><p class="sch-detail-label">${label}</p><div class="item-tags" style="margin-top:4px">${html}</div></div>`;
+        }
+        function yesNoBadge(label, value) {
+            if (!value) return "";
+            const style = value === "Yes" ? "background:#d1fae5;color:#065f46" : value === "No" ? "background:#fee2e2;color:#991b1b" : "background:#fef9c3;color:#854d0e";
+            return `<span class="item-tag" style="${style}">${label}: ${value}</span>`;
+        }
+
+        const badgesHtml = [
+            yesNoBadge("English Taught", university.englishTaughtPrograms),
+            yesNoBadge("Intl. Friendly", university.internationalStudentFriendly),
+            yesNoBadge("Scholarships", university.scholarshipsAvailable)
+        ].filter(Boolean).join(" ");
+
         detailsTitle.textContent = university.name;
-        detailsBody.innerHTML = `${logoHtml}<div class="item-location" style="margin-bottom:8px">${location}</div>${university.type ? `<div class="item-location" style="margin-bottom:8px">${university.type}</div>` : ""}<div class="item-tags" style="margin-bottom:8px">${rankHtml}</div>${levelTagsHtml ? `<div class="item-tags" style="margin-bottom:12px">${levelTagsHtml}</div>` : ""}${university.knownFor ? `<p class="item-desc" style="overflow:visible;-webkit-line-clamp:unset"><strong>Known for:</strong> ${university.knownFor}</p>` : ""}${websiteHtml}`;
+        detailsBody.innerHTML = [
+            logoHtml,
+            `<div class="item-location" style="margin-bottom:8px">${location}</div>`,
+            university.type ? `<div class="item-location" style="margin-bottom:8px">${university.type}</div>` : "",
+            rankHtml ? `<div class="item-tags" style="margin-bottom:8px">${rankHtml}</div>` : "",
+            levelTagsHtml ? `<div class="item-tags" style="margin-bottom:8px">${levelTagsHtml}</div>` : "",
+            badgesHtml ? `<div class="item-tags" style="margin-bottom:12px">${badgesHtml}</div>` : "",
+            detailRow("Generally Known For", university.generallyKnownFor),
+            detailTags("Popular Programs", programTagsHtml),
+            detailRow("Language of Instruction", university.languageOfInstruction),
+            detailRow("Admission Requirements", university.admissionRequirements),
+            detailRow("English Language Requirements", university.englishLanguageRequirements),
+            detailTags("Accepted Qualifications", qualTagsHtml),
+            university.transferApplicationsAccepted ? detailRow("Transfer Applications", university.transferApplicationsAccepted) : "",
+            detailTags("Application Intakes", intakesHtml),
+            detailRow("Special Features", university.specialFeatures),
+            websiteHtml
+        ].join("");
         detailsModal.classList.remove("hidden");
     }
 
     function renderUniversityCard(u) {
         const location = [u.city, u.country].filter(Boolean).join(", ");
         const rankHtml = [rankBadge("QS", u.qsRank), rankBadge("THE", u.theRank)].filter(Boolean).join(" ");
-        const levelTags = (u.levels || []).map((l) => `<span class="item-tag">${l}</span>`).join("");
+        const levelTags = (u.studyLevels || []).map((l) => `<span class="item-tag">${l}</span>`).join("");
         return renderItemCard(
-            { ...u, location, tags: [], desc: (levelTags ? `<div class="item-tags" style="margin-bottom:4px">${levelTags}</div>` : "") + (u.knownFor || "") },
+            { ...u, logo: u.logoUrl, location, tags: [], desc: (rankHtml ? `<div class="item-tags" style="margin-bottom:4px">${rankHtml}</div>` : "") + (levelTags ? `<div class="item-tags" style="margin-bottom:4px">${levelTags}</div>` : "") + (u.generallyKnownFor || "") },
             { detailsLabel: "View details", onDetailsClick: () => openDetails(u), shortlistEnabled: true, onShortlistToggle: toggleShortlist }
         );
     }
@@ -248,7 +296,7 @@ async function initUniversitiesPage() {
         }
         const saved = ids.map((id) => universities.find((u) => u.id === id)).filter(Boolean);
         clearAndRender(shortlistList, saved.map((u) => renderItemCard(
-            { ...u, location: [u.city, u.country].filter(Boolean).join(", "), tags: [], desc: u.knownFor || "" },
+            { ...u, logo: u.logoUrl, location: [u.city, u.country].filter(Boolean).join(", "), tags: [], desc: u.generallyKnownFor || "" },
             {
                 detailsLabel: "View details",
                 onDetailsClick: () => openDetails(u),
