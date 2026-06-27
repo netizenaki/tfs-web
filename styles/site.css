@@ -2727,6 +2727,7 @@ h2 {
     border-radius: var(--radius-lg);
     background: #fff;
     color: var(--primary-blue);
+    fill: var(--primary-blue);
     border: 1px solid rgba(0, 103, 243, 0.18);
     box-shadow: 0 5px 11px rgba(12, 45, 94, 0.08);
     font-size: 2.5rem;
@@ -3053,7 +3054,7 @@ h2 {
 
 .split-grid-main {
     display: grid;
-    grid-template-columns: 0.8fr 1.2fr;
+    grid-template-columns: 0.6fr 1.4fr;
     gap: 24px;
 }
 
@@ -3091,7 +3092,7 @@ h2 {
         border-color var(--transition-mid);
 }
 
-.page-about .main-panel::before {
+/*.page-about .main-panel::before {
     content: "";
     position: absolute;
     top: 15%;
@@ -3100,8 +3101,17 @@ h2 {
     height: 70%;
     border-radius: 0 999px 999px 0;
     background: var(--primary-blue);
+}*/
+
+.page-about .main-panel {
+    background-color: var(--primary-blue);
 }
 
+.page-about .main-panel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 .page-about .MV-icons {
     width: 60px;
     height: 60px;
@@ -6397,6 +6407,13 @@ h2 {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    .page-about .main-panel {
+        display: none;
+    }
+
+    .page-about .hero-art {
+        display: none;
+    }
     .page-home .destination-experience {
         grid-template-columns: 1fr;
         gap: 22px;
@@ -7945,6 +7962,10 @@ h2 {
         transform: translateX(-50%);
     }
 
+    .page-about .main-panel {
+        display: none;
+    }
+
     /* Blog — stack section-head so search box wraps below the heading */
     .page-blog .section-head {
         flex-direction: column;
@@ -8232,31 +8253,6 @@ h2 {
 
     .page-destinations .country-grid {
         grid-template-columns: 1fr;
-    }
-
-    /* About — single-column values + tighter timeline on small phones */
-    .page-about .value-grid {
-        grid-template-columns: 1fr;
-        gap: 10px;
-    }
-
-    .page-about .value-card {
-        min-height: auto;
-    }
-
-    .page-about .timeline-card-grid {
-        grid-template-columns: 38px minmax(0, 1fr);
-        gap: 8px;
-    }
-
-    .page-about .timeline-icons {
-        width: 38px;
-        height: 38px;
-        font-size: 1rem;
-    }
-
-    .page-about .hero h1 {
-        font-size: clamp(1.5rem, 6.5vw, 1.8rem);
     }
 }
 
