@@ -1,120 +1,299 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Forward Society | Home</title>
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link rel="apple-touch-icon" href="assets/favicon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link rel="stylesheet" href="styles/site.css">
-</head>
-<body class="page-home">
-    <header class="site-header">
-        <nav class="nav-wrap" aria-label="Primary">
-            <a href="index.html" class="brand" aria-current="page">
-                <img src="assets/logo.png" alt="The Forward Society logo" class="brand-logo">
-                <span>The Forward Society</span>
-            </a>
-            <div class="nav-links">
-                <a href="index.html" aria-current="page">Home</a>
-                <div class="nav-group">
-                    <a href="destination-countries.html" aria-haspopup="true">
-                        <span>Education Consultancy</span>
-                        <span aria-hidden="true">+</span>
-                    </a>
-                    <div class="nav-dropdown" role="menu" aria-label="Education Consultancy">
-                        <a href="pathways.html" role="menuitem">Pathways</a>
-                        <div class="submenu-group">
-                            <a class="submenu-trigger" href="destination-countries.html" role="menuitem">
-                                <span>Destination Countries</span>
-                                <span aria-hidden="true">&gt;</span>
-                            </a>
-                            <div class="nav-submenu" role="menu" aria-label="Destination Countries">
-                                <div class="submenu-group">
-                                    <a class="submenu-trigger" href="destination-countries.html#europe" role="menuitem">
-                                        <span>Europe</span>
-                                        <span aria-hidden="true">&gt;</span>
-                                    </a>
-                                    <div class="nav-submenu" role="menu" aria-label="Europe">
-                                        <a href="countries/belgium.html" role="menuitem">Belgium</a>
-                                        <a href="countries/czech-republic.html" role="menuitem">Czech Republic</a>
-                                        <a href="countries/germany.html" role="menuitem">Germany</a>
-                                        <a href="countries/hungary.html" role="menuitem">Hungary</a>
-                                        <a href="countries/italy.html" role="menuitem">Italy</a>
-                                        <a href="countries/netherlands.html" role="menuitem">Netherlands</a>
-                                        <a href="countries/sweden.html" role="menuitem">Sweden</a>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>The Forward Society | Home</title>
+        <link rel="icon" type="image/png" href="assets/favicon.png" />
+        <link rel="apple-touch-icon" href="assets/favicon.png" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <link rel="stylesheet" href="styles/site.css" />
+    </head>
+    <body class="page-home">
+        <header class="site-header">
+            <nav class="nav-wrap" aria-label="Primary">
+                <a href="index.html" class="brand" aria-current="page">
+                    <img
+                        src="assets/logo.png"
+                        alt="The Forward Society logo"
+                        class="brand-logo"
+                    />
+                    <span>The Forward Society</span>
+                </a>
+                <div class="nav-links">
+                    <a href="index.html" aria-current="page">Home</a>
+                    <div class="nav-group">
+                        <a
+                            href="destination-countries.html"
+                            aria-haspopup="true"
+                        >
+                            <span>Education Consultancy</span>
+                            <span aria-hidden="true">+</span>
+                        </a>
+                        <div
+                            class="nav-dropdown"
+                            role="menu"
+                            aria-label="Education Consultancy"
+                        >
+                            <a href="pathways.html" role="menuitem">Pathways</a>
+                            <div class="submenu-group">
+                                <a
+                                    class="submenu-trigger"
+                                    href="destination-countries.html"
+                                    role="menuitem"
+                                >
+                                    <span>Destination Countries</span>
+                                    <span aria-hidden="true">&gt;</span>
+                                </a>
+                                <div
+                                    class="nav-submenu"
+                                    role="menu"
+                                    aria-label="Destination Countries"
+                                >
+                                    <div class="submenu-group">
+                                        <a
+                                            class="submenu-trigger"
+                                            href="destination-countries.html#europe"
+                                            role="menuitem"
+                                        >
+                                            <span>Europe</span>
+                                            <span aria-hidden="true">&gt;</span>
+                                        </a>
+                                        <div
+                                            class="nav-submenu"
+                                            role="menu"
+                                            aria-label="Europe"
+                                        >
+                                            <a
+                                                href="countries/belgium.html"
+                                                role="menuitem"
+                                                >Belgium</a
+                                            >
+                                            <a
+                                                href="countries/czech-republic.html"
+                                                role="menuitem"
+                                                >Czech Republic</a
+                                            >
+                                            <a
+                                                href="countries/germany.html"
+                                                role="menuitem"
+                                                >Germany</a
+                                            >
+                                            <a
+                                                href="countries/hungary.html"
+                                                role="menuitem"
+                                                >Hungary</a
+                                            >
+                                            <a
+                                                href="countries/italy.html"
+                                                role="menuitem"
+                                                >Italy</a
+                                            >
+                                            <a
+                                                href="countries/netherlands.html"
+                                                role="menuitem"
+                                                >Netherlands</a
+                                            >
+                                            <a
+                                                href="countries/sweden.html"
+                                                role="menuitem"
+                                                >Sweden</a
+                                            >
+                                        </div>
                                     </div>
+                                    <a
+                                        href="countries/thailand.html"
+                                        role="menuitem"
+                                        >Thailand</a
+                                    >
+                                    <a
+                                        href="countries/japan.html"
+                                        role="menuitem"
+                                        >Japan</a
+                                    >
+                                    <a
+                                        href="countries/taiwan.html"
+                                        role="menuitem"
+                                        >Taiwan</a
+                                    >
+                                    <a
+                                        href="countries/indonesia.html"
+                                        role="menuitem"
+                                        >Indonesia</a
+                                    >
+                                    <a
+                                        href="countries/malaysia.html"
+                                        role="menuitem"
+                                        >Malaysia</a
+                                    >
+                                    <a
+                                        href="countries/singapore.html"
+                                        role="menuitem"
+                                        >Singapore</a
+                                    >
                                 </div>
-                                <a href="countries/thailand.html" role="menuitem">Thailand</a>
-                                <a href="countries/japan.html" role="menuitem">Japan</a>
-                                <a href="countries/taiwan.html" role="menuitem">Taiwan</a>
-                                <a href="countries/indonesia.html" role="menuitem">Indonesia</a>
-                                <a href="countries/malaysia.html" role="menuitem">Malaysia</a>
-                                <a href="countries/singapore.html" role="menuitem">Singapore</a>
                             </div>
                         </div>
                     </div>
+                    <a href="activities-achievement.html"
+                        >Activities &amp; Achievement</a
+                    >
+                    <a href="blog.html">Blog</a>
+                    <div class="nav-group">
+                        <a href="about.html" aria-haspopup="true"
+                            ><span>About Us</span
+                            ><span aria-hidden="true">+</span></a
+                        >
+                        <div
+                            class="nav-dropdown"
+                            role="menu"
+                            aria-label="About Us"
+                        >
+                            <a href="leadership.html" role="menuitem"
+                                >Leadership</a
+                            >
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-contact-pill"
+                        >Contact Us</a
+                    >
                 </div>
-                <a href="activities-achievement.html">Activities &amp; Achievement</a>
-                <a href="blog.html">Blog</a>
-                <div class="nav-group">
-    <a href="about.html" aria-haspopup="true"><span>About Us</span><span aria-hidden="true">+</span></a>
-    <div class="nav-dropdown" role="menu" aria-label="About Us">
-        <a href="leadership.html" role="menuitem">Leadership</a>
-    </div>
-</div>
-                <a href="contact.html" class="nav-contact-pill">Contact Us</a>
-            </div>
-            <button type="button" id="menu-toggle" class="menu-btn" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
-            <span class="ham-bar"></span>
-            <span class="ham-bar"></span>
-            <span class="ham-bar"></span>
-        </button>
-        </nav>
-    </header>
-    <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+                <button
+                    type="button"
+                    id="menu-toggle"
+                    class="menu-btn"
+                    aria-expanded="false"
+                    aria-controls="mobile-menu"
+                    aria-label="Open navigation menu"
+                >
+                    <span class="ham-bar"></span>
+                    <span class="ham-bar"></span>
+                    <span class="ham-bar"></span>
+                </button>
+            </nav>
+        </header>
+        <div
+            id="mobile-menu"
+            class="mobile-menu"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Navigation menu"
+        >
             <div class="mob-inner">
                 <div class="mob-header">
                     <a href="index.html" class="mob-brand">
-                        <img src="assets/logo.png" alt="The Forward Society" class="brand-logo">
+                        <img
+                            src="assets/logo.png"
+                            alt="The Forward Society"
+                            class="brand-logo"
+                        />
                         <span>The Forward Society</span>
                     </a>
-                    <button type="button" id="mob-close" class="mob-close" aria-label="Close menu">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                            <path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                    <button
+                        type="button"
+                        id="mob-close"
+                        class="mob-close"
+                        aria-label="Close menu"
+                    >
+                        <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 20 20"
+                            fill="none"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M5 5l10 10M15 5L5 15"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                            />
                         </svg>
                     </button>
                 </div>
                 <nav class="mob-nav" aria-label="Mobile navigation">
                     <a href="index.html" class="mob-link">Home</a>
                     <div class="mob-group">
-                        <button class="mob-link mob-trigger" type="button" aria-expanded="false">
+                        <button
+                            class="mob-link mob-trigger"
+                            type="button"
+                            aria-expanded="false"
+                        >
                             Education Consultancy
-                            <svg class="mob-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                                <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg
+                                class="mob-chevron"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    d="M4 6l4 4 4-4"
+                                    stroke="currentColor"
+                                    stroke-width="1.6"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
                             </svg>
                         </button>
                         <div class="mob-sub">
-                            <a href="pathways.html" class="mob-sub-link">Pathways</a>
-                            <a href="destination-countries.html" class="mob-sub-link">Destination Countries</a>
+                            <a href="pathways.html" class="mob-sub-link"
+                                >Pathways</a
+                            >
+                            <a
+                                href="destination-countries.html"
+                                class="mob-sub-link"
+                                >Destination Countries</a
+                            >
                         </div>
                     </div>
-                    <a href="activities-achievement.html" class="mob-link">Activities &amp; Achievement</a>
+                    <a href="activities-achievement.html" class="mob-link"
+                        >Activities &amp; Achievement</a
+                    >
                     <a href="blog.html" class="mob-link">Blog</a>
                     <div class="mob-group">
-                        <button class="mob-link mob-trigger" type="button" aria-expanded="false">
+                        <button
+                            class="mob-link mob-trigger"
+                            type="button"
+                            aria-expanded="false"
+                        >
                             About Us
-                            <svg class="mob-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                                <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg
+                                class="mob-chevron"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    d="M4 6l4 4 4-4"
+                                    stroke="currentColor"
+                                    stroke-width="1.6"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
                             </svg>
                         </button>
                         <div class="mob-sub">
-                            <a href="about.html" class="mob-sub-link">About Us</a>
-                            <a href="leadership.html" class="mob-sub-link">Leadership</a>
+                            <a href="about.html" class="mob-sub-link"
+                                >About Us</a
+                            >
+                            <a href="leadership.html" class="mob-sub-link"
+                                >Leadership</a
+                            >
                         </div>
                     </div>
                 </nav>
@@ -124,113 +303,192 @@
             </div>
         </div>
 
-    <div id="dev-notice" class="site-notice" role="dialog" aria-modal="true" aria-labelledby="dev-notice-title" hidden>
-        <div class="site-notice-panel">
-            <p class="eyebrow">Development Notice</p>
-            <h2 id="dev-notice-title">This website is still under development</h2>
-            <p>What you are seeing right now is a demo version of the site.</p>
-            <p>All contents and images are placeholders and may change in the final product.</p>
-            <div class="site-notice-actions">
-                <button type="button" id="dev-notice-close" class="site-notice-button">Continue to Site</button>
+        <div
+            id="dev-notice"
+            class="site-notice"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="dev-notice-title"
+            hidden
+        >
+            <div class="site-notice-panel">
+                <p class="eyebrow">Development Notice</p>
+                <h2 id="dev-notice-title">
+                    This website is still under development
+                </h2>
+                <p>
+                    What you are seeing right now is a demo version of the site.
+                </p>
+                <p>
+                    All contents and images are placeholders and may change in
+                    the final product.
+                </p>
+                <div class="site-notice-actions">
+                    <button
+                        type="button"
+                        id="dev-notice-close"
+                        class="site-notice-button"
+                    >
+                        Continue to Site
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
 
-    <main>
-        <section class="hero">
-            <div class="container hero-grid">
-                <div class="reveal">
-                    <p class="eyebrow">Global Education Consultancy</p>
-                    <h1>Together, <br>We <span class="brand-gradient-text">Move Forward</span></h1>
-                    <p class="hero-sub">Premium guidance for students who want to study abroad with confidence, clarity, and a smart long-term strategy.</p>
-                    <div class="home-hero-actions">
-                        <a href="destination-countries.html" class="btn-primary">Explore Destinations</a>
-                    </div>
-                </div>
-                <div class="hero-visual reveal" aria-hidden="true">
-                    <span class="orb orb-1"></span>
-                    <span class="orb orb-2"></span>
-                </div>
-            </div>
-        </section>
-
-        <section id="about">
-            <div class="container">
-                <div class="section-head reveal centered-head about-head">
-                    <p class="eyebrow">About The Forward Society</p>
-                    <h2>Built for students<br>planning <span class="brand-gradient-text">beyond borders</span></h2>
-                    <p class="copy-top-14">We combine strategic counselling, destination expertise, and data-backed guidance to help students move confidently toward international education opportunities.</p>
-                </div>
-
-                <div class="cards-grid stats-grid stagger reveal about-stats-grid">
-                    <article class="stat-card">
-                        <span class="stat-icon" aria-hidden="true"><i class="fa-solid fa-video"></i></span>
-                        <span class="stat-dot" aria-hidden="true"></span>
-                        <p class="stat-number">300+</p>
-                        <p class="stat-label">Global Education<br>Webinars</p>
-                        <p class="stat-copy">Expert-led sessions to empower informed decisions.</p>
-                    </article>
-
-                    <article class="stat-card is-featured">
-                        <span class="stat-icon" aria-hidden="true"><i class="fa-solid fa-users"></i></span>
-                        <span class="stat-pill">★ Impact</span>
-                        <p class="stat-number">3K+</p>
-                        <p class="stat-label">Students<br>Guided</p>
-                        <p class="stat-copy">Personalized support at every step of their journey.</p>
-                        <span class="stat-swoosh" aria-hidden="true"></span>
-                    </article>
-
-                    <article class="stat-card">
-                        <span class="stat-icon" aria-hidden="true"><i class="fa-solid fa-user-graduate"></i></span>
-                        <span class="stat-dot" aria-hidden="true"></span>
-                        <p class="stat-number">300+</p>
-                        <p class="stat-label">Expert<br>Consultants</p>
-                        <p class="stat-copy">Experienced mentors with global education expertise.</p>
-                    </article>
-
-                    <article class="stat-card">
-                        <span class="stat-icon" aria-hidden="true"><i class="fa-solid fa-hand-holding-heart"></i></span>
-                        <span class="stat-dot" aria-hidden="true"></span>
-                        <p class="stat-number">100+</p>
-                        <p class="stat-label">Volunteers &<br>Mentors</p>
-                        <p class="stat-copy">Passionate individuals driving impact and transformation.</p>
-                    </article>
-                </div>
-
-                <div class="about-strip reveal">
-                    <div class="about-strip-item">
-                        <span class="about-strip-icon"><i class="fa-solid fa-globe"></i></span>
-                        <div>
-                            <strong>Global Reach</strong>
-                            <p>Presence across 12+ countries.</p>
+        <main>
+            <section class="hero">
+                <div class="container hero-grid">
+                    <div class="reveal">
+                        <p class="eyebrow">Global Education Consultancy</p>
+                        <h1>
+                            Together, <br />We
+                            <span class="brand-gradient-text"
+                                >Move Forward</span
+                            >
+                        </h1>
+                        <p class="hero-sub">
+                            Premium guidance for students who want to study
+                            abroad with confidence, clarity, and a smart
+                            long-term strategy.
+                        </p>
+                        <div class="home-hero-actions">
+                            <a
+                                href="destination-countries.html"
+                                class="btn-primary"
+                                >Explore Destinations</a
+                            >
                         </div>
                     </div>
-                    <div class="about-strip-item">
-                        <span class="about-strip-icon"><i class="fa-solid fa-graduation-cap"></i></span>
-                        <div>
-                            <strong>University Network</strong>
-                            <p>Partnerships with 500+ top global institutions.</p>
-                        </div>
+                    <div class="hero-visual reveal" aria-hidden="true">
+                        <span class="orb orb-1"></span>
+                        <span class="orb orb-2"></span>
                     </div>
-                    <div class="about-strip-item">
-                        <span class="about-strip-icon"><i class="fa-solid fa-shield-halved"></i></span>
-                        <div>
-                            <strong>Proven Outcomes</strong>
-                            <p>High success rate in admissions & visas.</p>
-                        </div>
+                </div>
+            </section>
+
+            <section id="about">
+                <div class="container">
+                    <div class="section-head reveal centered-head about-head">
+                        <p class="eyebrow">About The Forward Society</p>
+                        <h2>
+                            Built for students<br />planning
+                            <span class="brand-gradient-text"
+                                >beyond borders</span
+                            >
+                        </h2>
+                        <p class="copy-top-14">
+                            We combine strategic counselling, destination
+                            expertise, and data-backed guidance to help students
+                            move confidently toward international education
+                            opportunities.
+                        </p>
                     </div>
-                    <div class="about-strip-item">
-                        <span class="about-strip-icon"><i class="fa-solid fa-chart-column"></i></span>
-                        <div>
-                            <strong>Data-Backed Guidance</strong>
-                            <p>Insights that help students make smarter choices.</p>
+
+                    <div
+                        class="cards-grid stats-grid stagger reveal about-stats-grid"
+                    >
+                        <!--<article class="stat-card">
+                            <span class="stat-icon" aria-hidden="true"
+                                ><i class="fa-solid fa-video"></i
+                            ></span>
+                            <span class="stat-dot" aria-hidden="true"></span>
+                            <p class="stat-number">30+</p>
+                            <p class="stat-label">Webinars</p>
+                            <p class="stat-copy">
+                                Expert-led sessions to empower informed
+                                decisions.
+                            </p>
+                        </article>-->
+
+                        <article class="stat-card is-featured">
+                            <span class="stat-icon" aria-hidden="true"
+                                ><i class="fa-solid fa-users"></i
+                            ></span>
+                            <!--<span class="stat-pill">★ Impact</span>-->
+                            <p class="stat-number">448</p>
+                            <p class="stat-label">Volunteers</p>
+                            <p class="stat-copy">
+                                Passionate individuals driving impact and
+                                transformation.
+                            </p>
+                            <span class="stat-swoosh" aria-hidden="true"></span>
+                        </article>
+
+                        <article class="stat-card">
+                            <span class="stat-icon" aria-hidden="true"
+                                ><i class="fa-solid fa-user-graduate"></i
+                            ></span>
+                            <span class="stat-dot" aria-hidden="true"></span>
+                            <p class="stat-number">6</p>
+                            <p class="stat-label">Consultants</p>
+                            <p class="stat-copy">
+                                Experienced mentors with global education
+                                expertise.
+                            </p>
+                        </article>
+
+                        <article class="stat-card">
+                            <span class="stat-icon" aria-hidden="true"
+                                ><i class="fa-solid fa-hand-holding-heart"></i
+                            ></span>
+                            <span class="stat-dot" aria-hidden="true"></span>
+                            <p class="stat-number">373</p>
+                            <p class="stat-label">invitee</p>
+                            <p class="stat-copy">
+                                Supported 373 students through personalized
+                                guidance.
+                            </p>
+                        </article>
+                    </div>
+
+                    <div class="about-strip reveal">
+                        <div class="about-strip-item">
+                            <span class="about-strip-icon"
+                                ><i class="fa-solid fa-globe"></i
+                            ></span>
+                            <div>
+                                <strong>Global Reach</strong>
+                                <p>Expanding opportunities beyond borders.</p>
+                            </div>
+                        </div>
+                        <div class="about-strip-item">
+                            <span class="about-strip-icon"
+                                ><i class="fa-solid fa-graduation-cap"></i
+                            ></span>
+                            <div>
+                                <strong>Scholarship Network</strong>
+                                <p>
+                                    Connecting students with scholarship
+                                    opportunities.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="about-strip-item">
+                            <span class="about-strip-icon"
+                                ><i class="fa-solid fa-shield-halved"></i
+                            ></span>
+                            <div>
+                                <strong>Proven Outcomes</strong>
+                                <p>High success rate in admissions & visas.</p>
+                            </div>
+                        </div>
+                        <div class="about-strip-item">
+                            <span class="about-strip-icon"
+                                ><i class="fa-solid fa-chart-column"></i
+                            ></span>
+                            <div>
+                                <strong>Data-Backed Guidance</strong>
+                                <p>
+                                    Insights that help students make smarter
+                                    choices.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="pathways">
+            <!--<section id="pathways">
             <div class="container">
                 <div class="pathway-head section-head reveal head-wide">
                     <div>
@@ -238,7 +496,7 @@
                         <h2>Choose the route <br>that matches<span class="brand-gradient-text"> your goals</span></h2>
                         <p class="copy-top-10 copy-max-700">Explore structured pathways designed for different academic profiles, timelines, and destination requirements.</p>
                     </div>
-                
+
                 </div>
                 <div class="cards-grid pathway-grid stagger reveal">
                     <article class="pathway-card">
@@ -264,156 +522,277 @@
                     </article>
                 </div>
             </div>
-        </section>
+        </section>-->
 
-        <section id="destination">
-            <div class="container">
-                <div class="destination-experience reveal">
-                    <div class="destination-copy">
-                        <p class="eyebrow">Destination Spotlight</p>
-                        <h2>Find your <br>ideal <span class="brand-gradient-text">destination</span></h2>
-                        <p>Explore study destinations through a curated global spotlight that highlights the strengths of each country.</p>
+            <section id="destination">
+                <div class="container">
+                    <div class="destination-experience reveal">
+                        <div class="destination-copy">
+                            <p class="eyebrow">Destination Spotlight</p>
+                            <h2>
+                                Find your <br />ideal
+                                <span class="brand-gradient-text"
+                                    >destination</span
+                                >
+                            </h2>
+                            <p>
+                                Explore study destinations through a curated
+                                global spotlight that highlights the strengths
+                                of each country.
+                            </p>
 
-                        <div class="destination-copy-note">
-                            <span class="destination-copy-note-icon" aria-hidden="true">
-                                <i class="fa-solid fa-globe"></i>
-                            </span>
-                            <span>Explore countries and discover the right place for your future.</span>
+                            <div class="destination-copy-note">
+                                <span
+                                    class="destination-copy-note-icon"
+                                    aria-hidden="true"
+                                >
+                                    <i class="fa-solid fa-globe"></i>
+                                </span>
+                                <span
+                                    >Explore countries and discover the right
+                                    place for your future.</span
+                                >
+                            </div>
+
+                            <a
+                                class="destination-copy-cta"
+                                href="destination-countries.html"
+                                >Explore more options</a
+                            >
                         </div>
 
-                        <a class="destination-copy-cta" href="destination-countries.html">Explore more options</a>
-                    </div>
+                        <div class="destination-visual">
+                            <span
+                                class="destination-blob blob-a"
+                                aria-hidden="true"
+                            ></span>
+                            <span
+                                class="destination-blob blob-b"
+                                aria-hidden="true"
+                            ></span>
+                            <span
+                                class="destination-blob blob-c"
+                                aria-hidden="true"
+                            ></span>
 
-                    <div class="destination-visual">
-                        <span class="destination-blob blob-a" aria-hidden="true"></span>
-                        <span class="destination-blob blob-b" aria-hidden="true"></span>
-                        <span class="destination-blob blob-c" aria-hidden="true"></span>
+                            <div
+                                class="soft-globe"
+                                aria-label="Study destination globe"
+                            >
+                                <video
+                                    class="globe-map"
+                                    autoplay
+                                    muted
+                                    loop
+                                    playsinline
+                                    aria-label="Stylized globe showing Eurasia"
+                                >
+                                    <source
+                                        src="assets/globe.webm"
+                                        type="video/webm"
+                                    />
+                                    <img
+                                        src="assets/globe_placeholder.png"
+                                        alt="Stylized globe placeholder"
+                                        loading="lazy"
+                                        decoding="async"
+                                    />
+                                </video>
+                            </div>
 
-                        <div class="soft-globe" aria-label="Study destination globe">
-                            <video class="globe-map" autoplay muted loop playsinline aria-label="Stylized globe showing Eurasia">
-                                <source src="assets/globe.webm" type="video/webm">
-                                <img src="assets/globe_placeholder.png" alt="Stylized globe placeholder" loading="lazy" decoding="async">
-                            </video>
+                            <article
+                                class="destination-spot-card spot-europe"
+                                data-country="Germany"
+                            >
+                                <div class="destination-spot-head">
+                                    <strong>🇩🇪 Germany</strong>
+                                    <span class="spot-dot"></span>
+                                </div>
+                                <p>
+                                    Leading research universities with
+                                    world-class STEM programs.
+                                </p>
+                            </article>
+
+                            <article
+                                class="destination-spot-card spot-thailand"
+                                data-country="Italy"
+                            >
+                                <div class="destination-spot-head">
+                                    <strong>🇮🇹 Italy</strong>
+                                    <span class="spot-dot"></span>
+                                </div>
+                                <p>
+                                    Rich academic heritage with accessible,
+                                    high-quality education.
+                                </p>
+                            </article>
+
+                            <article
+                                class="destination-spot-card spot-japan is-active"
+                                data-country="Japan"
+                            >
+                                <div class="destination-spot-head">
+                                    <strong>🇯🇵 Japan</strong>
+                                    <span class="spot-dot"></span>
+                                </div>
+                                <p>
+                                    Innovation, tech, and future opportunities.
+                                </p>
+                            </article>
+
+                            <article
+                                class="destination-spot-card spot-singapore"
+                                data-country="Singapore"
+                            >
+                                <div class="destination-spot-head">
+                                    <strong>🇸🇬 Singapore</strong>
+                                    <span class="spot-dot"></span>
+                                </div>
+                                <p>
+                                    High-impact education and strong graduate
+                                    outcomes.
+                                </p>
+                            </article>
+
+                            <article
+                                class="destination-spot-card spot-taiwan"
+                                data-country="Taiwan"
+                            >
+                                <div class="destination-spot-head">
+                                    <strong>🇹🇼 Taiwan</strong>
+                                    <span class="spot-dot"></span>
+                                </div>
+                                <p>
+                                    Technology-driven universities and strong
+                                    innovation culture.
+                                </p>
+                            </article>
+
+                            <article
+                                class="destination-spot-card spot-malaysia"
+                                data-country="Netherlands"
+                            >
+                                <div class="destination-spot-head">
+                                    <strong>🇳🇱 Netherlands</strong>
+                                    <span class="spot-dot"></span>
+                                </div>
+                                <p>
+                                    Innovation hubs with world-class
+                                    English-taught programs.
+                                </p>
+                            </article>
+
+                            <!--<img
+                                class="destination-mascot"
+                                src="assets/mascot_sample.png"
+                                alt="TFS mascot"
+                                loading="lazy"
+                                decoding="async"
+                            />-->
                         </div>
-
-                        <article class="destination-spot-card spot-europe" data-country="Germany">
-                            <div class="destination-spot-head">
-                                <strong>🇩🇪 Germany</strong>
-                                <span class="spot-dot"></span>
-                            </div>
-                            <p>Leading research universities with world-class STEM programs.</p>
-                        </article>
-
-                        <article class="destination-spot-card spot-thailand" data-country="Italy">
-                            <div class="destination-spot-head">
-                                <strong>🇮🇹 Italy</strong>
-                                <span class="spot-dot"></span>
-                            </div>
-                            <p>Rich academic heritage with accessible, high-quality education.</p>
-                        </article>
-
-                        <article class="destination-spot-card spot-japan is-active" data-country="Japan">
-                            <div class="destination-spot-head">
-                                <strong>🇯🇵 Japan</strong>
-                                <span class="spot-dot"></span>
-                            </div>
-                            <p>Innovation, tech, and future opportunities.</p>
-                        </article>
-
-                        <article class="destination-spot-card spot-singapore" data-country="Singapore">
-                            <div class="destination-spot-head">
-                                <strong>🇸🇬 Singapore</strong>
-                                <span class="spot-dot"></span>
-                            </div>
-                            <p>High-impact education and strong graduate outcomes.</p>
-                        </article>
-
-                        <article class="destination-spot-card spot-taiwan" data-country="Taiwan">
-                            <div class="destination-spot-head">
-                                <strong>🇹🇼 Taiwan</strong>
-                                <span class="spot-dot"></span>
-                            </div>
-                            <p>Technology-driven universities and strong innovation culture.</p>
-                        </article>
-
-                        <article class="destination-spot-card spot-malaysia" data-country="Netherlands">
-                            <div class="destination-spot-head">
-                                <strong>🇳🇱 Netherlands</strong>
-                                <span class="spot-dot"></span>
-                            </div>
-                            <p>Innovation hubs with world-class English-taught programs.</p>
-                        </article>
-
-                        <img class="destination-mascot" src="assets/mascot_sample.png" alt="TFS mascot" loading="lazy" decoding="async">
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="articles">
+            <section id="articles">
+                <div class="container">
+                    <div class="articles-head section-head reveal head-wide">
+                        <div>
+                            <p class="eyebrow">Articles and Insights</p>
+                            <h2>
+                                Latest student stories <br />and guidance
+                                <span class="brand-gradient-text">content</span>
+                            </h2>
+                        </div>
+                    </div>
+                    <div
+                        id="home-articles-grid"
+                        class="cards-grid articles-grid stagger reveal"
+                    >
+                        <article class="article-card">
+                            <a href="blog.html" class="article-card-link">
+                                <div class="article-thumb"></div>
+                                <div class="article-body">
+                                    <h3>
+                                        How to shortlist your dream universities
+                                        in 2026
+                                    </h3>
+                                    <p>
+                                        A practical framework for balancing
+                                        ranking, budget, outcomes, and visa
+                                        considerations.
+                                    </p>
+                                    <span class="read-link">Read More</span>
+                                </div>
+                            </a>
+                        </article>
+                        <article class="article-card">
+                            <a href="blog.html" class="article-card-link">
+                                <div class="article-thumb"></div>
+                                <div class="article-body">
+                                    <h3>
+                                        Scholarship playbook for international
+                                        students
+                                    </h3>
+                                    <p>
+                                        Understand deadlines, profile-building
+                                        tactics, and what selection committees
+                                        really evaluate.
+                                    </p>
+                                    <span class="read-link">Read More</span>
+                                </div>
+                            </a>
+                        </article>
+                        <article class="article-card">
+                            <a href="blog.html" class="article-card-link">
+                                <div class="article-thumb"></div>
+                                <div class="article-body">
+                                    <h3>
+                                        Visa interview confidence: what students
+                                        should prepare
+                                    </h3>
+                                    <p>
+                                        Structured preparation tips from
+                                        experienced consultants to improve
+                                        interview readiness.
+                                    </p>
+                                    <span class="read-link">Read More</span>
+                                </div>
+                            </a>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
             <div class="container">
-                <div class="articles-head section-head reveal head-wide">
-                    <div>
-                        <p class="eyebrow">Articles and Insights</p>
-                        <h2>Latest student stories <br>and guidance <span class="brand-gradient-text">content</span></h2>
+                <div class="site-footer-card reveal">
+                    <p class="eyebrow eyebrow-light">Ready to move forward?</p>
+                    <h2>Plan your study abroad journey with expert guidance</h2>
+                    <p>
+                        Book a strategic consultation and get a personalized
+                        roadmap based on your goals, profile, and destination
+                        preferences.
+                    </p>
+                    <div class="site-footer-actions">
+                        <a class="site-footer-button" href="contact.html"
+                            >Book Consultation</a
+                        >
+                        <a class="site-footer-link" href="leadership.html"
+                            >Meet Our Team</a
+                        >
                     </div>
-                 
                 </div>
-                <div id="home-articles-grid" class="cards-grid articles-grid stagger reveal">
-                    <article class="article-card">
-                        <a href="blog.html" class="article-card-link">
-                            <div class="article-thumb"></div>
-                            <div class="article-body">
-                                <h3>How to shortlist your dream universities in 2026</h3>
-                                <p>A practical framework for balancing ranking, budget, outcomes, and visa considerations.</p>
-                                <span class="read-link">Read More</span>
-                            </div>
-                        </a>
-                    </article>
-                    <article class="article-card">
-                        <a href="blog.html" class="article-card-link">
-                            <div class="article-thumb"></div>
-                            <div class="article-body">
-                                <h3>Scholarship playbook for international students</h3>
-                                <p>Understand deadlines, profile-building tactics, and what selection committees really evaluate.</p>
-                                <span class="read-link">Read More</span>
-                            </div>
-                        </a>
-                    </article>
-                    <article class="article-card">
-                        <a href="blog.html" class="article-card-link">
-                            <div class="article-thumb"></div>
-                            <div class="article-body">
-                                <h3>Visa interview confidence: what students should prepare</h3>
-                                <p>Structured preparation tips from experienced consultants to improve interview readiness.</p>
-                                <span class="read-link">Read More</span>
-                            </div>
-                        </a>
-                    </article>
-                </div>
+                <p class="site-footer-meta">
+                    Copyright 2026 The Forward Society. All rights reserved.
+                </p>
             </div>
-        </section>
+        </footer>
 
-    </main>
-
-
-    <footer class="site-footer">
-        <div class="container">
-            <div class="site-footer-card reveal">
-                <p class="eyebrow eyebrow-light">Ready to move forward?</p>
-                <h2>Plan your study abroad journey with expert guidance</h2>
-                <p>Book a strategic consultation and get a personalized roadmap based on your goals, profile, and destination preferences.</p>
-                <div class="site-footer-actions">
-                    <a class="site-footer-button" href="contact.html">Book Consultation</a>
-                    <a class="site-footer-link" href="leadership.html">Meet Our Team</a>
-                </div>
-            </div>
-            <p class="site-footer-meta">Copyright 2026 The Forward Society. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script src="scripts/site-cms-config.js"></script>
-    <script src="scripts/site-cms.js"></script>
-    <script src="scripts/site.js"></script>
-</body>
+        <script src="scripts/site-cms-config.js"></script>
+        <script src="scripts/site-cms.js"></script>
+        <script src="scripts/site.js"></script>
+    </body>
 </html>
